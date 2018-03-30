@@ -1,8 +1,8 @@
 package ch.uzh.ifi.seal.soprafs18.service;
 
 import ch.uzh.ifi.seal.soprafs18.constant.UserStatus;
-import ch.uzh.ifi.seal.soprafs18.entity.Game;
-import ch.uzh.ifi.seal.soprafs18.entity.User;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.User;
 import ch.uzh.ifi.seal.soprafs18.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

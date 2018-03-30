@@ -1,6 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.repository;
 
-import ch.uzh.ifi.seal.soprafs18.entity.User;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

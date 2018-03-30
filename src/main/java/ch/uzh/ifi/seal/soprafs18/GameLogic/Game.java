@@ -1,4 +1,4 @@
-package ch.uzh.ifi.seal.soprafs18.entity;
+package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import java.io.Serializable;
 import java.util.List;

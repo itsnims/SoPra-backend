@@ -1,0 +1,98 @@
+contains all cards, scratch off wherever used
+
+
+ExpeditionCard Matrose1 = new ExpeditionCard("Matrose","Blue",true,0.5,1);
+ExpeditionCard Matrose2 = new ExpeditionCard("Matrose","Blue",true,0.5,1);
+ExpeditionCard Matrose3 = new ExpeditionCard("Matrose","Blue",true,0.5,1);
+ExpeditionCard Matrose4 = new ExpeditionCard("Matrose","Blue",true,0.5,1);
+ExpeditionCard Kapitaen1 = new ExpeditionCard("Kapitän","Blue",true,2,3);
+ExpeditionCard Kapitaen2 = new ExpeditionCard("Kapitän","Blue",true,2,3);
+ExpeditionCard Kapitaen3 = new ExpeditionCard("Kapitän","Blue",true,2,3);
+
+ExpeditionCard Forscher1 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher2 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher3 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher4 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher5 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher6 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher7 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher8 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher9 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher10 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher11 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher12 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Forscher13 = new ExpeditionCard(“Forscher“,“Green“,true,0.5,1);
+ExpeditionCard Maechtigemachete1 = new ExpeditionCard(“Mächtige Machete“,“Green“,false,3,6);
+ExpeditionCard Maechtigemachete2 = new ExpeditionCard(“Mächtige Machete“,“Green“,false,3,6);
+ExpeditionCard Maechtigemachete3 = new ExpeditionCard(“Mächtige Machete“,“Green“,false,3,6);
+ExpeditionCard Kundschafter1 = new ExpeditionCard(“Kundschafter“,“Green“,true,1,2);
+ExpeditionCard Kundschafter2 = new ExpeditionCard(“Kundschafter“,“Green“,true,1,2);
+ExpeditionCard Kundschafter3 = new ExpeditionCard(“Kundschafter“,“Green“,true,1,2);
+ExpeditionCard Entdecker1 = new ExpeditionCard(“Entdecker“,“Green“,true,3,3);
+ExpeditionCard Entdecker2 = new ExpeditionCard(“Entdecker“,“Green“,true,3,3);
+ExpeditionCard Entdecker3 = new ExpeditionCard(“Entdecker“,“Green“,true,3,3);
+ExpeditionCard Pionier1 = new ExpeditionCard(“Pionier“,“Green“,true,5,5);
+ExpeditionCard Pionier2 = new ExpeditionCard(“Pionier“,“Green“,true,5,5);
+ExpeditionCard Pionier3 = new ExpeditionCard(“Pionier“,“Green“,true,5,5);
+
+
+ExpeditionCard Reisende1 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende2 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende3 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende4 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende5 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende6 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende7 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende8 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende9 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende10 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende11 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende12 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende13 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende14 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende15 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende16 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Reisende17 = new ExpeditionCard(“Reisende“,“Yellow“,true,0.5,1);
+ExpeditionCard Fotogarfin1 = new ExpeditionCard(“Fotogarfin“,“Yellow“,true,2,2);
+ExpeditionCard Fotografin2 = new ExpeditionCard(“Fotografin“,“Yellow“,true,2,2);
+ExpeditionCard Fotografin3 = new ExpeditionCard(“Fotografin“,“Yellow“,true,2,2);
+ExpeditionCard Schatztruhe1 = new ExpeditionCard(“Schatztruhe“,“Yellow“,false,,3,4);
+ExpeditionCard Schatztruhe2 = new ExpeditionCard(“Schatztruhe“,“Yellow“,false,,3,4);
+ExpeditionCard Schatztruhe3 = new ExpeditionCard(“Schatztruhe“,“Yellow“,false,,3,4);
+ExpeditionCard Milionaerin1 = new ExpeditionCard(“Milionärin“,“Yellow“,true,5,4);
+ExpeditionCard Milionaerin2 = new ExpeditionCard(“Milionärin“,“Yellow“,true,5,4);
+ExpeditionCard Milionaerin3 = new ExpeditionCard(“Milionärin“,“Yellow“,true,5,4);
+ExpeditionCard Journalistin1 = new ExpeditionCard(“Journalistin“,“Yellow“,true,3,3);
+ExpeditionCard Journalistin2 = new ExpeditionCard(“Journalistin“,“Yellow“,true,3,3);
+ExpeditionCard Journalistin3 = new ExpeditionCard(“Journalistin“,“Yellow“,true,3,3);
+
+ExpeditionCard Abenteuerin1 = new ExpeditionCard(“Abenteuerin“,“White",true,4,1);
+ExpeditionCard Abenteuerin2 = new ExpeditionCard(“Abenteuerin“,“White",true,4,1);
+ExpeditionCard Abenteuerin3 = new ExpeditionCard(“Abenteuerin“,“White",true,4,1);
+ExpeditionCard Propellerflugzeug1 = new ExpeditionCard(“Propellerflugzeug“,“White",false,4,4);
+ExpeditionCard Propellerflugzeug2 = new ExpeditionCard(“Propellerflugzeug“,“White",false,4,4);
+ExpeditionCard Propellerflugzeug3 = new ExpeditionCard(“Propellerflugzeug“,“White",false,4,4);
+ExpeditionCard Tausendsassa1 = new ExpeditionCard(“Tausensassa“,“White",true,1,2);
+ExpeditionCard Tausendsassa2 = new ExpeditionCard(“Tausensassa“,“White",true,1,2);
+ExpeditionCard Tausendsassa3 = new ExpeditionCard(“Tausensassa“,“White",true,1,2);
+
+DrawActionCard Kompass1 = new DrawActionCard("Kompass","Purple",false,2,3,false)
+DrawActionCard Kompass2 = new DrawActionCard("Kompass","Purple",false,2,3,false)
+DrawActionCard Kompass3 = new DrawActionCard("Kompass","Purple",false,2,3,false)
+DrawActionCard Reisetagebuch1 = new DrawActionCard("Reisetagebuch","Purple",false,2,2,true)
+DrawActionCard Reisetagebuch2 = new DrawActionCard("Reisetagebuch","Purple",false,2,2,true)
+DrawActionCard Reisetagebuch3 = new DrawActionCard("Reisetagebuch","Purple",false,2,2,true)
+DrawActionCard Kartograph1 = new DrawActionCard("Kartograph","Purple",true,4,2,true)
+DrawActionCard Kartograph2 = new DrawActionCard("Kartograph","Purple",true,4,2,true)
+DrawActionCard Kartograph3 = new DrawActionCard("Kartograph","Purple",true,4,2,true)
+DrawActionCard Wissenschaftler1 = new DrawActionCard("Wissenschaftler","Purple",true,4,1,true)
+DrawActionCard Wissenschaftler2 = new DrawActionCard("Wissenschaftler","Purple",true,4,1,true)
+DrawActionCard Wissenschaftler3 = new DrawActionCard("Wissenschaftler","Purple",true,4,1,true)
+
+MarketActionCard Fernsprechgeraet1 = new MarketActionCard("Fernsprechgerät","Purple",false,4)
+MarketActionCard Fernsprechgeraet2 = new MarketActionCard("Fernsprechgerät","Purple",false,4)
+MarketActionCard Fernsprechgeraet3 = new MarketActionCard("Fernsprechgerät","Purple",false,4)
+
+MoveActionCard Ureinwohner1 = new MoveActionCard("Ureinwohner","Purple",true,5)
+MoveActionCard Ureinwohner2 = new MoveActionCard("Ureinwohner","Purple",true,5)
+MoveActionCard Ureinwohner3 = new MoveActionCard("Ureinwohner","Purple",true,5)

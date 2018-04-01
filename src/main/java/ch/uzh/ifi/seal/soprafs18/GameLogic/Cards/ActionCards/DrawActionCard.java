@@ -19,12 +19,12 @@ public class DrawActionCard extends ActionCard {
     }
 
     @Override
-    public void doSpecialFunction(){
+    public void doSpecialFunction(Player player){
         int number = 0;
         while (number < HowMany) {
-            Collections.shuffle(Player.drawpile); /** i cant figure it out..makes me create a new player instance but i dont want that.. **/
-            Player.handcards.add(Player.drawpile.get(0));
-            Player.drawpile.remove(0);
+            Collections.shuffle(player.drawpile); /** i cant figure it out..makes me create a new player instance but i dont want that.. **/
+            player.handcards.add(player.drawpile.get(0));
+            player.drawpile.remove(0);
             number = number + 1;
 
         }

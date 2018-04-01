@@ -2,7 +2,6 @@ package ch.uzh.ifi.seal.soprafs18.service;
 
 import ch.uzh.ifi.seal.soprafs18.GameConstants;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Move;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.User;
 import ch.uzh.ifi.seal.soprafs18.repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.repository.UserRepository;

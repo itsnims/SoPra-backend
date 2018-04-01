@@ -1,7 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.web.rest;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Move;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.User;
 import ch.uzh.ifi.seal.soprafs18.repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.repository.UserRepository;

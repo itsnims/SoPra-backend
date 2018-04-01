@@ -66,10 +66,15 @@ public class Player {
         /** this only removes selected cards.. how do we automatically remove played cards?? **/
     }
 
+    public List<Card> getDrawpile() {
+        return drawpile;
+    }
 
+    public List<Card> getHandcards() {
+        return handcards;
+    }
 
-
-
-
-
+    public List<Card> getDiscardcards() {
+        return discardcards;
+    }
 }

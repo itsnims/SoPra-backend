@@ -57,10 +57,13 @@ public class Player {
             handcards.add(drawpile.get(0));
             drawpile.remove(0);
             currentInHand = currentInHand + 1;
-
-
         }
 
+    }
+    public void discardCard(ArrayList<Card> Cards) {
+        discardcards.addAll(Cards);
+        handcards.removeAll(Cards);
+        /** this only removes selected cards.. how do we automatically remove played cards?? **/
     }
 
 

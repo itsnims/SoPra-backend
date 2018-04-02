@@ -10,7 +10,7 @@ public class MoveActionCard extends ActionCard {
     }
 
     @Override
-    public void doSpecialFunction(Player player) {;
+    public void doSpecialFunction() {;
 
     }
 }

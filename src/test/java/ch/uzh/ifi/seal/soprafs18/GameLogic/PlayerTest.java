@@ -27,12 +27,12 @@ public class PlayerTest {
     public void TestdiscardCard() {
         TestPlayer.drawCards();
         int originalLenghtofDiscardPile = TestPlayer.discardpile.size();
-
-        int Expected = originalLenghtofDiscardPile + TestPlayer.handcards.size();
-        TestPlayer.discardCard(TestPlayer.handcards);
-
+        List<Card> selection = new ArrayList<>();
+        selection.add(TestPlayer.handcards.get(1));
+        TestPlayer.discardCard(selection);
         int Actual = TestPlayer.discardpile.size();
-        Assert.assertEquals(Expected,Actual);
+
+        Assert.assertEquals(1,Actual);
 
     }
 

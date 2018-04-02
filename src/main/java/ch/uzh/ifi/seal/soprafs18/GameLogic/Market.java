@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Market {
+    public ArrayList<List> BottomCards = new ArrayList<>(6);
+    public List<List> UpperCards = new ArrayList<List>(12);
+    private Boolean isfreeBottomPlace;
+    private Integer currentBottomCards;
 
 
     public Market(){
@@ -30,10 +34,8 @@ public class Market {
         List<Card> MarketDeckTravelDiary = new ArrayList<>(3);
         List<Card> MarketDeckScientist = new ArrayList<>(3);
         List<Card> MarketDeckNatives = new ArrayList<>(3);
-        List<Card> MarketDeckCaptain = new ArrayList<>(3); 
+        List<Card> MarketDeckCaptain = new ArrayList<>(3);
 
-        List<List> BottomCards = new ArrayList<List>(6);
-        List<List> UpperCards = new ArrayList<List>(12);
 
         ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
         ExpeditionCard Scout2 = new ExpeditionCard("Scout","Green",true,1,2);
@@ -184,11 +186,50 @@ public class Market {
         UpperCards.add(MarketDeckCaptain);
 
 
+    }
+    public void isfree() {
+        currentBottomCards = BottomCards.size();
+        if (currentBottomCards < 6) {
+            isfreeBottomPlace = true;
+        }
+    }
 
 
+    public void getCardfromUpper() {
+
+        if (isfreeBottomPlace) {
+            BottomCards.add(UpperCards.get(0));
+            UpperCards.remove(0);
+            currentBottomCards = currentBottomCards + 1;
+        }
+    }
+
+    public double getCardPrice () {
+        List<Card>  BottomDeck = BottomCards.get(0);
+        Card DeckCard = BottomDeck.get(0);
+        double BottomDeckPrice = DeckCard.getPrice();
+        return BottomDeckPrice;
+    }
+
+    public Integer LeftonDeckBottom() {
+        List<Card> DeckB = BottomCards.get(0);
+        int LeftonDeckB = DeckB.size();
+        if (LeftonDeckB <= 0){
+            BottomCards.remove(0);
+        }
+        return LeftonDeckB;
+    }
 
 
-
+    public Integer LeftonDeckUpper() {
+        List<Card> DeckU = UpperCards.get(0);
+        int LeftonDeckU = DeckU.size();
+        if (LeftonDeckU <= 0) {
+            UpperCards.remove(0);
+        }
+        return LeftonDeckU;
     }
 
 }
+
+

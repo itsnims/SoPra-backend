@@ -32,6 +32,8 @@ public class DrawActionCard extends ActionCard {
 
     @Override
     public void doSpecialFunction(){
+
+        /** get here input for do you wanna trash cards? if yes selection = choice, and trash choice **/
         int number = 0;
         while (number < HowMany) {
             Collections.shuffle(player.drawpile); /** i cant figure it out..makes me create a new player instance but i dont want that.. **/
@@ -41,7 +43,7 @@ public class DrawActionCard extends ActionCard {
 
         }
 
-        if (TrashSome == true){
+        if (TrashSome == true && Trash.size() != 0){
             player.trashpile.addAll(Trash);
         }
 

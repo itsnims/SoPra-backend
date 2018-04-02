@@ -6,11 +6,14 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class DrawActionCard extends ActionCard {
 
     private Boolean TrashSome; /** tells us if it gives us the trash option **/
     private Integer HowMany; /** tell us how many we can draw **/
+    private Player player;
+    private List<Card> Trash;
 
     public DrawActionCard(String name,String cardColour, Boolean reusable,Integer Price,Integer HowMany, Boolean TrashSome){
         super(name,cardColour,reusable,Price);
@@ -18,8 +21,17 @@ public class DrawActionCard extends ActionCard {
         this.HowMany= HowMany;
     }
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void getTrash(List<Card> TrashList){
+        this.Trash = TrashList;
+
+    }
+
     @Override
-    public void doSpecialFunction(Player player){
+    public void doSpecialFunction(){
         int number = 0;
         while (number < HowMany) {
             Collections.shuffle(player.drawpile); /** i cant figure it out..makes me create a new player instance but i dont want that.. **/
@@ -29,7 +41,13 @@ public class DrawActionCard extends ActionCard {
 
         }
 
+        if (TrashSome == true){
+            player.trashpile.addAll(Trash);
+        }
+
+
 
 
     }
+
 }

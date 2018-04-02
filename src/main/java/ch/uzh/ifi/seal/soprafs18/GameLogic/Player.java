@@ -13,12 +13,15 @@ public class Player {
     public List<Card> handcards = new ArrayList<Card>(80);
     public List<Card> discardpile = new ArrayList<Card>(80);
     public List<Card> trashpile = new ArrayList<Card>(80);
+    public List<Card> selection = new ArrayList<>(80);
+    public Figure myFigure;
     /**
      * made each player a unique trash since the starter cards have the same name for all.
      */
-    private String Playercolor;
+    public String Playercolor;
     private Boolean Turn;
     private Integer BlockadePoints;
+
 
 
     public Player(String playercolor) {
@@ -41,13 +44,10 @@ public class Player {
         drawpile.add(Traveler3);
         drawpile.add(Traveler4);
         this.Playercolor = playercolor;
-
-
     }
 
     public void addtoDrawPile(List<Card> Cards) {
         drawpile.addAll(Cards);
-
     }
 
     public void drawCards() {
@@ -60,7 +60,6 @@ public class Player {
         }
 
     }
-
     public void discardCard(List<Card> Cards) {
         discardpile.addAll(Cards);
         handcards.removeAll(Cards);
@@ -77,6 +76,10 @@ public class Player {
     public void addtoTrash(List<Card> Cards){
         trashpile.addAll(Cards);
 
+    }
+
+    public void setMyFigure(Figure myFigure) {
+        this.myFigure = myFigure;
     }
 }
 

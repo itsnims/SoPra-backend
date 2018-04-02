@@ -1,19 +1,62 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 
 public class MarketActionCard extends ActionCard {
+    private Market market;
+    private Card choice;
+    private Player player;
 
     public MarketActionCard(String name,String cardColour, Boolean reusable,Integer Price){
         super(name,cardColour,reusable,Price);
     }
 
+    public void setMarket(Market market) {
+        this.market = market;
+    }
+
+    public void setChoice(Card choice) {
+        this.choice = choice;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     @Override
-    public void doSpecialFunction(Player player) {;
-        /** does nothing so far but will execute buy once Market is implemented, will go directly buy instead of calling turn in order
-         * to preserve to one use of Buy
-          */
-        /**/
+    public void doSpecialFunction() {
+
+        boolean Found = false;
+        outerloop:
+        for (int i = 0; i < market.BottomCards.size(); i++) {
+            for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
+                if (market.BottomCards.get(i).get(j) == choice) {
+                    market.BottomCards.get(i).remove(j);
+                    Found = true;
+                    break outerloop;
+                }
+
+            }
+
+        }
+        if (!Found) {
+            secondloop:
+            for (int i = 0; i < market.UpperCards.size(); i++) {
+                for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
+                    if (market.UpperCards.get(i).get(j) == choice) {
+                        market.UpperCards.get(i).remove(j);
+                        break secondloop;
+                    }
+
+                }
+            }
+
+
+        }
+        player.discardpile.add(choice);
     }
 }
+

@@ -191,41 +191,40 @@ public class Market {
         currentBottomCards = BottomCards.size();
         if (currentBottomCards < 6) {
             isfreeBottomPlace = true;
-        }
+        } else { isfreeBottomPlace= false; }
     }
 
 
-    public void getCardfromUpper() {
+    public void getCardsfromUpper(List SelectedDeck) {
 
-        if (isfreeBottomPlace) {
-            BottomCards.add(UpperCards.get(0));
-            UpperCards.remove(0);
+        if (isfreeBottomPlace = true) {
+            BottomCards.add(SelectedDeck);
+            UpperCards.remove(SelectedDeck);
             currentBottomCards = currentBottomCards + 1;
         }
     }
 
-    public double getCardPrice () {
-        List<Card>  BottomDeck = BottomCards.get(0);
+    public double getCardPrice (int indexOfClickedCard) {
+        List<Card>  BottomDeck = BottomCards.get(indexOfClickedCard);
         Card DeckCard = BottomDeck.get(0);
         double BottomDeckPrice = DeckCard.getPrice();
         return BottomDeckPrice;
     }
 
-    public Integer LeftonDeckBottom() {
-        List<Card> DeckB = BottomCards.get(0);
-        int LeftonDeckB = DeckB.size();
+    //Left on Deck Bottom/Upper is for updating the number of left Cards on a clicked Deck or bought from...
+    public int LeftonDeckBottom(List clickedDeck) {
+        int LeftonDeckB = clickedDeck.size();
         if (LeftonDeckB <= 0){
-            BottomCards.remove(0);
+            BottomCards.remove(clickedDeck);
         }
         return LeftonDeckB;
     }
 
 
-    public Integer LeftonDeckUpper() {
-        List<Card> DeckU = UpperCards.get(0);
-        int LeftonDeckU = DeckU.size();
+    public int LeftonDeckUpper(List clickedDeck) {
+        int LeftonDeckU = clickedDeck.size();
         if (LeftonDeckU <= 0) {
-            UpperCards.remove(0);
+            UpperCards.remove(clickedDeck);
         }
         return LeftonDeckU;
     }

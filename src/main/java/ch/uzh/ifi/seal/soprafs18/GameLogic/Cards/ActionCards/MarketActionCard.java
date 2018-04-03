@@ -4,6 +4,7 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurn;
 
 public class MarketActionCard extends ActionCard {
     private Market market;
@@ -28,34 +29,9 @@ public class MarketActionCard extends ActionCard {
 
     @Override
     public void doSpecialFunction() {
-
-        boolean Found = false;
-        outerloop:
-        for (int i = 0; i < market.BottomCards.size(); i++) {
-            for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
-                if (market.BottomCards.get(i).get(j) == choice) {
-                    market.BottomCards.get(i).remove(j);
-                    Found = true;
-                    break outerloop;
-                }
-
-            }
-
-        }
-        if (!Found) {
-            secondloop:
-            for (int i = 0; i < market.UpperCards.size(); i++) {
-                for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
-                    if (market.UpperCards.get(i).get(j) == choice) {
-                        market.UpperCards.get(i).remove(j);
-                        break secondloop;
-                    }
-
-                }
-            }
-
-
-        }
+        BuyTurn exection = new BuyTurn();
+        exection.getCardtoBuy(choice);
+        exection.deletefromMarket(market);
         player.discardpile.add(choice);
     }
 }

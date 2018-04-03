@@ -2,8 +2,10 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.Turns;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MarketActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turn;
 
@@ -13,6 +15,7 @@ public class PlayActionCard implements Turn{
 
     ActionCard selectedCard;
     Player currentPlayer;
+
 
     public PlayActionCard(ActionCard ActionCard, Player currentPlayer) {
         this.selectedCard = ActionCard;
@@ -35,9 +38,9 @@ public class PlayActionCard implements Turn{
             selectedCard.doSpecialFunction();
         }
 
-        if (selectedCard instanceof MoveActionCard){
-            ((MoveActionCard) selectedCard).setPlayer(currentPlayer);
-            /** get universal market...?? **/
+        if (selectedCard instanceof MarketActionCard){
+            ((MarketActionCard) selectedCard).setPlayer(currentPlayer);
+            ((MarketActionCard) selectedCard).setMarket(Market.getInstance());
             /** setplayer choice?? **/
             selectedCard.doSpecialFunction();
         }

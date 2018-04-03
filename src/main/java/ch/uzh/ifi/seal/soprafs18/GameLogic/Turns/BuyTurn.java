@@ -67,9 +67,10 @@ public class BuyTurn implements Turn {
                 currentPlayer.handcards.remove(selectedCards.get(i));
                 i=i+1;
             }
+            deletefromMarket(Market.getInstance());
             //else : buying is not possible
-
         }
+
 
     }
 }

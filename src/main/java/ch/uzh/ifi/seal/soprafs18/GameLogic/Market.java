@@ -14,6 +14,7 @@ public class Market {
     public List<List> UpperCards = new ArrayList<List>(12);
     private Boolean isfreeBottomPlace;
     private Integer currentBottomCards;
+    private static Market instance = null;
 
 
     public Market(){
@@ -186,6 +187,13 @@ public class Market {
         UpperCards.add(MarketDeckCaptain);
 
 
+    }
+
+    public static Market getInstance(){
+        if(instance == null){
+            instance = new Market();
+        }
+        return instance;
     }
     public void isfree() {
         currentBottomCards = BottomCards.size();

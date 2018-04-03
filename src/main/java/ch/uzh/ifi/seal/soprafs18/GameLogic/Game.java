@@ -9,6 +9,7 @@ import java.util.List;
 public class Game {
     public List<Player> Players = new ArrayList<>(4);
     public List<Card> TrashedCards = new ArrayList<>(80);
+    public Market GameMarket = new Market();
 
     public Game(){
 
@@ -16,6 +17,10 @@ public class Game {
 
     public void addPlayer(Player player){
         Players.add(player);
+    }
+
+    public void round(){
+
     }
 
 

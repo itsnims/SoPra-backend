@@ -81,6 +81,14 @@ public class Player {
     public void setMyFigure(Figure myFigure) {
         this.myFigure = myFigure;
     }
+
+    public void setTurn(Boolean turn){
+        this.Turn = turn;
+    }
+
+    public void executeTurn(Turn turn){
+        turn.turnfunction();
+    }
 }
 
 

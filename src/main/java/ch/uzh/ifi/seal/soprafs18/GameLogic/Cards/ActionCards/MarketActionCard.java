@@ -11,8 +11,8 @@ public class MarketActionCard extends ActionCard {
     private Card choice;
     private Player player;
 
-    public MarketActionCard(String name,String cardColour, Boolean reusable,Integer Price){
-        super(name,cardColour,reusable,Price);
+    public MarketActionCard(String name, String cardColour, Boolean reusable, Integer Price) {
+        super(name, cardColour, reusable, Price);
     }
 
     public void setMarket(Market market) {
@@ -29,9 +29,33 @@ public class MarketActionCard extends ActionCard {
 
     @Override
     public void doSpecialFunction() {
-        BuyTurn exection = new BuyTurn();
-        exection.getCardtoBuy(choice);
-        exection.deletefromMarket(market);
+        setMarket(Market.getInstance());
+        boolean Found = false;
+        outerloop:
+        for (int i = 0; i < market.BottomCards.size(); i++) {
+            for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
+                if (market.BottomCards.get(i).get(j) == choice) {
+                    market.BottomCards.get(i).remove(j);
+                    market.LeftonDeckBottom(market.BottomCards.get(i));
+                    Found = true;
+                    break outerloop;
+                }
+            }
+        }
+
+        if (Found = false) {
+            secondloop:
+            for (int i = 0; i < market.UpperCards.size(); i++) {
+                for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
+                    if (market.UpperCards.get(i).get(j) == choice) {
+                        market.UpperCards.get(i).remove(j);
+                        market.LeftonDeckBottom(market.UpperCards.get(i));
+                        break secondloop;
+                    }
+                }
+            }
+
+        }
         player.discardpile.add(choice);
     }
 }

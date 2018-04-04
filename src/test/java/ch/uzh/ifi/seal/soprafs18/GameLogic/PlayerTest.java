@@ -77,4 +77,19 @@ public class PlayerTest {
         Assert.assertEquals(3,actual);
 
     }
+    @Test
+    public void setMyFigure(){
+        Figure small = new Figure();
+        TestPlayer.setMyFigure(small);
+        TestPlayer.myFigure.setCurrentPosition(0);
+        TestPlayer.myFigure.setColor(TestPlayer.Playercolor);
+
+        Assert.assertEquals(small,TestPlayer.myFigure);
+
+    }
+
+
+
+
+
 }

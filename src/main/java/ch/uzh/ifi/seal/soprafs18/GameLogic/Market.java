@@ -12,7 +12,6 @@ import java.util.List;
 public class Market {
     public ArrayList<List> BottomCards = new ArrayList<>(6);
     public List<List> UpperCards = new ArrayList<List>(12);
-    private Boolean isfreeBottomPlace;
     private Integer currentBottomCards;
     private static Market instance = null;
 
@@ -195,28 +194,22 @@ public class Market {
         }
         return instance;
     }
-    public void isfree() {
+    public boolean isfree() {
         currentBottomCards = BottomCards.size();
         if (currentBottomCards < 6) {
-            isfreeBottomPlace = true;
-        } else { isfreeBottomPlace= false; }
+            return true;
+        }
+        return false;
     }
 
 
     public void getCardsfromUpper(List SelectedDeck) {
 
-        if (isfreeBottomPlace = true) {
+        if (isfree()) {
             BottomCards.add(SelectedDeck);
             UpperCards.remove(SelectedDeck);
             currentBottomCards = currentBottomCards + 1;
         }
-    }
-
-    public double getCardPrice (int indexOfClickedCard) {
-        List<Card>  BottomDeck = BottomCards.get(indexOfClickedCard);
-        Card DeckCard = BottomDeck.get(0);
-        double BottomDeckPrice = DeckCard.getPrice();
-        return BottomDeckPrice;
     }
 
     //Left on Deck Bottom/Upper is for updating the number of left Cards on a clicked Deck or bought from...

@@ -1,9 +1,11 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+
 public class Figure {
 
-    int currentPosition;
-    String Color;
+    public int currentPosition;
+    public String Color;
+
 
     public void setCurrentPosition(int currentPosition) {
         this.currentPosition = currentPosition;
@@ -20,4 +22,12 @@ public class Figure {
     /** am anfang farbe zuteilen
      *
      */
+
+    public Figure(){
+
+    }
+
+    public void moveFigure(){
+        /**needs to be moveable over: field, blockade and eldorado */
+    }
 }

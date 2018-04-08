@@ -85,10 +85,12 @@ public class Player {
     public void setTurn(Boolean turn){
         this.Turn = turn;
     }
+    public boolean getTurn(){
+        return this.Turn;
+    }
 
     public void executeTurn(Turn turn){
         turn.turnfunction();
     }
 }
-
 

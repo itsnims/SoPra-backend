@@ -1,18 +1,19 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.PlayActionCard;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class PlayerTest {
 
     private Player TestPlayer = new Player("TestColor");
+    private DrawActionCard TestCard = new DrawActionCard("Nimra","blue",true,2,2,false);
 
     @Test
     public void TestdrawCards() {
@@ -51,7 +52,7 @@ public class PlayerTest {
         int Actual = TestPlayer.drawpile.size();
         Assert.assertEquals(Expected,Actual);
 
-        }
+    }
 
 
     @Test
@@ -85,6 +86,18 @@ public class PlayerTest {
         TestPlayer.myFigure.setColor(TestPlayer.Playercolor);
 
         Assert.assertEquals(small,TestPlayer.myFigure);
+
+    }
+
+    @Test
+    public void executeTurn(){
+        System.out.println(TestPlayer.handcards.size());
+        PlayActionCard executethecard = new PlayActionCard(TestCard,TestPlayer);
+        TestPlayer.executeTurn(executethecard);
+        /** the player hasn't drawn any cards so far so it would be only the additionally drawn cards **/
+        int actual = TestPlayer.handcards.size();
+        Assert.assertEquals(2,actual);
+
 
     }
 

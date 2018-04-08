@@ -26,5 +26,4 @@ public class MoveActionCardTest {
         Assert.assertEquals(2,Actual);
     }
 
-
 }

@@ -29,17 +29,20 @@ public class MarketActionCard extends ActionCard {
 
     @Override
     public void doSpecialFunction() {
-        setMarket(Market.getInstance());
         boolean Found = false;
+
         outerloop:
         for (int i = 0; i < market.BottomCards.size(); i++) {
-            for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
-                if (market.BottomCards.get(i).get(j) == choice) {
-                    market.BottomCards.get(i).remove(j);
-                    market.LeftonDeckBottom(market.BottomCards.get(i));
+            for(int j = 0;j < market.BottomCards.get(i).size(); j++) {
+                Object obj = market.BottomCards.get(i).get(j);
+                Card check = (Card)obj;
+                if (check.getName() == choice.getName()) {
+                    market.BottomCards.get(i).remove(0);
+                    int left = market.LeftonDeckBottom(market.BottomCards.get(i));
                     Found = true;
                     break outerloop;
                 }
+
             }
         }
 
@@ -47,8 +50,10 @@ public class MarketActionCard extends ActionCard {
             secondloop:
             for (int i = 0; i < market.UpperCards.size(); i++) {
                 for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
-                    if (market.UpperCards.get(i).get(j) == choice) {
-                        market.UpperCards.get(i).remove(j);
+                    Object obj = market.UpperCards.get(i).get(j);
+                    Card card = (Card)obj;
+                    if (card.getName() == choice.getName()) {
+                        market.UpperCards.get(i).remove(0);
                         market.LeftonDeckBottom(market.UpperCards.get(i));
                         break secondloop;
                     }
@@ -59,4 +64,5 @@ public class MarketActionCard extends ActionCard {
         player.discardpile.add(choice);
     }
 }
+
 

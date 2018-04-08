@@ -15,30 +15,18 @@ public class MarketActionCardTest {
     Player player = new Player("Test");
 
     @Test
-    public void setMarket() {
-
-    }
-
-    @Test
-    public void setChoice() {
-    }
-
-    @Test
-    public void setPlayer() {
-    }
-
-    @Test
     public void doSpecialFunction() {
-        System.out.println(player.discardpile.size());
-        ExpeditionCard Explorer1 = new ExpeditionCard("test","test",true,1,1);
-        buyone.setMarket(TestMarket);
-        buyone.setChoice(Explorer1);
+
+        ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
+        buyone.setChoice(Scout1);
         buyone.setPlayer(player);
+        buyone.setMarket(TestMarket);
         buyone.doSpecialFunction();
-        System.out.println(player.discardpile.size());
+        int size = TestMarket.BottomCards.get(0).size();
+        System.out.println(size);
         Card Actual = player.discardpile.get(0);
 
-        Assert.assertEquals(Explorer1,Actual);
+        Assert.assertEquals(Scout1,Actual);
 
     }
 

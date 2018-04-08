@@ -5,16 +5,18 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turn;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BuyTurn implements Turn {
     private Card cardToBuy;
-    private List<Card> selectedCards;
+    private List<Card> selectedCards = new ArrayList<>();
     private Player currentPlayer;
-    public List<Card> CardDeck;
+    public List<Card> CardDeck = new ArrayList<>();
+    private Market market;
 
 
-    public void BuyTurn(List<Card> selection, Player player) {
+    public BuyTurn(List<Card> selection, Player player) {
         this.selectedCards = selection;
         this.currentPlayer = player;
     }
@@ -23,28 +25,43 @@ public class BuyTurn implements Turn {
         this.cardToBuy = BuyThis;
     }
 
-    public void deletefromMarket(Market market) {
+    public Card CardToBuy() {
+        return cardToBuy;
+    }
+
+    public void setMarket(Market market) {
+        this.market = market;
+    }
+
+
+    public void DeleteFromMarket() {
 
         outerloop:
         for (int i = 0; i < market.BottomCards.size(); i++) {
             for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
-                if (market.BottomCards.get(i).get(j) == cardToBuy) {
-                    market.BottomCards.get(i).remove(j);
+                Object obj = market.BottomCards.get(i).get(j);
+                Card check = (Card)obj;
+                if (check.getName() == cardToBuy.getName()) {
+                    market.BottomCards.get(i).remove(check);
                     market.LeftonDeckBottom(market.BottomCards.get(i));
                     break outerloop;
                 }
+
             }
         }
     }
 
 
-    public boolean IsUpperCard(Market market) {
-        outerloop:
+    public boolean IsUpperCard() {
+
         for (int i = 0; i < market.UpperCards.size(); i++) {
             for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
-                if (market.UpperCards.get(i).get(j) == cardToBuy)
-                    CardDeck = market.UpperCards.get(j);
+                Object obj = market.UpperCards.get(i).get(j);
+                Card check = (Card)obj;
+                if (check.getName() == cardToBuy.getName()) {
+                    CardDeck.addAll(market.UpperCards.get(i));
                     return true;
+                }
             }
         }
         return false;
@@ -52,24 +69,23 @@ public class BuyTurn implements Turn {
 
     @Override
     public void turnfunction () {
-        int i = 0;
         int x = 0;
         double sum = 0;
-        while (selectedCards.size() >= x) {
+        while (selectedCards.size() > x) {
             sum = sum + selectedCards.get(x).getPrice();
             x = x + 1;
         }
-        if (cardToBuy.getPrice() <= sum) {
-            if (IsUpperCard(Market.getInstance()) && Market.getInstance().isfree()) {
-                Market.getInstance().getCardsfromUpper(CardDeck);
-            }
 
+        if (cardToBuy.getPrice() <= sum) {
+            if (IsUpperCard() && market.isfree()) {
+                market.getCardsfromUpper(CardDeck);
+            }
             currentPlayer.discardpile.add(cardToBuy);
             currentPlayer.selection.addAll(selectedCards);
             currentPlayer.handcards.removeAll(selectedCards);
             /**means we have used this card **/
 
-            deletefromMarket(Market.getInstance());
+            DeleteFromMarket();
 
             //else : buying is not possible
         }

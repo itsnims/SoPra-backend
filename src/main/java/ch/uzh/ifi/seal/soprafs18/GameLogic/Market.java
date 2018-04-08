@@ -1,6 +1,7 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MarketActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class Market {
     public ArrayList<List> BottomCards = new ArrayList<>(6);
-    public List<List> UpperCards = new ArrayList<List>(12);
+    public List<List> UpperCards = new ArrayList<>(12);
     private Integer currentBottomCards;
     private static Market instance = null;
 
@@ -72,9 +73,9 @@ public class Market {
         MarketDeckTreasureChest.add(TreasureChest2);
         MarketDeckTreasureChest.add(TreasureChest3);
 
-        MoveActionCard TelephoneTerminal1 = new MoveActionCard("Telephone Terminal","Purple",false,4);
-        MoveActionCard TelephoneTerminal2 = new MoveActionCard("Telephone Terminal","Purple",false,4);
-        MoveActionCard TelephoneTerminal3 = new MoveActionCard("Telephone Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal3 = new MarketActionCard("Telephone Terminal","Purple",false,4);
         MarketDeckTelephone.add(TelephoneTerminal1);
         MarketDeckTelephone.add(TelephoneTerminal2);
         MarketDeckTelephone.add(TelephoneTerminal3);
@@ -85,6 +86,7 @@ public class Market {
         BottomCards.add(MarketDeckPhotgrapher);
         BottomCards.add(MarketDeckTreasureChest);
         BottomCards.add(MarketDeckTelephone);
+
 
         ExpeditionCard Plane1 = new ExpeditionCard("Plane","White",false,4,4);
         ExpeditionCard Plane2 = new ExpeditionCard("Plane","White",false,4,4);
@@ -209,6 +211,8 @@ public class Market {
             BottomCards.add(SelectedDeck);
             UpperCards.remove(SelectedDeck);
             currentBottomCards = currentBottomCards + 1;
+
+
         }
     }
 
@@ -228,7 +232,9 @@ public class Market {
             UpperCards.remove(clickedDeck);
         }
         return LeftonDeckU;
+
     }
+
 
 }
 

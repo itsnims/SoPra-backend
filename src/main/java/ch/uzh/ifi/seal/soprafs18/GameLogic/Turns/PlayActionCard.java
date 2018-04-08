@@ -34,14 +34,14 @@ public class PlayActionCard implements Turn{
         }
         if (selectedCard instanceof MoveActionCard){
             ((MoveActionCard) selectedCard).setPlayer(currentPlayer);
-            /** set new position player choice **/
+            /** set new position player choice get user input here **/
             selectedCard.doSpecialFunction();
         }
 
         if (selectedCard instanceof MarketActionCard){
             ((MarketActionCard) selectedCard).setPlayer(currentPlayer);
             ((MarketActionCard) selectedCard).setMarket(Market.getInstance());
-            /** setplayer choice?? **/
+            /** setplayer choice?? get user input here **/
             selectedCard.doSpecialFunction();
         }
     }

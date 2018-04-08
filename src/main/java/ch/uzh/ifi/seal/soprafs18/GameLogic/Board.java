@@ -3,6 +3,7 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Board {
@@ -17,16 +18,16 @@ public class Board {
     Blockade blockade6= new Blockade(2,"white",true, false);   /** if blockade is white: play (blockade points) cards to cross, any card is acceptable */
     Blockade blockade3= new Blockade(1,"white",true, false);
 
-    /** Blockades.add(blockade1);
-    Blockades.add(blockade2);
-    Blockades.add(blockade3);
-    Blockades.add(blockade4);
-    Blockades.add(blockade5);
-    Blockades.add(blockade6);
-     */
-
-
     public Board(){
+        Blockades.add(blockade1);
+        Blockades.add(blockade2);
+        Blockades.add(blockade3);
+        Blockades.add(blockade4);
+        Blockades.add(blockade5);
+        Blockades.add(blockade6);
+        Collections.shuffle(Blockades);
+
+
 
     }
 

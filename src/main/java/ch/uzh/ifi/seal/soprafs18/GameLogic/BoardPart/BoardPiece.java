@@ -1,7 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
 public abstract class BoardPiece {
-    public boolean crossed;
     public int Strenght;
     public String Color;
     public boolean PlayAnyCard;

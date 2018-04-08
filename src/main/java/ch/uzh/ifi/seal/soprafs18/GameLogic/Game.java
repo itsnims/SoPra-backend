@@ -9,45 +9,49 @@ import java.util.List;
 
 public class Game {
     public List<Player> Players = new ArrayList<>(4);
-    public List<Card> TrashedCards = new ArrayList<>(80);
-    public Market GameMarket = new Market();
-    public ElDorado elDorado =new ElDorado();
     public int roundNum=0;
-    public Player Winner;
-    public List<Player> Winners = new ArrayList<>(4);
-    private int i, j;
-    private Player k;
+    private int i;
+    private EndGameManager endGameManager= new EndGameManager();
+    private  Player winner;
+
 
     public Game(){
+
+        /** do gamesetup here... **/
 
     }
 
     public void addPlayer(Player player){ Players.add(player); }
 
-    public void round(){
-        for(i=0;i<Players.size();i++){
-            /** Players[i].execute...? turn of player */
-        }
-        if(elDorado.isReached()){
-            if (Winners.size() == 1) {
-                Winner = Winners.get(0);
-            } else if (Winners.size() > 1) {
-                k= Winners.get(0);
-                for(j=0;j<Winners.size();j++){
-                    if(k.getBlockadePoints()< Winners.get(j).getBlockadePoints()){
-                        k= Winners.get(j);
-                    }
+    public Player round(){
+        while(!endGameManager.CheckifReached()) {
+
+            for (i = 0; i < Players.size(); i++) {
+                Players.get(i).setTurn(true);
+                while (Players.get(i).getTurn() && Players.get(i).handcards.size() > 0) {
+                    /**Turn choice = get user input of what his choice is--
+                     Players.get(i).executeTurn(choice); **/
                 }
+
             }
+            roundNum = roundNum + 1;
+
         }
-        roundNum=roundNum+1;
+        winner = endGameManager.getWinner();
+        return winner;
 
     }
 
-    public int getRoundNum() { return roundNum; }
 
-    public void Win(Player player) { Winners.add(player); }
 
-    public int getNumFigures() { return Players.size(); }
+    public int getRoundNum(){
+        return roundNum;
+    }
+
+
+
+    public int getNumFigures(){
+        return Players.size();
+    }
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EndGameManager  {
     Player Winner;
-    ElDorado elDorado = new ElDorado();
+    ElDorado elDorado = ElDorado.getInstance();
     private int i, j;
     private Player k;
 

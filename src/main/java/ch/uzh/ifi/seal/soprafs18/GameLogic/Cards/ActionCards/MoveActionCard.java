@@ -1,12 +1,13 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 
 
 public class MoveActionCard extends ActionCard {
     Player player;
-    int position;
+    Field position;
 
     public MoveActionCard(String name,String cardColour, Boolean reusable,Integer Price){
         super(name,cardColour,reusable,Price);
@@ -16,7 +17,7 @@ public class MoveActionCard extends ActionCard {
 
     }
 
-    public void positionChoice(int choice){
+    public void positionChoice(Field choice){
         this.position=choice;
     }
 

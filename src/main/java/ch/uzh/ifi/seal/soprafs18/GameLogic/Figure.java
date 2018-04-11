@@ -1,13 +1,15 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
+
 public class Figure {
 
-    public int currentPosition;
+    public Field currentPosition;
     public String Color;
 
 
-    public void setCurrentPosition(int currentPosition) {
+    public void setCurrentPosition(Field currentPosition) {
         this.currentPosition = currentPosition;
     }
 
@@ -15,7 +17,7 @@ public class Figure {
         Color = color;
     }
 
-    public int getCurrentPosition() {
+    public Field getCurrentPosition() {
         return currentPosition;
     }
 

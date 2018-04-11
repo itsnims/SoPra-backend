@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Turns;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MarketActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
@@ -18,6 +19,7 @@ public class PlayActionCardTest {
     DrawActionCard Cartographer1 = new DrawActionCard("Cartographer","Purple",true,4,2,false);
     MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone Terminal","Purple",false,4);
     Figure smallplayer = new Figure();
+    Field A1 = new Field(1,"green",true,true,true);
 
 
     @Test
@@ -32,12 +34,11 @@ public class PlayActionCardTest {
     public void turnfunctionmovetest(){
         player.setMyFigure(smallplayer);
         player.myFigure.setColor(player.Playercolor);
-        player.myFigure.setCurrentPosition(0);
         PlayActionCard executeMoveCard = new PlayActionCard(Natives1,player);
-        Natives1.positionChoice(3);
+        Natives1.positionChoice(A1);
         executeMoveCard.turnfunction();
-        int actual = player.myFigure.getCurrentPosition();
-        Assert.assertEquals(3,actual);
+        Field actual = player.myFigure.getCurrentPosition();
+        Assert.assertEquals(A1,actual);
     }
 
     @Test

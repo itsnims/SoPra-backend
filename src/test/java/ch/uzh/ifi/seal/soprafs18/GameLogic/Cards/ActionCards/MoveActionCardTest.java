@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Figure;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import org.junit.Assert;
@@ -11,19 +12,20 @@ public class MoveActionCardTest {
     Player nimra = new Player("Green");
     Figure smallnimra = new Figure();
     MoveActionCard MoveOne = new MoveActionCard("test","purple",true,1);
+    Field A1 = new Field(1,"green",true,true,true);
 
     @Test
     public void setPlayer() {
         nimra.setMyFigure(smallnimra);
-        nimra.myFigure.setCurrentPosition(0);
+        nimra.myFigure.setCurrentPosition(A1);
         nimra.myFigure.setColor("green");
 
-        MoveOne.positionChoice(2);
+        MoveOne.positionChoice(A1);
         MoveOne.setPlayer(nimra);
         MoveOne.doSpecialFunction();
 
-        int Actual = nimra.myFigure.getCurrentPosition();
-        Assert.assertEquals(2,Actual);
+        Field Actual = nimra.myFigure.getCurrentPosition();
+        Assert.assertEquals(A1,Actual);
     }
 
 }

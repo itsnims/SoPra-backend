@@ -20,7 +20,7 @@ public class Player {
      */
     public String Playercolor;
     private Boolean Turn;
-    private Integer BlockadePoints;
+    private Integer BlockadePoints = 0;
 
 
 
@@ -92,5 +92,7 @@ public class Player {
     public void executeTurn(Turn turn){
         turn.turnfunction();
     }
+
+
 }
 

@@ -39,7 +39,7 @@ public class MarketActionCard extends ActionCard {
                 Card check = (Card)obj;
                 if (check.getName() == choice.getName()) {
                     market.BottomCards.get(i).remove(check);
-                    market.LeftonDeckBottom(market.BottomCards.get(i));
+                    market.RemoveIfEmpty(market.BottomCards.get(i));
                     Found = true;
                     break outerloop;
                 }

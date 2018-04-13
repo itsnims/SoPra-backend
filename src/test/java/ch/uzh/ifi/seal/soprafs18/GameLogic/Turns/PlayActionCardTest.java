@@ -47,9 +47,11 @@ public class PlayActionCardTest {
         TelephoneTerminal1.setChoice(TelephoneTerminal2);
         PlayActionCard executemarketcard = new PlayActionCard(TelephoneTerminal1,player);
         executemarketcard.turnfunction();
+        int actualleft = testmarket.getInstance().BottomCards.get(5).size();
+        Assert.assertEquals(2,actualleft);
 
-        System.out.println(testmarket.BottomCards.get(5).size()); /** doesn't delete it.. doesn't execute the loop **/
-        System.out.println(player.discardpile.get(0));  /** but adds it to discardpile??'**/
+
+
 
     }
 }

@@ -35,7 +35,6 @@ public class BuyTurnTest {
         buysth.getCardtoBuy(Scout1);
         buysth.setMarket(test);
         buysth.DeleteFromMarket();
-        System.out.println(test.BottomCards.get(0).size());
         Assert.assertEquals(2,test.BottomCards.get(0).size());
 
 
@@ -66,7 +65,7 @@ public class BuyTurnTest {
         Assert.assertEquals(1,player.discardpile.size());
         Assert.assertEquals(4,player.selection.size());
         Assert.assertEquals(0,player.handcards.size());
-        System.out.println(test.BottomCards.get(0).size());
+
 
     }
 }

@@ -16,6 +16,7 @@ public class PlayerTest {
     private Player TestPlayer = new Player("TestColor");
     private DrawActionCard TestCard = new DrawActionCard("Nimra","blue",true,2,2,false);
     Field A1 = new Field(1,"green",true,true,true);
+
     @Test
     public void TestdrawCards() {
         int original = TestPlayer.handcards.size();
@@ -92,7 +93,6 @@ public class PlayerTest {
 
     @Test
     public void executeTurn(){
-        System.out.println(TestPlayer.handcards.size());
         PlayActionCard executethecard = new PlayActionCard(TestCard,TestPlayer);
         TestPlayer.executeTurn(executethecard);
         /** the player hasn't drawn any cards so far so it would be only the additionally drawn cards **/

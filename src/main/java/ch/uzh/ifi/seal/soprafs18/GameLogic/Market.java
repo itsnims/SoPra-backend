@@ -225,6 +225,13 @@ public class Market {
         return LeftonDeckB;
     }
 
+    public void RemoveIfEmpty(List clickedDeck) {
+        int LeftonDeckB = clickedDeck.size();
+        if (LeftonDeckB <= 0) {
+            BottomCards.remove(clickedDeck);
+        }
+    }
+
 
     public int LeftonDeckUpper(List clickedDeck) {
         int LeftonDeckU = clickedDeck.size();

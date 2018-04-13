@@ -16,7 +16,7 @@ public class EndGameManager  {
     }
 
     public boolean CheckifReached(){
-        if (elDorado.isReached() == true){
+        if (elDorado.getReached() == true){
             return true;
         }
         return false;

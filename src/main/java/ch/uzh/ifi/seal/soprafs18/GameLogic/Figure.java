@@ -17,6 +17,8 @@ public class Figure {
         Color = color;
     }
 
+    public String getColor(){return Color;}
+
     public Field getCurrentPosition() {
         return currentPosition;
     }

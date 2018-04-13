@@ -66,6 +66,7 @@ public class Player {
     }
 
     public void setBlockadePoints(Integer blockadePoints) {
+
         BlockadePoints = blockadePoints;
     }
 
@@ -85,6 +86,7 @@ public class Player {
     public void setTurn(Boolean turn){
         this.Turn = turn;
     }
+
     public boolean getTurn(){
         return this.Turn;
     }

@@ -26,13 +26,8 @@ public class ElDorado  {
     public void setReached(){
         reached=true;
     }
-    public boolean getReached(){
-        return reached;
-    }
 
-    public boolean isReached(){
-        return reached;
-    }
+    public boolean getReached(){ return reached; }
 
     public void AddReacher(Player player){
         Reachers.add(player);

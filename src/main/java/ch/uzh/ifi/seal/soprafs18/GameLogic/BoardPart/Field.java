@@ -9,7 +9,6 @@ public class Field extends BoardPiece {
     public boolean TrashCards;
     public List<BoardPiece> neighbours;
     public boolean Accessable; /** not taken */
-    public boolean Cave; /** macht nicht sinn weil wir müsseten trotzdem farbe angeben.. anstatt farbe dort Cave hinschreiben and not accesable..**/
 
     public Field(int strenght, String color, boolean PlayAnyCard, boolean TrashCard, boolean Accessable) {
         super(strenght, color, PlayAnyCard);
@@ -34,7 +33,5 @@ public class Field extends BoardPiece {
             }
         }
     }
-
-
 
 }

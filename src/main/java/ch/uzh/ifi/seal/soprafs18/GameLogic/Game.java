@@ -126,7 +126,9 @@ public class Game {
         return roundNum;
     }
 
-
+    public Player getPlayer(int index){
+        return Players.get(0);
+    }
 
     public int getNumFigures(){
         return Players.size();

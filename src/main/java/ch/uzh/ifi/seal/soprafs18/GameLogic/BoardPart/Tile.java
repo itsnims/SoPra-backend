@@ -19,4 +19,8 @@ public class Tile {
         }
 
     }
+
+    public Field getField(int index){
+       return Tile.get(index);
+    }
 }

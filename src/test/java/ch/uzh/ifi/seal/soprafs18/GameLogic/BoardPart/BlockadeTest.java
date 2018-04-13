@@ -46,6 +46,7 @@ public class BlockadeTest {
     @Test
     public void givePoints() {
         blockade.givePoints(player);
-        Assert.assertEquals(1, player.getBlockadePoints());
+        int actual = player.getBlockadePoints();
+        Assert.assertEquals(1,actual);
     }
 }

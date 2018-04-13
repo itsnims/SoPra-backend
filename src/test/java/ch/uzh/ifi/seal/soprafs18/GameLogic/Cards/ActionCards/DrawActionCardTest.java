@@ -41,7 +41,6 @@ public class DrawActionCardTest {
         choice.add(Tester2);
         DrawTwoCards.getTrash(choice);
         DrawTwoCards.doSpecialFunction();
-        System.out.println(choice);
         int actual = TestPlayer.trashpile.size();
         Assert.assertEquals(2,actual);
 

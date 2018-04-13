@@ -32,13 +32,14 @@ public class MarketActionCard extends ActionCard {
         boolean Found = false;
 
         outerloop:
+
         for (int i = 0; i < market.BottomCards.size(); i++) {
             for(int j = 0;j < market.BottomCards.get(i).size(); j++) {
                 Object obj = market.BottomCards.get(i).get(j);
                 Card check = (Card)obj;
                 if (check.getName() == choice.getName()) {
-                    market.BottomCards.get(i).remove(0);
-                    int left = market.LeftonDeckBottom(market.BottomCards.get(i));
+                    market.BottomCards.get(i).remove(check);
+                    market.LeftonDeckBottom(market.BottomCards.get(i));
                     Found = true;
                     break outerloop;
                 }
@@ -46,7 +47,7 @@ public class MarketActionCard extends ActionCard {
             }
         }
 
-        if (Found = false) {
+        if (Found == false) {
             secondloop:
             for (int i = 0; i < market.UpperCards.size(); i++) {
                 for (int j = 0; j < market.UpperCards.get(i).size(); j++) {

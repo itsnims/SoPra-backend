@@ -23,7 +23,6 @@ public class MarketActionCardTest {
         buyone.setMarket(TestMarket);
         buyone.doSpecialFunction();
         int size = TestMarket.BottomCards.get(0).size();
-        System.out.println(size);
         Card Actual = player.discardpile.get(0);
 
         Assert.assertEquals(Scout1,Actual);

@@ -93,7 +93,6 @@ public class PlayerTest {
 
     @Test
     public void executeTurn(){
-        System.out.println(TestPlayer.handcards.size());
         PlayActionCard executethecard = new PlayActionCard(TestCard,TestPlayer);
         TestPlayer.executeTurn(executethecard);
         /** the player hasn't drawn any cards so far so it would be only the additionally drawn cards **/

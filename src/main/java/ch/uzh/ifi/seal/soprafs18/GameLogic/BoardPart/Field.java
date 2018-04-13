@@ -2,12 +2,13 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Board;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Field extends BoardPiece {
 
     public boolean TrashCards;
-    public List<BoardPiece> neighbours;
+    public List<BoardPiece> neighbours = new ArrayList<>();
     public boolean Accessable; /** not taken */
 
     public Field(int strenght, String color, boolean PlayAnyCard, boolean TrashCard, boolean Accessable) {

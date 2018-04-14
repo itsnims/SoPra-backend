@@ -8,7 +8,7 @@ import java.util.List;
 public class Blockade extends BoardPiece {
 
     public boolean crossed;
-    public List<Field> neighbours;
+    public List<Field> neighbours= new ArrayList<>();
 
     public Blockade(int Strenght,String Color, boolean PlayAnyCard, boolean crossed) {
         super(Strenght,Color,PlayAnyCard);

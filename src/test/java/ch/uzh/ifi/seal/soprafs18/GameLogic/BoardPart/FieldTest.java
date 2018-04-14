@@ -14,8 +14,8 @@ public class FieldTest {
 
     @Test
     public void addNewNeighbour() {
-      //  field.AddNewNeighbour(fieldToAdd);
-      //  Assert.assertEquals(fieldToAdd, field.neighbours.get(0));
+        field.AddNewNeighbour(fieldToAdd);
+        Assert.assertEquals(fieldToAdd, field.neighbours.get(0));
     }
 
     @Test

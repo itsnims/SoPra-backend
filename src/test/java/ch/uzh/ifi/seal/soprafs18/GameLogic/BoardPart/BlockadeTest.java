@@ -38,9 +38,9 @@ public class BlockadeTest {
 
     @Test
     public void addNeighbour() {
-       // blockade.addNeighbour(A);
-       // Assert.assertEquals(1, blockade.neighbours.size());
-       // Assert.assertEquals( A, blockade.neighbours.get(0));
+        blockade.addNeighbour(A);
+        Assert.assertEquals(1, blockade.neighbours.size());
+        Assert.assertEquals( A, blockade.neighbours.get(0));
     }
 
     @Test

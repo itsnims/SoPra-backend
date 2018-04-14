@@ -1,24 +1,58 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Tile;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.ElDorado;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Game {
+
+    @Id
+    @GeneratedValue
+    @JsonIgnore
+    private Long id;
+
+    @Column(unique=true)
+    String name;
+
+    @Column
+    String owner;
+
+    @Column
+    int maxplayer;
+
+    @JsonIgnore
+    @Transient
     public List<Player> Players = new ArrayList<>(4);
+
+    @JsonIgnore
+    @Transient
     public int roundNum=0;
+
+    @Transient
     private int i;
-    private EndGameManager endGameManager= new EndGameManager();
+
+    @Transient
     private  Player winner;
 
+    @Transient
+    List<User> users = new ArrayList<>();
+
+    @Column
+    int current;
 
 
-    public Game(){
+
+    public Game(){}
+    public Game(String name){
 
         Field A1 = new Field(0,"Green",false,false,true);
         Field A2 = new Field(0,"Green",false,false,true);
@@ -102,7 +136,7 @@ public class Game {
     public void addPlayer(Player player){ Players.add(player); }
 
     public Player round(){
-        while(!endGameManager.CheckifReached()) {
+        while(! new EndGameManager().CheckifReached()) {
 
             for (i = 0; i < Players.size(); i++) {
                 Players.get(i).setTurn(true);
@@ -115,7 +149,7 @@ public class Game {
             roundNum = roundNum + 1;
 
         }
-        winner = endGameManager.getWinner();
+        winner = new EndGameManager().getWinner();
         return winner;
 
     }
@@ -130,8 +164,55 @@ public class Game {
         return Players.get(0);
     }
 
+    @Transient
+    @JsonIgnore
     public int getNumFigures(){
         return Players.size();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+
+    public int getMaxplayer() {
+        return maxplayer;
+    }
+
+    public void setMaxplayer(int maxplayer) {
+        this.maxplayer = maxplayer;
+    }
+
+
+    public void addUser(User user){
+        users.add(user);
+        current ++;
+
+
+    }
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
 }

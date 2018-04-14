@@ -1,11 +1,12 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
-import ch.uzh.ifi.seal.soprafs18.Resource.User;
+import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -27,11 +28,10 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @RequestMapping(value = CONTEXT+"/{username}", method=RequestMethod.DELETE)
+    @Transactional
+    @RequestMapping(value = CONTEXT +"/{name}",method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteUser(@PathVariable String username){
-        userService.deleteUser(username);
+    public void deleteUser(@PathVariable("name") String name){
+        userService.deleteUser(name);
     }
-
-
 }

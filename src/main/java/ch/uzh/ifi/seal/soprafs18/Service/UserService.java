@@ -1,6 +1,8 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
-import ch.uzh.ifi.seal.soprafs18.Resource.User;
+import ch.uzh.ifi.seal.soprafs18.Entity.User;
+import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,24 +12,20 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private List<User> users = new ArrayList<>(Arrays.asList(
-            new User("Nimra"),
-            new User("Angela"),
-            new User("Alexandra")
-    )
-    );
+    @Autowired
+    private UserRepository userRepository;
 
     public List<User> getUsers(){
+        List<User> users = new ArrayList<>();
+        userRepository.findAll().forEach(users::add);
         return users;
     }
 
     public void addUser(User user){
-        users.add(user);
+        userRepository.save(user);
     }
 
-    public void deleteUser(String username){
-        users.remove(username);
+    public void deleteUser(String name){
+        userRepository.deleteByName(name);
     }
-
 }
-

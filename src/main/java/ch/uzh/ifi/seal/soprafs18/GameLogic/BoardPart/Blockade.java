@@ -3,6 +3,7 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Board;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Blockade extends BoardPiece {

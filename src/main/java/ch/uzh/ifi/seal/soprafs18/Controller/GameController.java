@@ -29,10 +29,10 @@ public class GameController {
         gameService.addGame(game);
     }
 
-    @PutMapping(value = CONTEXT + "/{user}/{room}/join")
+    @PutMapping(value = CONTEXT + "/{user}/{room}/{secret}/join")
     @ResponseStatus(HttpStatus.OK)
-    public boolean joingame(@PathVariable(value = "user",required = true) String username, @PathVariable(value = "room",required = true) String roomname){
-        Boolean joined = gameService.joinGame(roomname,username);
+    public boolean joingame(@PathVariable(value = "user",required = true) String username, @PathVariable(value = "room",required = true) String roomname, @PathVariable("secret") String secret){
+        Boolean joined = gameService.joinGame(roomname,username,secret);
         return joined;
 
     }

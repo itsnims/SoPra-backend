@@ -37,11 +37,11 @@ public class GameService {
         gameRepository.deleteByName(gamename);
     }
 
-    public Boolean joinGame(String gamename, String username){
+    public Boolean joinGame(String gamename, String username,String password){
         Game game = gameRepository.findByName(gamename);
         User user =  userRepository.findByName(username);
         Long id = game.getId();
-        if (game.getCurrent() < game.getMaxplayer()){
+        if ((game.getCurrent() < game.getMaxplayer() && game.getProtection().equals(false)) || (game.getCurrent() < game.getMaxplayer() && game.getPassword().equals(password))){
             game.addUser(user);
             Game newgame = game;
             gameRepository.deleteById(id);

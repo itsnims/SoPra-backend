@@ -31,6 +31,12 @@ public class Game {
     int maxplayer;
 
     @Column
+    private Boolean protection;
+
+    @Column
+    private String password;
+
+    @Column
     GameStatus gameStatus;
 
     @JsonIgnore
@@ -237,5 +243,21 @@ public class Game {
         users.remove(user);
         System.out.println(user);
         current --;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getProtection() {
+        return protection;
+    }
+
+    public void setProtection(Boolean protection) {
+        this.protection = protection;
     }
 }

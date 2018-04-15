@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.Repository.GameRepository;
@@ -28,6 +29,7 @@ public class GameService {
         String ownername = game.getOwner();
         User owner =userRepository.findByName(ownername);
         game.addUser(owner);
+        game.setGameStatus(GameStatus.WAITING);
         gameRepository.save(game);
     }
 
@@ -44,6 +46,9 @@ public class GameService {
             Game newgame = game;
             gameRepository.deleteById(id);
             newgame.setId(id);
+            if( newgame.getUsers().size() == newgame.getMaxplayer()){
+                newgame.setGameStatus(GameStatus.STARTING);
+            }
             gameRepository.save(newgame);
 
             return true;

@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Tile;
@@ -29,6 +30,9 @@ public class Game {
     @Column
     int maxplayer;
 
+    @Column
+    GameStatus gameStatus;
+
     @JsonIgnore
     @Transient
     public List<Player> Players = new ArrayList<>(4);
@@ -37,13 +41,14 @@ public class Game {
     @Transient
     public int roundNum=0;
 
+
     @Transient
     private int i;
 
     @Transient
     private  Player winner;
 
-    @Transient
+    @OneToMany
     List<User> users = new ArrayList<>();
 
     @Column
@@ -214,5 +219,23 @@ public class Game {
 
     public void setId(Long id){
         this.id = id;
+    }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
+    }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void deleteUser(User user){
+        users.remove(user);
+        System.out.println(user);
+        current --;
     }
 }

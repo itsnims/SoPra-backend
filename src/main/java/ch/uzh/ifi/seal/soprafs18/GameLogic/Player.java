@@ -4,7 +4,7 @@ import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,24 +30,24 @@ public class Player {
     @Column
     private Boolean Turn;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> drawpile = new ArrayList<Card>(80);
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> handcards = new ArrayList<Card>(80);
 
     @Transient
     @JsonIgnore
     public List<Card> trashpile = new ArrayList<Card>(80);
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> discardpile = new ArrayList<Card>(80);
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> selection = new ArrayList<>(80);
 
-    @OneToOne
-    public Figure myFigure;
+    @OneToOne(cascade = {CascadeType.ALL})
+    public Figure myFigure = new Figure();
 
 
     public Player() {
@@ -157,6 +157,8 @@ public class Player {
 
 
     }
+
+
 
     public Figure getMyFigure() {
         return myFigure;

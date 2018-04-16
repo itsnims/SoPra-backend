@@ -5,19 +5,39 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MarketActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
 public class Market {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Transient
+    @JsonIgnore
     public ArrayList<List> BottomCards = new ArrayList<>(6);
+
+    @Transient
+    @JsonIgnore
     public List<List> UpperCards = new ArrayList<>(12);
+
+    @Transient
+    @JsonIgnore
     private Integer currentBottomCards;
+    @Transient
+    @JsonIgnore
     private static Market instance = null;
 
 
-    public Market(){
+    public Market(){ }
+    public void marketsetup(){
         List<Card> MarketDeckScout = new ArrayList<>(3);
         List<Card> MarketDeckExplorer = new ArrayList<>(3);
         List<Card> MarketDeckAllrounder = new ArrayList<>(3);

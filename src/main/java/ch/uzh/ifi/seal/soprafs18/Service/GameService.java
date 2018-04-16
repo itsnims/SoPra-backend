@@ -46,6 +46,8 @@ public class GameService {
 
             if( game.getPlayers().size() == game.getMaxplayer()){
                 game.setGameStatus(GameStatus.STARTING);
+                game.gameSetup();
+
             }
             gameRepository.save(game);
 

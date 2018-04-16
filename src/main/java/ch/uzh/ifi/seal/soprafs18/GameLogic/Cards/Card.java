@@ -2,10 +2,14 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
 
 @Entity
+@Inheritance
+@DiscriminatorColumn(name="type")
 public abstract class Card {
 
     @Id
@@ -25,6 +29,7 @@ public abstract class Card {
     @JsonIgnore
     private double Price;
 
+    public Card(){}
     public Card(String name,String cardColour,Boolean reusable,double Price ) {
         this.name =name;
         this.cardColour=cardColour;

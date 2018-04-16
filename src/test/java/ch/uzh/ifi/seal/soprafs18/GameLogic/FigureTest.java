@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,15 +20,15 @@ public class FigureTest {
 
     @Test
     public void setColor() {
-        figure.setColor("white");
-        Assert.assertEquals("white", figure.getColor());
+        figure.setColor(PlayerColor.WHITE);
+        Assert.assertEquals(PlayerColor.WHITE, figure.getColor());
     }
 
     @Test
     public void getColor(){
-        figure.setColor("green");
-        String result = figure.getColor();
-        Assert.assertEquals("green", result);
+        figure.setColor(PlayerColor.WHITE);
+        PlayerColor result = figure.getColor();
+        Assert.assertEquals(PlayerColor.WHITE, result);
     }
 
     @Test

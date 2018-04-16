@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class BlockadeTest {
 
     private Blockade blockade= new Blockade(1, "green", false, false);
-    private Player player= new Player("TestColor");
+    private Player player= new Player();
     private Field A = new Field(0,"Green",false,false,true);
 
     @Test

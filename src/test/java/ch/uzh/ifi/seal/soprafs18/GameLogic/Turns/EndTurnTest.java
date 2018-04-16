@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EndTurnTest {
-    Player nimra = new Player("Green");
+    Player nimra = new Player();
     ExpeditionCard trashcard = new ExpeditionCard("test","test",false,1,1);
 
 

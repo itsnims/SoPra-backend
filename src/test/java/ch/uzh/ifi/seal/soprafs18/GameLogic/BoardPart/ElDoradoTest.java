@@ -2,6 +2,7 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,7 +12,9 @@ import static org.junit.Assert.*;
 public class ElDoradoTest {
 
     private ElDorado elDorado= new ElDorado();
-    private Player player = new Player("white");
+    private Player player = new Player();
+
+
 
     @Test
     public void getInstance() {

@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class BuyTurnTest {
     ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
-    Player player = new Player("Green");
+    Player player = new Player();
     Market test = new Market();
 
 

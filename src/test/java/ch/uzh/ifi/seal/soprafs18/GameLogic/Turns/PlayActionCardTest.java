@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class PlayActionCardTest {
     Market testmarket = new Market();
-    Player player = new Player("green");
+    Player player = new Player();
     MoveActionCard Natives1 = new MoveActionCard("Natives","Purple",true,5);
     DrawActionCard Cartographer1 = new DrawActionCard("Cartographer","Purple",true,4,2,false);
     MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone Terminal","Purple",false,4);
@@ -33,7 +33,6 @@ public class PlayActionCardTest {
     @Test
     public void turnfunctionmovetest(){
         player.setMyFigure(smallplayer);
-        player.myFigure.setColor(player.Playercolor);
         PlayActionCard executeMoveCard = new PlayActionCard(Natives1,player);
         Natives1.positionChoice(A1);
         executeMoveCard.turnfunction();

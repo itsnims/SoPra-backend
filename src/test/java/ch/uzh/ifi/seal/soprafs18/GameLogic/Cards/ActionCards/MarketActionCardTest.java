@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
@@ -12,10 +13,11 @@ import static org.junit.Assert.*;
 public class MarketActionCardTest {
     MarketActionCard buyone = new MarketActionCard("test","color",true,1);
     Market TestMarket = new Market();
-    Player player = new Player("Test");
+    Player player = new Player();
 
     @Test
     public void doSpecialFunction() {
+        player.setPlayerColor(PlayerColor.BLUE);
 
         ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
         buyone.setChoice(Scout1);

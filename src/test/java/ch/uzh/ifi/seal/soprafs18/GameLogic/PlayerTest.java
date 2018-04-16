@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MoveActionCard;
@@ -13,12 +14,13 @@ import java.util.List;
 
 public class PlayerTest {
 
-    private Player TestPlayer = new Player("TestColor");
+    private Player TestPlayer = new Player();
     private DrawActionCard TestCard = new DrawActionCard("Nimra","blue",true,2,2,false);
     Field A1 = new Field(1,"green",true,true,true);
 
     @Test
     public void TestdrawCards() {
+        TestPlayer.setPlayerColor(PlayerColor.values()[1]);
         int original = TestPlayer.handcards.size();
         TestPlayer.drawCards();
         int ExpectedResult = original + 4;
@@ -85,7 +87,7 @@ public class PlayerTest {
         Figure small = new Figure();
         TestPlayer.setMyFigure(small);
         TestPlayer.myFigure.setCurrentPosition(A1);
-        TestPlayer.myFigure.setColor(TestPlayer.Playercolor);
+        TestPlayer.myFigure.setColor(TestPlayer.getPlayerColor());
 
         Assert.assertEquals(small,TestPlayer.myFigure);
 

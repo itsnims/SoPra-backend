@@ -1,23 +1,24 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 
+import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 
 public class Figure {
 
     public Field currentPosition;
-    public String Color;
+    public PlayerColor Color;
 
 
     public void setCurrentPosition(Field currentPosition) {
         this.currentPosition = currentPosition;
     }
 
-    public void setColor(String color) {
+    public void setColor(PlayerColor color) {
         Color = color;
     }
 
-    public String getColor(){return Color;}
+    public PlayerColor getColor(){return Color;}
 
     public Field getCurrentPosition() {
         return currentPosition;

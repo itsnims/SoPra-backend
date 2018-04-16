@@ -7,8 +7,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EndGameManagerTest {
-    Player nimra = new Player("Green");
-    Player angela = new Player("Red");
+    Player nimra = new Player();
+    Player angela = new Player();
     ElDorado elDorado = new ElDorado();
     EndGameManager endGameManager= new EndGameManager();
     Player winner;

@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class GameTest {
     private Game game= new Game();
-    private Player dPlaya= new Player("testCol");
+    private Player dPlaya= new Player();
 
     @Test
     public void AddPlayer() {

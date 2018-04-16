@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Turns;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import org.junit.Assert;
@@ -11,11 +12,12 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class DiscardCardTest {
-    Player nimra = new Player("Green");
+    Player nimra = new Player();
     List<Card> selected = new ArrayList<>();
 
     @Test
     public void turnfunction() {
+        nimra.setPlayerColor(PlayerColor.values()[1]);
         nimra.drawCards();
         selected.add(nimra.handcards.get(0));
         selected.add(nimra.handcards.get(2));

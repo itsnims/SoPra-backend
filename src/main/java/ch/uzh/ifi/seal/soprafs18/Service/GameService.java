@@ -40,16 +40,14 @@ public class GameService {
     public Boolean joinGame(String gamename, String username,String password){
         Game game = gameRepository.findByName(gamename);
         Player player =  userRepository.findByName(username);
-        Long id = game.getId();
         if ((game.getCurrent() < game.getMaxplayer() && game.getProtection().equals(false)) || (game.getCurrent() < game.getMaxplayer() && game.getPassword().equals(password))){
             game.addUser(player);
-            Game newgame = game;
-            gameRepository.deleteById(id);
-            newgame.setId(id);
-            if( newgame.getPlayers().size() == newgame.getMaxplayer()){
-                newgame.setGameStatus(GameStatus.STARTING);
+
+
+            if( game.getPlayers().size() == game.getMaxplayer()){
+                game.setGameStatus(GameStatus.STARTING);
             }
-            gameRepository.save(newgame);
+            gameRepository.save(game);
 
             return true;
         }

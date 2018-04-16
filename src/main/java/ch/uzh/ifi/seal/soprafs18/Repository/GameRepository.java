@@ -8,5 +8,6 @@ package ch.uzh.ifi.seal.soprafs18.Repository;
 public interface GameRepository extends CrudRepository<Game,Long> {
     Game findByName(String name);
     List<Game> deleteByName(String name);
+    
 
 }

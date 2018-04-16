@@ -13,10 +13,6 @@ import java.util.List;
 public class Game {
 
     @Id
-    @GeneratedValue
-    @JsonIgnore
-    private Long id;
-
     @Column(unique=true)
     String name;
 
@@ -176,9 +172,6 @@ public class Game {
         return players.size();
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -222,9 +215,6 @@ public class Game {
         return current;
     }
 
-    public void setId(Long id){
-        this.id = id;
-    }
 
     public void setGameStatus(GameStatus gameStatus) {
         this.gameStatus = gameStatus;

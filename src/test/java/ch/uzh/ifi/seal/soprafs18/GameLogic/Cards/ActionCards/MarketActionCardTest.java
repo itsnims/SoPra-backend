@@ -18,6 +18,7 @@ public class MarketActionCardTest {
     @Test
     public void doSpecialFunction() {
         player.setPlayerColor(PlayerColor.BLUE);
+        player.setup();
 
         ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
         buyone.setChoice(Scout1);

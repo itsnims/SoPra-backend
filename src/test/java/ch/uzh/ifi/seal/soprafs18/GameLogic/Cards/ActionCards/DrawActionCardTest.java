@@ -17,6 +17,7 @@ public class DrawActionCardTest {
     public void doSpecialFunction() {
         Player TestPlayer = new Player();
         List<Card> choice = new ArrayList<>();
+        TestPlayer.setup();
         TestPlayer.drawCards();
         DrawTwoCards.setPlayer(TestPlayer);
         ExpeditionCard Tester1 = new ExpeditionCard("TestName","TestColour",true,1,1);
@@ -33,6 +34,7 @@ public class DrawActionCardTest {
     @Test
     public void TrashingCards(){
         Player TestPlayer = new Player();
+        TestPlayer.setup();
         DrawTwoCards.setPlayer(TestPlayer);
         List<Card> choice = new ArrayList<>();
         ExpeditionCard Tester1 = new ExpeditionCard("TestName","TestColour",true,1,1);

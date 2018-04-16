@@ -24,6 +24,7 @@ public class PlayActionCardTest {
 
     @Test
     public void turnfunctiondrawtest() {
+        player.setup();
         PlayActionCard executeDrawCard = new PlayActionCard(Cartographer1,player);
         executeDrawCard.turnfunction();
         int actual = player.handcards.size();
@@ -32,6 +33,7 @@ public class PlayActionCardTest {
 
     @Test
     public void turnfunctionmovetest(){
+        player.setup();
         player.setMyFigure(smallplayer);
         PlayActionCard executeMoveCard = new PlayActionCard(Natives1,player);
         Natives1.positionChoice(A1);
@@ -42,6 +44,7 @@ public class PlayActionCardTest {
 
     @Test
     public void turnfunctionmarkettest(){
+        player.setup();
         MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone Terminal","Purple",false,4);
         TelephoneTerminal1.setChoice(TelephoneTerminal2);
         PlayActionCard executemarketcard = new PlayActionCard(TelephoneTerminal1,player);

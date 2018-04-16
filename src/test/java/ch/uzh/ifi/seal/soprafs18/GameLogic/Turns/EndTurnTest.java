@@ -14,6 +14,7 @@ public class EndTurnTest {
 
     @Test
     public void turnfunction() {
+        nimra.setup();
         nimra.drawCards();
         nimra.selection.addAll(nimra.handcards);
         nimra.selection.add(trashcard);

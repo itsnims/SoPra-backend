@@ -17,6 +17,7 @@ public class DiscardCardTest {
 
     @Test
     public void turnfunction() {
+        nimra.setup();
         nimra.setPlayerColor(PlayerColor.values()[1]);
         nimra.drawCards();
         selected.add(nimra.handcards.get(0));

@@ -19,6 +19,7 @@ public class BuyTurnTest {
 
     @Test
     public void getCardtoBuy() {
+        player.setup();
         player.drawCards();
         List<Card> selection = player.handcards;
         BuyTurn buysth = new BuyTurn(selection,player);
@@ -29,6 +30,7 @@ public class BuyTurnTest {
 
     @Test
     public void deletefromMarket() {
+        player.setup();
         player.drawCards();
         List<Card> selection = player.handcards;
         BuyTurn buysth = new BuyTurn(selection,player);
@@ -42,6 +44,7 @@ public class BuyTurnTest {
 
     @Test
     public void isUpperCard() {
+        player.setup();
         player.drawCards();
         List<Card> selection = player.handcards;
         BuyTurn buysth = new BuyTurn(selection,player);
@@ -56,6 +59,7 @@ public class BuyTurnTest {
 
     @Test
     public void turnfunction() {
+        player.setup();
         player.drawCards();
         List<Card> selection = player.handcards;
         BuyTurn buysth = new BuyTurn(selection,player);

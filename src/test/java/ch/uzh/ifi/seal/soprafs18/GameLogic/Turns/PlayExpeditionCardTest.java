@@ -19,6 +19,7 @@ public class PlayExpeditionCardTest {
 
     @Test
     public void turnfunction() {
+        currentplayer.setup();
         currentplayer.setPlayerColor(PlayerColor.BLUE);
         selectedCards.add(Scout1);
         currentplayer.handcards.addAll(selectedCards);

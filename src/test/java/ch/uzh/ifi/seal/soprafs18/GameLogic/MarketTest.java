@@ -22,7 +22,8 @@ public class MarketTest {
     public void getCardsfromUpper() {
         testmarket.BottomCards.remove(0);
         List<Card> wanteddeck;
-        wanteddeck= testmarket.UpperCards.get(0);
+        Object object= testmarket.UpperCards.get(0);
+        wanteddeck = (List<Card>) object;
         testmarket.getCardsfromUpper(wanteddeck);
         List<Card>actualdeck;
         actualdeck = testmarket.BottomCards.get(testmarket.BottomCards.size()-1);
@@ -34,7 +35,8 @@ public class MarketTest {
     public void leftonDeckBottom() {
         List<Card> wanted;
         int actual;
-        wanted= testmarket.BottomCards.get(3);
+        Object object= testmarket.BottomCards.get(3);
+        wanted = (List<Card>) object;
         actual = testmarket.LeftonDeckBottom(wanted);
         Assert.assertEquals(3,actual);
     }
@@ -43,7 +45,8 @@ public class MarketTest {
     public void leftonDeckUpper() {
         List<Card> wanted;
         int actual;
-        wanted= testmarket.UpperCards.get(5);
+        Object object= testmarket.UpperCards.get(5);
+        wanted = (List<Card>) object;
         testmarket.UpperCards.get(5).clear();
         actual = testmarket.LeftonDeckUpper(wanted);
         Assert.assertEquals(0,actual);

@@ -17,6 +17,7 @@ public class TrashTest {
 
     @Test
     public void turnfunction() {
+        nimra.setup();
         nimra.setPlayerColor(PlayerColor.BLUE);
         nimra.drawCards();
         selection.add(nimra.handcards.get(0));

@@ -12,7 +12,7 @@ public class GameTest {
     @Test
     public void AddPlayer() {
         game.addPlayer(dPlaya);
-        Assert.assertEquals(dPlaya, game.getPlayer(0));
+        Assert.assertEquals(dPlaya, game.getPlayers().get(0));
     }
 
     @Test

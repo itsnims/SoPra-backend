@@ -17,6 +17,7 @@ public class MoveActionCardTest {
 
     @Test
     public void setPlayer() {
+        nimra.setup();
         nimra.setPlayerColor(PlayerColor.BLUE);
         nimra.setMyFigure(smallnimra);
         nimra.myFigure.setCurrentPosition(A1);

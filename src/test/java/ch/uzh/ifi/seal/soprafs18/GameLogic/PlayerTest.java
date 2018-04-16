@@ -20,6 +20,7 @@ public class PlayerTest {
 
     @Test
     public void TestdrawCards() {
+        TestPlayer.setup();
         TestPlayer.setPlayerColor(PlayerColor.values()[1]);
         int original = TestPlayer.handcards.size();
         TestPlayer.drawCards();
@@ -30,6 +31,7 @@ public class PlayerTest {
 
     @Test
     public void TestdiscardCard() {
+        TestPlayer.setup();
         TestPlayer.drawCards();
         int originalLenghtofDiscardPile = TestPlayer.discardpile.size();
         List<Card> selection = new ArrayList<>();
@@ -95,6 +97,7 @@ public class PlayerTest {
 
     @Test
     public void executeTurn(){
+        TestPlayer.setup();
         PlayActionCard executethecard = new PlayActionCard(TestCard,TestPlayer);
         TestPlayer.executeTurn(executethecard);
         /** the player hasn't drawn any cards so far so it would be only the additionally drawn cards **/

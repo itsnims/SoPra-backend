@@ -1,11 +1,7 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
-import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Tile;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.ElDorado;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -25,7 +21,8 @@ public class Game {
     String name;
 
     @Column
-    String owner;
+    private String owner;
+
 
     @Column
     int maxplayer;
@@ -39,9 +36,8 @@ public class Game {
     @Column
     GameStatus gameStatus;
 
-    @JsonIgnore
-    @Transient
-    public List<Player> Players = new ArrayList<>(4);
+    @OneToMany
+    public List<Player> players = new ArrayList<Player>(4);
 
     @JsonIgnore
     @Transient
@@ -53,9 +49,6 @@ public class Game {
 
     @Transient
     private  Player winner;
-
-    @OneToMany
-    List<User> users = new ArrayList<>();
 
     @Column
     int current;
@@ -144,14 +137,14 @@ public class Game {
 
     }
 
-    public void addPlayer(Player player){ Players.add(player); }
+    public void addPlayer(Player player){ players.add(player); }
 
     public Player round(){
         while(! new EndGameManager().CheckifReached()) {
 
-            for (i = 0; i < Players.size(); i++) {
-                Players.get(i).setTurn(true);
-                while (Players.get(i).getTurn() && Players.get(i).handcards.size() > 0) {
+            for (i = 0; i < players.size(); i++) {
+                players.get(i).setTurn(true);
+                while( players.get(i).getTurn() && players.get(i).handcards.size() > 0) {
                     /**Turn choice = get user input of what his choice is--
                      Players.get(i).executeTurn(choice); **/
                 }
@@ -171,14 +164,16 @@ public class Game {
         return roundNum;
     }
 
-    public Player getPlayer(int index){
-        return Players.get(0);
+    public List<Player> getPlayers() {
+        return players;
     }
+
+
 
     @Transient
     @JsonIgnore
     public int getNumFigures(){
-        return Players.size();
+        return players.size();
     }
 
     public Long getId() {
@@ -198,9 +193,13 @@ public class Game {
         return owner;
     }
 
+
+
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+
 
 
     public int getMaxplayer() {
@@ -212,8 +211,8 @@ public class Game {
     }
 
 
-    public void addUser(User user){
-        users.add(user);
+    public void addUser(Player player){
+        players.add(player);
         current ++;
 
 
@@ -235,13 +234,10 @@ public class Game {
         return gameStatus;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 
-    public void deleteUser(User user){
-        users.remove(user);
-        System.out.println(user);
+    public void deletePlayer(Player player){
+        players.remove(player);
+
         current --;
     }
 

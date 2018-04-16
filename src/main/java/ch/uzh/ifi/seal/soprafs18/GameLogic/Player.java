@@ -12,15 +12,23 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity
-
 public class Player {
 
-    @Id
+    @javax.persistence.Id
     @GeneratedValue
-    private Long Id;
+    private long Id;
 
     @Column(unique = true)
     private String name;
+
+    @Column
+    private Integer BlockadePoints = 0;
+
+    @Column
+    private PlayerColor PlayerColor;
+
+    @Column
+    private Boolean Turn;
 
     @OneToMany
     public List<Card> drawpile = new ArrayList<Card>(80);
@@ -28,27 +36,25 @@ public class Player {
     @OneToMany
     public List<Card> handcards = new ArrayList<Card>(80);
 
-    @OneToMany
-    public List<Card> discardpile = new ArrayList<Card>(80);
-
     @Transient
     @JsonIgnore
     public List<Card> trashpile = new ArrayList<Card>(80);
+
+    @OneToMany
+    public List<Card> discardpile = new ArrayList<Card>(80);
 
     @OneToMany
     public List<Card> selection = new ArrayList<>(80);
 
     @OneToOne
     public Figure myFigure;
-    /**
-     * made each player a unique trash since the starter cards have the same name for all.
-     */
-    public PlayerColor PlayerColor;
-    private Boolean Turn;
-    private Integer BlockadePoints = 0;
 
 
     public Player() {
+
+    }
+
+    public void setup() {
         ExpeditionCard Sailor = new ExpeditionCard("Sailor", "Blue", true, 0.5, 1);
         ExpeditionCard Explorer1 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
         ExpeditionCard Explorer2 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
@@ -70,8 +76,37 @@ public class Player {
     }
 
 
+    public void setBlockadePoints(Integer blockadePoints) {
+
+        BlockadePoints = BlockadePoints + blockadePoints;
+    }
+
+    public Integer getBlockadePoints() {
+        return BlockadePoints;
+    }
+
+    public void addtoTrash(List<Card> Cards) {
+        trashpile.addAll(Cards);
+
+    }
+
+    public void setMyFigure(Figure myFigure) {
+        this.myFigure = myFigure;
+    }
 
 
+    public void executeTurn(Turn turn) {
+        turn.turnfunction();
+    }
+
+
+    public void setPlayerColor(ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor playerColor) {
+        PlayerColor = playerColor;
+    }
+
+    public ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor getPlayerColor() {
+        return PlayerColor;
+    }
 
     public void addtoDrawPile(List<Card> Cards) {
         drawpile.addAll(Cards);
@@ -87,52 +122,51 @@ public class Player {
         }
 
     }
+
     public void discardCard(List<Card> Cards) {
         discardpile.addAll(Cards);
         handcards.removeAll(Cards);
     }
 
-    public void setBlockadePoints(Integer blockadePoints) {
-
-        BlockadePoints = blockadePoints;
+    public Boolean getTurn() {
+        return Turn;
     }
 
-    public Integer getBlockadePoints() {
-        return BlockadePoints;
+    public void setTurn(Boolean turn) {
+        Turn = turn;
     }
 
-    public void addtoTrash(List<Card> Cards){
-        trashpile.addAll(Cards);
-
+    public String getName() {
+        return name;
     }
 
-    public void setMyFigure(Figure myFigure) {
-        this.myFigure = myFigure;
-    }
-
-    public void setTurn(Boolean turn){
-        this.Turn = turn;
-    }
-
-    public boolean getTurn(){
-        return this.Turn;
-    }
-
-    public void executeTurn(Turn turn){
-        turn.turnfunction();
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public long getID() { return Id; }
+    public void reset(){
+        handcards.clear();
+        discardpile.clear();
+        trashpile.clear();
+        selection.clear();
+        setMyFigure(null);
+        setTurn(null);
+        resetPoints();
+        setPlayerColor(null);
 
-    public void setPlayerColor(ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor playerColor) {
-        PlayerColor = playerColor;
+
     }
 
-    public ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor getPlayerColor() {
-        return PlayerColor;
+    public Figure getMyFigure() {
+        return myFigure;
     }
+
+    public void resetPoints(){
+        BlockadePoints = 0;
+    }
+
+
 }
+
 

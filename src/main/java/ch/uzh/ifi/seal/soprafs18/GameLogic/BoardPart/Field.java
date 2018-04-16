@@ -1,14 +1,30 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Board;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Field extends BoardPiece {
 
+    @Id
+    private String name;
+
+    @Transient
+    @JsonIgnore
     public boolean TrashCards;
+
+    @Transient
+    @JsonIgnore
     public List<BoardPiece> neighbours = new ArrayList<>();
+
+    @Transient
+    @JsonIgnore
     public boolean Accessable; /** not taken */
 
     public Field(int strenght, String color, boolean PlayAnyCard, boolean TrashCard, boolean Accessable) {
@@ -35,4 +51,11 @@ public class Field extends BoardPiece {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

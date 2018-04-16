@@ -3,11 +3,24 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+
+@Entity
 public class Figure {
 
-    public Field currentPosition;
-    public PlayerColor Color;
+    @Id
+    @GeneratedValue
+    private Long Id;
+
+    @OneToOne
+    private Field currentPosition = null;
+
+    @Transient
+    @JsonIgnore
+    private PlayerColor Color;
 
 
     public void setCurrentPosition(Field currentPosition) {
@@ -22,6 +35,11 @@ public class Figure {
 
     public Field getCurrentPosition() {
         return currentPosition;
+    }
+
+
+    public Long getId() {
+        return Id;
     }
 
     /** am anfang farbe zuteilen

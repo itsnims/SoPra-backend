@@ -1,7 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
 
-import ch.uzh.ifi.seal.soprafs18.Entity.User;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;

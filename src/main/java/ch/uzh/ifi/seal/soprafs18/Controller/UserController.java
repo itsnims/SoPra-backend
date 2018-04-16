@@ -1,6 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
-import ch.uzh.ifi.seal.soprafs18.Entity.User;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +18,13 @@ public class UserController {
 
     @GetMapping(value = CONTEXT)
     @ResponseStatus(HttpStatus.OK)
-    public List<User> getUsers(){
+    public List<Player> getUsers(){
         return userService.getUsers();
     }
 
     @PostMapping(value = CONTEXT)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody User user){
+    public void createUser(@RequestBody Player user){
         userService.addUser(user);
     }
 

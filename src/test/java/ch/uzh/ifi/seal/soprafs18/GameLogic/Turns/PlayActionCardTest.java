@@ -19,7 +19,7 @@ public class PlayActionCardTest {
     DrawActionCard Cartographer1 = new DrawActionCard("Cartographer","Purple",true,4,2,false);
     MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone Terminal","Purple",false,4);
     Figure smallplayer = new Figure();
-    Field A1 = new Field(1,"green",true,true,true);
+    Field A1 = new Field(1,"green",true, "test");
 
 
     @Test

@@ -52,15 +52,21 @@ public class Game {
     @Column
     private int current;
 
+    /**steps when crossing blockade:
+     * 1. from field: getBlockadeFromNeighbours()
+     * 2. blockade: setCrossed()
+     * 3. blockade: removeBlockade(...) -->removes from neighbours this blockade and sets new neighbours*/
 
-
+    
     public Game(){}
 
-    public void gameSetup(){
+    public void gameSetup() {
 
+        Path path=new Path();
+        //path.StandardPathFields.get(0);-->to get the corresponding fields for Standard Path...
         market.getInstance().marketsetup();
         market.setName("Market");
-        for (int j = 0; j < players.size();j++){
+        for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
             players.get(j).setup();
             players.get(j).setTurn(false);
@@ -69,10 +75,9 @@ public class Game {
             /** players.get(j).getMyFigure().setCurrentPosition(); **/
         }
 
-
-
-
     }
+
+
 
     public void addPlayer(Player player){ players.add(player); }
 

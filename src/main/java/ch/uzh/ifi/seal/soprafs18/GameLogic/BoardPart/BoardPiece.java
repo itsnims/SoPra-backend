@@ -3,12 +3,10 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 public abstract class BoardPiece {
     public int Strenght;
     public String Color;
-    public boolean PlayAnyCard;
 
-    public BoardPiece(int strenght,String color, boolean PlayAnyCard) {
+    public BoardPiece(int strenght, String color) {
         this.Color=color;
         this.Strenght=strenght;
-        this.PlayAnyCard=PlayAnyCard;
     }
 
     public int getStrenght() {
@@ -19,7 +17,4 @@ public abstract class BoardPiece {
         return Color;
     }
 
-    public boolean PlayAnyCard(){
-        return PlayAnyCard;
-    }
 }

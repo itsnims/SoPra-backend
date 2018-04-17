@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class FigureTest {
 
-    private Field field = new Field(0,"Green",false,false,true);
+    private Field field = new Field(0,"Green",true,"test");
     private Figure figure= new Figure();
 
     @Test
@@ -27,7 +27,4 @@ public class FigureTest {
         Assert.assertEquals(field, result);
     }
 
-    @Test
-    public void moveFigure() {
-    }
 }

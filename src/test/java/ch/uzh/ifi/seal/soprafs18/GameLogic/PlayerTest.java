@@ -16,7 +16,7 @@ public class PlayerTest {
 
     private Player TestPlayer = new Player();
     private DrawActionCard TestCard = new DrawActionCard("Nimra","blue",true,2,2,false);
-    Field A1 = new Field(1,"green",true,true,true);
+    Field A1 = new Field(1,"green",true, "test");
 
     @Test
     public void TestdrawCards() {

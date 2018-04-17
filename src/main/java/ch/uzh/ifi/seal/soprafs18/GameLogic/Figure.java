@@ -42,8 +42,4 @@ public class Figure {
     public Figure(){
 
     }
-
-    public void moveFigure(){
-        /**needs to be moveable over: field, blockade and eldorado */
-    }
 }

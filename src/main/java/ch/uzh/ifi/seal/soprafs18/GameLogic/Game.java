@@ -49,88 +49,19 @@ public class Game {
     @Column
     int current;
 
+    /**steps when crossing blockade:
+     * 1. from field: getBlockadeFromNeighbours()
+     * 2. blockade: setCrossed()
+     * 3. blockade: removeBlockade(...) -->removes from neighbours this blockade and sets new neighbours*/
 
 
-    public Game(){}
+    public Game(){
+
+        Path path=new Path();
+        //path.StandardPathFields.get(0);-->to get the corresponding fields for Standard Path...
+    }
+
     public Game(String name){
-
-        Field A1 = new Field(0,"Green",false,false,true);
-        Field A2 = new Field(0,"Green",false,false,true);
-        Field A3 = new Field(0,"Green",false,false,true);
-        Field A4 = new Field(0,"Green",false,false,true);
-        Field A5 = new Field(1,"Green",false,false,true);
-        Field A6 = new Field(1,"Green",false,false,true);
-        Field A7 = new Field(1,"Green",false,false,true);
-        Field A8 = new Field(1,"Green",false,false,true);
-        Field A9 = new Field(1,"Green",false,false,true);
-        Field A10 = new Field(1,"Green",false,false,true);
-        Field A11 = new Field(1,"Green",false,false,true);
-        Field A12 = new Field(1,"Yellow",false,false,true);
-        Field A13 = new Field(1,"Green",false,false,true);
-        Field A14 = new Field(1,"Blue",false,false,true);
-        Field A15 = new Field(1,"Green",false,false,true);
-        Field A16 = new Field(1,"Green",false,false,true);
-        Field A17 = new Field(1,"Yellow",false,false,true);
-        Field A18 = new Field(1,"Green",false,false,true);
-        Field A19 = new Field(1,"Blue",false,false,true);
-        Field A20 = new Field(1,"Green",false,false,true);
-        Field A21 = new Field(1,"Yellow",false,false,true);
-        Field A22 = new Field(1,"Green",false,false,true);
-        Field A23 = new Field(1,"Green",false,false,true);
-        Field A24 = new Field(0,"Cave",false,false,false);
-        Field A25 = new Field(1,"Yellow",false,false,true);
-        Field A26 = new Field(1,"Green",false,false,true);
-        Field A27 = new Field(1,"Green",false,false,true);
-        Field A28 = new Field(1,"Green",false,false,true);
-        Field A29 = new Field(1,"Blue",false,false,true);
-        Field A30 = new Field(1,"Cave",false,false,false);
-        Field A31 = new Field(1,"Green",false,false,true);
-        Field A32 = new Field(1,"Green",false,false,true);
-        Field A33 = new Field(1,"Yellow",false,false,true);
-        Field A34 = new Field(1,"Green",false,false,true);
-        Field A35 = new Field(1,"Red",true,true,true);
-        Field A36 = new Field(1,"Green",false,false,true);
-        Field A37 = new Field(1,"Green",false,false,true);
-        A1.AddNewNeighbour(A2,A5,A6);
-        A2.AddNewNeighbour(A1,A6,A7,A3);
-        A3.AddNewNeighbour(A2,A7,A8,A4);
-        A4.AddNewNeighbour(A3,A8,A9);
-        A5.AddNewNeighbour(A1,A6,A10,A11);
-        A6.AddNewNeighbour(A1,A2,A7,A12,A11,A5);
-        A7.AddNewNeighbour(A2,A3,A8,A13,A12,A6);
-        A8.AddNewNeighbour(A3,A4,A9,A14,A13,A7);
-        A9.AddNewNeighbour(A4,A15,A14,A8);
-        A10.AddNewNeighbour(A5,A11,A17,A16);
-        A11.AddNewNeighbour(A5,A6,A12,A18,A17,A10);
-        A12.AddNewNeighbour(A6,A7,A13,A19,A18,A11);
-        A13.AddNewNeighbour(A7,A8,A14,A20,A19,A12);
-        A14.AddNewNeighbour(A8,A9,A15,A21,A20,A13);
-        A15.AddNewNeighbour(A9,A22,A21,A14);
-        A16.AddNewNeighbour(A10,A17,A23);
-        A17.AddNewNeighbour(A10,A11,A18,A24,A23,A16);
-        A18.AddNewNeighbour(A11,A12,A19,A25,A24,A17);
-        A19.AddNewNeighbour(A12,A13,A20,A26,A25,A18);
-        A20.AddNewNeighbour(A13,A14,A21,A27,A26,A19);
-        A21.AddNewNeighbour(A14,A15,A22,A28,A27,A20);
-        A22.AddNewNeighbour(A15,A28,A21);
-        A23.AddNewNeighbour(A16,A17,A24,A29);
-        A24.AddNewNeighbour(A17,A18,A25,A30,A29,A23);
-        A25.AddNewNeighbour(A18,A19,A26,A31,A30,A24);
-        A26.AddNewNeighbour(A19,A20,A27,A32,A32,A25);
-        A27.AddNewNeighbour(A20,A21,A28,A33,A32,A26);
-        A28.AddNewNeighbour(A21,A22,A33,A27);
-        A29.AddNewNeighbour(A23,A24,A30,A34);
-        A30.AddNewNeighbour(A24,A25,A31,A35,A34,A29);
-        A31.AddNewNeighbour(A25,A26,A32,A36,A35,A30);
-        A32.AddNewNeighbour(A26,A27,A33,A37,A36,A31);
-        A33.AddNewNeighbour(A27,A28,A37,A32);
-        A34.AddNewNeighbour(A29,A30,A35);
-        A35.AddNewNeighbour(A34,A30,A31,A36);
-        A36.AddNewNeighbour(A35,A31,A32,A37);
-        A37.AddNewNeighbour(A36,A32,A33);
-
-
-
     }
 
     public void addPlayer(Player player){ players.add(player); }

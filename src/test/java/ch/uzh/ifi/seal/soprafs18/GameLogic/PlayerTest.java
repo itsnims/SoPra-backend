@@ -89,7 +89,6 @@ public class PlayerTest {
         Figure small = new Figure();
         TestPlayer.setMyFigure(small);
         TestPlayer.myFigure.setCurrentPosition(A1);
-        TestPlayer.myFigure.setColor(TestPlayer.getPlayerColor());
 
         Assert.assertEquals(small,TestPlayer.myFigure);
 

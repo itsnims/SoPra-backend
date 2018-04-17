@@ -13,6 +13,7 @@ public class MarketTest {
 
     @Test
     public void isfree() {
+        testmarket.marketsetup();
         boolean full;
         full = testmarket.isfree();
         Assert.assertEquals(false,full);
@@ -20,6 +21,7 @@ public class MarketTest {
 
     @Test
     public void getCardsfromUpper() {
+        testmarket.marketsetup();
         testmarket.BottomCards.remove(0);
         List<Card> wanteddeck;
         Object object= testmarket.UpperCards.get(0);
@@ -33,6 +35,7 @@ public class MarketTest {
 
     @Test
     public void leftonDeckBottom() {
+        testmarket.marketsetup();
         List<Card> wanted;
         int actual;
         Object object= testmarket.BottomCards.get(3);
@@ -43,6 +46,7 @@ public class MarketTest {
 
     @Test
     public void leftonDeckUpper() {
+        testmarket.marketsetup();
         List<Card> wanted;
         int actual;
         Object object= testmarket.UpperCards.get(5);

@@ -30,6 +30,7 @@ public class BuyTurnTest {
 
     @Test
     public void deletefromMarket() {
+        test.marketsetup();
         player.setup();
         player.drawCards();
         List<Card> selection = player.handcards;

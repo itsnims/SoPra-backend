@@ -16,7 +16,7 @@ public abstract class Card {
     @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(unique = false)
     private String name;
 
     @Transient

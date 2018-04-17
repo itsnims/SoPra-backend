@@ -25,7 +25,8 @@ public class GameWaitingController {
 
     @PutMapping(value = CONTEXT + "/{user}/{room}/exit")
     @ResponseStatus(HttpStatus.OK)
-    public void leavePlayers(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
-         gameWaitingService.leaveGame(user, room);
+    public List<Player> leavePlayers(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
+        List<Player> players= gameWaitingService.leaveGame(user, room);
+        return players;
     }
 }

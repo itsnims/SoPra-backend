@@ -28,14 +28,14 @@ public class GameWaitingService {
     }
 
     @Transactional
-    public void leaveGame(String gamename, String username){
+    public List<Player> leaveGame(String gamename, String username){
         Game game = gameRepository.findByName(gamename);
         Player player =  userRepository.findByName(username);
-        System.out.println(player);
-        game.deletePlayer(player);
-        Game newgame = game;
-        gameRepository.deleteByName(gamename);
-        gameRepository.save(newgame);
+        List<Player> players = game.getPlayers();
+        players.remove(player);
+        gameRepository.save(game);
+
+        return players;
 
 
 

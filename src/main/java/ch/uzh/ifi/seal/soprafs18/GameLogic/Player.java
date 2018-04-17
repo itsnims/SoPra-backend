@@ -14,8 +14,9 @@ import java.util.List;
 @Entity
 public class Player {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue
+    @JsonIgnore
     private long Id;
 
     @Column(unique = true)
@@ -29,6 +30,8 @@ public class Player {
 
     @Column
     private Boolean Turn;
+
+
 
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> drawpile = new ArrayList<Card>(80);
@@ -59,7 +62,6 @@ public class Player {
         ExpeditionCard Explorer1 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
         ExpeditionCard Explorer2 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
         ExpeditionCard Explorer3 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
-        ExpeditionCard Explorer4 = new ExpeditionCard("Explorer", "Green", true, 0.5, 1);
         ExpeditionCard Traveler1 = new ExpeditionCard("Traveler", "Yellow", true, 0.5, 1);
         ExpeditionCard Traveler2 = new ExpeditionCard("Traveler", "Yellow", true, 0.5, 1);
         ExpeditionCard Traveler3 = new ExpeditionCard("Traveler", "Yellow", true, 0.5, 1);
@@ -68,7 +70,6 @@ public class Player {
         drawpile.add(Explorer1);
         drawpile.add(Explorer2);
         drawpile.add(Explorer3);
-        drawpile.add(Explorer4);
         drawpile.add(Traveler1);
         drawpile.add(Traveler2);
         drawpile.add(Traveler3);

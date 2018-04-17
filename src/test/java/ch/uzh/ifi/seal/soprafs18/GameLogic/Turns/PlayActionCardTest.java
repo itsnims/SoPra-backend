@@ -44,6 +44,7 @@ public class PlayActionCardTest {
 
     @Test
     public void turnfunctionmarkettest(){
+        testmarket.getInstance().marketsetup();
         player.setup();
         MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone Terminal","Purple",false,4);
         TelephoneTerminal1.setChoice(TelephoneTerminal2);

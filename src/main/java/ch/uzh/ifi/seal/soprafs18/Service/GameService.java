@@ -25,6 +25,11 @@ public class GameService {
         return games;
     }
 
+    public Game getGame(String name){
+        Game game =gameRepository.findByName(name);
+        return game;
+    }
+
     public void addGame(Game game){
         String ownername = game.getOwner();
         Player owner =userRepository.findByName(ownername);

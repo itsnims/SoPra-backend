@@ -24,7 +24,7 @@ public class Game {
     private int maxplayer;
 
     @Column
-    private Boolean protection;
+    private Boolean protection = false;
 
     @Column
     private String password;
@@ -35,8 +35,8 @@ public class Game {
     @OneToMany
     public List<Player> players = new ArrayList<Player>(4);
 
-    @OneToOne
-    private Market market;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Market market = new Market();
 
     @JsonIgnore
     @Transient
@@ -58,11 +58,10 @@ public class Game {
 
     public void gameSetup(){
 
-        Market market = Market.getInstance();
-        market.marketsetup();
+        market.getInstance().marketsetup();
+        market.setName("Market");
         for (int j = 0; j < players.size();j++){
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
-            PlayerColor color = players.get(j).getPlayerColor();
             players.get(j).setup();
             players.get(j).setTurn(false);
 
@@ -187,5 +186,14 @@ public class Game {
 
     public void setProtection(Boolean protection) {
         this.protection = protection;
+    }
+
+
+    public Market getMarket() {
+        return market;
+    }
+
+    public void setMarket(Market market) {
+        this.market = market;
     }
 }

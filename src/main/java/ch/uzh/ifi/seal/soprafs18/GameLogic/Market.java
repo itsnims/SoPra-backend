@@ -18,7 +18,11 @@ public class Market {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
+
+    @Column
+    private String marketname;
 
     @Transient
     @JsonIgnore
@@ -216,6 +220,9 @@ public class Market {
         }
         return instance;
     }
+
+    @Transient
+    @JsonIgnore
     public boolean isfree() {
         currentBottomCards = BottomCards.size();
         if (currentBottomCards < 6) {
@@ -224,7 +231,8 @@ public class Market {
         return false;
     }
 
-
+    @Transient
+    @JsonIgnore
     public void getCardsfromUpper(List SelectedDeck) {
 
         if (isfree()) {
@@ -236,6 +244,8 @@ public class Market {
         }
     }
 
+    @Transient
+    @JsonIgnore
     //Left on Deck Bottom/Upper is for updating the number of left Cards on a clicked Deck or bought from...
     public int LeftonDeckBottom(List clickedDeck) {
         int LeftonDeckB = clickedDeck.size();
@@ -244,7 +254,8 @@ public class Market {
         }
         return LeftonDeckB;
     }
-
+    @Transient
+    @JsonIgnore
     public void RemoveIfEmpty(List clickedDeck) {
         int LeftonDeckB = clickedDeck.size();
         if (LeftonDeckB <= 0) {
@@ -252,7 +263,8 @@ public class Market {
         }
     }
 
-
+    @Transient
+    @JsonIgnore
     public int LeftonDeckUpper(List clickedDeck) {
         int LeftonDeckU = clickedDeck.size();
         if (LeftonDeckU <= 0) {
@@ -262,7 +274,21 @@ public class Market {
 
     }
 
+    public void setName(String name){
+        marketname = name;
+    }
 
+    public String getName() {
+        return marketname;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
 
 

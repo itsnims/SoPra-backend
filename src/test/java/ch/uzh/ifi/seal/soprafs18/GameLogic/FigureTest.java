@@ -18,18 +18,7 @@ public class FigureTest {
         Assert.assertEquals(field, figure.getCurrentPosition());
     }
 
-    @Test
-    public void setColor() {
-        figure.setColor(PlayerColor.WHITE);
-        Assert.assertEquals(PlayerColor.WHITE, figure.getColor());
-    }
 
-    @Test
-    public void getColor(){
-        figure.setColor(PlayerColor.WHITE);
-        PlayerColor result = figure.getColor();
-        Assert.assertEquals(PlayerColor.WHITE, result);
-    }
 
     @Test
     public void getCurrentPosition() {

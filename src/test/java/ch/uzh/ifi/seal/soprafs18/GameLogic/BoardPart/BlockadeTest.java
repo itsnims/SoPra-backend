@@ -34,7 +34,7 @@ public class BlockadeTest {
         Field B33 = new Field(1,"Green",true, "B33");
         Field B28 = new Field(1,"Green",true, "B28");
         Field B22 = new Field(1,"Blue",true, "B22");
-        Blockade blockade= new Blockade(1, "Blue", false);
+        Blockade blockade= new Blockade(1, "Blue", true);
         B22.AddNewNeighbour(B28,blockade);
         B28.AddNewNeighbour(B22,B33,blockade);
         B33.AddNewNeighbour(B28,B37, blockade);

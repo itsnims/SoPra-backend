@@ -9,8 +9,8 @@ import static org.junit.Assert.*;
 
 public class FieldTest {
 
-    private Field field = new Field(0,"Green",false,false,true);
-    private Field fieldToAdd = new Field(1,"Green",false,false,true);
+    private Field field = new Field(0,"Green",true, "test");
+    private Field fieldToAdd = new Field(1,"Green",true, "test");
 
     @Test
     public void addNewNeighbour() {
@@ -19,14 +19,29 @@ public class FieldTest {
     }
 
     @Test
-    public void getaccessable() {
+    public void getAccessable() {
         boolean result = field.getAccessable();
         Assert.assertEquals(true,result);
     }
 
     @Test
-    public void getTrashCard() {
-        boolean result = field.getTrashCards();
-        Assert.assertEquals(false ,result);
+    public void getName(){
+        String result= field.getName();
+        Assert.assertEquals("test", result);
     }
+
+    @Test
+    public void setName(){
+        field.setName("test1");
+        Assert.assertEquals("test1", field.getName());
+    }
+
+    @Test
+    public void getBlockadeFromNeighbours(){
+        Blockade blockade= new Blockade(1, "Blue", false);
+        field.AddNewNeighbour(fieldToAdd, blockade);
+        Blockade result= field.getBlockadeFromNeighbours();
+        Assert.assertEquals(blockade, result);
+    }
+
 }

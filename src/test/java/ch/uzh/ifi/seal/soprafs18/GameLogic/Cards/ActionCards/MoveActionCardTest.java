@@ -13,7 +13,7 @@ public class MoveActionCardTest {
     Player nimra = new Player();
     Figure smallnimra = new Figure();
     MoveActionCard MoveOne = new MoveActionCard("test","purple",true,1);
-    Field A1 = new Field(1,"green",true,true,true);
+    Field A1 = new Field(1,"green",true, "test");
 
     @Test
     public void setPlayer() {

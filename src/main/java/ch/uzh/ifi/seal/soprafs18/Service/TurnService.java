@@ -1,6 +1,9 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.DiscardCard;
@@ -86,7 +89,17 @@ public class TurnService {
 
         return player.drawpile;
 
+    }
 
+    public List<String> PlayExpedition(String gamename,String playername,String cardname){
+        List<String> options = new ArrayList<>();
+        Game game = gameRepository.findByName(gamename);
+        Player player = userRepository.findByName(playername);
+        ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
+        /** if null throw expection **/
+        List<BoardPiece> ways = player.getMyFigure().getCurrentPosition().getAll(Card.getCardColour(),Card.getCardStrenght(),player.getMyFigure().getCurrentPosition());
+
+       return null;
 
     }
 }

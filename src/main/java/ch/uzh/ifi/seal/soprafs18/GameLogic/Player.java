@@ -169,6 +169,16 @@ public class Player {
         BlockadePoints = 0;
     }
 
+    public Card getWantedCard(String cardname){
+        for(int i = 0; i < handcards.size(); i++){
+            if(cardname.equals(handcards.get(i)));
+                return handcards.get(i);
+        }
+
+        return null;
+
+    }
+
 
 }
 

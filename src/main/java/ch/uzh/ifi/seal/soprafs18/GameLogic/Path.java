@@ -15,12 +15,12 @@ public class Path {
     List<Field> StandardPathFields= new ArrayList<>();
 
     /**all possible blockades*/
-    Blockade blockade4= new Blockade(1,"Blue",false);
-    Blockade blockade2= new Blockade(1,"Yellow",false);
-    Blockade blockade1= new Blockade(1,"Green",false);
-    Blockade blockade5= new Blockade(2,"Green",false);
-    Blockade blockade6= new Blockade(2,"White",false);   /** if blockade is white: play (blockade points) cards to cross, any card is acceptable */
-    Blockade blockade3= new Blockade(1,"White",false);
+    Blockade blockade4= new Blockade("BK4",1,"Blue",false);
+    Blockade blockade2= new Blockade("BK2",1,"Yellow",false);
+    Blockade blockade1= new Blockade("BK1",1,"Green",false);
+    Blockade blockade5= new Blockade("BK5",2,"Green",false);
+    Blockade blockade6= new Blockade("BK6",2,"White",false);   /** if blockade is white: play (blockade points) cards to cross, any card is acceptable */
+    Blockade blockade3= new Blockade("BK3",1,"White",false);
 
     /***
      * field kinds: Green, Yellow, Blue, White (play any card(s)), Cave (always not accessable), Camp (thrash card(s)) -->how many depends on strenght
@@ -595,5 +595,17 @@ public class Path {
         StandardPathFields.add(K37StandardPath);StandardPathFields.add(EDBlue1);StandardPathFields.add(EDBlue2);StandardPathFields.add(EDBlue3);
 
     }
+
+    public List<Field> getStartingFields(){
+        List<Field> starters = new ArrayList<>();
+        starters.add(StandardPathFields.get(0));
+        starters.add(StandardPathFields.get(1));
+        starters.add(StandardPathFields.get(2));
+        starters.add(StandardPathFields.get(3));
+
+        return starters;
+
+    }
+
 
 }

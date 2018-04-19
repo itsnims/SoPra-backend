@@ -2,6 +2,7 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -19,9 +20,11 @@ public class Game {
     @Column
     private String owner;
 
-
     @Column
     private int maxplayer;
+
+    @Column
+    private String pathname;
 
     @Column
     private Boolean protection = false;
@@ -62,12 +65,14 @@ public class Game {
 
     public void gameSetup() {
 
-        Path path=new Path();
+        Path path = new Path();
+        List<Field> starters = path.getStartingFields();
         //path.StandardPathFields.get(0);-->to get the corresponding fields for Standard Path...
         market.getInstance().marketsetup();
         market.setName("Market");
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
+            players.get(j).getMyFigure().setCurrentPosition(starters.get(j));
             players.get(j).setup();
             players.get(j).setTurn(false);
 
@@ -200,5 +205,13 @@ public class Game {
 
     public void setMarket(Market market) {
         this.market = market;
+    }
+
+    public void setPathname(String name){
+        pathname = name;
+    }
+
+    public String getPathname() {
+        return pathname;
     }
 }

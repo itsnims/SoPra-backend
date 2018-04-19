@@ -30,7 +30,7 @@ public class Figure {
         return currentPosition;
     }
 
-
+    @JsonIgnore
     public Long getId() {
         return Id;
     }

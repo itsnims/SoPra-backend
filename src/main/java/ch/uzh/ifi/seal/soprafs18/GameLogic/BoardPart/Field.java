@@ -1,8 +1,12 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.util.ArrayList;
@@ -27,17 +31,25 @@ public class Field extends BoardPiece {
      * not taken
      */
 
-    public Field(int strenght, String color, boolean Accessable, String name) {
+    public Field(){
+
+    }
+    @JsonIgnore
+    public Field(int strenght, String color, boolean Accessable,String name) {
         super(strenght, color);
-        this.name = name;
         this.Accessable = Accessable;
+        this.name = name;
 
     }
 
+    @Transient
+    @JsonIgnore
     public boolean getAccessable() {
         return Accessable;
     }
 
+    @Transient
+    @JsonIgnore
     public void AddNewNeighbour(BoardPiece neighbour, BoardPiece... boardPieces) {
         neighbours.add(neighbour);
         if (boardPieces.length > 0) {
@@ -47,14 +59,10 @@ public class Field extends BoardPiece {
         }
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
+    @Transient
+    @JsonIgnore
     public Blockade getBlockadeFromNeighbours() {
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i) instanceof Blockade) {
@@ -62,5 +70,54 @@ public class Field extends BoardPiece {
             }
         }
         return null;
+    }
+
+    @Transient
+    @JsonIgnore
+    public List<BoardPiece> getNeighbours() {
+        return neighbours;
+    }
+
+    @Transient
+    @JsonIgnore
+    public Boolean getUsable(String Color, int Strenght,Field compare) {
+        if ((compare.getColor().equals(Color) || compare.getColor().equals("Red") || compare.getColor().equals("White") || Color.equals("White")) && compare.getStrenght() <= Strenght && compare.getAccessable()) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    /** returns all fields reachable from start tile with given color and strenght **/
+    @Transient
+    @JsonIgnore
+    public List<BoardPiece> getAll (String Color, int Strenght,Field field){
+        List<BoardPiece> list = new ArrayList<>();
+        List<BoardPiece> unique = new ArrayList<>();
+        list.add(field);
+        for (int i = 0; i < field.getNeighbours().size(); i++){
+            BoardPiece piece = field.getNeighbours().get(i);
+            if(piece instanceof Blockade){
+                list.add(piece);
+                continue;
+            }
+
+            Field neighbour = (Field) piece;
+            if(getUsable(Color,Strenght,neighbour)){
+                list.addAll(getAll(Color,Strenght-neighbour.getStrenght(),neighbour));
+            }
+        }
+        return list;
+
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

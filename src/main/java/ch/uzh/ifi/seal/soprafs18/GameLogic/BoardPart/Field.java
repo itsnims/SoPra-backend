@@ -2,6 +2,7 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Path;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -93,13 +94,16 @@ public class Field extends BoardPiece {
     @Transient
     @JsonIgnore
     public List<BoardPiece> getAll (String Color, int Strenght,Field field){
+
         List<BoardPiece> list = new ArrayList<>();
-        List<BoardPiece> unique = new ArrayList<>();
+        if (Strenght <= 0){
+            return list;
+        }
         list.add(field);
         for (int i = 0; i < field.getNeighbours().size(); i++){
             BoardPiece piece = field.getNeighbours().get(i);
             if(piece instanceof Blockade){
-                list.add(piece);
+                list.add(piece); /** to dooo */
                 continue;
             }
 

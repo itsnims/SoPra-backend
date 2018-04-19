@@ -35,9 +35,6 @@ public class Figure {
         return Id;
     }
 
-    /** am anfang farbe zuteilen
-     *
-     */
 
     public Figure(){
 

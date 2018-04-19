@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 public abstract class ActionCard extends Card {
 
     public ActionCard(String name,String cardColour,Boolean reusable, Integer Price){
-        super(name,cardColour,reusable,Price);
+        super(name,reusable,Price);
     }
     public abstract void doSpecialFunction();
 

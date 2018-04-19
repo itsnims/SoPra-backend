@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Path {
 
+
+
     public List<Blockade> Blockades= new ArrayList<>(6);
     List<Field> StandardPathFields= new ArrayList<>();
 
@@ -605,6 +607,10 @@ public class Path {
 
         return starters;
 
+    }
+
+    public List<Field> getStandartPath(){
+        return StandardPathFields;
     }
 
 

@@ -10,16 +10,26 @@ import javax.persistence.Entity;
 @DiscriminatorValue("E")
 public class ExpeditionCard extends Card {
     private Integer CardStrenght;
+    private String CardColour;
 
     public ExpeditionCard(){}
 
     public ExpeditionCard(String name, String cardColour, Boolean reusable, double Price,Integer CardStrenght) {
-        super(name,cardColour,reusable,Price);
+        super(name,reusable,Price);
         this.CardStrenght = CardStrenght;
+        this.CardColour = cardColour;
+
+    }
+
+
+    public String getCardColour() {
+        return CardColour;
     }
 
     public Integer getCardStrenght() {
         return CardStrenght;
     }
+
+
 }
 

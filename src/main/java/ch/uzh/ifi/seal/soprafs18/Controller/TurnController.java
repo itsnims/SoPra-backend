@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.Service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,18 @@ public class TurnController {
     }
 
     @PutMapping(value = CONTEXT + "/{room}/{user}/endturn")
+    @ResponseStatus(HttpStatus.OK)
     public List<Card> Endmyturn(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room) {
         List<Card> cards = turnService.Endturn(room, user);
         return cards;
     }
+
+    @GetMapping(value = CONTEXT + "/{room}/{user}/{cardname}/move")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BoardPiece> getMyOptions(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="cardname") String cardname){
+        List<BoardPiece> myOptions = turnService.GetPossibleFields(room,user,cardname);
+        return myOptions;
+    }
+
 
 }

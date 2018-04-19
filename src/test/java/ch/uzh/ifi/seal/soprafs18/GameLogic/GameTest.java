@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 public class GameTest {
     private Game game= new Game();
     private Player dPlaya= new Player();
+    private Figure small = new Figure();
+
 
     @Test
     public void AddPlayer() {
@@ -31,4 +33,6 @@ public class GameTest {
         int result = game.getNumFigures();
         Assert.assertEquals(1, result);
     }
+
+
 }

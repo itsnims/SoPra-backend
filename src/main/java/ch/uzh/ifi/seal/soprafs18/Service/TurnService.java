@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
@@ -91,15 +92,27 @@ public class TurnService {
 
     }
 
-    public List<String> PlayExpedition(String gamename,String playername,String cardname){
-        List<String> options = new ArrayList<>();
+    public List<BoardPiece> GetPossibleFields(String gamename,String playername,String cardname){
+        List<BoardPiece> options = new ArrayList<>();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
-        ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
-        /** if null throw expection **/
-        List<BoardPiece> ways = player.getMyFigure().getCurrentPosition().getAll(Card.getCardColour(),Card.getCardStrenght(),player.getMyFigure().getCurrentPosition());
+        List<Field> gamePath= game.getGamePath();
 
-       return null;
+        Field wanted = player.getMyFigure().getCurrentPosition();
+        Field actual = new Field();
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(wanted.getName())){
+                actual = gamePath.get(i);
+            }
+
+        }
+
+        ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
+        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
+
+        return actual.getNeighbours();
+
 
     }
 }

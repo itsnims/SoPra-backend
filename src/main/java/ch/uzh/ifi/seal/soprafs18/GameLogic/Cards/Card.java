@@ -19,30 +19,24 @@ public abstract class Card {
     @Column(unique = false)
     private String name;
 
-    @Transient
-    @JsonIgnore
-    private String cardColour;
+
     @Transient
     @JsonIgnore
     private Boolean reusable;
+
     @Transient
     @JsonIgnore
     private double Price;
 
     public Card(){}
-    public Card(String name,String cardColour,Boolean reusable,double Price ) {
+    public Card(String name,Boolean reusable,double Price ) {
         this.name =name;
-        this.cardColour=cardColour;
         this.reusable=reusable;
         this.Price=Price;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getCardColour() {
-        return cardColour;
     }
 
     public Boolean getReusable() {

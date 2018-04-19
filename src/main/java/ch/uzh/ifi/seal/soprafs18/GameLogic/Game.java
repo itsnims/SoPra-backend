@@ -2,7 +2,9 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -55,6 +57,10 @@ public class Game {
     @Column
     private int current;
 
+    @JsonIgnore
+    @Transient
+    private Path GamePath = new Path();
+
     /**steps when crossing blockade:
      * 1. from field: getBlockadeFromNeighbours()
      * 2. blockade: setCrossed()
@@ -72,7 +78,8 @@ public class Game {
         market.setName("Market");
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
-            players.get(j).getMyFigure().setCurrentPosition(starters.get(j));
+            players.get(j).getMyFigure().setCurrentPosition(getGamePath().get(j));
+            System.out.println(players.get(j).getMyFigure().getCurrentPosition().getNeighbours());
             players.get(j).setup();
             players.get(j).setTurn(false);
 
@@ -214,4 +221,13 @@ public class Game {
     public String getPathname() {
         return pathname;
     }
+
+    public List<Field> getGamePath(){
+        List<Field> Standartpath = GamePath.getStandartPath();
+
+        return Standartpath;
+    }
+
+
+
 }

@@ -26,7 +26,7 @@ public class Market {
 
     @Transient
     @JsonIgnore
-    public ArrayList<List> BottomCards = new ArrayList<>(6);
+    public List<List> BottomCards = new ArrayList<>(6);
 
     @Transient
     @JsonIgnore

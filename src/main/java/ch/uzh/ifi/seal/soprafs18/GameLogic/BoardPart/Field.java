@@ -103,20 +103,29 @@ public class Field extends BoardPiece {
 
 
         List<BoardPiece> list = new ArrayList<>();
-        for (int i = 0; i < field.getNeighbours().size(); i++){
+        for (int i = 0; i < field.getNeighbours().size(); i++) {
             BoardPiece piece = field.getNeighbours().get(i);
-            Field neighbour = (Field) piece;
-
-            if(getUsable(Color,Strenght,neighbour)){
-                if (neighbour.getStrenght()>0){list.add(neighbour);}
-                if (neighbour.getStrenght()>0){
-                   int newStrenght = Strenght - neighbour.getStrenght();
-                    if ((newStrenght) > 0) {
-                        System.out.println(newStrenght);
-                        list.addAll(getAll(Color, newStrenght, neighbour));
-                    }
+            if (piece instanceof Blockade) {
+                if (((Blockade) piece).getStrenght() <= Strenght && piece.getColor().equals(Color)) {
+                    list.add(piece);
                 }
 
+            }
+            else {
+                Field neighbour = (Field) piece;
+                if (getUsable(Color, Strenght, neighbour)) {
+                    if (neighbour.getStrenght() > 0) {
+                        list.add(neighbour);
+                    }
+                    if (neighbour.getStrenght() > 0) {
+                        int newStrenght = Strenght - neighbour.getStrenght();
+                        if ((newStrenght) > 0) {
+                            System.out.println(newStrenght);
+                            list.addAll(getAll(Color, newStrenght, neighbour));
+                        }
+                    }
+
+                }
             }
         }
         return list;

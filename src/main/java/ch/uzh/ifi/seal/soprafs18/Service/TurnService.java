@@ -105,7 +105,6 @@ public class TurnService {
             if(gamePath.get(i).getName().equals(currentPosition.getName())){
                 actual = gamePath.get(i);
             }
-
         }
 
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);

@@ -28,6 +28,10 @@ public class Field extends BoardPiece {
     @JsonIgnore
     public boolean Accessable;
 
+    @JsonIgnore
+    @Transient
+    int Strenght;
+
     /**
      * not taken
      */
@@ -37,9 +41,11 @@ public class Field extends BoardPiece {
     }
     @JsonIgnore
     public Field(int strenght, String color, boolean Accessable,String name) {
-        super(strenght, color);
+        super(color);
         this.Accessable = Accessable;
         this.name = name;
+        this.Strenght = strenght;
+
 
     }
 
@@ -82,34 +88,36 @@ public class Field extends BoardPiece {
     @Transient
     @JsonIgnore
     public Boolean getUsable(String Color, int Strenght,Field compare) {
-        if ((compare.getColor().equals(Color) || compare.getColor().equals("Red") || compare.getColor().equals("White") || Color.equals("White")) && compare.getStrenght() <= Strenght && compare.getAccessable()) {
+        if (compare.getColor().equals(Color) && Strenght>=compare.getStrenght()) {
             return true;
+        } else {
+
+            return false;
         }
-
-        return false;
-
     }
 
     /** returns all fields reachable from start tile with given color and strenght **/
     @Transient
     @JsonIgnore
     public List<BoardPiece> getAll (String Color, int Strenght,Field field){
+        System.out.println("im inside the function");
 
         List<BoardPiece> list = new ArrayList<>();
-        if (Strenght <= 0){
-            return list;
-        }
-        list.add(field);
         for (int i = 0; i < field.getNeighbours().size(); i++){
             BoardPiece piece = field.getNeighbours().get(i);
-            if(piece instanceof Blockade){
-                list.add(piece); /** to dooo */
-                continue;
-            }
-
             Field neighbour = (Field) piece;
+            System.out.println("im in for");
             if(getUsable(Color,Strenght,neighbour)){
-                list.addAll(getAll(Color,Strenght-neighbour.getStrenght(),neighbour));
+                list.add(neighbour);
+                System.out.println("im at the neighbour");
+                if (neighbour.getStrenght()>0){
+                   int newStrenght = Strenght - neighbour.getStrenght();
+                    if ((newStrenght) > 0) {
+                        System.out.println(newStrenght);
+                        list.addAll(getAll(Color, newStrenght, neighbour));
+                    }
+                }
+
             }
         }
         return list;
@@ -124,4 +132,8 @@ public class Field extends BoardPiece {
     public String getName() {
         return name;
     }
+
+    public int getStrenght() {
+        return Strenght;
+}
 }

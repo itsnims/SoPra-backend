@@ -57,11 +57,8 @@ public class DrawActionCardTest {
 
     }
 
-    @Test
-    public void getCardColour() {
-        String result = DrawTwoCards.getCardColour();
-        Assert.assertEquals("TestColor",result);
-    }
+
+
 
     @Test
     public void getReusable() {

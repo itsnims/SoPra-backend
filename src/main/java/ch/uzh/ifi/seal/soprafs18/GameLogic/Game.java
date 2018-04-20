@@ -79,7 +79,6 @@ public class Game {
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
             players.get(j).getMyFigure().setCurrentPosition(getGamePath().get(j));
-            System.out.println(players.get(j).getMyFigure().getCurrentPosition().getNeighbours());
             players.get(j).setup();
             players.get(j).setTurn(false);
 

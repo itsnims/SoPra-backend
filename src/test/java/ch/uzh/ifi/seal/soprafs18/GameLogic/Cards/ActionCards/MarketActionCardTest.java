@@ -32,17 +32,7 @@ public class MarketActionCardTest {
 
     }
 
-    @Test
-    public void getName() {
-        String result = buyone.getCardColour();
-        Assert.assertEquals("color",result);
-    }
 
-    @Test
-    public void getCardColour() {
-        String result = buyone.getCardColour();
-        Assert.assertEquals("color",result);
-    }
 
     @Test
     public void getReusable() {

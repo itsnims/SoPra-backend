@@ -10,12 +10,14 @@ import java.util.ListIterator;
 public class Blockade extends BoardPiece {
 
     private String name;
+    private int Strenght;
 
     public boolean crossed;
     public List<Field> neighbours= new ArrayList<>();
 
     public Blockade(String name,int Strenght,String Color, boolean crossed) {
-        super(Strenght,Color);
+        super(Color);
+        this.Strenght = Strenght;
         this.crossed=crossed;
         this.name = name;
     }
@@ -84,5 +86,9 @@ public class Blockade extends BoardPiece {
 
     public String getName() {
         return name;
+    }
+
+    public int getStrenght() {
+        return Strenght;
     }
 }

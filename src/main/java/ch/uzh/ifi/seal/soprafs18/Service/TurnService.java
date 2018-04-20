@@ -98,11 +98,11 @@ public class TurnService {
         Player player = userRepository.findByName(playername);
         List<Field> gamePath= game.getGamePath();
 
-        Field wanted = player.getMyFigure().getCurrentPosition();
+        Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
 
         for (int i = 0; i < gamePath.size(); i++){
-            if(gamePath.get(i).getName().equals(wanted.getName())){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
                 actual = gamePath.get(i);
             }
 
@@ -111,7 +111,7 @@ public class TurnService {
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
 
-        return actual.getNeighbours();
+        return options;
 
 
     }

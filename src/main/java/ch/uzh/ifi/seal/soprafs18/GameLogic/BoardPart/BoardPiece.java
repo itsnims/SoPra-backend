@@ -16,15 +16,11 @@ public abstract class BoardPiece {
     public BoardPiece(){}
 
     @JsonIgnore
-    public BoardPiece(int strenght, String color) {
+    public BoardPiece( String color) {
         this.Color=color;
-        this.Strenght=strenght;
+
     }
-    @JsonIgnore
-    @Transient
-    public int getStrenght() {
-        return Strenght;
-    }
+
     @JsonIgnore
     @Transient
     public String getColor() {

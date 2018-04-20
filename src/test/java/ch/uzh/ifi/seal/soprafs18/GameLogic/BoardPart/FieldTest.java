@@ -56,16 +56,22 @@ public class FieldTest {
         Field A4 = new Field(2,"Red",true,"A4");
         Field A5 = new Field(1,"Green",true,"A5");
         Field A6 = new Field(1,"Green",true,"A6");
-        Blockade B1 = new Blockade("B1",1,"Green",false);
+
         ExpeditionCard movetest;
         movetest = new ExpeditionCard("Sailor","Green",false,2,4);
 
         A1.AddNewNeighbour(A2,A3,A4);
-        A2.AddNewNeighbour(A5,B1);
+        A2.AddNewNeighbour(A5);
         A5.AddNewNeighbour(A6);
         List<BoardPiece> options = A1.getAll(movetest.getCardColour(),movetest.getCardStrenght(),A1);
-        Assert.assertEquals(7,options.size());
+        Assert.assertEquals(5,options.size());
 
+    }
+
+    @Test
+    public void testgetstrenght(){
+        int i = fieldToAdd.getStrenght();
+        Assert.assertEquals(1,i);
     }
 
 }

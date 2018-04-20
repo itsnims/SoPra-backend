@@ -100,16 +100,15 @@ public class Field extends BoardPiece {
     @Transient
     @JsonIgnore
     public List<BoardPiece> getAll (String Color, int Strenght,Field field){
-        System.out.println("im inside the function");
+
 
         List<BoardPiece> list = new ArrayList<>();
         for (int i = 0; i < field.getNeighbours().size(); i++){
             BoardPiece piece = field.getNeighbours().get(i);
             Field neighbour = (Field) piece;
-            System.out.println("im in for");
+
             if(getUsable(Color,Strenght,neighbour)){
-                list.add(neighbour);
-                System.out.println("im at the neighbour");
+                if (neighbour.getStrenght()>0){list.add(neighbour);}
                 if (neighbour.getStrenght()>0){
                    int newStrenght = Strenght - neighbour.getStrenght();
                     if ((newStrenght) > 0) {

@@ -43,6 +43,10 @@ public class BuyTurn implements Turn {
                 Card check = (Card)obj;
                 if (check.getName() == cardToBuy.getName()) {
                     market.BottomCards.get(i).remove(check);
+                    market.getMarketbottom().put(check.getName(),market.getMarketbottom().get(check.getName())-1);
+                    if (market.getMarketbottom().get(check.getName()) == 0){
+                        market.getMarketbottom().remove(check.getName());
+                    }
                     market.LeftonDeckBottom(market.BottomCards.get(i));
                     break outerloop;
                 }
@@ -60,6 +64,7 @@ public class BuyTurn implements Turn {
                 Card check = (Card)obj;
                 if (check.getName() == cardToBuy.getName()) {
                     CardDeck.addAll(market.UpperCards.get(i));
+
                     return true;
                 }
             }

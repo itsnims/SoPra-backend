@@ -42,6 +42,10 @@ public class Market {
     private static Market instance = null;
 
 
+    private HashMap<String,Integer> marketupper = new HashMap<>();
+    private HashMap<String,Integer> marketbottom = new HashMap<>();
+
+
 
     public Market(){ }
     public void marketsetup(){
@@ -86,23 +90,23 @@ public class Market {
         MarketDeckAllrounder.add(AllRounder2);
         MarketDeckAllrounder.add(AllRounder3);
 
-        ExpeditionCard Photographer1 = new ExpeditionCard("Photgrapher","Yellow",true,2,2);
-        ExpeditionCard Photographer2 = new ExpeditionCard("Photgrapher","Yellow",true,2,2);
-        ExpeditionCard Photographer3 = new ExpeditionCard("Photgrapher","Yellow",true,2,2);
+        ExpeditionCard Photographer1 = new ExpeditionCard("Photographer","Yellow",true,2,2);
+        ExpeditionCard Photographer2 = new ExpeditionCard("Photographer","Yellow",true,2,2);
+        ExpeditionCard Photographer3 = new ExpeditionCard("Photographer","Yellow",true,2,2);
         MarketDeckPhotgrapher.add(Photographer1);
         MarketDeckPhotgrapher.add(Photographer2);
         MarketDeckPhotgrapher.add(Photographer3);
 
-        ExpeditionCard TreasureChest1 = new ExpeditionCard("Treasure Chest","Yellow",false,3,4);
-        ExpeditionCard TreasureChest2 = new ExpeditionCard("Treasure Chest","Yellow",false,3,4);
-        ExpeditionCard TreasureChest3 = new ExpeditionCard("Treasure Chest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest1 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest2 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest3 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
         MarketDeckTreasureChest.add(TreasureChest1);
         MarketDeckTreasureChest.add(TreasureChest2);
         MarketDeckTreasureChest.add(TreasureChest3);
 
-        MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone Terminal","Purple",false,4);
-        MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone Terminal","Purple",false,4);
-        MarketActionCard TelephoneTerminal3 = new MarketActionCard("Telephone Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal3 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
         MarketDeckTelephone.add(TelephoneTerminal1);
         MarketDeckTelephone.add(TelephoneTerminal2);
         MarketDeckTelephone.add(TelephoneTerminal3);
@@ -113,6 +117,13 @@ public class Market {
         BottomCards.add(MarketDeckPhotgrapher);
         BottomCards.add(MarketDeckTreasureChest);
         BottomCards.add(MarketDeckTelephone);
+
+        marketbottom.put("Scout",3);
+        marketbottom.put("Explorer",3);
+        marketbottom.put("Allrounder",3);
+        marketbottom.put("Photographer",3);
+        marketbottom.put("Treasure-Chest",3);
+        marketbottom.put("Telephone-Terminal",3);
 
 
         ExpeditionCard Plane1 = new ExpeditionCard("Plane","White",false,4,4);
@@ -173,9 +184,9 @@ public class Market {
         MarketDeckCompass.add(Compass2);
         MarketDeckCompass.add(Compass3);
 
-        DrawActionCard TravelDiary1 = new DrawActionCard("Travel Diary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary2 = new DrawActionCard("Travel Diary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary3 = new DrawActionCard("Travel Diary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary1 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary2 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary3 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
         MarketDeckTravelDiary.add(TravelDiary1);
         MarketDeckTravelDiary.add(TravelDiary2);
         MarketDeckTravelDiary.add(TravelDiary3);
@@ -214,6 +225,18 @@ public class Market {
         UpperCards.add(MarketDeckNatives);
         UpperCards.add(MarketDeckCaptain);
 
+        marketupper.put("Plane",3);
+        marketupper.put("Adventurer",3);
+        marketupper.put("Pioneer",3);
+        marketupper.put("Giant-machete",3);
+        marketupper.put("Journalist",3);
+        marketupper.put("Millionaire",3);
+        marketupper.put("Cartographer",3);
+        marketupper.put("Compass",3);
+        marketupper.put("Travel-Diary",3);
+        marketupper.put("Scientist",3);
+        marketupper.put("Natives",3);
+        marketupper.put("Captain",3);
 
 
     }
@@ -278,6 +301,8 @@ public class Market {
 
     }
 
+
+
     public void setName(String name){
         marketname = name;
     }
@@ -292,6 +317,10 @@ public class Market {
 
     public Long getId() {
         return id;
+    }
+
+    public HashMap<String, Integer> getMarketbottom() {
+        return marketbottom;
     }
 }
 

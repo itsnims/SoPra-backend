@@ -10,7 +10,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Entity
@@ -38,6 +40,7 @@ public class Market {
     @Transient
     @JsonIgnore
     private static Market instance = null;
+
 
 
     public Market(){ }
@@ -134,9 +137,9 @@ public class Market {
         MarketDeckPioneer.add(Pioneer3);
 
 
-        ExpeditionCard MightyMachete1 = new ExpeditionCard("Mighty Machete","Green",false,3,6);
-        ExpeditionCard MightyMachete2 = new ExpeditionCard("Mighty Machete","Green",false,3,6);
-        ExpeditionCard MightyMachete3 = new ExpeditionCard("Mighty Machete","Green",false,3,6);
+        ExpeditionCard MightyMachete1 = new ExpeditionCard("Giant-machete","Green",false,3,6);
+        ExpeditionCard MightyMachete2 = new ExpeditionCard("Giant-machete","Green",false,3,6);
+        ExpeditionCard MightyMachete3 = new ExpeditionCard("Giant-machete","Green",false,3,6);
         MarketDeckMighty.add(MightyMachete1);
         MarketDeckMighty.add(MightyMachete2);
         MarketDeckMighty.add(MightyMachete3);
@@ -210,6 +213,7 @@ public class Market {
         UpperCards.add(MarketDeckScientist);
         UpperCards.add(MarketDeckNatives);
         UpperCards.add(MarketDeckCaptain);
+
 
 
     }

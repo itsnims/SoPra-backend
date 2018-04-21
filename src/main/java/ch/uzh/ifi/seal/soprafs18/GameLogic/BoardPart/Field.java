@@ -87,13 +87,11 @@ public class Field extends BoardPiece {
 
     @Transient
     @JsonIgnore
-    public Boolean getUsable(String Color, int Strenght,Field compare) {
-        if (compare.getColor().equals(Color) && Strenght>=compare.getStrenght()) {
-            return true;
-        } else {
-
-            return false;
-        }
+    private Boolean getUsable(String Color, int Strenght,Field compare) {
+        if (compare.getColor().equals(Color)) if (Strenght >= compare.getStrenght()) return true;
+        if (compare.getColor().equals("White")) return true;
+        if (compare.getColor().equals("Camp")) return true;
+        return false;
     }
 
     /** returns all fields reachable from start tile with given color and strenght **/

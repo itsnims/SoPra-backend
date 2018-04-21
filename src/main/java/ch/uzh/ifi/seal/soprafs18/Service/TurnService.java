@@ -5,6 +5,7 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Figure;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.DiscardCard;
@@ -111,7 +112,38 @@ public class TurnService {
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
 
         return options;
-
-
     }
+
+
+    public Field moveFigure(String gamename,String playername,String carndname, String fieldtomove){
+        Field newposition = new Field();
+        Game game = gameRepository.findByName(gamename);
+        Player player = userRepository.findByName(playername);
+        List<Field> gamePath= game.getGamePath();
+        Figure playerFigure= player.getMyFigure();
+
+        Field currentPosition = player.getMyFigure().getCurrentPosition();
+        Field actual = new Field();
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+            }
+        }
+
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(fieldtomove)){
+                newposition = gamePath.get(i);
+            }
+        }
+
+        playerFigure.setCurrentPosition(newposition);
+        newposition.setAccessable(false);
+        actual.setAccessable(true);
+
+        return newposition;
+    }
+
+
 }

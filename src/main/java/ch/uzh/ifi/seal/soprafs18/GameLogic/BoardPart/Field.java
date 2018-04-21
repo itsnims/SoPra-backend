@@ -57,6 +57,12 @@ public class Field extends BoardPiece {
 
     @Transient
     @JsonIgnore
+    public boolean setAccessable(boolean set) {
+        return Accessable = set;
+    }
+
+    @Transient
+    @JsonIgnore
     public void AddNewNeighbour(BoardPiece neighbour, BoardPiece... boardPieces) {
         neighbours.add(neighbour);
         if (boardPieces.length > 0) {

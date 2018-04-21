@@ -1,6 +1,7 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.Service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,13 @@ public class TurnController {
     public List<BoardPiece> getMyOptions(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="cardname") String cardname){
         List<BoardPiece> myOptions = turnService.GetPossibleFields(room,user,cardname);
         return myOptions;
+    }
+
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{cardname}/move/{fieldname}")
+    @ResponseStatus(HttpStatus.OK)
+    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="cardname") String cardname, @PathVariable(value="fieldname") String fieldname){
+        Field newposition = turnService.moveFigure(room,user,cardname,fieldname);
+        return newposition;
     }
 
 

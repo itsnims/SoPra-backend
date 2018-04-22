@@ -26,9 +26,9 @@ public class GameController {
         return gameService.getGames();
     }
 
-    @GetMapping(value = CONTEXT + "{room}")
+    @GetMapping(value = CONTEXT + "/{room}")
     @ResponseStatus(HttpStatus.OK)
-    public Game getGame(@PathVariable("room")String room){
+    public List<Integer> getGame(@PathVariable("room")String room){
         return gameService.getGame(room);
     }
 

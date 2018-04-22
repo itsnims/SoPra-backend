@@ -71,12 +71,12 @@ public class Market {
         MarketDeckScout.add(Scout2);
         MarketDeckScout.add(Scout3);
 
-        ExpeditionCard Explorer1 = new ExpeditionCard("Explorer","Green",true,3,3);
-        ExpeditionCard Explorer2 = new ExpeditionCard("Explorer","Green",true,3,3);
-        ExpeditionCard Explorer3 = new ExpeditionCard("Explorer","Green",true,3,3);
-        MarketDeckExplorer.add(Explorer1);
-        MarketDeckExplorer.add(Explorer2);
-        MarketDeckExplorer.add(Explorer3);
+        ExpeditionCard Trailblazer1 = new ExpeditionCard("Trailblazer","Green",true,3,3);
+        ExpeditionCard Trailblazer2 = new ExpeditionCard("Trailblazer","Green",true,3,3);
+        ExpeditionCard Trailblazer3 = new ExpeditionCard("Trailblazer","Green",true,3,3);
+        MarketDeckExplorer.add(Trailblazer1);
+        MarketDeckExplorer.add(Trailblazer2);
+        MarketDeckExplorer.add(Trailblazer3);
 
         ExpeditionCard AllRounder1 = new ExpeditionCard("Allrounder","White",true,2,1);
         ExpeditionCard AllRounder2 = new ExpeditionCard("Allrounder","White",true,2,1);
@@ -92,16 +92,16 @@ public class Market {
         MarketDeckPhotgrapher.add(Photographer2);
         MarketDeckPhotgrapher.add(Photographer3);
 
-        ExpeditionCard TreasureChest1 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
-        ExpeditionCard TreasureChest2 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
-        ExpeditionCard TreasureChest3 = new ExpeditionCard("Treasure-Chest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest1 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest2 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
+        ExpeditionCard TreasureChest3 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
         MarketDeckTreasureChest.add(TreasureChest1);
         MarketDeckTreasureChest.add(TreasureChest2);
         MarketDeckTreasureChest.add(TreasureChest3);
 
-        MarketActionCard TelephoneTerminal1 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
-        MarketActionCard TelephoneTerminal2 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
-        MarketActionCard TelephoneTerminal3 = new MarketActionCard("Telephone-Terminal","Purple",false,4);
+        MarketActionCard TelephoneTerminal1 = new MarketActionCard("Transmitter","Purple",false,4);
+        MarketActionCard TelephoneTerminal2 = new MarketActionCard("Transmitter","Purple",false,4);
+        MarketActionCard TelephoneTerminal3 = new MarketActionCard("Transmitter","Purple",false,4);
         MarketDeckTelephone.add(TelephoneTerminal1);
         MarketDeckTelephone.add(TelephoneTerminal2);
         MarketDeckTelephone.add(TelephoneTerminal3);
@@ -114,11 +114,11 @@ public class Market {
         BottomCards.add(MarketDeckTelephone);
 
         marketbottom.put("Scout",3);
-        marketbottom.put("Explorer",3);
+        marketbottom.put("Trailblazer",3);
         marketbottom.put("Allrounder",3);
         marketbottom.put("Photographer",3);
-        marketbottom.put("Treasure",3);
-        marketbottom.put("Telephone",3);
+        marketbottom.put("TreasureChest",3);
+        marketbottom.put("Transmitter",3);
 
 
 
@@ -144,9 +144,9 @@ public class Market {
         MarketDeckPioneer.add(Pioneer3);
 
 
-        ExpeditionCard MightyMachete1 = new ExpeditionCard("Giant-machete","Green",false,3,6);
-        ExpeditionCard MightyMachete2 = new ExpeditionCard("Giant-machete","Green",false,3,6);
-        ExpeditionCard MightyMachete3 = new ExpeditionCard("Giant-machete","Green",false,3,6);
+        ExpeditionCard MightyMachete1 = new ExpeditionCard("GiantMachete","Green",false,3,6);
+        ExpeditionCard MightyMachete2 = new ExpeditionCard("GiantMachete","Green",false,3,6);
+        ExpeditionCard MightyMachete3 = new ExpeditionCard("GiantMachete","Green",false,3,6);
         MarketDeckMighty.add(MightyMachete1);
         MarketDeckMighty.add(MightyMachete2);
         MarketDeckMighty.add(MightyMachete3);
@@ -159,12 +159,12 @@ public class Market {
         MarketDeckJournalist.add(Journalist2);
         MarketDeckJournalist.add(Journalist3);
 
-        ExpeditionCard Milionaire1 = new ExpeditionCard("Milionaire","Yellow",true,5,4);
-        ExpeditionCard Milionaire2 = new ExpeditionCard("Milionaire","Yellow",true,5,4);
-        ExpeditionCard Milionaire3 = new ExpeditionCard("Milionaire","Yellow",true,5,4);
-        MarketDeckMillionaire.add(Milionaire1);
-        MarketDeckMillionaire.add(Milionaire2);
-        MarketDeckMillionaire.add(Milionaire3);
+        ExpeditionCard Millionaire1 = new ExpeditionCard("Millionaire","Yellow",true,5,4);
+        ExpeditionCard Millionaire2 = new ExpeditionCard("Millionaire","Yellow",true,5,4);
+        ExpeditionCard Millionaire3 = new ExpeditionCard("Millionaire","Yellow",true,5,4);
+        MarketDeckMillionaire.add(Millionaire1);
+        MarketDeckMillionaire.add(Millionaire2);
+        MarketDeckMillionaire.add(Millionaire3);
 
         DrawActionCard Cartographer1 = new DrawActionCard("Cartographer","Purple",true,4,2,false);
         DrawActionCard Cartographer2 = new DrawActionCard("Cartographer","Purple",true,4,2,false);
@@ -180,9 +180,9 @@ public class Market {
         MarketDeckCompass.add(Compass2);
         MarketDeckCompass.add(Compass3);
 
-        DrawActionCard TravelDiary1 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary2 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary3 = new DrawActionCard("Travel-Diary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary1 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary2 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary3 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
         MarketDeckTravelDiary.add(TravelDiary1);
         MarketDeckTravelDiary.add(TravelDiary2);
         MarketDeckTravelDiary.add(TravelDiary3);
@@ -224,12 +224,12 @@ public class Market {
         marketupper.put("Plane",3);
         marketupper.put("Adventurer",3);
         marketupper.put("Pioneer",3);
-        marketupper.put("Giant-machete",3);
+        marketupper.put("GiantMachete",3);
         marketupper.put("Journalist",3);
         marketupper.put("Millionaire",3);
         marketupper.put("Cartographer",3);
         marketupper.put("Compass",3);
-        marketupper.put("Travel-Diary",3);
+        marketupper.put("TravelDiary",3);
         marketupper.put("Scientist",3);
         marketupper.put("Natives",3);
         marketupper.put("Captain",3);
@@ -252,7 +252,7 @@ public class Market {
             return true;
         }
         return false;
-    }
+    }  /** doesnt matter, front end does this... just do the appending of a card if it was before in upper**/
 
     @Transient
     @JsonIgnore
@@ -275,7 +275,7 @@ public class Market {
         if (LeftonDeckB <= 0) {
             BottomCards.remove(clickedDeck);
         }
-        currentBottomCards = currentBottomCards -1;
+
     }
 
 

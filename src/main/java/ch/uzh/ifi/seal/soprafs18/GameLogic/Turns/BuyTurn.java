@@ -72,8 +72,9 @@ public class BuyTurn implements Turn {
         return false;
     }
 
-    @Override
-    public void turnfunction () {
+
+
+    public boolean enoughmoney(){
         int x = 0;
         double sum = 0;
         while (selectedCards.size() > x) {
@@ -82,9 +83,21 @@ public class BuyTurn implements Turn {
         }
 
         if (cardToBuy.getPrice() <= sum) {
-            if (IsUpperCard() && market.isfree()) {
+            return true;
+        }
+        return false;
+
+    }
+
+    @Override
+    public void turnfunction () {
+
+
+        if (enoughmoney()) {
+            if (IsUpperCard()) {
                 market.getCardsfromUpper(CardDeck);
             }
+
             currentPlayer.discardpile.add(cardToBuy);
             currentPlayer.selection.addAll(selectedCards);
             currentPlayer.handcards.removeAll(selectedCards);

@@ -18,6 +18,7 @@ public class EndTurn implements Turn {
     public void turnfunction(){
         currentPlayer.setTurn(false);
 
+
         int listlen = currentPlayer.selection.size();
 
         for (int i = 0; i < listlen; i++){

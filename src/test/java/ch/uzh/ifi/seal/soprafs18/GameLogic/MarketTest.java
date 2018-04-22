@@ -33,26 +33,14 @@ public class MarketTest {
 
     }
 
-    @Test
-    public void leftonDeckBottom() {
-        testmarket.marketsetup();
-        List<Card> wanted;
-        int actual;
-        Object object= testmarket.BottomCards.get(3);
-        wanted = (List<Card>) object;
-        actual = testmarket.LeftonDeckBottom(wanted);
-        Assert.assertEquals(3,actual);
-    }
 
     @Test
-    public void leftonDeckUpper() {
+    public void tester(){
         testmarket.marketsetup();
-        List<Card> wanted;
-        int actual;
-        Object object= testmarket.UpperCards.get(5);
-        wanted = (List<Card>) object;
-        testmarket.UpperCards.get(5).clear();
-        actual = testmarket.LeftonDeckUpper(wanted);
-        Assert.assertEquals(0,actual);
+        Card card = testmarket.wanted();
+        System.out.println(card);
     }
+
+
+
 }

@@ -41,7 +41,7 @@ public class Game {
     public List<Player> players = new ArrayList<Player>(4);
 
     @OneToOne(cascade = {CascadeType.ALL})
-    private Market market = new Market();
+    private Market market = Market.getInstance();
 
     @JsonIgnore
     @Transient
@@ -73,9 +73,7 @@ public class Game {
 
         Path path = new Path();
         List<Field> starters = path.getStartingFields();
-        //path.StandardPathFields.get(0);-->to get the corresponding fields for Standard Path...
-        market.getInstance().marketsetup();
-        market.setName("Market");
+        market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
             players.get(j).getMyFigure().setCurrentPosition(getGamePath().get(j));
@@ -221,6 +219,8 @@ public class Game {
         return pathname;
     }
 
+    @JsonIgnore
+    @Transient
     public List<Field> getGamePath(){
         List<Field> Standartpath = GamePath.getStandartPath();
 

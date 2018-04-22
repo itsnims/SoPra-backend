@@ -39,6 +39,7 @@ public class BuyTurnTest {
         buysth.setMarket(test);
         buysth.DeleteFromMarket();
         Assert.assertEquals(2,test.BottomCards.get(0).size());
+        System.out.println(test.getMarketbottom().get("Scout"));
 
 
     }

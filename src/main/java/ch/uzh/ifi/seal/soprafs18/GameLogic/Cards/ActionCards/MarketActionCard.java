@@ -55,7 +55,6 @@ public class MarketActionCard extends ActionCard {
                     Card card = (Card)obj;
                     if (card.getName() == choice.getName()) {
                         market.UpperCards.get(i).remove(0);
-                        market.LeftonDeckBottom(market.UpperCards.get(i));
                         break secondloop;
                     }
                 }

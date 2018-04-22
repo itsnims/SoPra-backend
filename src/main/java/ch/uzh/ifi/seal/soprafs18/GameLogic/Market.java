@@ -9,10 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Entity
@@ -22,9 +19,6 @@ public class Market {
     @GeneratedValue
     @JsonIgnore
     private Long id;
-
-    @Column
-    private String marketname;
 
     @Transient
     @JsonIgnore
@@ -41,9 +35,10 @@ public class Market {
     @JsonIgnore
     private static Market instance = null;
 
-
-    private HashMap<String,Integer> marketupper = new HashMap<>();
-    private HashMap<String,Integer> marketbottom = new HashMap<>();
+    @Column(columnDefinition="LONGTEXT")
+    private LinkedHashMap<String,Integer> marketupper = new LinkedHashMap<>();
+    @Column(columnDefinition="LONGTEXT")
+    private LinkedHashMap<String,Integer> marketbottom = new LinkedHashMap<>();
 
 
 
@@ -122,8 +117,9 @@ public class Market {
         marketbottom.put("Explorer",3);
         marketbottom.put("Allrounder",3);
         marketbottom.put("Photographer",3);
-        marketbottom.put("Treasure-Chest",3);
-        marketbottom.put("Telephone-Terminal",3);
+        marketbottom.put("Treasure",3);
+        marketbottom.put("Telephone",3);
+
 
 
         ExpeditionCard Plane1 = new ExpeditionCard("Plane","White",false,4,4);
@@ -271,16 +267,7 @@ public class Market {
         }
     }
 
-    @Transient
-    @JsonIgnore
-    //Left on Deck Bottom/Upper is for updating the number of left Cards on a clicked Deck or bought from...
-    public int LeftonDeckBottom(List clickedDeck) {
-        int LeftonDeckB = clickedDeck.size();
-        if (LeftonDeckB <= 0){
-            BottomCards.remove(clickedDeck);
-        }
-        return LeftonDeckB;
-    }
+
     @Transient
     @JsonIgnore
     public void RemoveIfEmpty(List clickedDeck) {
@@ -288,28 +275,9 @@ public class Market {
         if (LeftonDeckB <= 0) {
             BottomCards.remove(clickedDeck);
         }
+        currentBottomCards = currentBottomCards -1;
     }
 
-    @Transient
-    @JsonIgnore
-    public int LeftonDeckUpper(List clickedDeck) {
-        int LeftonDeckU = clickedDeck.size();
-        if (LeftonDeckU <= 0) {
-            UpperCards.remove(clickedDeck);
-        }
-        return LeftonDeckU;
-
-    }
-
-
-
-    public void setName(String name){
-        marketname = name;
-    }
-
-    public String getName() {
-        return marketname;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -319,9 +287,20 @@ public class Market {
         return id;
     }
 
-    public HashMap<String, Integer> getMarketbottom() {
+    public LinkedHashMap<String, Integer> getMarketbottom() {
         return marketbottom;
     }
+
+    public LinkedHashMap<String, Integer> getMarketupper() {
+        return marketupper;
+    }
+
+    public Card wanted(){
+        Object obj = BottomCards.get(0).get(0);
+        Card card = (Card)obj;
+        return card;
+    }
+
 }
 
 

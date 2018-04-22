@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Game {
@@ -225,6 +226,25 @@ public class Game {
         List<Field> Standartpath = GamePath.getStandartPath();
 
         return Standartpath;
+    }
+
+    public Player nextplayer(Player currentplayer){
+        int i = players.indexOf(currentplayer);
+        if (i == maxplayer-1){
+            i = -1;
+            EndGameManager endGameManager = new EndGameManager();
+            if(endGameManager.CheckifReached()){
+                Player winner = endGameManager.getWinner();
+                return winner;
+
+
+
+            }
+
+        }
+        players.get(i+1).setTurn(true);
+
+    return null;
     }
 
 

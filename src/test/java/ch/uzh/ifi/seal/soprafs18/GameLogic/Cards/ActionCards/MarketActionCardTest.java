@@ -15,7 +15,22 @@ public class MarketActionCardTest {
     Market TestMarket = new Market();
     Player player = new Player();
 
+    @Test
+    public void doSpecialFunction() {
+        player.setPlayerColor(PlayerColor.BLUE);
+        player.setup();
+        TestMarket.marketsetup();
+        ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
+        buyone.setChoice(Scout1);
+        buyone.setPlayer(player);
+        buyone.setMarket(TestMarket);
+        buyone.doSpecialFunction();
+        int size = TestMarket.BottomCards.get(0).size();
+        Card Actual = player.discardpile.get(0);
 
+        Assert.assertEquals(Scout1.getName(),Actual.getName());
+
+    }
 
 
 

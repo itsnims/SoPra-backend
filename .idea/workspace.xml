@@ -3,30 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="74500ed1-7d53-4e11-93dd-0d5f356c04e2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/EndGameController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/EndGameController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/UserController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.class" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.class" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.class" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.class" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.class" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.class" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/EndGameController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/EndGameController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.java" afterPath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java" afterPath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" afterPath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -52,67 +38,38 @@
       <file leaf-file-name="Market.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4215">
-              <caret line="298" column="45" lean-forward="false" selection-start-line="298" selection-start-column="45" selection-end-line="298" selection-end-column="45" />
+            <state relative-caret-position="3675">
+              <caret line="254" column="106" lean-forward="false" selection-start-line="254" selection-start-column="106" selection-end-line="254" selection-end-column="106" />
               <folding>
-                <element signature="e#12113#12114#0" expanded="true" />
-                <element signature="e#12141#12142#0" expanded="true" />
-                <element signature="e#12168#12169#0" expanded="true" />
-                <element signature="e#12193#12194#0" expanded="true" />
-                <element signature="e#12256#12257#0" expanded="true" />
-                <element signature="e#12291#12292#0" expanded="true" />
-                <element signature="e#12353#12354#0" expanded="true" />
-                <element signature="e#12387#12388#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#12180#12181#0" expanded="true" />
+                <element signature="e#12208#12209#0" expanded="true" />
+                <element signature="e#12235#12236#0" expanded="true" />
+                <element signature="e#12260#12261#0" expanded="true" />
+                <element signature="e#12323#12324#0" expanded="true" />
+                <element signature="e#12358#12359#0" expanded="true" />
+                <element signature="e#12420#12421#0" expanded="true" />
+                <element signature="e#12454#12455#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarketTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.java">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWaitingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java">
+      <file leaf-file-name="MarketActionCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/Card.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            <state relative-caret-position="465">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,8 +78,8 @@
       <file leaf-file-name="BuyTurn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="41" column="16" lean-forward="false" selection-start-line="41" selection-start-column="16" selection-end-line="42" selection-end-column="39" />
+            <state relative-caret-position="1185">
+              <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -131,8 +88,58 @@
       <file leaf-file-name="BuyTurnTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="41" column="60" lean-forward="false" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
+            <state relative-caret-position="570">
+              <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameWaitingController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TurnController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TurnService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="113" column="15" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -402,7 +409,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3048644472000" />
+        <entry key="$PROJECT_DIR$" value="3048717061000" />
         <entry key="$PROJECT_DIR$/build.gradle" value="1365060673" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2958664235" />
       </map>
@@ -613,8 +620,6 @@
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/FigureTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MoveActionCardTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameWaitingService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/EndGameService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Player.java" />
@@ -624,25 +629,27 @@
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/Card.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ExpeditionCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCard.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/DrawActionCardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/BoardPiece.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/Blockade.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Path.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/Field.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/EndGameController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java" />
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" />
         <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/MarketTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" />
       </list>
     </option>
   </component>
@@ -673,7 +680,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -715,45 +725,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="soprafs18" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sopra-fs18-group13-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sopra-fs18-group13-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soprafs18" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLogic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sopra-fs18-group13-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sopra-fs18-group13-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soprafs18" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLogic" type="462c0819:PsiDirectoryNode" />
-              <item name="BoardPart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sopra-fs18-group13-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sopra-fs18-group13-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soprafs18" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLogic" type="462c0819:PsiDirectoryNode" />
-              <item name="Cards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sopra-fs18-group13-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sopra-fs18-group13-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soprafs18" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLogic" type="462c0819:PsiDirectoryNode" />
-              <item name="Turns" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sopra-fs18-group13-server" type="b2602c69:ProjectViewProjectNode" />
@@ -826,9 +797,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -854,7 +822,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MarketTest.tester">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -876,20 +844,15 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="BuyTurnTest.deletefromMarket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="All in sopra-fs18-group13-server_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sopra-fs18-group13-server_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Turns" />
-      <option name="MAIN_CLASS_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurnTest" />
-      <option name="METHOD_NAME" value="deletefromMarket" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -901,19 +864,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="FieldTest.testgetstrenght" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarketActionCardTest.doSpecialFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.*" />
+          <option name="PATTERN" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="sopra-fs18-group13-server_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart" />
-      <option name="MAIN_CLASS_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.FieldTest" />
-      <option name="METHOD_NAME" value="testgetstrenght" />
+      <option name="PACKAGE_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards" />
+      <option name="MAIN_CLASS_NAME" value="ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.MarketActionCardTest" />
+      <option name="METHOD_NAME" value="doSpecialFunction" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1069,19 +1032,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.FieldTest.testgetstrenght" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BuyTurnTest.deletefromMarket" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MarketTest.getWanted" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MarketTest.testing" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.MarketTest.tester" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MarketTest.getWanted" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MarketTest.testing" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MarketTest.tester" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.All in sopra-fs18-group13-server_test" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.MarketActionCardTest.doSpecialFunction" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MarketTest.tester" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MarketTest.testing" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MarketTest.getWanted" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BuyTurnTest.deletefromMarket" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.FieldTest.testgetstrenght" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in sopra-fs18-group13-server_test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MarketActionCardTest.doSpecialFunction" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MarketTest.tester" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MarketTest.testing" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MarketTest.getWanted" />
       </list>
     </recent_temporary>
   </component>
@@ -1110,28 +1073,29 @@
       <workItem from="1524322308925" duration="2485000" />
       <workItem from="1524326307302" duration="76000" />
       <workItem from="1524379047680" duration="4048000" />
-      <workItem from="1524394555850" duration="95000" />
+      <workItem from="1524394555850" duration="2211000" />
+      <workItem from="1524403525878" duration="353000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MarketTest_getWanted - 2018.04.22 at 09h 44m 40s.xml">
-      <configuration name="MarketTest.getWanted" configurationId="JUnit" />
+    <history-entry file="All_in_sopra-fs18-group13-server_test - 2018.04.22 at 13h 03m 52s.xml">
+      <configuration name="All in sopra-fs18-group13-server_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MarketTest_getWanted - 2018.04.22 at 09h 45m 11s.xml">
-      <configuration name="MarketTest.getWanted" configurationId="JUnit" />
+    <history-entry file="All_in_sopra-fs18-group13-server_test - 2018.04.22 at 13h 04m 14s.xml">
+      <configuration name="All in sopra-fs18-group13-server_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MarketTest_getWanted - 2018.04.22 at 09h 45m 51s.xml">
-      <configuration name="MarketTest.getWanted" configurationId="JUnit" />
+    <history-entry file="All_in_sopra-fs18-group13-server_test - 2018.04.22 at 13h 38m 59s.xml">
+      <configuration name="All in sopra-fs18-group13-server_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MarketTest_tester - 2018.04.22 at 09h 58m 02s.xml">
-      <configuration name="MarketTest.tester" configurationId="JUnit" />
+    <history-entry file="All_in_sopra-fs18-group13-server_test - 2018.04.22 at 15h 29m 08s.xml">
+      <configuration name="All in sopra-fs18-group13-server_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MarketTest_tester - 2018.04.22 at 09h 58m 47s.xml">
-      <configuration name="MarketTest.tester" configurationId="JUnit" />
+    <history-entry file="MarketActionCardTest_doSpecialFunction - 2018.04.22 at 13h 11m 45s.xml">
+      <configuration name="MarketActionCardTest.doSpecialFunction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MarketTest_tester - 2018.04.22 at 09h 59m 05s.xml">
-      <configuration name="MarketTest.tester" configurationId="JUnit" />
+    <history-entry file="MarketActionCardTest_doSpecialFunction - 2018.04.22 at 13h 28m 20s.xml">
+      <configuration name="MarketActionCardTest.doSpecialFunction" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MarketTest_testing - 2018.04.22 at 09h 53m 42s.xml">
       <configuration name="MarketTest.testing" configurationId="JUnit" />
@@ -1147,7 +1111,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50352000" />
+    <option name="totallyTimeSpent" value="52821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1164,12 +1128,13 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36666667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36666667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1183,7 +1148,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2296875" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1278,7 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,13 +1273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="46" column="32" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1342,7 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,7 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1372,9 +1326,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1396,7 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1404,7 +1354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
           <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1412,15 +1361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,7 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1446,13 +1385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/DrawActionCardTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -1464,10 +1396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
-          <folding>
-            <element signature="e#2826#2827#0" expanded="false" />
-            <element signature="e#2857#2858#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1475,23 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="22" column="2" lean-forward="false" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1499,15 +1410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6824">
           <caret line="116" column="30" lean-forward="false" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1515,16 +1417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
           <caret line="123" column="54" lean-forward="false" selection-start-line="123" selection-start-column="54" selection-end-line="123" selection-end-column="54" />
-          <folding>
-            <element signature="e#1188#1189#0" expanded="false" />
-            <element signature="e#1221#1222#0" expanded="false" />
-            <element signature="e#3754#3755#0" expanded="false" />
-            <element signature="e#3786#3787#0" expanded="false" />
-            <element signature="e#3817#3818#0" expanded="false" />
-            <element signature="e#3844#3845#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3903#3904#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1532,22 +1424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1563,30 +1439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1059">
           <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="41" column="60" lean-forward="false" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="41" column="16" lean-forward="false" selection-start-line="41" selection-start-column="16" selection-end-line="42" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1594,24 +1446,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4215">
-          <caret line="298" column="45" lean-forward="false" selection-start-line="298" selection-start-column="45" selection-end-line="298" selection-end-column="45" />
-          <folding>
-            <element signature="e#12113#12114#0" expanded="true" />
-            <element signature="e#12141#12142#0" expanded="true" />
-            <element signature="e#12168#12169#0" expanded="true" />
-            <element signature="e#12193#12194#0" expanded="true" />
-            <element signature="e#12256#12257#0" expanded="true" />
-            <element signature="e#12291#12292#0" expanded="true" />
-            <element signature="e#12353#12354#0" expanded="true" />
-            <element signature="e#12387#12388#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="66" column="29" lean-forward="false" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1623,26 +1478,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurnTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameWaitingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3675">
+          <caret line="254" column="106" lean-forward="false" selection-start-line="254" selection-start-column="106" selection-end-line="254" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12180#12181#0" expanded="true" />
+            <element signature="e#12208#12209#0" expanded="true" />
+            <element signature="e#12235#12236#0" expanded="true" />
+            <element signature="e#12260#12261#0" expanded="true" />
+            <element signature="e#12323#12324#0" expanded="true" />
+            <element signature="e#12358#12359#0" expanded="true" />
+            <element signature="e#12420#12421#0" expanded="true" />
+            <element signature="e#12454#12455#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/TurnController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="113" column="15" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="235">
+          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
           <folding />
         </state>
       </provider>

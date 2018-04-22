@@ -122,6 +122,8 @@ public class TurnService {
         List<Field> gamePath= game.getGamePath();
         Figure playerFigure= player.getMyFigure();
 
+
+
         Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
 
@@ -145,5 +147,14 @@ public class TurnService {
         return newposition;
     }
 
+    /** Blockade remove function and give points if newposition=Blockade**/
+
+
+
+
+
+
 
 }
+
+

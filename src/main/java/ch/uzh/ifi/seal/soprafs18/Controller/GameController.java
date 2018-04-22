@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class GameController {
     private final String CONTEXT = "/Games";

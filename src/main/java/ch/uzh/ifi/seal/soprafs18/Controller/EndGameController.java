@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
+
 public class EndGameController {
 
     private final String CONTEXT = "/Games";

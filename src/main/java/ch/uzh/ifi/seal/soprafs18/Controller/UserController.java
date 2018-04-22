@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class UserController {
     private final String CONTEXT = "/User";

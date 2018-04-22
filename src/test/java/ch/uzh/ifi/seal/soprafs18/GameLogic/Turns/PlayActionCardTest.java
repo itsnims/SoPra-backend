@@ -51,7 +51,7 @@ public class PlayActionCardTest {
         PlayActionCard executemarketcard = new PlayActionCard(TelephoneTerminal1,player);
         executemarketcard.turnfunction();
         int actualleft = testmarket.getInstance().BottomCards.get(5).size();
-        Assert.assertEquals(2,actualleft);
+        Assert.assertEquals(3,actualleft);
 
 
 

@@ -3,15 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="74500ed1-7d53-4e11-93dd-0d5f356c04e2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameController.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Controller/GameController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.class" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Service/GameService.class" afterPath="$PROJECT_DIR$/out/production/classes/ch/uzh/ifi/seal/soprafs18/Service/GameService.class" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/BoardPart/FieldTest.class" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.class" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.class" afterPath="$PROJECT_DIR$/out/test/classes/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/PlayActionCardTest.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Controller/GameController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Market.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/BuyTurn.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/GameService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Game.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/EndTurn.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Turns/EndTurn.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/uzh/ifi/seal/soprafs18/Service/TurnService.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" afterPath="$PROJECT_DIR$/src/test/java/ch/uzh/ifi/seal/soprafs18/GameLogic/Cards/ActionCards/MarketActionCardTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -1074,7 +1075,7 @@
       <workItem from="1524326307302" duration="76000" />
       <workItem from="1524379047680" duration="4048000" />
       <workItem from="1524394555850" duration="2211000" />
-      <workItem from="1524403525878" duration="353000" />
+      <workItem from="1524403525878" duration="431000" />
     </task>
     <servers />
   </component>
@@ -1111,7 +1112,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52821000" />
+    <option name="totallyTimeSpent" value="52899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1134,7 +1135,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36666667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36666667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

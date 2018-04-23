@@ -30,7 +30,7 @@ public class Market {
 
     @Transient
     @JsonIgnore
-    private Integer currentBottomCards;
+    private Integer currentBottomCards = 6;
     @Transient
     @JsonIgnore
     private static Market instance = null;
@@ -258,14 +258,13 @@ public class Market {
     @JsonIgnore
     public void getCardsfromUpper(List SelectedDeck) {
 
-        if (isfree()) {
-            BottomCards.add(SelectedDeck);
-            UpperCards.remove(SelectedDeck);
-            currentBottomCards = currentBottomCards + 1;
 
+        BottomCards.add(SelectedDeck);
+        UpperCards.remove(SelectedDeck);
+        currentBottomCards = currentBottomCards + 1;
 
-        }
     }
+
 
 
     @Transient
@@ -295,10 +294,32 @@ public class Market {
         return marketupper;
     }
 
-    public Card wanted(){
-        Object obj = BottomCards.get(0).get(0);
-        Card card = (Card)obj;
-        return card;
+    public Card wanted(String cardname) {
+        Card wanted = null;
+        for (int i = 0; i < BottomCards.size(); i++) {
+            for (int j = 0; j < BottomCards.get(i).size(); j++) {
+                Object obj = BottomCards.get(i).get(j);
+                Card card = (Card) obj;
+                if (cardname.equals(card.getName())) {
+                    wanted = card;
+                    return wanted;
+
+                }
+            }
+        }
+        for (int i = 0; i < UpperCards.size(); i++) {
+            for (int j = 0; j < UpperCards.get(i).size(); j++) {
+                Object obj = UpperCards.get(i).get(j);
+                Card card = (Card) obj;
+                if (cardname.equals(card.getName())) {
+                    wanted = card;
+                    return wanted;
+
+                }
+            }
+
+        }
+        return null;
     }
 
 }

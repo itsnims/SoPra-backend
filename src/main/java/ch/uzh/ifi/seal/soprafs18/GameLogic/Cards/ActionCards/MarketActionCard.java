@@ -5,11 +5,29 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurn;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
+@Entity
+@DiscriminatorValue("M")
 public class MarketActionCard extends ActionCard {
+
+    @JsonIgnore
+    @Transient
     private Market market;
+    @JsonIgnore
+    @Transient
     private Card choice;
+    @JsonIgnore
+    @Transient
     private Player player;
+
+    public MarketActionCard(){
+
+    }
 
     public MarketActionCard(String name, String cardColour, Boolean reusable, Integer Price) {
         super(name, cardColour, reusable, Price);

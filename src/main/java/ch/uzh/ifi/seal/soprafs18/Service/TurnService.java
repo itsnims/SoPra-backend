@@ -185,6 +185,43 @@ public class TurnService {
 
 
     }
+    public Player buyCard(String room, String player, String cardname, List<String> cardnames){
+        Game game = gameRepository.findByName(room);
+        Player buyer = userRepository.findByName(player);
+        Card card = game.getMarket().wanted(cardname);
+        System.out.println(game.getMarket().MarketBottom);
+        System.out.println(card);
+        List<Card> money = new ArrayList<>();
+
+        outerloop:
+        for (int i = 0; i < cardnames.size(); i++){
+            for (int j = 0; j < buyer.handcards.size(); j++){
+                if(cardnames.get(i).equals(buyer.handcards.get(j).getName())){
+                    money.add(buyer.handcards.get(j));
+                    continue outerloop;
+                }
+
+            }
+        }
+
+        System.out.println(card.getPrice());
+
+
+        BuyTurn buyTurn = new BuyTurn(money,buyer);
+        if (buyTurn.enoughmoney() <= card.getPrice()){
+            buyTurn.setMarket(game.getMarket());
+            buyTurn.getCardtoBuy(card);
+            buyTurn.turnfunction();
+        }
+
+
+        gameRepository.save(game);
+
+        return buyer;
+
+
+
+    }
 
 
 

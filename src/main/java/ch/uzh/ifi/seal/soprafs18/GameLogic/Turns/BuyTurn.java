@@ -37,39 +37,38 @@ public class BuyTurn implements Turn {
     public void DeleteFromMarket() {
 
         outerloop:
-        for (int i = 0; i < market.BottomCards.size(); i++) {
-            for (int j = 0; j < market.BottomCards.get(i).size(); j++) {
-                Object obj = market.BottomCards.get(i).get(j);
-                Card check = (Card)obj;
-                if (check.getName().equals(cardToBuy.getName())) {
-                    market.BottomCards.get(i).remove(check);
-                    market.getMarketbottom().put(check.getName(),market.getMarketbottom().get(check.getName())-1);
-                    if (market.getMarketbottom().get(check.getName()) == 0){
-                        market.getMarketbottom().remove(check.getName());
-                    }
-
-                    break outerloop;
+        for (int i = 0; i < market.MarketBottom.size(); i++) {
+            Object obj = market.MarketBottom.get(i);
+            Card check = (Card)obj;
+            if (check.getName().equals(cardToBuy.getName())) {
+                market.MarketBottom.remove(check);
+                market.getBottomdict().put(check.getName(),market.getBottomdict().get(check.getName())-1);
+                System.out.println(market.getBottomdict().get(check.getName()));
+                if (market.getBottomdict().get(check.getName()) == 0){
+                    market.getBottomdict().remove(check.getName());
                 }
 
+                break outerloop;
             }
+
         }
+
     }
 
 
     public boolean IsUpperCard() {
+        Boolean isUpper = false;
 
-        for (int i = 0; i < market.UpperCards.size(); i++) {
-            for (int j = 0; j < market.UpperCards.get(i).size(); j++) {
-                Object obj = market.UpperCards.get(i).get(j);
-                Card check = (Card)obj;
-                if (check.getName().equals(cardToBuy.getName())) {
-                    CardDeck.addAll(market.UpperCards.get(i));
+        for (int i = 0; i < market.MarketUpper.size(); i++) {
+            Object obj = market.MarketUpper.get(i);
+            Card check = (Card)obj;
+            if (check.getName().equals(cardToBuy.getName())) {
+                CardDeck.add(check);
+                isUpper = true;
 
-                    return true;
-                }
             }
         }
-        return false;
+        return isUpper;
     }
 
 
@@ -92,21 +91,22 @@ public class BuyTurn implements Turn {
 
 
 
-            if (IsUpperCard()) {
-                market.getCardsfromUpper(CardDeck);
-            }
-
-            currentPlayer.discardpile.add(cardToBuy);
-            currentPlayer.selection.addAll(selectedCards);
-            currentPlayer.handcards.removeAll(selectedCards);
-            /**means we have used this card **/
-
-            DeleteFromMarket();
-
-            //else : buying is not possible
+        if (IsUpperCard()) {
+            market.getCardsfromUpper(CardDeck);
+            market.getUpperdict().remove(CardDeck.get(0).getName());
+            market.getBottomdict().put(CardDeck.get(0).getName(),CardDeck.size());
         }
+
+        currentPlayer.discardpile.add(cardToBuy);
+        currentPlayer.selection.addAll(selectedCards);
+        currentPlayer.handcards.removeAll(selectedCards);
+        /**means we have used this card **/
+
+        DeleteFromMarket();
+
+        //else : buying is not possible
+    }
 
 
 }
-
 

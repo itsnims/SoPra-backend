@@ -3,17 +3,33 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Entity
+@DiscriminatorValue("D")
 public class DrawActionCard extends ActionCard {
 
+    @JsonIgnore
+    @Transient
     private Boolean TrashSome; /** tells us if it gives us the trash option **/
+    @JsonIgnore
+    @Transient
     private Integer HowMany; /** tell us how many we can draw **/
+    @JsonIgnore
+    @Transient
     private Player player;
+    @JsonIgnore
+    @Transient
     private List<Card> Trash;
+
+    public DrawActionCard(){}
 
     public DrawActionCard(String name,String cardColour, Boolean reusable,Integer Price,Integer HowMany, Boolean TrashSome){
         super(name,cardColour,reusable,Price);

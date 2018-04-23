@@ -20,7 +20,6 @@ public abstract class Card {
     private String name;
 
 
-    @Transient
     @JsonIgnore
     private Boolean reusable;
 

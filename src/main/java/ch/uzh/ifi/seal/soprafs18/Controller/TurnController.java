@@ -3,6 +3,7 @@ package ch.uzh.ifi.seal.soprafs18.Controller;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,9 +45,9 @@ public class TurnController {
 
     @PutMapping(value = CONTEXT + "/{room}/{user}/endturn")
     @ResponseStatus(HttpStatus.OK)
-    public List<Card> Endmyturn(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room) {
-        List<Card> cards = turnService.Endturn(room, user);
-        return cards;
+    public void Endmyturn(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room) {
+        turnService.Endturn(room, user);
+
     }
 
     @GetMapping(value = CONTEXT + "/{room}/{user}/{cardname}/move")
@@ -68,6 +69,12 @@ public class TurnController {
     public double getCurrentMoney(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,
                                   @RequestParam("cards") List<String> cards){
         return turnService.getMoney(room,user,cards);
+    }
+    @PostMapping(value = CONTEXT + "/{room}/{user}/{card}")
+    @ResponseStatus(HttpStatus.OK)
+    public Player buywantedcard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card,
+                                @RequestParam("cards") List<String> cards){
+        return turnService.buyCard(room,user,card,cards);
     }
 
 

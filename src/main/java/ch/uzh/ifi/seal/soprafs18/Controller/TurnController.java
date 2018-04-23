@@ -56,11 +56,18 @@ public class TurnController {
         return myOptions;
     }
 
-    @PutMapping(value = CONTEXT + "/{room}/{user}/{cardname}/move/{fieldname}")
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{fieldname}")
     @ResponseStatus(HttpStatus.OK)
-    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="cardname") String cardname, @PathVariable(value="fieldname") String fieldname){
-        Field newposition = turnService.moveFigure(room,user,cardname,fieldname);
+    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="fieldname") String fieldname){
+        Field newposition = turnService.moveFigure(room,user,fieldname);
         return newposition;
+    }
+
+    @PostMapping(value = CONTEXT + "/{room}/{user}/money")
+    @ResponseStatus(HttpStatus.OK)
+    public double getCurrentMoney(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,
+                                  @RequestParam("cards") List<String> cards){
+        return turnService.getMoney(room,user,cards);
     }
 
 

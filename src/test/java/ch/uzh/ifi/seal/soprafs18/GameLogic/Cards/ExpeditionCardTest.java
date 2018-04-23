@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ExpeditionCardTest {
 
 
-    private ExpeditionCard Tester = new ExpeditionCard("TestName","TestColour",true,1,1);
+    private ExpeditionCard Tester = new ExpeditionCard("TestName","TestColour",true,1.5,1);
 
 
     @Test
@@ -38,6 +38,7 @@ public class ExpeditionCardTest {
     @Test
     public void getPrice() {
         double result = Tester.getPrice();
-        Assert.assertEquals(1,result,0);
+        Assert.assertEquals(1.5,result,0);
+        System.out.println(result);
     }
 }

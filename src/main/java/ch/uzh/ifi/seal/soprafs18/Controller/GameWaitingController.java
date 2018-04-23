@@ -1,12 +1,15 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Service.GameWaitingService;
+import ch.uzh.ifi.seal.soprafs18.Service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin
@@ -16,6 +19,8 @@ public class GameWaitingController {
 
     @Autowired
     private GameWaitingService gameWaitingService;
+    @Autowired
+    private TurnService turnService;
 
     @GetMapping(value = CONTEXT + "/{room}/users")
     @ResponseStatus(HttpStatus.OK)
@@ -29,5 +34,11 @@ public class GameWaitingController {
     public List<Player> leavePlayers(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
         List<Player> players= gameWaitingService.leaveGame(user, room);
         return players;
+    }
+
+    @GetMapping(value = CONTEXT + "/{room}/market")
+    @ResponseStatus(HttpStatus.OK)
+    public Market getcurrentmarket(@PathVariable(value = "room") String room){
+        return turnService.getCurrentMarket(room);
     }
 }

@@ -74,18 +74,16 @@ public class BuyTurn implements Turn {
 
 
 
-    public boolean enoughmoney(){
+    public double enoughmoney(){
         int x = 0;
         double sum = 0;
         while (selectedCards.size() > x) {
             sum = sum + selectedCards.get(x).getPrice();
+            System.out.println(selectedCards.get(x).getPrice());
             x = x + 1;
         }
-
-        if (cardToBuy.getPrice() <= sum) {
-            return true;
-        }
-        return false;
+        System.out.println(sum);
+        return sum;
 
     }
 
@@ -93,7 +91,7 @@ public class BuyTurn implements Turn {
     public void turnfunction () {
 
 
-        if (enoughmoney()) {
+
             if (IsUpperCard()) {
                 market.getCardsfromUpper(CardDeck);
             }
@@ -108,7 +106,7 @@ public class BuyTurn implements Turn {
             //else : buying is not possible
         }
 
-    }
+
 }
 
 

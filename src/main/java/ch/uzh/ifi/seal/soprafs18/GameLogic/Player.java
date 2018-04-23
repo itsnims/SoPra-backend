@@ -32,16 +32,18 @@ public class Player {
     private Boolean Turn;
 
 
-
+    @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> drawpile = new ArrayList<Card>(80);
 
+    @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> handcards = new ArrayList<Card>(80);
 
     @Transient
     @JsonIgnore
     public List<Card> trashpile = new ArrayList<Card>(80);
+
 
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> discardpile = new ArrayList<Card>(80);
@@ -171,7 +173,7 @@ public class Player {
 
     public Card getWantedCard(String cardname){
         for(int i = 0; i < handcards.size(); i++){
-            if(cardname.equals(handcards.get(i)));
+            if(cardname.equals(handcards.get(i).getName()));
                 return handcards.get(i);
         }
 

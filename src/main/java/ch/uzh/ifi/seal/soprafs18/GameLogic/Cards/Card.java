@@ -24,8 +24,7 @@ public abstract class Card {
     @JsonIgnore
     private Boolean reusable;
 
-    @Transient
-    @JsonIgnore
+
     private double Price;
 
     public Card(){}
@@ -46,4 +45,13 @@ public abstract class Card {
     public double getPrice() {
         return Price;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
+    }
+
 }

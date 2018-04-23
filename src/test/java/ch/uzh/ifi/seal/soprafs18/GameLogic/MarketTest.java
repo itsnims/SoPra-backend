@@ -34,12 +34,6 @@ public class MarketTest {
     }
 
 
-    @Test
-    public void tester(){
-        testmarket.marketsetup();
-        Card card = testmarket.wanted();
-        System.out.println(card);
-    }
 
 
 

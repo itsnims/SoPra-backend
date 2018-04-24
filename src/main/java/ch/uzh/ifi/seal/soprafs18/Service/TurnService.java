@@ -115,8 +115,10 @@ public class TurnService {
         }
 
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
+       
+        System.out.println(actual.getNeighbours());
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
-
+        System.out.println(options);
 
         return options;
     }

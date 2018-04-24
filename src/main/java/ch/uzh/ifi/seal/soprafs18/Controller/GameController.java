@@ -26,10 +26,16 @@ public class GameController {
         return gameService.getGames();
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/wait")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Integer> getPlayersWait(@PathVariable("room")String room){
+        return gameService.getCurrent(room);
+    }
+
     @GetMapping(value = CONTEXT + "/{room}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Integer> getGame(@PathVariable("room")String room){
-        return gameService.getGame(room);
+    public Game getGame(@PathVariable("room")String room){
+        return gameService.getOneGame(room);
     }
 
     @PostMapping(value = CONTEXT)

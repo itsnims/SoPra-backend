@@ -25,12 +25,17 @@ public class GameService {
         return games;
     }
 
-    public List<Integer> getGame(String name){
+    public List<Integer> getCurrent(String name){
         Game game =gameRepository.findByName(name);
         List<Integer> updates = new ArrayList<>();
         updates.add(game.getCurrent());
         updates.add(game.getMaxplayer());
         return updates;
+    }
+
+    public Game getOneGame(String room){
+        Game game = gameRepository.findByName(room);
+        return game;
     }
 
     public void addGame(Game game){

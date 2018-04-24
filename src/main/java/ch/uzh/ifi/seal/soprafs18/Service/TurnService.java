@@ -117,7 +117,7 @@ public class TurnService {
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
 
-        gameRepository.save(game);
+
         return options;
     }
 
@@ -150,8 +150,9 @@ public class TurnService {
         playerFigure.setCurrentPosition(newposition);
         newposition.setAccessable(false);
         actual.setAccessable(true);
+        gameRepository.save(game);
 
-        return newposition;
+        return playerFigure.getCurrentPosition();
     }
 
     /** Blockade remove function and give points if newposition=Blockade**/

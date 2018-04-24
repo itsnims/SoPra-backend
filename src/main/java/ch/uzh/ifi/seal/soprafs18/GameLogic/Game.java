@@ -77,7 +77,7 @@ public class Game {
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
-            players.get(j).getMyFigure().setCurrentPosition(starters.get(j));
+           /*** players.get(j).getMyFigure().setCurrentPosition(starters.get(j)); **/
             players.get(j).setup();
             players.get(j).setTurn(false);
 

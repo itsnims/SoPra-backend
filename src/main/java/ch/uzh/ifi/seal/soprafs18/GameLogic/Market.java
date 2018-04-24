@@ -20,36 +20,39 @@ public class Market {
     @JsonIgnore
     private Long id;
 
-    @Transient
     @JsonIgnore
-    public List<List> BottomCards = new ArrayList<>(6);
+    @Transient
+    public List<List<Card>> BottomCards = new ArrayList<>();
+
+    @JsonIgnore
+    @Transient
+    public List<List<Card>> UpperCards = new ArrayList<>(12);
 
     @Transient
     @JsonIgnore
-    public List<List> UpperCards = new ArrayList<>(12);
-
-    @Transient
-    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.ALL})
     private Integer currentBottomCards = 6;
     @Transient
     @JsonIgnore
     private static Market instance = null;
 
-    @Column(columnDefinition="LONGTEXT")
-    private LinkedHashMap<String,Integer> marketupper = new LinkedHashMap<>();
-    @Column(columnDefinition="LONGTEXT")
-    private LinkedHashMap<String,Integer> marketbottom = new LinkedHashMap<>();
+    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.ALL})
+    public List<Card> MarketBottom;
 
+    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.ALL})
+    public List<Card> MarketUpper;
+
+    @Column(columnDefinition="LONGTEXT")
+    private LinkedHashMap<String,Integer> upperdict = new LinkedHashMap<>();
+    @Column(columnDefinition="LONGTEXT")
+    private LinkedHashMap<String,Integer> bottomdict = new LinkedHashMap<>();
 
 
     public Market(){ }
     public void marketsetup(){
-        List<Card> MarketDeckScout = new ArrayList<>(3);
-        List<Card> MarketDeckExplorer = new ArrayList<>(3);
-        List<Card> MarketDeckAllrounder = new ArrayList<>(3);
-        List<Card> MarketDeckPhotgrapher = new ArrayList<>(3);
-        List<Card> MarketDeckTreasureChest = new ArrayList<>(3);
-        List<Card> MarketDeckTelephone = new ArrayList<>(3);
+
         List<Card> MarketDeckPlane = new ArrayList<>(3);
         List<Card> MarketDeckAdventurer = new ArrayList<>(3);
         List<Card> MarketDeckPioneer = new ArrayList<>(3);
@@ -67,58 +70,58 @@ public class Market {
         ExpeditionCard Scout1 = new ExpeditionCard("Scout","Green",true,1,2);
         ExpeditionCard Scout2 = new ExpeditionCard("Scout","Green",true,1,2);
         ExpeditionCard Scout3 = new ExpeditionCard("Scout","Green",true,1,2);
-        MarketDeckScout.add(Scout1);
-        MarketDeckScout.add(Scout2);
-        MarketDeckScout.add(Scout3);
+
 
         ExpeditionCard Trailblazer1 = new ExpeditionCard("Trailblazer","Green",true,3,3);
         ExpeditionCard Trailblazer2 = new ExpeditionCard("Trailblazer","Green",true,3,3);
         ExpeditionCard Trailblazer3 = new ExpeditionCard("Trailblazer","Green",true,3,3);
-        MarketDeckExplorer.add(Trailblazer1);
-        MarketDeckExplorer.add(Trailblazer2);
-        MarketDeckExplorer.add(Trailblazer3);
+
 
         ExpeditionCard AllRounder1 = new ExpeditionCard("Allrounder","White",true,2,1);
         ExpeditionCard AllRounder2 = new ExpeditionCard("Allrounder","White",true,2,1);
         ExpeditionCard AllRounder3 = new ExpeditionCard("Allrounder","White",true,2,1);
-        MarketDeckAllrounder.add(AllRounder1);
-        MarketDeckAllrounder.add(AllRounder2);
-        MarketDeckAllrounder.add(AllRounder3);
+
 
         ExpeditionCard Photographer1 = new ExpeditionCard("Photographer","Yellow",true,2,2);
         ExpeditionCard Photographer2 = new ExpeditionCard("Photographer","Yellow",true,2,2);
         ExpeditionCard Photographer3 = new ExpeditionCard("Photographer","Yellow",true,2,2);
-        MarketDeckPhotgrapher.add(Photographer1);
-        MarketDeckPhotgrapher.add(Photographer2);
-        MarketDeckPhotgrapher.add(Photographer3);
+
 
         ExpeditionCard TreasureChest1 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
         ExpeditionCard TreasureChest2 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
         ExpeditionCard TreasureChest3 = new ExpeditionCard("TreasureChest","Yellow",false,3,4);
-        MarketDeckTreasureChest.add(TreasureChest1);
-        MarketDeckTreasureChest.add(TreasureChest2);
-        MarketDeckTreasureChest.add(TreasureChest3);
+
 
         MarketActionCard TelephoneTerminal1 = new MarketActionCard("Transmitter","Purple",false,4);
         MarketActionCard TelephoneTerminal2 = new MarketActionCard("Transmitter","Purple",false,4);
         MarketActionCard TelephoneTerminal3 = new MarketActionCard("Transmitter","Purple",false,4);
-        MarketDeckTelephone.add(TelephoneTerminal1);
-        MarketDeckTelephone.add(TelephoneTerminal2);
-        MarketDeckTelephone.add(TelephoneTerminal3);
 
-        BottomCards.add(MarketDeckScout);
-        BottomCards.add(MarketDeckExplorer);
-        BottomCards.add(MarketDeckAllrounder);
-        BottomCards.add(MarketDeckPhotgrapher);
-        BottomCards.add(MarketDeckTreasureChest);
-        BottomCards.add(MarketDeckTelephone);
 
-        marketbottom.put("Scout",3);
-        marketbottom.put("Trailblazer",3);
-        marketbottom.put("Allrounder",3);
-        marketbottom.put("Photographer",3);
-        marketbottom.put("TreasureChest",3);
-        marketbottom.put("Transmitter",3);
+        MarketBottom.add(Scout1);
+        MarketBottom.add(Scout2);
+        MarketBottom.add(Scout3);
+        MarketBottom.add(Trailblazer1);
+        MarketBottom.add(Trailblazer2);
+        MarketBottom.add(Trailblazer3);
+        MarketBottom.add(AllRounder1);
+        MarketBottom.add(AllRounder2);
+        MarketBottom.add(AllRounder3);
+        MarketBottom.add(Photographer1);
+        MarketBottom.add(Photographer2);
+        MarketBottom.add(Photographer3);
+        MarketBottom.add(TreasureChest1);
+        MarketBottom.add(TreasureChest2);
+        MarketBottom.add(TreasureChest3);
+        MarketBottom.add(TelephoneTerminal1);
+        MarketBottom.add(TelephoneTerminal2);
+        MarketBottom.add(TelephoneTerminal3);
+
+        bottomdict.put("Scout",3);
+        bottomdict.put("Trailblazer",3);
+        bottomdict.put("Allrounder",3);
+        bottomdict.put("Photographer",3);
+        bottomdict.put("TreasureChest",3);
+        bottomdict.put("Transmitter",3);
 
 
 
@@ -221,18 +224,58 @@ public class Market {
         UpperCards.add(MarketDeckNatives);
         UpperCards.add(MarketDeckCaptain);
 
-        marketupper.put("Plane",3);
-        marketupper.put("Adventurer",3);
-        marketupper.put("Pioneer",3);
-        marketupper.put("GiantMachete",3);
-        marketupper.put("Journalist",3);
-        marketupper.put("Millionaire",3);
-        marketupper.put("Cartographer",3);
-        marketupper.put("Compass",3);
-        marketupper.put("TravelDiary",3);
-        marketupper.put("Scientist",3);
-        marketupper.put("Natives",3);
-        marketupper.put("Captain",3);
+        MarketUpper.add(Plane1);
+        MarketUpper.add(Plane2);
+        MarketUpper.add(Plane3);
+        MarketUpper.add(Adventurer1);
+        MarketUpper.add(Adventurer2);
+        MarketUpper.add(Adventurer3);
+        MarketUpper.add(Pioneer1);
+        MarketUpper.add(Pioneer2);
+        MarketUpper.add(Pioneer3);
+        MarketUpper.add(MightyMachete1);
+        MarketUpper.add(MightyMachete2);
+        MarketUpper.add(MightyMachete3);
+        MarketUpper.add(Journalist1);
+        MarketUpper.add(Journalist2);
+        MarketUpper.add(Journalist3);
+        MarketUpper.add(Millionaire1);
+        MarketUpper.add(Millionaire2);
+        MarketUpper.add(Millionaire3);
+        MarketUpper.add(Cartographer1);
+        MarketUpper.add(Cartographer2);
+        MarketUpper.add(Cartographer3);
+        MarketUpper.add(Compass1);
+        MarketUpper.add(Compass2);
+        MarketUpper.add(Compass3);
+        MarketUpper.add(TravelDiary1);
+        MarketUpper.add(TravelDiary2);
+        MarketUpper.add(TravelDiary3);
+        MarketUpper.add(Scientist1);
+        MarketUpper.add(Scientist2);
+        MarketUpper.add(Scientist3);
+        MarketUpper.add(Natives1);
+        MarketUpper.add(Natives2);
+        MarketUpper.add(Natives3);
+        MarketUpper.add(Captain1);
+        MarketUpper.add(Captain2);
+        MarketUpper.add(Captain3);
+
+
+
+
+        upperdict.put("Plane",3);
+        upperdict.put("Adventurer",3);
+        upperdict.put("Pioneer",3);
+        upperdict.put("GiantMachete",3);
+        upperdict.put("Journalist",3);
+        upperdict.put("Millionaire",3);
+        upperdict.put("Cartographer",3);
+        upperdict.put("Compass",3);
+        upperdict.put("TravelDiary",3);
+        upperdict.put("Scientist",3);
+        upperdict.put("Natives",3);
+        upperdict.put("Captain",3);
 
 
     }
@@ -286,41 +329,39 @@ public class Market {
         return id;
     }
 
-    public LinkedHashMap<String, Integer> getMarketbottom() {
-        return marketbottom;
+    public LinkedHashMap<String, Integer> getBottomdict() {
+        return bottomdict;
     }
 
-    public LinkedHashMap<String, Integer> getMarketupper() {
-        return marketupper;
+    public LinkedHashMap<String, Integer> getUpperdict() {
+        return upperdict;
     }
 
     public Card wanted(String cardname) {
         Card wanted = null;
-        for (int i = 0; i < BottomCards.size(); i++) {
-            for (int j = 0; j < BottomCards.get(i).size(); j++) {
-                Object obj = BottomCards.get(i).get(j);
-                Card card = (Card) obj;
-                if (cardname.equals(card.getName())) {
-                    wanted = card;
-                    return wanted;
+        for (int i = 0; i < MarketBottom.size(); i++) {
+            Object obj = MarketBottom.get(i);
+            Card card = (Card) obj;
+            if (cardname.equals(card.getName())) {
+                wanted = card;
+                return wanted;
 
-                }
             }
         }
-        for (int i = 0; i < UpperCards.size(); i++) {
-            for (int j = 0; j < UpperCards.get(i).size(); j++) {
-                Object obj = UpperCards.get(i).get(j);
-                Card card = (Card) obj;
-                if (cardname.equals(card.getName())) {
-                    wanted = card;
-                    return wanted;
 
-                }
+        for (int i = 0; i < MarketUpper.size(); i++) {
+            Object obj = MarketUpper.get(i);
+            Card card = (Card) obj;
+            if (cardname.equals(card.getName())) {
+                wanted = card;
+                return wanted;
+
             }
-
         }
+
         return null;
     }
+
 
 }
 

@@ -67,7 +67,7 @@ public class Game {
      * 2. blockade: setCrossed()
      * 3. blockade: removeBlockade(...) -->removes from neighbours this blockade and sets new neighbours*/
 
-    
+
     public Game(){}
 
     public void gameSetup() {
@@ -77,6 +77,7 @@ public class Game {
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
+            players.get(j).getMyFigure().setCurrentPosition(starters.get(j));
             players.get(j).setup();
             players.get(j).setTurn(false);
 
@@ -243,7 +244,7 @@ public class Game {
         }
         players.get(i+1).setTurn(true);
 
-    return null;
+        return null;
     }
 
 

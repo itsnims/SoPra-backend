@@ -15,6 +15,8 @@ public class MarketActionCardTest {
     Market TestMarket = new Market();
     Player player = new Player();
 
+
+    /**
     @Test
     public void doSpecialFunction() {
         player.setPlayerColor(PlayerColor.BLUE);
@@ -29,8 +31,8 @@ public class MarketActionCardTest {
         Card Actual = player.discardpile.get(0);
 
         Assert.assertEquals(Scout1.getName(),Actual.getName());
+**/
 
-    }
 
 
 

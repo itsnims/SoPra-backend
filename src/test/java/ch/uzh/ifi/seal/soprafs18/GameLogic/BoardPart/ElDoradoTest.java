@@ -19,7 +19,7 @@ public class ElDoradoTest {
     @Test
     public void getInstance() {
         ElDorado result = elDorado.getInstance();
-        Assert.assertEquals(elDorado.instance, result);
+        Assert.assertEquals(elDorado.getInstance(), result);
     }
 
     @Test

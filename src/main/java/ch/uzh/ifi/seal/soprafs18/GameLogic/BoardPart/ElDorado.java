@@ -9,7 +9,7 @@ import java.util.List;
 public class ElDorado {
     private boolean reached;
     private List<Player> Reachers = new ArrayList<>(4);
-    public static ElDorado instance = null;
+    private static ElDorado instance = null;
 
     public ElDorado(){
     }

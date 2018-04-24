@@ -8,10 +8,14 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 
+
 @Entity
 @DiscriminatorValue("A")
 public abstract class ActionCard extends Card {
 
+    public ActionCard(){
+
+    }
     public ActionCard(String name,String cardColour,Boolean reusable, Integer Price){
         super(name,reusable,Price);
     }

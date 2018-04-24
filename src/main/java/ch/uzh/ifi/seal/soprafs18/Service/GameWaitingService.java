@@ -21,7 +21,7 @@ public class GameWaitingService {
     private UserRepository userRepository;
 
     public List<Player> getUser(String gamename) {
-        List<Player> users = new ArrayList<>();
+        List<Player> users;
         Game game = gameRepository.findByName(gamename);
         users = game.getPlayers();
         return users;

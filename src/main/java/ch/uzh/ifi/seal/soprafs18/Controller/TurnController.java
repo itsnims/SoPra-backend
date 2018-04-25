@@ -27,10 +27,11 @@ public class TurnController {
         return cards;
     }
 
-    @PostMapping(value = CONTEXT + "/{room}/{user}/discard")
+    @RequestMapping(value = CONTEXT + "/{room}/{user}/discard",method = RequestMethod.POST,
+            consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public List<Card> Discardturn(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,
-                                  @RequestParam("cards") List<String> cardnames){
+                                  @RequestBody CardWrapper cardnames){
         List<Card> cards = turnService.Discard(room,user,cardnames);
         return cards;
     }

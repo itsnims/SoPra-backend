@@ -45,7 +45,8 @@ public class TurnService {
 
     }
 
-    public List<Card> Discard(String gamename,String playername,List<String> cardnames){
+    public List<Card> Discard(String gamename,String playername,CardWrapper cards){
+        List<String>  cardnames = cards.getCards();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         List<Card> tobediscared = new ArrayList<>();

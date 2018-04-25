@@ -2,6 +2,7 @@ package ch.uzh.ifi.seal.soprafs18.Controller;
 
 
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,13 @@ public class GameController {
     public boolean joingame(@PathVariable(value = "user",required = true) String username, @PathVariable(value = "room",required = true) String roomname, @PathVariable(value = "secret",required = false) String secret ){
         Boolean joined = gameService.joinGame(roomname,username,secret);
         return joined;
+
+    }
+
+    @GetMapping(value = CONTEXT + "/{room}/currentPlayer")
+    @ResponseStatus(HttpStatus.OK)
+    public Player getCurrentPlayer(@PathVariable(value = "room",required = true) String roomname){
+        return gameService.getCurrentPlayer(roomname);
 
     }
 

@@ -71,4 +71,9 @@ public class GameService {
         return false;
 
     }
+
+    public Player getCurrentPlayer(String room){
+        Game game = gameRepository.findByName(room);
+        return game.getCurrentPlayer();
+    }
 }

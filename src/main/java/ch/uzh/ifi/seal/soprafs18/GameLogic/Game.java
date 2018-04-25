@@ -58,6 +58,9 @@ public class Game {
     @Column
     private int current;
 
+    @OneToOne
+    private Player currentPlayer;
+
     @JsonIgnore
     @Transient
     private Path GamePath = new Path();
@@ -84,6 +87,7 @@ public class Game {
             /**all get their drawpile **/
             /** players.get(j).getMyFigure().setCurrentPosition(); **/
         }
+        setCurrentPlayer(players.get(0));
 
     }
 
@@ -243,10 +247,17 @@ public class Game {
 
         }
         players.get(i+1).setTurn(true);
+        setCurrentPlayer(players.get(i+1));
 
         return null;
     }
 
 
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 }

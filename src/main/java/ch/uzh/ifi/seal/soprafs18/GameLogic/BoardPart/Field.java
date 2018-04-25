@@ -18,6 +18,11 @@ import java.util.List;
 public class Field extends BoardPiece {
 
     @Id
+    @GeneratedValue
+    @JsonIgnore
+    private Long id;
+
+
     private String name;
 
     @Transient
@@ -148,4 +153,8 @@ public class Field extends BoardPiece {
     public int getStrenght() {
         return Strenght;
 }
+
+    public Long getId() {
+        return id;
+    }
 }

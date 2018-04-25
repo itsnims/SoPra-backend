@@ -97,11 +97,9 @@ public class TurnService {
         player.executeTurn(endTurn);
         Integer i = game.getPlayers().indexOf(player);
         if(i == game.getMaxplayer()){
-            i=0;
+            i=-1;
         }
         game.setCurrentPlayer(game.getPlayers().get(i+1));
-        System.out.println(game.getCurrentPlayer());
-
         gameRepository.save(game);
 
 

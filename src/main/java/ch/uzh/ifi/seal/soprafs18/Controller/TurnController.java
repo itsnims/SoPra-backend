@@ -64,12 +64,7 @@ public class TurnController {
         return newposition;
     }
 
-    @PostMapping(value = CONTEXT + "/{room}/{user}/money")
-    @ResponseStatus(HttpStatus.OK)
-    public double getCurrentMoney(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,
-                                  @RequestParam("cards") List<String> cards){
-        return turnService.getMoney(room,user,cards);
-    }
+
     @PostMapping(value = CONTEXT + "/{room}/{user}/{card}")
     @ResponseStatus(HttpStatus.OK)
     public Player buywantedcard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card,

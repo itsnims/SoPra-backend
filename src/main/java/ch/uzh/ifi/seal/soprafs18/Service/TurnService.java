@@ -163,29 +163,7 @@ public class TurnService {
 
     }
 
-    public double getMoney(String room, String player,List<String> cardnames){
-        Game game = gameRepository.findByName(room);
-        Player buyer  =userRepository.findByName(player);
-        List<Card> money = new ArrayList<>();
 
-        outerloop:
-        for (int i = 0; i < cardnames.size(); i++){
-            for (int j = 0; j < buyer.handcards.size(); j++){
-                if(cardnames.get(i).equals(buyer.handcards.get(j).getName())){
-                    money.add(buyer.handcards.get(j));
-                    continue outerloop;
-                }
-
-            }
-        }
-
-        BuyTurn buyTurn = new BuyTurn(money,buyer);
-        double moneypieces = buyTurn.enoughmoney();
-
-        return moneypieces;
-
-
-    }
     public Player buyCard(String room, String player, String cardname, List<String> cardnames){
         Game game = gameRepository.findByName(room);
         Player buyer = userRepository.findByName(player);

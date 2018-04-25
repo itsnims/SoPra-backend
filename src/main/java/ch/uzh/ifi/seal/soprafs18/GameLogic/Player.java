@@ -173,8 +173,11 @@ public class Player {
 
     public Card getWantedCard(String cardname){
         for(int i = 0; i < handcards.size(); i++){
-            if(cardname.equals(handcards.get(i).getName()));
-            return handcards.get(i);
+            if(cardname.equals(handcards.get(i).getName())){
+                return handcards.get(i);
+
+            }
+
         }
 
         return null;

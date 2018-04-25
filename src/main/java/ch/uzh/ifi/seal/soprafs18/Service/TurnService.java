@@ -90,16 +90,17 @@ public class TurnService {
 
     }
 
-    public List<Card> Endturn(String gamename, String playername){
+    public void Endturn(String gamename, String playername){
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         EndTurn endTurn = new EndTurn(player);
         player.executeTurn(endTurn);
-        int i = game.getPlayers().indexOf(playername);
+        Integer i = game.getPlayers().indexOf(player);
         game.setCurrentPlayer(game.getPlayers().get(i+1));
+        System.out.println(game.getCurrentPlayer());
+
         gameRepository.save(game);
 
-        return player.drawpile;
 
     }
 

@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.CardWrapper;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
@@ -65,10 +66,11 @@ public class TurnController {
     }
 
 
-    @PostMapping(value = CONTEXT + "/{room}/{user}/{card}")
+    @RequestMapping(value = CONTEXT + "/{room}/{user}/{card}",method = RequestMethod.POST,
+            consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public Player buywantedcard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card,
-                                @RequestParam("cards") List<String> cards){
+                                @RequestBody CardWrapper cards){
         return turnService.buyCard(room,user,card,cards);
     }
 

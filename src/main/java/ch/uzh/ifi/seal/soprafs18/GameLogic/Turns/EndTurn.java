@@ -17,12 +17,10 @@ public class EndTurn implements Turn {
     @Override
     public void turnfunction(){
         currentPlayer.setTurn(false);
-
-
         int listlen = currentPlayer.selection.size();
 
         for (int i = 0; i < listlen; i++){
-            if(currentPlayer.selection.get(0).getReusable() == true){
+            if(currentPlayer.selection.get(0).getReusable()){
 
                 /** discards played cards if useable since we always trash the first card, the
                  * list gets always a step smaller, so throw away the new first card

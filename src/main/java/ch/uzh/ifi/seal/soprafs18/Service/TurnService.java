@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
+import ch.uzh.ifi.seal.soprafs18.Constant.CardWrapper;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
@@ -93,6 +94,8 @@ public class TurnService {
         Player player = userRepository.findByName(playername);
         EndTurn endTurn = new EndTurn(player);
         player.executeTurn(endTurn);
+        int i = game.getPlayers().indexOf(playername);
+        game.setCurrentPlayer(game.getPlayers().get(i+1));
         gameRepository.save(game);
 
         return player.drawpile;
@@ -166,7 +169,8 @@ public class TurnService {
     }
 
 
-    public Player buyCard(String room, String player, String cardname, List<String> cardnames){
+    public Player buyCard(String room, String player, String cardname, CardWrapper cards){
+        List<String> cardnames = cards.getCards();
         Game game = gameRepository.findByName(room);
         Player buyer = userRepository.findByName(player);
         Card card = game.getMarket().wanted(cardname);

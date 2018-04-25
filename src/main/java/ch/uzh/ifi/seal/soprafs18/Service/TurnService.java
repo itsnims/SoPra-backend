@@ -210,6 +210,14 @@ public class TurnService {
 
     }
 
+    public List<Card> getCurrenthandCards(String room, String player){
+        Game game = gameRepository.findByName(room);
+        Player current = userRepository.findByName(player);
+
+        return current.handcards;
+
+    }
+
 
 
 

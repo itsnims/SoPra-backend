@@ -74,6 +74,12 @@ public class TurnController {
                                 @RequestBody CardWrapper cards){
         return turnService.buyCard(room,user,card,cards);
     }
+    
+    @GetMapping(value = CONTEXT + "/{room}/{user}/handcards")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Card> getcurrentcards(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
+        return turnService.getCurrenthandCards(room,user);
+    }
 
 
 }

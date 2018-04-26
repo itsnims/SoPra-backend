@@ -2,16 +2,17 @@ package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.Constant.PlayerColor;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Entity
 public class Game {
@@ -230,6 +231,11 @@ public class Game {
         List<Field> Standartpath = GamePath.getStandartPath();
 
         return Standartpath;
+    }
+
+    public List<Blockade> getBlockades(){
+        List<Blockade> Blockade = GamePath.getCurrentBloacked();
+        return Blockade;
     }
 
     public Player nextplayer(Player currentplayer){

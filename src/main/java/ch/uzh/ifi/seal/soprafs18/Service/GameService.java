@@ -1,7 +1,9 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Path;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
@@ -79,5 +81,11 @@ public class GameService {
     public Player getCurrentPlayer(String room){
         Game game = gameRepository.findByName(room);
         return game.getCurrentPlayer();
+    }
+
+
+    public List<Blockade> getBlockade(String room){
+        Game game = gameRepository.findByName(room);
+        return game.getBlockades();
     }
 }

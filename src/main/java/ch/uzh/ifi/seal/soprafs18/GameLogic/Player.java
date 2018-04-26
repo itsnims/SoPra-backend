@@ -118,6 +118,9 @@ public class Player {
     public void drawCards() {
         int currentInHand = handcards.size();
         while (currentInHand < 4) {
+            if(drawpile.size() == 0){
+                addtoDrawPile(discardpile);
+            }
             Collections.shuffle(drawpile);
             handcards.add(drawpile.get(0));
             drawpile.remove(0);

@@ -1,6 +1,7 @@
 package ch.uzh.ifi.seal.soprafs18.Controller;
 
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.Service.GameService;
@@ -67,6 +68,13 @@ public class GameController {
         return gameService.getCurrentPlayer(roomname);
 
     }
+
+    @GetMapping(value = CONTEXT + "/{room}/blockade")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Blockade> getcurrentblockades(@PathVariable(value = "room",required = true) String roomname){
+        return gameService.getBlockade(roomname);
+    }
+
 
 
     

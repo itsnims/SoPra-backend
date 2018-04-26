@@ -15,6 +15,7 @@ public class Path {
 
     public List<Blockade> Blockades= new ArrayList<>(6);
     List<Field> StandardPathFields= new ArrayList<>();
+    List<Blockade> currentBlockade = new ArrayList<>();
 
     /**all possible blockades*/
     Blockade blockade4= new Blockade("BK4",1,"Blue",false);
@@ -494,6 +495,8 @@ public class Path {
         Blockade fourth= Blockades.get(3);
         Blockade fifth=Blockades.get(4);
         Blockade sixth=Blockades.get(5);
+        List<Blockade> currentones = new ArrayList<>();
+
 
         /** binding tile B with first blockade, this fields are to be used for Standard Path tile B instead of the original ones */
         Field B37StandardPath=B37;
@@ -504,6 +507,14 @@ public class Path {
         B28StandardPath.AddNewNeighbour(first);
         Field B22StandardPath=B22;
         B22StandardPath.AddNewNeighbour(first);
+        first.addNeighbour(B37StandardPath);
+        first.addNeighbour(B33StandardPath);
+        first.addNeighbour(B28StandardPath);
+        first.addNeighbour(B22StandardPath);
+        first.addNeighbour(C4);
+        first.addNeighbour(C9);
+        first.addNeighbour(C15);
+        first.addNeighbour(C22);
 
         Field C16StandardPath=C16;
         C16StandardPath.AddNewNeighbour(second);
@@ -595,7 +606,10 @@ public class Path {
         StandardPathFields.add(K29);StandardPathFields.add(K30);StandardPathFields.add(K31);StandardPathFields.add(K32);
         StandardPathFields.add(K33StandardPath);StandardPathFields.add(K34);StandardPathFields.add(K35);StandardPathFields.add(K36StandardPath);
         StandardPathFields.add(K37StandardPath);StandardPathFields.add(EDBlue1);StandardPathFields.add(EDBlue2);StandardPathFields.add(EDBlue3);
-
+        currentBlockade.add(first);
+        currentBlockade.add(second);
+        currentBlockade.add(third);
+        currentBlockade.add(fourth);
 
     }
 
@@ -612,6 +626,10 @@ public class Path {
 
     public List<Field> getStandartPath(){
         return StandardPathFields;
+    }
+
+    public List<Blockade> getCurrentBloacked(){
+        return currentBlockade;
     }
 
 

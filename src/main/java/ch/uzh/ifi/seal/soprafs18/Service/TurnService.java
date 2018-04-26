@@ -139,6 +139,19 @@ public class TurnService {
         Player player = userRepository.findByName(playername);
         List<Field> gamePath= game.getGamePath();
         Figure playerFigure= player.getMyFigure();
+        List<Blockade> blockadeList = game.getBlockades();
+        Blockade blockade;
+
+        for(int i = 0; i < blockadeList.size(); i++){
+            if(fieldtomove.equals(blockadeList.get(i).getName())){
+                if(i == 0){
+                    blockade = blockadeList.get(0);
+                    blockade.BlockadeCross(true);
+                    return null;
+
+                }
+            }
+        }
 
 
 
@@ -150,7 +163,6 @@ public class TurnService {
                 actual = gamePath.get(i);
             }
         }
-
 
         for (int i = 0; i < gamePath.size(); i++){
             if(gamePath.get(i).getName().equals(fieldtomove)){
@@ -194,9 +206,6 @@ public class TurnService {
 
             }
         }
-
-
-
 
         BuyTurn buyTurn = new BuyTurn(money,buyer);
         if (buyTurn.enoughmoney() <= card.getPrice()){

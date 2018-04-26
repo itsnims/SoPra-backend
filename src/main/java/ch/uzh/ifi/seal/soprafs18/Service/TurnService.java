@@ -96,7 +96,7 @@ public class TurnService {
         EndTurn endTurn = new EndTurn(player);
         player.executeTurn(endTurn);
         Integer i = game.getPlayers().indexOf(player);
-        if(i == game.getMaxplayer()){
+        if(i == game.getMaxplayer()-1){
             i=-1;
         }
         game.setCurrentPlayer(game.getPlayers().get(i+1));

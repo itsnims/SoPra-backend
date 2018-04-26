@@ -150,7 +150,7 @@ public class Path {
         Field B35 = new Field(1,"Camp",true, "B35");
         Field B36 = new Field(1,"Blue",true, "B36");
         Field B37 = new Field(1,"Green",true, "B37");
-        B1.AddNewNeighbour(B2,B5, B6);
+        B1.AddNewNeighbour(B2,B5,B6);
         B2.AddNewNeighbour(B1,B6,B7,B3);
         B3.AddNewNeighbour(B2,B7,B8,B4);
         B4.AddNewNeighbour(B3,B8,B9);
@@ -595,6 +595,7 @@ public class Path {
         StandardPathFields.add(K29);StandardPathFields.add(K30);StandardPathFields.add(K31);StandardPathFields.add(K32);
         StandardPathFields.add(K33StandardPath);StandardPathFields.add(K34);StandardPathFields.add(K35);StandardPathFields.add(K36StandardPath);
         StandardPathFields.add(K37StandardPath);StandardPathFields.add(EDBlue1);StandardPathFields.add(EDBlue2);StandardPathFields.add(EDBlue3);
+
 
     }
 

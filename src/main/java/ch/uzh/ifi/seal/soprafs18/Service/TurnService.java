@@ -100,6 +100,7 @@ public class TurnService {
             i=-1;
         }
         game.setCurrentPlayer(game.getPlayers().get(i+1));
+        game.getCurrentPlayer().drawCards();
         gameRepository.save(game);
 
 
@@ -125,6 +126,8 @@ public class TurnService {
         System.out.println(actual.getNeighbours());
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
         System.out.println(options);
+        player.handcards.remove(Card);
+        player.selection.add(Card);
 
         return options;
     }
@@ -192,7 +195,7 @@ public class TurnService {
             }
         }
 
-        System.out.println(card.getPrice());
+
 
 
         BuyTurn buyTurn = new BuyTurn(money,buyer);

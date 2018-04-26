@@ -60,6 +60,10 @@ public class GameService {
             if( game.getPlayers().size() == game.getMaxplayer()){
                 game.setGameStatus(GameStatus.STARTING);
                 game.gameSetup();
+                game.getPlayers().get(0).setTurn(true);
+                for (int i = 0; i < game.getMaxplayer(); i++) {
+                    game.getPlayers().get(i).drawCards();
+                }
 
             }
             gameRepository.save(game);

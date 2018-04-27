@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 public class EndGameManagerTest {
     Player nimra = new Player();
     Player angela = new Player();
+    Player clara = new Player();
     ElDorado elDorado = new ElDorado();
     EndGameManager endGameManager= new EndGameManager();
     Player winner;
@@ -22,11 +23,18 @@ public class EndGameManagerTest {
 
     @Test
     public void getWinner() {
-        elDorado.getInstance().AddReacher(nimra);
+        angela.setBlockadePoints(1);
         elDorado.getInstance().AddReacher(angela);
+        winner = endGameManager.getWinner();
+        Assert.assertEquals(angela,winner);
+        clara.setBlockadePoints(0);
+        elDorado.getInstance().AddReacher(clara);
+        winner = endGameManager.getWinner();
+        Assert.assertEquals(angela,winner);
         nimra.setBlockadePoints(2);
-        angela.setBlockadePoints(0);
+        elDorado.getInstance().AddReacher(nimra);
         winner = endGameManager.getWinner();
         Assert.assertEquals(nimra,winner);
+
     }
 }

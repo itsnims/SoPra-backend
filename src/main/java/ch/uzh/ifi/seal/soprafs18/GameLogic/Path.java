@@ -37,7 +37,7 @@ public class Path {
         Blockades.add(blockade4);
         Blockades.add(blockade5);
         Blockades.add(blockade6);
-        Collections.shuffle(Blockades);
+
 
         Field A1 = new Field(0,"Green",true, "A1");
         Field A2 = new Field(0,"Green",true, "A2");
@@ -565,7 +565,7 @@ public class Path {
         StandardPathFields.add(B9);StandardPathFields.add(B10);StandardPathFields.add(B11);StandardPathFields.add(B12);
         StandardPathFields.add(B13);StandardPathFields.add(B14);StandardPathFields.add(B15);StandardPathFields.add(B16);
         StandardPathFields.add(B17);StandardPathFields.add(B18);StandardPathFields.add(B19);StandardPathFields.add(B20);
-        StandardPathFields.add(B21);StandardPathFields.add(B22StandardPath);StandardPathFields.add(B23);StandardPathFields.add(B24);
+        StandardPathFields.add(B21);StandardPathFields.add(B22);StandardPathFields.add(B23);StandardPathFields.add(B24);
         StandardPathFields.add(B25);StandardPathFields.add(B26);StandardPathFields.add(B27);StandardPathFields.add(B28StandardPath);
         StandardPathFields.add(B29);StandardPathFields.add(B30);StandardPathFields.add(B31);StandardPathFields.add(B32);
         StandardPathFields.add(B33StandardPath);StandardPathFields.add(B34);StandardPathFields.add(B35);StandardPathFields.add(B36);

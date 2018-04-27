@@ -1,15 +1,12 @@
 package ch.uzh.ifi.seal.soprafs18.Service;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.CardWrapper;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.*;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Figure;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Market;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurn;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.DiscardCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.EndTurn;
@@ -128,6 +125,7 @@ public class TurnService {
         System.out.println(options);
         player.handcards.remove(Card);
         player.selection.add(Card);
+        gameRepository.save(game);
 
         return options;
     }
@@ -142,11 +140,40 @@ public class TurnService {
         List<Blockade> blockadeList = game.getBlockades();
         Blockade blockade;
 
+        Field currentPosition = player.getMyFigure().getCurrentPosition();
+        Field actual = new Field();
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+                System.out.println(actual.getName());
+                System.out.println(i);
+            }
+        }
+
         for(int i = 0; i < blockadeList.size(); i++){
             if(fieldtomove.equals(blockadeList.get(i).getName())){
                 if(i == 0){
+                    gamePath.indexOf(actual);
+                    gamePath.remove(actual);
                     blockade = blockadeList.get(0);
                     blockade.BlockadeCross(true);
+                    actual.getNeighbours().remove(blockade);
+                    System.out.println("update pos");
+                    System.out.print(actual.getNeighbours());
+                    gamePath.add(actual);
+                    System.out.println("gamepath neighbour");
+                    System.out.println(gamePath.get(187).getNeighbours());
+                    System.out.println("gamepath");
+                    System.out.println(game.getGamePath().get(187).getName());
+                    System.out.println(game.getGamePath().get(187).getNeighbours());
+                    player.myFigure.setCurrentPosition(actual);
+                    System.out.println("Players neighbout");
+                    System.out.println(player.getMyFigure().getCurrentPosition().getNeighbours());
+                    System.out.println(player.getMyFigure().getCurrentPosition().getName());
+
+                    gameRepository.save(game);
+
                     return null;
 
                 }
@@ -155,14 +182,7 @@ public class TurnService {
 
 
 
-        Field currentPosition = player.getMyFigure().getCurrentPosition();
-        Field actual = new Field();
 
-        for (int i = 0; i < gamePath.size(); i++){
-            if(gamePath.get(i).getName().equals(currentPosition.getName())){
-                actual = gamePath.get(i);
-            }
-        }
 
         for (int i = 0; i < gamePath.size(); i++){
             if(gamePath.get(i).getName().equals(fieldtomove)){
@@ -226,7 +246,7 @@ public class TurnService {
     public List<Card> getCurrenthandCards(String room, String player){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
-
+        gameRepository.save(game);
         return current.handcards;
 
     }

@@ -34,4 +34,8 @@ public class ElDorado {
     public List<Player> getReachers() {
         return Reachers;
     }
+
+    public List<Field> lasttiles(){
+        return null;
+    }
 }

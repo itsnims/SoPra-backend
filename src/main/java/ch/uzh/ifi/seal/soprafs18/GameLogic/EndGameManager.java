@@ -25,6 +25,7 @@ public class EndGameManager  {
     public Player getWinner(){
         if (elDorado.getReachers().size() == 1) {
             Winner = elDorado.getReachers().get(0);
+            return Winner;
         }
         else if (elDorado.getReachers().size() > 1) {
             k= elDorado.getReachers().get(0);

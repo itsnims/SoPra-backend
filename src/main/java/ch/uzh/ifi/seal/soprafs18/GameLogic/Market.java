@@ -45,9 +45,9 @@ public class Market {
     public List<Card> MarketUpper;
 
     @Column(columnDefinition="LONGTEXT")
-    private LinkedHashMap<String,Integer> upperdict = new LinkedHashMap<>();
+    public LinkedHashMap<String,Integer> upperdict = new LinkedHashMap<>();
     @Column(columnDefinition="LONGTEXT")
-    private LinkedHashMap<String,Integer> bottomdict = new LinkedHashMap<>();
+    public LinkedHashMap<String,Integer> bottomdict = new LinkedHashMap<>();
 
 
     public Market(){ }
@@ -285,6 +285,9 @@ public class Market {
             instance = new Market();
         }
         return instance;
+    }
+    public int getCurrBottomCards(){
+        return currentBottomCards;
     }
 
     @Transient

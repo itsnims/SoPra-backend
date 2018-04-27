@@ -266,4 +266,8 @@ public class Game {
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
+
+    public void setGamePath(Path gamePath) {
+        GamePath = gamePath;
+    }
 }

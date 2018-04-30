@@ -212,15 +212,17 @@ public class TurnService {
         Game game = gameRepository.findByName(room);
         Player buyer = userRepository.findByName(player);
         Card card = game.getMarket().wanted(cardname);
-        System.out.println(game.getMarket().MarketBottom);
-        System.out.println(card);
         List<Card> money = new ArrayList<>();
+        List<Card> cards1 = buyer.handcards;
+
 
         outerloop:
         for (int i = 0; i < cardnames.size(); i++){
-            for (int j = 0; j < buyer.handcards.size(); j++){
-                if(cardnames.get(i).equals(buyer.handcards.get(j).getName())){
-                    money.add(buyer.handcards.get(j));
+            for (int j = 0; j < cards1.size(); j++){
+                if(cardnames.get(i).equals(cards1.get(j).getName())){
+                    money.add(cards1.get(j));
+                    cards1.remove(j);
+                    System.out.println(money);
                     continue outerloop;
                 }
 

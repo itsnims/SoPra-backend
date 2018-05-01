@@ -90,12 +90,15 @@ public class TurnService {
     public void Endturn(String gamename, String playername){
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
+        int numRound = game.getRoundNum();
         EndTurn endTurn = new EndTurn(player);
         player.executeTurn(endTurn);
         Integer i = game.getPlayers().indexOf(player);
         if(i == game.getMaxplayer()-1){
             i=-1;
+            numRound = numRound + 1;
         }
+
         game.setCurrentPlayer(game.getPlayers().get(i+1));
         game.getCurrentPlayer().drawCards();
         gameRepository.save(game);
@@ -252,6 +255,19 @@ public class TurnService {
         return current.handcards;
 
     }
+
+
+    public Player isGameWon(String room){
+        Game game= gameRepository.findByName(room);
+        EndGameManager endGameManager = new EndGameManager(game);
+        if(endGameManager.CheckifReached()){
+            Player winner = endGameManager.getWinner();
+            return winner;
+        }
+
+        return null;
+    }
+
 
 
 

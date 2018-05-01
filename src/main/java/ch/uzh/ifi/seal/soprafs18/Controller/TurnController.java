@@ -81,5 +81,12 @@ public class TurnController {
         return turnService.getCurrenthandCards(room,user);
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/checkWinner")
+    @ResponseStatus(HttpStatus.OK)
+    public Player getWinner(@PathVariable(value = "room",required = true) String room){
+        return turnService.isGameWon(room);
+    }
+
+
 
 }

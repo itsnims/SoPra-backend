@@ -96,27 +96,6 @@ public class Game {
 
     public void addPlayer(Player player){ players.add(player); }
 
-    public Player round(){
-        while(! new EndGameManager().CheckifReached()) {
-
-            for (i = 0; i < players.size(); i++) {
-                players.get(i).setTurn(true);
-                while( players.get(i).getTurn() && players.get(i).handcards.size() > 0) {
-                    /**Turn choice = get user input of what his choice is--
-                     Players.get(i).executeTurn(choice); **/
-                }
-
-            }
-            roundNum = roundNum + 1;
-
-        }
-        winner = new EndGameManager().getWinner();
-        return winner;
-
-    }
-
-
-
     public int getRoundNum(){
         return roundNum;
     }
@@ -238,7 +217,9 @@ public class Game {
         return Blockade;
     }
 
-    public Player nextplayer(Player currentplayer){
+
+// following function is never used --Endturn does the job in TurnService
+    /**public Player nextplayer(Player currentplayer){
         int i = players.indexOf(currentplayer);
         if (i == maxplayer-1){
             i = -1;
@@ -256,7 +237,7 @@ public class Game {
         setCurrentPlayer(players.get(i+1));
 
         return null;
-    }
+    }*/
 
 
     public void setCurrentPlayer(Player currentPlayer) {

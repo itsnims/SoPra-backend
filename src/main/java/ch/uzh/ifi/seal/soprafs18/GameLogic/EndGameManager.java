@@ -11,7 +11,7 @@ public class EndGameManager  {
     private int i, j;
     private Player k;
 
-    public EndGameManager(){
+    public EndGameManager(Game game){
 
     }
 

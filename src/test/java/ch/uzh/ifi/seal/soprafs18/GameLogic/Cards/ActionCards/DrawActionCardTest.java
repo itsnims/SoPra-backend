@@ -24,30 +24,16 @@ public class DrawActionCardTest {
         ExpeditionCard Tester2 = new ExpeditionCard("TestName","TestColour",true,1,1);
         choice.add(Tester1);
         choice.add(Tester2);
-        DrawTwoCards.getTrash(choice);
         DrawTwoCards.doSpecialFunction();
         int result = TestPlayer.handcards.size();
         Assert.assertEquals(6,result);
 
     }
 
-    @Test
-    public void TrashingCards(){
-        Player TestPlayer = new Player();
-        TestPlayer.setup();
-        DrawTwoCards.setPlayer(TestPlayer);
-        List<Card> choice = new ArrayList<>();
-        ExpeditionCard Tester1 = new ExpeditionCard("TestName","TestColour",true,1,1);
-        ExpeditionCard Tester2 = new ExpeditionCard("TestName","TestColour",true,1,1);
-        choice.add(Tester1);
-        choice.add(Tester2);
-        DrawTwoCards.getTrash(choice);
-        DrawTwoCards.doSpecialFunction();
-        int actual = TestPlayer.trashpile.size();
-        Assert.assertEquals(2,actual);
 
 
-    }
+
+
 
     @Test
     public void getName() {

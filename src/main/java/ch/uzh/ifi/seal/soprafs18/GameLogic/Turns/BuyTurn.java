@@ -36,16 +36,19 @@ public class BuyTurn implements Turn {
 
     public void DeleteFromMarket() {
 
+
         outerloop:
         for (int i = 0; i < market.MarketBottom.size(); i++) {
             Object obj = market.MarketBottom.get(i);
             Card check = (Card)obj;
             if (check.getName().equals(cardToBuy.getName())) {
+
                 market.MarketBottom.remove(check);
                 market.getBottomdict().put(check.getName(),market.getBottomdict().get(check.getName())-1);
                 if(market.getBottomdict().get(check.getName()) == 0){
                     market.currentBottomCards = market.currentBottomCards-1;
                 }
+
                 break outerloop;
             }
 
@@ -76,10 +79,8 @@ public class BuyTurn implements Turn {
         double sum = 0;
         while (selectedCards.size() > x) {
             sum = sum + selectedCards.get(x).getPrice();
-            System.out.println(selectedCards.get(x).getPrice());
             x = x + 1;
         }
-        System.out.println(sum);
         return sum;
 
     }
@@ -92,24 +93,29 @@ public class BuyTurn implements Turn {
         if (IsUpperCard()) {
             market.getCardsfromUpper(CardDeck);
             market.getUpperdict().put(CardDeck.get(0).getName(),0);
-            System.out.println(market.bottomdict);
+
+
             for (String key : market.bottomdict.keySet()) {
-                System.out.println(key);
                 if(market.getBottomdict().get(key)== 0){
                     market.getBottomdict().remove(key);
+
                     break;
                 }
             }
             market.getBottomdict().put(CardDeck.get(0).getName(),CardDeck.size());
-            market.currentBottomCards = market.currentBottomCards + 1;
+            market.MarketBottom.addAll(CardDeck);
+
+
+
+
 
         }
+
 
         currentPlayer.discardpile.add(cardToBuy);
         currentPlayer.selection.addAll(selectedCards);
         currentPlayer.handcards.removeAll(selectedCards);
         /**means we have used this card **/
-
         DeleteFromMarket();
 
         //else : buying is not possible

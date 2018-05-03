@@ -2,9 +2,11 @@ package ch.uzh.ifi.seal.soprafs18.Service;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Path;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurn;
 import ch.uzh.ifi.seal.soprafs18.Repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,5 +94,21 @@ public class GameService {
     public Integer getCurrBottom(String room){
         Game game = gameRepository.findByName(room);
         return game.getMarket().currentBottomCards;
+    }
+
+    public void FastForward(String room){
+        Game game = gameRepository.findByName(room);
+        Player player = game.getCurrentPlayer();
+        List<Card> selection = null;
+        Card card = game.getMarket().wanted("TravelDiary");
+        player.handcards.add(card);
+
+        Card card2 = game.getMarket().wanted("Compass");
+        player.handcards.add(card2);
+
+        gameRepository.save(game);
+
+
+
     }
 }

@@ -82,6 +82,15 @@ public class GameController {
 
     }
 
+    @CrossOrigin
+    @PutMapping(value = CONTEXT + "/{room}/Fast")
+    @ResponseStatus(HttpStatus.OK)
+    public void fast(@PathVariable(value = "room",required = true) String roomname) {
+        gameService.FastForward(roomname);
+
+    }
+
+
 
 
     

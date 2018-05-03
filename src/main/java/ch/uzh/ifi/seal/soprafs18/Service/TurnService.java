@@ -46,8 +46,10 @@ public class TurnService {
         List<String>  cardnames = cards.getCards();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
+
         List<Card> tobediscared = new ArrayList<>();
-        List<Card> copy = player.handcards;
+        List<Card> copy = new ArrayList<>(player.handcards);
+
         outerloop:
         for (int i = 0; i < cardnames.size(); i ++){
             for (int j = 0; j < copy.size(); j++){
@@ -59,6 +61,7 @@ public class TurnService {
                 }
             }
         }
+
         DiscardCard discardCard = new DiscardCard(tobediscared,player);
         player.executeTurn(discardCard);
         gameRepository.save(game);
@@ -233,7 +236,7 @@ public class TurnService {
         }
 
         BuyTurn buyTurn = new BuyTurn(money,buyer);
-        if (buyTurn.enoughmoney() <= card.getPrice()){
+        if (buyTurn.enoughmoney() >= card.getPrice()){
             buyTurn.setMarket(game.getMarket());
             buyTurn.getCardtoBuy(card);
             buyTurn.turnfunction();

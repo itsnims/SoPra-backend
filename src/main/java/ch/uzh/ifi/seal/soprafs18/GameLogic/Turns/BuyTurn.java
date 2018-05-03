@@ -43,11 +43,6 @@ public class BuyTurn implements Turn {
             if (check.getName().equals(cardToBuy.getName())) {
                 market.MarketBottom.remove(check);
                 market.getBottomdict().put(check.getName(),market.getBottomdict().get(check.getName())-1);
-                System.out.println(market.getBottomdict().get(check.getName()));
-                if (market.getBottomdict().get(check.getName()) == 0){
-                    market.getBottomdict().remove(check.getName());
-                }
-
                 break outerloop;
             }
 
@@ -94,6 +89,11 @@ public class BuyTurn implements Turn {
         if (IsUpperCard()) {
             market.getCardsfromUpper(CardDeck);
             market.getUpperdict().remove(CardDeck.get(0).getName());
+            for (String key : market.getBottomdict().keySet()) {
+                if(market.getBottomdict().get(key)== 0){
+                    market.getBottomdict().remove(key);
+                }
+            }
             market.getBottomdict().put(CardDeck.get(0).getName(),CardDeck.size());
         }
 

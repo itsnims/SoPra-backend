@@ -19,8 +19,7 @@ public class DrawActionCard extends ActionCard {
     @JsonIgnore
     @Transient
     private Boolean TrashSome; /** tells us if it gives us the trash option **/
-    @JsonIgnore
-    @Transient
+
     private Integer HowMany; /** tell us how many we can draw **/
     @JsonIgnore
     @Transient
@@ -39,7 +38,14 @@ public class DrawActionCard extends ActionCard {
         this.player = player;
     }
 
+    public Integer getHowMany() {
+        return HowMany;
+    }
 
+
+    public void setHowMany(Integer howMany) {
+        HowMany = howMany;
+    }
 
     @Override
     public void doSpecialFunction(){

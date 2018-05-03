@@ -92,6 +92,7 @@ public class TurnController {
     @ResponseStatus(HttpStatus.OK)
     public void drawActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card){
         turnService.DrawActionCard(room,user,card);
+        System.out.println("im inside the put call");
 
     }
 

@@ -277,6 +277,7 @@ public class TurnService {
         DrawActionCard draw = (DrawActionCard) cardwanted;
 
         PlayActionCard playActionCard = new PlayActionCard(draw,current);
+        playActionCard.turnfunction();
 
         gameRepository.save(game);
 

@@ -129,18 +129,17 @@ public class TurnService {
         System.out.println(actual.getNeighbours());
         options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
         System.out.println(options);
-        player.handcards.remove(Card);
-        player.selection.add(Card);
         gameRepository.save(game);
 
         return options;
     }
 
 
-    public Field moveFigure(String gamename,String playername, String fieldtomove){
+    public Field moveFigure(String gamename,String playername,String card, String fieldtomove){
         Field newposition = new Field();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
+        Card cardused = player.getWantedCard(card);
         List<Field> gamePath= game.getGamePath();
         Figure playerFigure= player.getMyFigure();
         List<Blockade> blockadeList = game.getBlockades();
@@ -199,6 +198,8 @@ public class TurnService {
         playerFigure.setCurrentPosition(newposition);
         newposition.setAccessable(false);
         actual.setAccessable(true);
+        player.selection.add(cardused);
+        player.handcards.remove(cardused);
         gameRepository.save(game);
 
         return playerFigure.getCurrentPosition();
@@ -219,7 +220,7 @@ public class TurnService {
         Player buyer = userRepository.findByName(player);
         Card card = game.getMarket().wanted(cardname);
         List<Card> money = new ArrayList<>();
-        List<Card> cards1 = buyer.handcards;
+        List<Card> cards1 = new ArrayList<>(buyer.handcards);
 
 
         outerloop:

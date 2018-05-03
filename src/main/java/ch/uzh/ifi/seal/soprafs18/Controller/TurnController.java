@@ -59,10 +59,10 @@ public class TurnController {
         return myOptions;
     }
 
-    @PutMapping(value = CONTEXT + "/{room}/{user}/{fieldname}")
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{fieldname}")
     @ResponseStatus(HttpStatus.OK)
-    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="fieldname") String fieldname){
-        Field newposition = turnService.moveFigure(room,user,fieldname);
+    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,@PathVariable(value="card") String card, @PathVariable(value="fieldname") String fieldname){
+        Field newposition = turnService.moveFigure(room,user,card,fieldname);
         return newposition;
     }
 

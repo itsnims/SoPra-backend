@@ -28,10 +28,11 @@ public class Market {
     @Transient
     public List<List<Card>> UpperCards = new ArrayList<>(12);
 
-    @Transient
-    @JsonIgnore
-    @OneToMany(cascade = {CascadeType.ALL})
-    private Integer currentBottomCards = 6;
+
+
+    public Integer currentBottomCards;
+
+
     @Transient
     @JsonIgnore
     private static Market instance = null;
@@ -277,6 +278,8 @@ public class Market {
         upperdict.put("Natives",3);
         upperdict.put("Captain",3);
 
+        currentBottomCards = 6;
+
 
     }
 
@@ -286,19 +289,10 @@ public class Market {
         }
         return instance;
     }
-    public int getCurrBottomCards(){
-        return currentBottomCards;
-    }
 
-    @Transient
-    @JsonIgnore
-    public boolean isfree() {
-        currentBottomCards = BottomCards.size();
-        if (currentBottomCards < 6) {
-            return true;
-        }
-        return false;
-    }  /** doesnt matter, front end does this... just do the appending of a card if it was before in upper**/
+
+
+  /** doesnt matter, front end does this... just do the appending of a card if it was before in upper**/
 
     @Transient
     @JsonIgnore
@@ -365,7 +359,13 @@ public class Market {
         return null;
     }
 
+    public Integer getCurrentBottomCards() {
+        return currentBottomCards;
+    }
 
+    public void setCurrentBottomCards(Integer currentBottomCards) {
+        this.currentBottomCards = currentBottomCards;
+    }
 }
 
 

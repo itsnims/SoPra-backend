@@ -88,4 +88,9 @@ public class GameService {
         Game game = gameRepository.findByName(room);
         return game.getBlockades();
     }
+
+    public Integer getCurrBottom(String room){
+        Game game = gameRepository.findByName(room);
+        return game.getMarket().currentBottomCards;
+    }
 }

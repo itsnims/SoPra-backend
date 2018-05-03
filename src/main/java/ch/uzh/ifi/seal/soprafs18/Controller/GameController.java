@@ -75,6 +75,13 @@ public class GameController {
         return gameService.getBlockade(roomname);
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/CurrentBottom")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer currBottomCards(@PathVariable(value = "room",required = true) String roomname) {
+        return gameService.getCurrBottom(roomname);
+
+    }
+
 
 
     

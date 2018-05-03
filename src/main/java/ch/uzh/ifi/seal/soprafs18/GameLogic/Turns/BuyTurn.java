@@ -43,6 +43,9 @@ public class BuyTurn implements Turn {
             if (check.getName().equals(cardToBuy.getName())) {
                 market.MarketBottom.remove(check);
                 market.getBottomdict().put(check.getName(),market.getBottomdict().get(check.getName())-1);
+                if(market.getBottomdict().get(check.getName()) == 0){
+                    market.currentBottomCards = market.currentBottomCards-1;
+                }
                 break outerloop;
             }
 
@@ -98,6 +101,8 @@ public class BuyTurn implements Turn {
                 }
             }
             market.getBottomdict().put(CardDeck.get(0).getName(),CardDeck.size());
+            market.currentBottomCards = market.currentBottomCards + 1;
+
         }
 
         currentPlayer.discardpile.add(cardToBuy);

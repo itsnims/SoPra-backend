@@ -91,7 +91,7 @@ public class BuyTurn implements Turn {
 
         if (IsUpperCard()) {
             market.getCardsfromUpper(CardDeck);
-            market.getUpperdict().remove(CardDeck.get(0).getName());
+            market.getUpperdict().put(CardDeck.get(0).getName(),0);
             System.out.println(market.bottomdict);
             for (String key : market.bottomdict.keySet()) {
                 System.out.println(key);

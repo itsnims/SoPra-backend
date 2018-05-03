@@ -120,6 +120,7 @@ public class Player {
         while (currentInHand < 4) {
             if(drawpile.size() == 0){
                 addtoDrawPile(discardpile);
+                discardpile.clear();
             }
             Collections.shuffle(drawpile);
             handcards.add(drawpile.get(0));

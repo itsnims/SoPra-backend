@@ -5,12 +5,10 @@ import ch.uzh.ifi.seal.soprafs18.GameLogic.*;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.BoardPiece;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards.DrawActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.BuyTurn;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.DiscardCard;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.EndTurn;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.Trash;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Turns.*;
 import ch.uzh.ifi.seal.soprafs18.Repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -271,6 +269,22 @@ public class TurnService {
 
         return null;
     }
+
+    public void DrawActionCard(String room, String player, String card){
+        Game game = gameRepository.findByName(room);
+        Player current = userRepository.findByName(player);
+        Object cardwanted = current.getWantedCard(card);
+        DrawActionCard draw = (DrawActionCard) cardwanted;
+
+        PlayActionCard playActionCard = new PlayActionCard(draw,current);
+
+        gameRepository.save(game);
+
+
+    }
+
+
+
 
 
 

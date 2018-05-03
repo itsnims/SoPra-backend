@@ -88,5 +88,13 @@ public class TurnController {
     }
 
 
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/drawAction")
+    @ResponseStatus(HttpStatus.OK)
+    public void drawActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card){
+        turnService.DrawActionCard(room,user,card);
+
+    }
+
+
 
 }

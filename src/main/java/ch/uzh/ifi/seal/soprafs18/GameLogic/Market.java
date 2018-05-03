@@ -177,16 +177,16 @@ public class Market {
         MarketDeckCartopgrapher.add(Cartographer2);
         MarketDeckCartopgrapher.add(Cartographer3);
 
-        DrawActionCard Compass1 = new DrawActionCard("Compass","Purple",false,2,3,true);
-        DrawActionCard Compass2 = new DrawActionCard("Compass","Purple",false,2,3,true);
-        DrawActionCard Compass3 = new DrawActionCard("Compass","Purple",false,2,3,true);
+        DrawActionCard Compass1 = new DrawActionCard("Compass","Purple",false,2,3,false);
+        DrawActionCard Compass2 = new DrawActionCard("Compass","Purple",false,2,3,false);
+        DrawActionCard Compass3 = new DrawActionCard("Compass","Purple",false,2,3,false);
         MarketDeckCompass.add(Compass1);
         MarketDeckCompass.add(Compass2);
         MarketDeckCompass.add(Compass3);
 
-        DrawActionCard TravelDiary1 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary2 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
-        DrawActionCard TravelDiary3 = new DrawActionCard("TravelDiary","Purple",false,3,3,true);
+        DrawActionCard TravelDiary1 = new DrawActionCard("TravelDiary","Purple",false,3,2,true);
+        DrawActionCard TravelDiary2 = new DrawActionCard("TravelDiary","Purple",false,3,2,true);
+        DrawActionCard TravelDiary3 = new DrawActionCard("TravelDiary","Purple",false,3,2,true);
         MarketDeckTravelDiary.add(TravelDiary1);
         MarketDeckTravelDiary.add(TravelDiary2);
         MarketDeckTravelDiary.add(TravelDiary3);

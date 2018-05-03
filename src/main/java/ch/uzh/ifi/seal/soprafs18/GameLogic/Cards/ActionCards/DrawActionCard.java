@@ -25,9 +25,7 @@ public class DrawActionCard extends ActionCard {
     @JsonIgnore
     @Transient
     private Player player;
-    @JsonIgnore
-    @Transient
-    private List<Card> Trash;
+
 
     public DrawActionCard(){}
 
@@ -41,10 +39,7 @@ public class DrawActionCard extends ActionCard {
         this.player = player;
     }
 
-    public void getTrash(List<Card> TrashList){
-        this.Trash = TrashList;
 
-    }
 
     @Override
     public void doSpecialFunction(){
@@ -59,9 +54,6 @@ public class DrawActionCard extends ActionCard {
 
         }
 
-        if (TrashSome == true && Trash.size() != 0){
-            player.trashpile.addAll(Trash);
-        }
 
 
 

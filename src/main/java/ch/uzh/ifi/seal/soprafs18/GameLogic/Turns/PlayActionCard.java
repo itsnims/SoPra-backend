@@ -28,7 +28,6 @@ public class PlayActionCard implements Turn{
 
         if (selectedCard instanceof DrawActionCard){
             ((DrawActionCard) selectedCard).setPlayer(currentPlayer);
-            /**set trash to trash..player choice??**/
             selectedCard.doSpecialFunction();
 
         }

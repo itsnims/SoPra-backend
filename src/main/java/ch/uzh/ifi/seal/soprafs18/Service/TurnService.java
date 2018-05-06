@@ -284,6 +284,42 @@ public class TurnService {
 
     }
 
+    public List<BoardPiece> MoveActionCard(String room, String player, String card){
+        Game game = gameRepository.findByName(room);
+        Player current = userRepository.findByName(player);
+        Card cardwanted = current.getWantedCard(card);
+        current.selection.add(cardwanted);
+        current.handcards.remove(cardwanted);
+
+        return current.myFigure.getCurrentPosition().getNeighbours();
+
+    }
+
+    public void MarketActionCard(String room, String player, String usedcard, String marketCard){
+        Game game = gameRepository.findByName(room);
+        Player current = userRepository.findByName(player);
+        Card cardWanted = current.getWantedCard(usedcard);
+        current.selection.add(cardWanted);
+        current.handcards.remove(cardWanted);
+
+        Card card = game.getMarket().wanted(marketCard);
+
+        if (game.getMarket().getUpperdict().containsValue(card.getName())){
+            game.getMarket().getUpperdict().put(card.getName(),game.getMarket().getUpperdict().get(card.getName())-1);
+
+        }
+        else
+        {
+            game.getMarket().getBottomdict().put(card.getName(),game.getMarket().getBottomdict().get(card.getName())-1);
+
+        }
+
+        current.discardpile.add(card);
+        gameRepository.save(game);
+
+
+    }
+
 
 
 

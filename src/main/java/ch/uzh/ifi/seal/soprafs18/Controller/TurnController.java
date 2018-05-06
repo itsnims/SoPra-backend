@@ -96,6 +96,19 @@ public class TurnController {
 
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/{user}/{card}/moveAction")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BoardPiece> moveActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card) {
+        return turnService.MoveActionCard(room, user, card);
+    }
+
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{mcard}/marketAction")
+    @ResponseStatus(HttpStatus.OK)
+    public void marketActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card, @PathVariable(value ="mcard") String mcard) {
+        turnService.MarketActionCard(room, user, card,mcard);
+    }
+
+
 
 
 }

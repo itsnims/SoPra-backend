@@ -284,13 +284,10 @@ public class TurnService {
 
     }
 
-    public List<BoardPiece> MoveActionCard(String room, String player, String card){
+    public List<BoardPiece> MoveActionCard(String room, String player){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
-        Card cardwanted = current.getWantedCard(card);
-        current.selection.add(cardwanted);
-        current.handcards.remove(cardwanted);
-
+        
         return current.myFigure.getCurrentPosition().getNeighbours();
 
     }

@@ -287,8 +287,21 @@ public class TurnService {
     public List<BoardPiece> MoveActionCard(String room, String player){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
-        
-        return current.myFigure.getCurrentPosition().getNeighbours();
+        List<Field> gamePath = game.getGamePath();
+
+        Field currentPosition = current.getMyFigure().getCurrentPosition();
+        Field actual = new Field();
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+
+            }
+        }
+
+        System.out.println(actual.getNeighbours());
+
+        return actual.getNeighbours();
 
     }
 

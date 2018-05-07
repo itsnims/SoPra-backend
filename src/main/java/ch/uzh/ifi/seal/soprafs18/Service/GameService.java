@@ -106,6 +106,9 @@ public class GameService {
         Card card2 = game.getMarket().wanted("Compass");
         player.handcards.add(card2);
 
+        Card card3 = game.getMarket().wanted("Transmitter");
+        player.handcards.add(card3);
+
         gameRepository.save(game);
 
 

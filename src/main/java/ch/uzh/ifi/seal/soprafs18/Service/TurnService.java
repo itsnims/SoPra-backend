@@ -288,6 +288,7 @@ public class TurnService {
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
         List<Field> gamePath = game.getGamePath();
+        List<BoardPiece> options = new ArrayList<>();
 
         Field currentPosition = current.getMyFigure().getCurrentPosition();
         Field actual = new Field();
@@ -299,9 +300,23 @@ public class TurnService {
             }
         }
 
-        System.out.println(actual.getNeighbours());
 
-        return actual.getNeighbours();
+
+        for (int i = 0; i < actual.getNeighbours().size(); i++){
+
+
+            if( actual.getNeighbours().get(i) instanceof Blockade){
+                options.add(actual.getNeighbours().get(i));
+            }
+
+            if(actual.getNeighbours().get(i) instanceof Field && ((Field) actual.getNeighbours().get(i)).getAccessable() && ((Field) actual.getNeighbours().get(i)).getStrenght() != 0){
+                options.add(actual.getNeighbours().get(i));
+            }
+
+            
+        }
+
+        return options;
 
     }
 

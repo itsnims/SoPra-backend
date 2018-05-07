@@ -313,7 +313,7 @@ public class TurnService {
                 options.add(actual.getNeighbours().get(i));
             }
 
-            
+
         }
 
         return options;
@@ -329,7 +329,9 @@ public class TurnService {
 
         Card card = game.getMarket().wanted(marketCard);
 
-        if (game.getMarket().getUpperdict().containsValue(card.getName())){
+
+        if (game.getMarket().getUpperdict().get(marketCard) != 0){
+            System.out.println("Here");
             game.getMarket().getUpperdict().put(card.getName(),game.getMarket().getUpperdict().get(card.getName())-1);
 
         }

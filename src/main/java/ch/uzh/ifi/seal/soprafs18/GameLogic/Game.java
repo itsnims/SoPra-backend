@@ -78,6 +78,7 @@ public class Game {
 
         StandardPath path = new StandardPath();
         setGamePath(path);
+        path.setupPath(pathname);
         List<Field> starters = GamePath.getStarters();
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {

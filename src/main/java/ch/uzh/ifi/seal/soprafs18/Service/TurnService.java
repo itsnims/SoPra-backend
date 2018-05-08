@@ -138,22 +138,7 @@ public class TurnService {
         Player player = userRepository.findByName(playername);
         List<Blockade> blockadeList = game.getBlockades();
 
-        List<Field> newp = new ArrayList<>();
-
-
-        List<Field> gamePath= game.getGamePath().getStandardPathFields();
-
-        newp.add(gamePath.get(0));
-        newp.add(gamePath.get(1));
-        newp.add(gamePath.get(2));
-        StandardPath eh = new StandardPath();
-        eh.setStandardPathFields(newp);
-
-        game.setGamePath(eh);
-        game.getGamePath().setStandardPathFields(null);
-
-        gameRepository.save(game);
-
+        
 
 
 
@@ -165,10 +150,11 @@ public class TurnService {
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         Card cardused = player.getWantedCard(card);
-        List<Field> gamePath= game.getGamePath().getStandardPathFields();
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+
+
         Figure playerFigure= player.getMyFigure();
-        List<Blockade> blockadeList = game.getBlockades();
-        Blockade blockade;
+
 
         Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
@@ -180,37 +166,6 @@ public class TurnService {
                 System.out.println(i);
             }
         }
-
-        for(int i = 0; i < blockadeList.size(); i++){
-            if(fieldtomove.equals(blockadeList.get(i).getName())){
-                if(i == 0){
-                    gamePath.indexOf(actual);
-                    gamePath.remove(actual);
-                    blockade = blockadeList.get(0);
-                    blockade.BlockadeCross(true);
-                    actual.getNeighbours().remove(blockade);
-                    System.out.println("update pos");
-                    System.out.print(actual.getNeighbours());
-                    gamePath.add(actual);
-                    System.out.println("gamepath neighbour");
-                    System.out.println(gamePath.get(187).getNeighbours());
-                    System.out.println("gamepath");
-
-                    player.myFigure.setCurrentPosition(actual);
-                    System.out.println("Players neighbout");
-                    System.out.println(player.getMyFigure().getCurrentPosition().getNeighbours());
-                    System.out.println(player.getMyFigure().getCurrentPosition().getName());
-
-                    gameRepository.save(game);
-
-                    return null;
-
-                }
-            }
-        }
-
-
-
 
 
         for (int i = 0; i < gamePath.size(); i++){
@@ -313,7 +268,7 @@ public class TurnService {
     public List<BoardPiece> MoveActionCard(String room, String player){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
-        List<Field> gamePath = game.getGamePath().getStandardPathFields();
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
         List<BoardPiece> options = new ArrayList<>();
 
         Field currentPosition = current.getMyFigure().getCurrentPosition();

@@ -23,6 +23,7 @@ public class StandardPath {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Blockade> Blockades= new ArrayList<>(6);
 
+    @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Blockade> currentBlockades = new ArrayList<>();
 
@@ -40,6 +41,11 @@ public class StandardPath {
         Blockades.add(blockade4);
         Blockades.add(blockade5);
         Blockades.add(blockade6);
+
+    }
+
+    public void setupStandardPath(){
+
 
         Field A1 = new Field(0,"Green",true, "A1");
         Field A2 = new Field(0,"Green",true, "A2");
@@ -612,7 +618,6 @@ public class StandardPath {
 
     }
 
-
     public void setStandardPathFields(List<Field> standardPathFields) {
         StandardPathFields = standardPathFields;
 
@@ -655,5 +660,27 @@ public class StandardPath {
 
     public void setCurrentBlockades(List<Blockade> currentBlockades) {
         this.currentBlockades = currentBlockades;
+    }
+
+
+    public List<Field> getCurrentPath(String name) {
+        if (name.equals("StandardPath")) {
+            return getStandardPathFields();
+        }
+
+        return null;
+    }
+
+    public void setCurrentPath(String name, List<Field> updated){
+        if (name.equals("StandardPath")) {
+            setStandardPathFields(updated);
+        }
+
+    }
+
+    public void setupPath(String name){
+        if (name.equals("StandardPath")) {
+            setupStandardPath();
+        }
     }
 }

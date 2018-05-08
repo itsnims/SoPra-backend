@@ -82,7 +82,7 @@ public class Game {
         StandardPath path = new StandardPath();
         setGamePath(path);
         path.setupPath(pathname);
-        List<Field> starters = GamePath.getStarters();
+        List<Field> starters = GamePath.getStarters(getPathname());
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);

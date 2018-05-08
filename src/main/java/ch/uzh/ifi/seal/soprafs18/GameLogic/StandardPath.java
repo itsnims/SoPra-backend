@@ -26,6 +26,24 @@ public class StandardPath {
     @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Blockade> currentBlockades = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> HillsOfGoldFields = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> HomeStretchFields = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> WindingPathsFields = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> SerpentineFields = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> SwamplandsFields = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Field> WitchsCauldronFields = new ArrayList<>();
 
     public StandardPath(){
         Blockade blockade4= new Blockade("BK4",1,"Blue",false);
@@ -617,6 +635,795 @@ public class StandardPath {
         currentBlockades.add(fourth);
 
     }
+
+
+    public void setupHillsOfGold(){
+        Field B1 = new Field(0, "Green", true, "B1");
+        Field B2 = new Field(0, "Green", true, "B2");
+        Field B3 = new Field(0, "Green", true, "B3");
+        Field B4 = new Field(0, "Green", true, "B4");
+        Field B5 = new Field(1, "Green", true, "B5");
+        Field B6 = new Field(1, "Green", true, "B6");
+        Field B7 = new Field(1, "Green", true, "B7");
+        Field B8 = new Field(1, "Green", true, "B8");
+        Field B9 = new Field(1, "Green", true, "B9");
+        Field B10 = new Field(1, "Green", true, "B10");
+        Field B11 = new Field(1, "Green", true, "B11");
+        Field B12 = new Field(1, "Green", true, "B12");
+        Field B13 = new Field(1, "Blue", true, "B13");
+        Field B14 = new Field(1, "Green", true, "B14");
+        Field B15 = new Field(1, "Green", true, "B15");
+        Field B16 = new Field(1, "Green", true, "B16");
+        Field B17 = new Field(1, "Green", true, "B17");
+        Field B18 = new Field(1, "Yellow", true, "B18");
+        Field B19 = new Field(1, "Green", true, "B19");
+        Field B20 = new Field(1, "Yellow", true, "B20");
+        Field B21 = new Field(1, "Green", true, "B21");
+        Field B22 = new Field(1, "Blue", true, "B22");
+        Field B23 = new Field(1, "Green", true, "B23");
+        Field B24 = new Field(1, "Green", true, "B24");
+        Field B25 = new Field(1, "Green", true, "B25");
+        Field B26 = new Field(1, "Green", true, "B26");
+        Field B27 = new Field(1, "Yellow", true, "B27");
+        Field B28 = new Field(1, "Green", true, "B28");
+        Field B29 = new Field(1, "Green", true, "B29");
+        Field B30 = new Field(0, "Cave", false, "B30");
+        Field B31 = new Field(1, "Yellow", true, "B31");
+        Field B32 = new Field(1, "Green", true, "B32");
+        Field B33 = new Field(1, "Green", true, "B33");
+        Field B34 = new Field(1, "Blue", true, "B34");
+        Field B35 = new Field(1, "Camp", true, "B35");
+        Field B36 = new Field(1, "Blue", true, "B36");
+        Field B37 = new Field(1, "Green", true, "B37");
+        B1.AddNewNeighbour(B2, B5, B6);
+        B2.AddNewNeighbour(B1, B6, B7, B3);
+        B3.AddNewNeighbour(B2, B7, B8, B4);
+        B4.AddNewNeighbour(B3, B8, B9);
+        B5.AddNewNeighbour(B1, B6, B10, B11);
+        B6.AddNewNeighbour(B1, B2, B7, B12, B11, B5);
+        B7.AddNewNeighbour(B2, B3, B8, B13, B12, B6);
+        B8.AddNewNeighbour(B3, B4, B9, B14, B13, B7);
+        B9.AddNewNeighbour(B4, B15, B14, B8);
+        B10.AddNewNeighbour(B5, B11, B17, B16);
+        B11.AddNewNeighbour(B5, B6, B12, B18, B17, B10);
+        B12.AddNewNeighbour(B6, B7, B13, B19, B18, B11);
+        B13.AddNewNeighbour(B7, B8, B14, B20, B19, B12);
+        B14.AddNewNeighbour(B8, B9, B15, B21, B20, B13);
+        B15.AddNewNeighbour(B9, B22, B21, B14);
+        B16.AddNewNeighbour(B10, B17, B23);
+        B17.AddNewNeighbour(B10, B11, B18, B24, B23, B16);
+        B18.AddNewNeighbour(B11, B12, B19, B25, B24, B17);
+        B19.AddNewNeighbour(B12, B13, B20, B26, B25, B18);
+        B20.AddNewNeighbour(B13, B14, B21, B27, B26, B19);
+        B21.AddNewNeighbour(B14, B15, B22, B28, B27, B20);
+        B22.AddNewNeighbour(B15, B28, B21);
+        B23.AddNewNeighbour(B16, B17, B24, B29);
+        B24.AddNewNeighbour(B17, B18, B25, B30, B29, B23);
+        B25.AddNewNeighbour(B18, B19, B26, B31, B30, B24);
+        B26.AddNewNeighbour(B19, B20, B27, B32, B32, B25);
+        B27.AddNewNeighbour(B20, B21, B28, B33, B32, B26);
+        B28.AddNewNeighbour(B21, B22, B33, B27);
+        B29.AddNewNeighbour(B23, B24, B30, B34);
+        B30.AddNewNeighbour(B24, B25, B31, B35, B34, B29);
+        B31.AddNewNeighbour(B25, B26, B32, B36, B35, B30);
+        B32.AddNewNeighbour(B26, B27, B33, B37, B36, B31);
+        B33.AddNewNeighbour(B27, B28, B37, B32);
+        B34.AddNewNeighbour(B29, B30, B35);
+        B35.AddNewNeighbour(B34, B30, B31, B36);
+        B36.AddNewNeighbour(B35, B31, B32, B37);
+        B37.AddNewNeighbour(B36, B32, B33);
+
+        Field C1 = new Field(1,"Blue",true, "C1");
+        Field C2 = new Field(1,"Blue",true, "C2");
+        Field C3 = new Field(1,"Green",true, "C3");
+        Field C4 = new Field(1,"Green",true, "C4");
+        Field C5 = new Field(1,"Yellow",true, "C5");
+        Field C6 = new Field(1,"Yellow",true, "C6");
+        Field C7 = new Field(1,"Blue",true,"C7");
+        Field C8 = new Field(1,"Yellow",true, "C8");
+        Field C9 = new Field(1,"Green",true, "C9");
+        Field C10 = new Field(1,"Yellow",true,"C10");
+        Field C11 = new Field(1,"White",true,"C11");
+        Field C12 = new Field(1,"White",true,"C12" );
+        Field C13 = new Field(1,"Yellow",true, "C13");
+        Field C14 = new Field(1,"White",true, "C14");
+        Field C15 = new Field(1,"White",true,"C15");
+        Field C16 = new Field(1,"Green",true, "C16");
+        Field C17 = new Field(1,"White",true,"C17" );
+        Field C18 = new Field(1,"Blue",true,"C18");
+        Field C19 = new Field(0,"Cave",false, "C19");
+        Field C20 = new Field(1,"Yellow",true, "C20");
+        Field C21 = new Field(1,"Blue",true, "C21");
+        Field C22 = new Field(1,"White",true, "C22");
+        Field C23 = new Field(1,"Green",true, "C23");
+        Field C24 = new Field(1,"Green",true, "C24");
+        Field C25 = new Field(1,"Blue",true, "C25");
+        Field C26 = new Field(1,"Blue",true, "C26");
+        Field C27 = new Field(1,"White",true, "C27");
+        Field C28 = new Field(1,"Blue",true,"C28");
+        Field C29 = new Field(1,"Blue",true, "C29");
+        Field C30 = new Field(1,"Yellow",true, "C30");
+        Field C31 = new Field(1,"Yellow",true, "C31");
+        Field C32 = new Field(1,"White",true, "C32");
+        Field C33 = new Field(1,"Blue",true, "C33");
+        Field C34 = new Field(1,"Blue",true, "C34");
+        Field C35 = new Field(1,"Blue",true, "C35");
+        Field C36 = new Field(1,"Yellow",true, "C36");
+        Field C37 = new Field(1,"White",true, "C37");
+        C1.AddNewNeighbour(C2,C5, C6);
+        C2.AddNewNeighbour(C1,C6,C7,C3);
+        C3.AddNewNeighbour(C2,C7,C8,C4);
+        C4.AddNewNeighbour(C3,C8,C9);
+        C5.AddNewNeighbour(C1,C6,C10,C11);
+        C6.AddNewNeighbour(C1,C2,C7,C12,C11,C5);
+        C7.AddNewNeighbour(C2,C3,C8,C13,C12,C6);
+        C8.AddNewNeighbour(C3,C4,C9,C14,C13,C7);
+        C9.AddNewNeighbour(C4,C15,C14,C8);
+        C10.AddNewNeighbour(C5,C11,C17,C16);
+        C11.AddNewNeighbour(C5,C6,C12,C18,C17,C10);
+        C12.AddNewNeighbour(C6,C7,C13,C19,C18,C11);
+        C13.AddNewNeighbour(C7,C8,C14,C20,C19,C12);
+        C14.AddNewNeighbour(C8,C9,C15,C21,C20,C13);
+        C15.AddNewNeighbour(C9,C22,C21,C14);
+        C16.AddNewNeighbour(C10,C17,C23);
+        C17.AddNewNeighbour(C10,C11,C18,C24,C23,C16);
+        C18.AddNewNeighbour(C11,C12,C19,C25,C24,C17);
+        C19.AddNewNeighbour(C12,C13,C20,C26,C25,C18);
+        C20.AddNewNeighbour(C13,C14,C21,C27,C26,C19);
+        C21.AddNewNeighbour(C14,C15,C22,C28,C27,C20);
+        C22.AddNewNeighbour(C15,C28,C21);
+        C23.AddNewNeighbour(C16,C17,C24,C29);
+        C24.AddNewNeighbour(C17,C18,C25,C30,C29,C23);
+        C25.AddNewNeighbour(C18,C19,C26,C31,C30,C24);
+        C26.AddNewNeighbour(C19,C20,C27,C32,C32,C25);
+        C27.AddNewNeighbour(C20,C21,C28,C33,C32,C26);
+        C28.AddNewNeighbour(C21,C22,C33,C27);
+        C29.AddNewNeighbour(C23,C24,C30,C34);
+        C30.AddNewNeighbour(C24,C25,C31,C35,C34,C29);
+        C31.AddNewNeighbour(C25,C26,C32,C36,C35,C30);
+        C32.AddNewNeighbour(C26,C27,C33,C37,C36,C31);
+        C33.AddNewNeighbour(C27,C28,C37,C32);
+        C34.AddNewNeighbour(C29,C30,C35);
+        C35.AddNewNeighbour(C34,C30,C31,C36);
+        C36.AddNewNeighbour(C35,C31,C32,C37);
+        C37.AddNewNeighbour(C36,C32,C33);
+
+        Field G1 = new Field(1, "Green", true, "G1");
+        Field G2 = new Field(1, "Green", true, "G2");
+        Field G3 = new Field(1, "Green", true, "G3");
+        Field G4 = new Field(1, "Green", true, "G4");
+        Field G5 = new Field(1, "Green", true, "G5");
+        Field G6 = new Field(2, "Green", true, "G6");
+        Field G7 = new Field(1, "Yellow", true, "G7");
+        Field G8 = new Field(0, "Cave", false, "G8");
+        Field G9 = new Field(1, "Green", true, "G9");
+        Field G10 = new Field(1, "Yellow", true, "G10");
+        Field G11 = new Field(2, "Yellow", true, "G11");
+        Field G12 = new Field(2, "Yellow", true, "G12");
+        Field G13 = new Field(1, "White", true, "G13");
+        Field G14 = new Field(1, "Yellow", true, "G14");
+        Field G15 = new Field(1, "Green", true, "G15");
+        Field G16 = new Field(0, "Cave", false, "G16");
+        Field G17 = new Field(0, "Cave", false, "G17");
+        Field G18 = new Field(4, "Yellow", true, "G18");
+        Field G19 = new Field(3, "Yellow", true, "G19");
+        Field G20 = new Field(2, "Yellow", true, "G20");
+        Field G21 = new Field(2, "Green", true, "G21");
+        Field G22 = new Field(1, "Camp", true, "G22");
+        Field G23 = new Field(1, "Yellow", true, "G23");
+        Field G24 = new Field(2, "Yellow", true, "G24");
+        Field G25 = new Field(2, "Yellow", true, "G25");
+        Field G26 = new Field(1, "White", true, "G26");
+        Field G27 = new Field(1, "Yellow", true, "G27");
+        Field G28 = new Field(1, "Green", true, "G28");
+        Field G29 = new Field(1, "Green", true, "G29");
+        Field G30 = new Field(2, "Green", true, "G30");
+        Field G31 = new Field(1, "Yellow", true, "G31");
+        Field G32 = new Field(0, "Cave", false, "G32");
+        Field G33 = new Field(1, "Green", true, "G33");
+        Field G34 = new Field(1, "Green", true, "G34");
+        Field G35 = new Field(1, "Green", true, "G35");
+        Field G36 = new Field(1, "Green", true, "G36");
+        Field G37 = new Field(1, "Green", true, "G37");
+        G1.AddNewNeighbour(G2, G5, G6);
+        G2.AddNewNeighbour(G1, G6, G7, G3);
+        G3.AddNewNeighbour(G2, G7, G8, G4);
+        G4.AddNewNeighbour(G3, G8, G9);
+        G5.AddNewNeighbour(G1, G6, G10, G11);
+        G6.AddNewNeighbour(G1, G2, G7, G12, G11, G5);
+        G7.AddNewNeighbour(G2, G3, G8, G13, G12, G6);
+        G8.AddNewNeighbour(G3, G4, G9, G14, G13, G7);
+        G9.AddNewNeighbour(G4, G15, G14, G8);
+        G10.AddNewNeighbour(G5, G11, G17, G16);
+        G11.AddNewNeighbour(G5, G6, G12, G18, G17, G10);
+        G12.AddNewNeighbour(G6, G7, G13, G19, G18, G11);
+        G13.AddNewNeighbour(G7, G8, G14, G20, G19, G12);
+        G14.AddNewNeighbour(G8, G9, G15, G21, G20, G13);
+        G15.AddNewNeighbour(G9, G22, G21, G14);
+        G16.AddNewNeighbour(G10, G17, G23);
+        G17.AddNewNeighbour(G10, G11, G18, G24, G23, G16);
+        G18.AddNewNeighbour(G11, G12, G19, G25, G24, G17);
+        G19.AddNewNeighbour(G12, G13, G20, G26, G25, G18);
+        G20.AddNewNeighbour(G13, G14, G21, G27, G26, G19);
+        G21.AddNewNeighbour(G14, G15, G22, G28, G27, G20);
+        G22.AddNewNeighbour(G15, G28, G21);
+        G23.AddNewNeighbour(G16, G17, G24, G29);
+        G24.AddNewNeighbour(G17, G18, G25, G30, G29, G23);
+        G25.AddNewNeighbour(G18, G19, G26, G31, G30, G24);
+        G26.AddNewNeighbour(G19, G20, G27, G32, G32, G25);
+        G27.AddNewNeighbour(G20, G21, G28, G33, G32, G26);
+        G28.AddNewNeighbour(G21, G22, G33, G27);
+        G29.AddNewNeighbour(G23, G24, G30, G34);
+        G30.AddNewNeighbour(G24, G25, G31, G35, G34, G29);
+        G31.AddNewNeighbour(G25, G26, G32, G36, G35, G30);
+        G32.AddNewNeighbour(G26, G27, G33, G37, G36, G31);
+        G33.AddNewNeighbour(G27, G28, G37, G32);
+        G34.AddNewNeighbour(G29, G30, G35);
+        G35.AddNewNeighbour(G34, G30, G31, G36);
+        G36.AddNewNeighbour(G35, G31, G32, G37);
+        G37.AddNewNeighbour(G36, G32, G33);
+
+        Field J1 = new Field(1, "Yellow", true, "J1");
+        Field J2 = new Field(1, "Yellow", true, "J2");
+        Field J3 = new Field(1, "Yellow", true, "J3");
+        Field J4 = new Field(1, "Yellow", true, "J4");
+        Field J5 = new Field(1, "Yellow", true, "J5");
+        Field J6 = new Field(2, "Yellow", true, "J6");
+        Field J7 = new Field(2, "Yellow", true, "J7");
+        Field J8 = new Field(1, "Yellow", true, "J8");
+        Field J9 = new Field(1, "Blue", true, "J9");
+        Field J10 = new Field(1, "Yellow", true, "J10");
+        Field J11 = new Field(2, "Yellow", true, "J11");
+        Field J12 = new Field(1, "Green", true, "J12");
+        Field J13 = new Field(2, "Green", true, "J13");
+        Field J14 = new Field(2, "Blue", true, "J14");
+        Field J15 = new Field(1, "Blue", true, "J15");
+        Field J16 = new Field(2, "White", true, "J16");
+        Field J17 = new Field(0, "Cave", false, "J17");
+        Field J18 = new Field(1, "Green", true, "J18");
+        Field J19 = new Field(1, "Camp", true, "J19");
+        Field J20 = new Field(1, "Green", true, "J20");
+        Field J21 = new Field(0, "Cave", false, "J21");
+        Field J22 = new Field(1, "Blue", true, "J22");
+        Field J23 = new Field(1, "White", true, "J23");
+        Field J24 = new Field(2, "White", true, "J24");
+        Field J25 = new Field(1, "Green", true, "J25");
+        Field J26 = new Field(2, "Green", true, "J26");
+        Field J27 = new Field(2, "Blue", true, "J27");
+        Field J28 = new Field(1, "Blue", true, "J28");
+        Field J29 = new Field(1, "White", true, "J29");
+        Field J30 = new Field(2, "White", true, "J30");
+        Field J31 = new Field(2, "White", true, "J31");
+        Field J32 = new Field(1, "Blue", true, "J32");
+        Field J33 = new Field(1, "Blue", true, "J33");
+        Field J34 = new Field(1, "White", true, "J34");
+        Field J35 = new Field(1, "White", true, "J35");
+        Field J36 = new Field(2, "White", true, "J36");
+        Field J37 = new Field(1, "Blue", true, "J37");
+        J1.AddNewNeighbour(J2, J5, J6);
+        J2.AddNewNeighbour(J1, J6, J7, J3);
+        J3.AddNewNeighbour(J2, J7, J8, J4);
+        J4.AddNewNeighbour(J3, J8, J9);
+        J5.AddNewNeighbour(J1, J6, J10, J11);
+        J6.AddNewNeighbour(J1, J2, J7, J12, J11, J5);
+        J7.AddNewNeighbour(J2, J3, J8, J13, J12, J6);
+        J8.AddNewNeighbour(J3, J4, J9, J14, J13, J7);
+        J9.AddNewNeighbour(J4, J15, J14, J8);
+        J10.AddNewNeighbour(J5, J11, J17, J16);
+        J11.AddNewNeighbour(J5, J6, J12, J18, J17, J10);
+        J12.AddNewNeighbour(J6, J7, J13, J19, J18, J11);
+        J13.AddNewNeighbour(J7, J8, J14, J20, J19, J12);
+        J14.AddNewNeighbour(J8, J9, J15, J21, J20, J13);
+        J15.AddNewNeighbour(J9, J22, J21, J14);
+        J16.AddNewNeighbour(J10, J17, J23);
+        J17.AddNewNeighbour(J10, J11, J18, J24, J23, J16);
+        J18.AddNewNeighbour(J11, J12, J19, J25, J24, J17);
+        J19.AddNewNeighbour(J12, J13, J20, J26, J25, J18);
+        J20.AddNewNeighbour(J13, J14, J21, J27, J26, J19);
+        J21.AddNewNeighbour(J14, J15, J22, J28, J27, J20);
+        J22.AddNewNeighbour(J15, J28, J21);
+        J23.AddNewNeighbour(J16, J17, J24, J29);
+        J24.AddNewNeighbour(J17, J18, J25, J30, J29, J23);
+        J25.AddNewNeighbour(J18, J19, J26, J31, J30, J24);
+        J26.AddNewNeighbour(J19, J20, J27, J32, J32, J25);
+        J27.AddNewNeighbour(J20, J21, J28, J33, J32, J26);
+        J28.AddNewNeighbour(J21, J22, J33, J27);
+        J29.AddNewNeighbour(J23, J24, J30, J34);
+        J30.AddNewNeighbour(J24, J25, J31, J35, J34, J29);
+        J31.AddNewNeighbour(J25, J26, J32, J36, J35, J30);
+        J32.AddNewNeighbour(J26, J27, J33, J37, J36, J31);
+        J33.AddNewNeighbour(J27, J28, J37, J32);
+        J34.AddNewNeighbour(J29, J30, J35);
+        J35.AddNewNeighbour(J34, J30, J31, J36);
+        J36.AddNewNeighbour(J35, J31, J32, J37);
+        J37.AddNewNeighbour(J36, J32, J33);
+
+        Field K1 = new Field(1, "Green", true, "K1");
+        Field K2 = new Field(2, "Green", true, "K2");
+        Field K3 = new Field(2, "Green", true, "K3");
+        Field K4 = new Field(2, "Green", true, "K4");
+        Field K5 = new Field(2, "Green", true, "K5");
+        Field K6 = new Field(1, "Green", true, "K6");
+        Field K7 = new Field(1, "Green", true, "K7");
+        Field K8 = new Field(1, "Green", true, "K8");
+        Field K9 = new Field(1, "Green", true, "K9");
+        Field K10 = new Field(2, "Green", true, "K10");
+        Field K11 = new Field(4, "Yellow", true, "K11");
+        Field K12 = new Field(3, "Green", true, "K12");
+        Field K13 = new Field(3, "Green", true, "K13");
+        Field K14 = new Field(2, "Green", true, "K14");
+        Field K15 = new Field(1, "Green", true, "K15");
+        Field K16 = new Field(1, "Camp", true, "K16");
+        Field K17 = new Field(1, "Green", true, "K17");
+        Field K18 = new Field(1, "Green", true, "K18");
+        Field K19 = new Field(1, "Green", true, "K19");
+        Field K20 = new Field(1, "Green", true, "K20");
+        Field K21 = new Field(1, "Green", true, "K21");
+        Field K22 = new Field(1, "Camp", true, "K22");
+        Field K23 = new Field(1, "Green", true, "K23");
+        Field K24 = new Field(2, "Green", true, "K24");
+        Field K25 = new Field(3, "Green", true, "K25");
+        Field K26 = new Field(3, "Green", true, "K26");
+        Field K27 = new Field(3, "Blue", true, "K27");
+        Field K28 = new Field(2, "Green", true, "K28");
+        Field K29 = new Field(1, "Green", true, "K29");
+        Field K30 = new Field(1, "Green", true, "K30");
+        Field K31 = new Field(1, "Green", true, "K31");
+        Field K32 = new Field(1, "Green", true, "K32");
+        Field K33 = new Field(2, "Green", true, "K33");
+        Field K34 = new Field(2, "Green", true, "K34");
+        Field K35 = new Field(2, "Green", true, "K35");
+        Field K36 = new Field(2, "Green", true, "K36");
+        Field K37 = new Field(1, "Green", true, "K37");
+        K1.AddNewNeighbour(K2, K5, K6);
+        K2.AddNewNeighbour(K1, K6, K7, K3);
+        K3.AddNewNeighbour(K2, K7, K8, K4);
+        K4.AddNewNeighbour(K3, K8, K9);
+        K5.AddNewNeighbour(K1, K6, K10, K11);
+        K6.AddNewNeighbour(K1, K2, K7, K12, K11, K5);
+        K7.AddNewNeighbour(K2, K3, K8, K13, K12, K6);
+        K8.AddNewNeighbour(K3, K4, K9, K14, K13, K7);
+        K9.AddNewNeighbour(K4, K15, K14, K8);
+        K10.AddNewNeighbour(K5, K11, K17, K16);
+        K11.AddNewNeighbour(K5, K6, K12, K18, K17, K10);
+        K12.AddNewNeighbour(K6, K7, K13, K19, K18, K11);
+        K13.AddNewNeighbour(K7, K8, K14, K20, K19, K12);
+        K14.AddNewNeighbour(K8, K9, K15, K21, K20, K13);
+        K15.AddNewNeighbour(K9, K22, K21, K14);
+        K16.AddNewNeighbour(K10, K17, K23);
+        K17.AddNewNeighbour(K10, K11, K18, K24, K23, K16);
+        K18.AddNewNeighbour(K11, K12, K19, K25, K24, K17);
+        K19.AddNewNeighbour(K12, K13, K20, K26, K25, K18);
+        K20.AddNewNeighbour(K13, K14, K21, K27, K26, K19);
+        K21.AddNewNeighbour(K14, K15, K22, K28, K27, K20);
+        K22.AddNewNeighbour(K15, K28, K21);
+        K23.AddNewNeighbour(K16, K17, K24, K29);
+        K24.AddNewNeighbour(K17, K18, K25, K30, K29, K23);
+        K25.AddNewNeighbour(K18, K19, K26, K31, K30, K24);
+        K26.AddNewNeighbour(K19, K20, K27, K32, K32, K25);
+        K27.AddNewNeighbour(K20, K21, K28, K33, K32, K26);
+        K28.AddNewNeighbour(K21, K22, K33, K27);
+        K29.AddNewNeighbour(K23, K24, K30, K34);
+        K30.AddNewNeighbour(K24, K25, K31, K35, K34, K29);
+        K31.AddNewNeighbour(K25, K26, K32, K36, K35, K30);
+        K32.AddNewNeighbour(K26, K27, K33, K37, K36, K31);
+        K33.AddNewNeighbour(K27, K28, K37, K32);
+        K34.AddNewNeighbour(K29, K30, K35);
+        K35.AddNewNeighbour(K34, K30, K31, K36);
+        K36.AddNewNeighbour(K35, K31, K32, K37);
+        K37.AddNewNeighbour(K36, K32, K33);
+
+        Field N1 = new Field(1,"Green",true, "N1");
+        Field N2 = new Field(1,"Green",true, "N2");
+        Field N3 = new Field(1,"Green",true, "N3");
+        Field N4 = new Field(1,"Green",true, "N4");
+        Field N5 = new Field(1,"Green",true, "N5");
+        Field N6 = new Field(1,"Green",true, "N6");
+        Field N7 = new Field(2,"Green",true,"N7");
+        Field N8 = new Field(1,"Green",true, "N8");
+        Field N9 = new Field(1,"Green",true, "N9");
+        Field N10 = new Field(1,"Yellow",true,"N10");
+        Field N11 = new Field(2,"Yellow",true,"N11");
+        Field N12 = new Field(1,"Green",true,"N12" );
+        Field N13 = new Field(1,"Blue",true, "N13");
+        Field N14 = new Field(1,"Blue",true, "N14");
+        Field N15 = new Field(1,"Blue",true,"N15");
+        Field N16 = new Field(1,"Yellow",true, "N16");
+        Field N17 = new Field(2,"Yellow",true,"N17" );
+        Field N18 = new Field(3,"Yellow",true,"N18");
+        Field N19 = new Field(4,"Yellow",true, "N19");
+        Field N20 = new Field(3,"Yellow",true, "N20");
+        Field N21 = new Field(1,"Blue",true, "N21");
+        Field N22 = new Field(1,"Blue",true, "N22");
+        Field N23 = new Field(1,"Blue",true, "N23");
+        Field N24 = new Field(1,"Blue",true, "N24");
+        Field N25 = new Field(1,"Blue",true, "N25");
+        Field N26 = new Field(1,"Green",true, "N26");
+        Field N27 = new Field(2,"Yellow",true, "N27");
+        Field N28 = new Field(1,"Yellow",true,"N28");
+        Field N29 = new Field(1,"Blue",true, "N29");
+        Field N30 = new Field(1,"Green",true, "N30");
+        Field N31 = new Field(2,"Green",true, "N31");
+        Field N32 = new Field(1,"Green",true, "N32");
+        Field N33 = new Field(1,"Yellow",true, "N33");
+        Field N34 = new Field(1,"Green",true, "N34");
+        Field N35 = new Field(1,"Green",true, "N35");
+        Field N36 = new Field(1,"Green",true, "N36");
+        Field N37 = new Field(1,"Green",true, "N37");
+        N1.AddNewNeighbour(N2, N5, N6);
+        N2.AddNewNeighbour(N1,N6,N7,N3);
+        N3.AddNewNeighbour(N2,N7,N8,N4);
+        N4.AddNewNeighbour(N3,N8,N9);
+        N5.AddNewNeighbour(N1,N6,N10,N11);
+        N6.AddNewNeighbour(N1,N2,N7,N12,N11,N5);
+        N7.AddNewNeighbour(N2,N3,N8,N13,N12,N6);
+        N8.AddNewNeighbour(N3,N4,N9,N14,N13,N7);
+        N9.AddNewNeighbour(N4,N15,N14,N8);
+        N10.AddNewNeighbour(N5,N11,N17,N16);
+        N11.AddNewNeighbour(N5,N6,N12,N18,N17,N10);
+        N12.AddNewNeighbour(N6,N7,N13,N19,N18,N11);
+        N13.AddNewNeighbour(N7,N8,N14,N20,N19,N12);
+        N14.AddNewNeighbour(N8,N9,N15,N21,N20,N13);
+        N15.AddNewNeighbour(N9,N22,N21,N14);
+        N16.AddNewNeighbour(N10,N17,N23);
+        N17.AddNewNeighbour(N10,N11,N18,N24,N23,N16);
+        N18.AddNewNeighbour(N11,N12,N19,N25,N24,N17);
+        N19.AddNewNeighbour(N12,N13,N20,N26,N25,N18);
+        N20.AddNewNeighbour(N13,N14,N21,N27,N26,N19);
+        N21.AddNewNeighbour(N14,N15,N22,N28,N27,N20);
+        N22.AddNewNeighbour(N15,N28,N21);
+        N23.AddNewNeighbour(N16,N17,N24,N29);
+        N24.AddNewNeighbour(N17,N18,N25,N30,N29,N23);
+        N25.AddNewNeighbour(N18,N19,N26,N31,N30,N24);
+        N26.AddNewNeighbour(N19,N20,N27,N32,N32,N25);
+        N27.AddNewNeighbour(N20,N21,N28,N33,N32,N26);
+        N28.AddNewNeighbour(N21,N22,N33,N27);
+        N29.AddNewNeighbour(N23,N24,N30,N34);
+        N30.AddNewNeighbour(N24,N25,N31,N35,N34,N29);
+        N31.AddNewNeighbour(N25,N26,N32,N36,N35,N30);
+        N32.AddNewNeighbour(N26,N27,N33,N37,N36,N31);
+        N33.AddNewNeighbour(N27,N28,N37,N32);
+        N34.AddNewNeighbour(N29,N30,N35);
+        N35.AddNewNeighbour(N34,N30,N31,N36);
+        N36.AddNewNeighbour(N35,N31,N32,N37);
+        N37.AddNewNeighbour(N36,N32,N33);
+
+        Blockade HillsOfGoldfirst = Blockades.get(0);
+        Blockade HillsOfGoldsecond = Blockades.get(1);
+        Blockade HillsOfGoldthird = Blockades.get(2);
+        Blockade HillsOfGoldfourth = Blockades.get(3);
+        Blockade HillsOfGoldfifth = Blockades.get(4);
+        Blockade HillsOfGoldsixth = Blockades.get(5);
+
+        Field B37HillsOfGold = B37;
+        B37HillsOfGold.AddNewNeighbour(HillsOfGoldfirst);
+        Field B33HillsOfGold = B33;
+        B33HillsOfGold.AddNewNeighbour(HillsOfGoldfirst);
+        Field B28HillsOfGold = B28;
+        B28HillsOfGold.AddNewNeighbour(HillsOfGoldfirst);
+        Field B22HillsOfGold = B22;
+        B22HillsOfGold.AddNewNeighbour(HillsOfGoldfirst);
+        HillsOfGoldfirst.addNeighbour(B37HillsOfGold);
+        HillsOfGoldfirst.addNeighbour(B33HillsOfGold);
+        HillsOfGoldfirst.addNeighbour(B28HillsOfGold);
+        HillsOfGoldfirst.addNeighbour(B22HillsOfGold);
+        HillsOfGoldfirst.addNeighbour(C34);
+        HillsOfGoldfirst.addNeighbour(C29);
+        HillsOfGoldfirst.addNeighbour(C23);
+        HillsOfGoldfirst.addNeighbour(C16);
+
+        Field C22HillsOfGold = C22;
+        C22HillsOfGold.AddNewNeighbour(HillsOfGoldsecond);
+        Field C15HillsOfGold = C15;
+        C15HillsOfGold.AddNewNeighbour(HillsOfGoldsecond);
+        Field C9HillsOfGold = C9;
+        C9HillsOfGold.AddNewNeighbour(HillsOfGoldsecond);
+        Field C4HillsOfGold = C4;
+        C4HillsOfGold.AddNewNeighbour(HillsOfGoldsecond);
+        HillsOfGoldsecond.addNeighbour(C22HillsOfGold);
+        HillsOfGoldsecond.addNeighbour(C15HillsOfGold);
+        HillsOfGoldsecond.addNeighbour(C9HillsOfGold);
+        HillsOfGoldsecond.addNeighbour(C4HillsOfGold);
+        HillsOfGoldsecond.addNeighbour(G16);
+        HillsOfGoldsecond.addNeighbour(G10);
+        HillsOfGoldsecond.addNeighbour(G5);
+        HillsOfGoldsecond.addNeighbour(G1);
+
+        Field G16HillsOfGold = G16;
+        G16HillsOfGold.AddNewNeighbour(HillsOfGoldthird);
+        Field G23HillsOfGold = G23;
+        G23HillsOfGold.AddNewNeighbour(HillsOfGoldthird);
+        Field G29HillsOfGold = G29;
+        G29HillsOfGold.AddNewNeighbour(HillsOfGoldthird);
+        Field G34HillsOfGold = G34;
+        G34HillsOfGold.AddNewNeighbour(HillsOfGoldthird);
+        HillsOfGoldthird.addNeighbour(G16HillsOfGold);
+        HillsOfGoldthird.addNeighbour(G23HillsOfGold);
+        HillsOfGoldthird.addNeighbour(G29HillsOfGold);
+        HillsOfGoldthird.addNeighbour(G34HillsOfGold);
+        HillsOfGoldthird.addNeighbour(K1);
+        HillsOfGoldthird.addNeighbour(K2);
+        HillsOfGoldthird.addNeighbour(K3);
+        HillsOfGoldthird.addNeighbour(K4);
+
+        Field K34HillsOfGold = K34;
+        K34HillsOfGold.AddNewNeighbour(HillsOfGoldfourth);
+        Field K35HillsOfGold = K35;
+        K35HillsOfGold.AddNewNeighbour(HillsOfGoldfourth);
+        Field K36HillsOfGold = K36;
+        K36HillsOfGold.AddNewNeighbour(HillsOfGoldfourth);
+        Field K37HillsOfGold = K37;
+        K37HillsOfGold.AddNewNeighbour(HillsOfGoldfourth);
+        HillsOfGoldfourth.addNeighbour(K34HillsOfGold);
+        HillsOfGoldfourth.addNeighbour(K35HillsOfGold);
+        HillsOfGoldfourth.addNeighbour(K36HillsOfGold);
+        HillsOfGoldfourth.addNeighbour(K37HillsOfGold);
+        HillsOfGoldfourth.addNeighbour(J1);
+        HillsOfGoldfourth.addNeighbour(J2);
+        HillsOfGoldfourth.addNeighbour(J3);
+        HillsOfGoldfourth.addNeighbour(J4);
+
+        Field J37HillsOfGold = J37;
+        J37HillsOfGold.AddNewNeighbour(HillsOfGoldfifth);
+        Field J33HillsOfGold = J33;
+        J33HillsOfGold.AddNewNeighbour(HillsOfGoldfifth);
+        Field J28HillsOfGold = J28;
+        J28HillsOfGold.AddNewNeighbour(HillsOfGoldfifth);
+        Field J22HillsOfGold = J22;
+        J22HillsOfGold.AddNewNeighbour(HillsOfGoldfifth);
+        HillsOfGoldfifth.addNeighbour(J37HillsOfGold);
+        HillsOfGoldfifth.addNeighbour(J33HillsOfGold);
+        HillsOfGoldfifth.addNeighbour(J28HillsOfGold);
+        HillsOfGoldfifth.addNeighbour(J22HillsOfGold);
+        HillsOfGoldfifth.addNeighbour(N37);
+        HillsOfGoldfifth.addNeighbour(N36);
+        HillsOfGoldfifth.addNeighbour(N35);
+        HillsOfGoldfifth.addNeighbour(N34);
+
+        Field EDGreen1= new Field(1, "Green", true, "EDGreen1");
+        Field EDGreen2= new Field(1, "Green", true, "EDGreen2");
+        Field EDGreen3= new Field(1, "Green", true, "EDGreen3");
+
+        Field N9HillsOfGold = N9;
+        N9HillsOfGold.AddNewNeighbour(EDGreen1);
+        Field N4HillsOfGold = N4;
+        N4HillsOfGold.AddNewNeighbour(EDGreen1, EDGreen2, EDGreen3);
+        Field N3HillsOfGold = N3;
+        N3HillsOfGold.AddNewNeighbour(EDGreen3);
+
+        currentBlockades.add(HillsOfGoldfirst);
+        currentBlockades.add(HillsOfGoldsecond);
+        currentBlockades.add(HillsOfGoldthird);
+        currentBlockades.add(HillsOfGoldfourth);
+        currentBlockades.add(HillsOfGoldfifth);
+
+        HillsOfGoldFields.add(B1);
+        HillsOfGoldFields.add(B2);
+        HillsOfGoldFields.add(B3);
+        HillsOfGoldFields.add(B4);
+        HillsOfGoldFields.add(B5);
+        HillsOfGoldFields.add(B6);
+        HillsOfGoldFields.add(B7);
+        HillsOfGoldFields.add(B8);
+        HillsOfGoldFields.add(B9);
+        HillsOfGoldFields.add(B10);
+        HillsOfGoldFields.add(B11);
+        HillsOfGoldFields.add(B12);
+        HillsOfGoldFields.add(B13);
+        HillsOfGoldFields.add(B14);
+        HillsOfGoldFields.add(B15);
+        HillsOfGoldFields.add(B16);
+        HillsOfGoldFields.add(B17);
+        HillsOfGoldFields.add(B18);
+        HillsOfGoldFields.add(B19);
+        HillsOfGoldFields.add(B20);
+        HillsOfGoldFields.add(B21);
+        HillsOfGoldFields.add(B22HillsOfGold);
+        HillsOfGoldFields.add(B23);
+        HillsOfGoldFields.add(B24);
+        HillsOfGoldFields.add(B25);
+        HillsOfGoldFields.add(B26);
+        HillsOfGoldFields.add(B27);
+        HillsOfGoldFields.add(B28HillsOfGold);
+        HillsOfGoldFields.add(B29);
+        HillsOfGoldFields.add(B30);
+        HillsOfGoldFields.add(B31);
+        HillsOfGoldFields.add(B32);
+        HillsOfGoldFields.add(B33HillsOfGold);
+        HillsOfGoldFields.add(B34);
+        HillsOfGoldFields.add(B35);
+        HillsOfGoldFields.add(B36);
+        HillsOfGoldFields.add(B37HillsOfGold);
+        HillsOfGoldFields.add(C34);
+        HillsOfGoldFields.add(C29);
+        HillsOfGoldFields.add(C23);
+        HillsOfGoldFields.add(C16);
+        HillsOfGoldFields.add(C35);
+        HillsOfGoldFields.add(C30);
+        HillsOfGoldFields.add(C24);
+        HillsOfGoldFields.add(C17);
+        HillsOfGoldFields.add(C10);
+        HillsOfGoldFields.add(C36);
+        HillsOfGoldFields.add(C31);
+        HillsOfGoldFields.add(C25);
+        HillsOfGoldFields.add(C18);
+        HillsOfGoldFields.add(C18);
+        HillsOfGoldFields.add(C11);
+        HillsOfGoldFields.add(C5);
+        HillsOfGoldFields.add(C37);
+        HillsOfGoldFields.add(C32);
+        HillsOfGoldFields.add(C26);
+        HillsOfGoldFields.add(C19);
+        HillsOfGoldFields.add(C12);
+        HillsOfGoldFields.add(C6);
+        HillsOfGoldFields.add(C1);
+        HillsOfGoldFields.add(C33);
+        HillsOfGoldFields.add(C27);
+        HillsOfGoldFields.add(C20);
+        HillsOfGoldFields.add(C13);
+        HillsOfGoldFields.add(C7);
+        HillsOfGoldFields.add(C2);
+        HillsOfGoldFields.add(C28);
+        HillsOfGoldFields.add(C21);
+        HillsOfGoldFields.add(C14);
+        HillsOfGoldFields.add(C8);
+        HillsOfGoldFields.add(C3);
+        HillsOfGoldFields.add(C22HillsOfGold);
+        HillsOfGoldFields.add(C15HillsOfGold);
+        HillsOfGoldFields.add(C9HillsOfGold);
+        HillsOfGoldFields.add(C4HillsOfGold);
+        HillsOfGoldFields.add(G1);
+        HillsOfGoldFields.add(G2);
+        HillsOfGoldFields.add(G3);
+        HillsOfGoldFields.add(G4);
+        HillsOfGoldFields.add(G5);
+        HillsOfGoldFields.add(G6);
+        HillsOfGoldFields.add(G7);
+        HillsOfGoldFields.add(G8);
+        HillsOfGoldFields.add(G9);
+        HillsOfGoldFields.add(G10);
+        HillsOfGoldFields.add(G11);
+        HillsOfGoldFields.add(G12);
+        HillsOfGoldFields.add(G13);
+        HillsOfGoldFields.add(G14);
+        HillsOfGoldFields.add(G15);
+        HillsOfGoldFields.add(G16HillsOfGold);
+        HillsOfGoldFields.add(G17);
+        HillsOfGoldFields.add(G18);
+        HillsOfGoldFields.add(G19);
+        HillsOfGoldFields.add(G20);
+        HillsOfGoldFields.add(G21);
+        HillsOfGoldFields.add(G22);
+        HillsOfGoldFields.add(G23HillsOfGold);
+        HillsOfGoldFields.add(G24);
+        HillsOfGoldFields.add(G25);
+        HillsOfGoldFields.add(G26);
+        HillsOfGoldFields.add(G27);
+        HillsOfGoldFields.add(G28);
+        HillsOfGoldFields.add(G29HillsOfGold);
+        HillsOfGoldFields.add(G30);
+        HillsOfGoldFields.add(G31);
+        HillsOfGoldFields.add(G32);
+        HillsOfGoldFields.add(G33);
+        HillsOfGoldFields.add(G34HillsOfGold);
+        HillsOfGoldFields.add(G35);
+        HillsOfGoldFields.add(G36);
+        HillsOfGoldFields.add(G37);
+        HillsOfGoldFields.add(K1);
+        HillsOfGoldFields.add(K2);
+        HillsOfGoldFields.add(K3);
+        HillsOfGoldFields.add(K4);
+        HillsOfGoldFields.add(K5);
+        HillsOfGoldFields.add(K6);
+        HillsOfGoldFields.add(K7);
+        HillsOfGoldFields.add(K8);
+        HillsOfGoldFields.add(K9);
+        HillsOfGoldFields.add(K10);
+        HillsOfGoldFields.add(K11);
+        HillsOfGoldFields.add(K12);
+        HillsOfGoldFields.add(K13);
+        HillsOfGoldFields.add(K14);
+        HillsOfGoldFields.add(K15);
+        HillsOfGoldFields.add(K16);
+        HillsOfGoldFields.add(K17);
+        HillsOfGoldFields.add(K18);
+        HillsOfGoldFields.add(K19);
+        HillsOfGoldFields.add(K20);
+        HillsOfGoldFields.add(K21);
+        HillsOfGoldFields.add(K22);
+        HillsOfGoldFields.add(K23);
+        HillsOfGoldFields.add(K24);
+        HillsOfGoldFields.add(K25);
+        HillsOfGoldFields.add(K26);
+        HillsOfGoldFields.add(K27);
+        HillsOfGoldFields.add(K28);
+        HillsOfGoldFields.add(K29);
+        HillsOfGoldFields.add(K30);
+        HillsOfGoldFields.add(K31);
+        HillsOfGoldFields.add(K32);
+        HillsOfGoldFields.add(K33);
+        HillsOfGoldFields.add(K34HillsOfGold);
+        HillsOfGoldFields.add(K35HillsOfGold);
+        HillsOfGoldFields.add(K36HillsOfGold);
+        HillsOfGoldFields.add(K37HillsOfGold);
+        HillsOfGoldFields.add(J1);
+        HillsOfGoldFields.add(J2);
+        HillsOfGoldFields.add(J3);
+        HillsOfGoldFields.add(J4);
+        HillsOfGoldFields.add(J5);
+        HillsOfGoldFields.add(J6);
+        HillsOfGoldFields.add(J7);
+        HillsOfGoldFields.add(J8);
+        HillsOfGoldFields.add(J9);
+        HillsOfGoldFields.add(J10);
+        HillsOfGoldFields.add(J11);
+        HillsOfGoldFields.add(J12);
+        HillsOfGoldFields.add(J13);
+        HillsOfGoldFields.add(J14);
+        HillsOfGoldFields.add(J15);
+        HillsOfGoldFields.add(J16);
+        HillsOfGoldFields.add(J17);
+        HillsOfGoldFields.add(J18);
+        HillsOfGoldFields.add(J19);
+        HillsOfGoldFields.add(J20);
+        HillsOfGoldFields.add(J21);
+        HillsOfGoldFields.add(J22HillsOfGold);
+        HillsOfGoldFields.add(J23);
+        HillsOfGoldFields.add(J24);
+        HillsOfGoldFields.add(J25);
+        HillsOfGoldFields.add(J26);
+        HillsOfGoldFields.add(J27);
+        HillsOfGoldFields.add(J28HillsOfGold);
+        HillsOfGoldFields.add(J29);
+        HillsOfGoldFields.add(J30);
+        HillsOfGoldFields.add(J31);
+        HillsOfGoldFields.add(J32);
+        HillsOfGoldFields.add(J33HillsOfGold);
+        HillsOfGoldFields.add(J34);
+        HillsOfGoldFields.add(J35);
+        HillsOfGoldFields.add(J36);
+        HillsOfGoldFields.add(J37HillsOfGold);
+        HillsOfGoldFields.add(N1);
+        HillsOfGoldFields.add(N2);
+        HillsOfGoldFields.add(N3HillsOfGold);
+        HillsOfGoldFields.add(N4HillsOfGold);
+        HillsOfGoldFields.add(N5);
+        HillsOfGoldFields.add(N6);
+        HillsOfGoldFields.add(N7);
+        HillsOfGoldFields.add(N8);
+        HillsOfGoldFields.add(N9HillsOfGold);
+        HillsOfGoldFields.add(N10);
+        HillsOfGoldFields.add(N11);
+        HillsOfGoldFields.add(N12);
+        HillsOfGoldFields.add(N13);
+        HillsOfGoldFields.add(N14);
+        HillsOfGoldFields.add(N15);
+        HillsOfGoldFields.add(N16);
+        HillsOfGoldFields.add(N17);
+        HillsOfGoldFields.add(N18);
+        HillsOfGoldFields.add(N19);
+        HillsOfGoldFields.add(N20);
+        HillsOfGoldFields.add(N21);
+        HillsOfGoldFields.add(N22);
+        HillsOfGoldFields.add(N23);
+        HillsOfGoldFields.add(N24);
+        HillsOfGoldFields.add(N25);
+        HillsOfGoldFields.add(N26);
+        HillsOfGoldFields.add(N27);
+        HillsOfGoldFields.add(N28);
+        HillsOfGoldFields.add(N29);
+        HillsOfGoldFields.add(N30);
+        HillsOfGoldFields.add(N31);
+        HillsOfGoldFields.add(N32);
+        HillsOfGoldFields.add(N33);
+        HillsOfGoldFields.add(N34);
+        HillsOfGoldFields.add(N35);
+        HillsOfGoldFields.add(N36);
+        HillsOfGoldFields.add(N37);
+        HillsOfGoldFields.add(EDGreen1);
+        HillsOfGoldFields.add(EDGreen2);
+        HillsOfGoldFields.add(EDGreen3);
+    }
     @JsonIgnore
     public void setStandardPathFields(List<Field> standardPathFields) {
         StandardPathFields = standardPathFields;
@@ -631,13 +1438,74 @@ public class StandardPath {
         return currentBlockades;
     }
 
+    public void setWindingPathsFields(List<Field> windingPathsFields) {
+        WindingPathsFields = windingPathsFields;
+    }
+
+    public void setWitchsCauldronFields(List<Field> witchsCauldronFields) {
+        WitchsCauldronFields = witchsCauldronFields;
+    }
+
+    public void setSwamplandsFields(List<Field> swamplandsFields) {
+        SwamplandsFields = swamplandsFields;
+    }
+
+    public void setSerpentineFields(List<Field> serpentineFields) {
+        SerpentineFields = serpentineFields;
+    }
+
+    public List<Field> getWitchsCauldronFields() {
+        return WitchsCauldronFields;
+    }
+
+    public List<Field> getWindingPathsFields() {
+        return WindingPathsFields;
+    }
+
+    public List<Field> getSwamplandsFields() {
+        return SwamplandsFields;
+    }
+
+    public List<Field> getSerpentineFields() {
+        return SerpentineFields;
+    }
+
+    public void setHomeStretchFields(List<Field> homeStretchFields) {
+        HomeStretchFields = homeStretchFields;
+    }
+
+    public void setHillsOfGoldFields(List<Field> hillsOfGoldFields) {
+        HillsOfGoldFields = hillsOfGoldFields;
+    }
+
+    public List<Field> getHillsOfGoldFields() {
+        return HillsOfGoldFields;
+    }
+
+    public List<Field> getHomeStretchFields() {
+        return HomeStretchFields;
+    }
+
+
+    //add all other starters
     @JsonIgnore
-    public List<Field> getStarters(){
+    public List<Field> getStarters(String name){
         List<Field> starters = new ArrayList<>();
-        starters.add(StandardPathFields.get(0));
-        starters.add(StandardPathFields.get(1));
-        starters.add(StandardPathFields.get(2));
-        starters.add(StandardPathFields.get(3));
+        if (name.equals("StandardPath")) {
+            starters.add(StandardPathFields.get(0));
+            starters.add(StandardPathFields.get(1));
+            starters.add(StandardPathFields.get(2));
+            starters.add(StandardPathFields.get(3));
+        }
+        if (name.equals("HillsOfGold")) {
+            starters.add(HillsOfGoldFields.get(0));
+            starters.add(HillsOfGoldFields.get(1));
+            starters.add(HillsOfGoldFields.get(2));
+            starters.add(HillsOfGoldFields.get(3));
+        }
+
+
+
 
         return starters;
     }
@@ -667,6 +1535,28 @@ public class StandardPath {
         if (name.equals("StandardPath")) {
             return getStandardPathFields();
         }
+        if (name.equals("HillsOfGold")) {
+            return getHillsOfGoldFields();
+        }
+
+        if (name.equals("HomeStretchFields")) {
+            return getHomeStretchFields();
+        }
+
+        if (name.equals("Serpentine")) {
+            return getSerpentineFields();
+        }
+
+        if (name.equals("Swamplands")) {
+            return getSwamplandsFields();
+        }
+
+        if (name.equals("WindingPath")) {
+            return getWindingPathsFields();
+        }
+        if (name.equals("WitchsCauldron")) {
+            return getWitchsCauldronFields();
+        }
 
         return null;
     }
@@ -675,19 +1565,43 @@ public class StandardPath {
         if (name.equals("StandardPath")) {
             setStandardPathFields(updated);
         }
+        if (name.equals("HillsOfGold")) {
+            setHillsOfGoldFields(updated);
+        }
+
+        if (name.equals("HomeStretchFields")) {
+            setHomeStretchFields(updated);
+        }
+
+        if (name.equals("Serpentine")) {
+            setSerpentineFields(updated);
+        }
+
+        if (name.equals("Swamplands")) {
+            setSwamplandsFields(updated);
+        }
+
+        if (name.equals("WindingPath")) {
+            setWindingPathsFields(updated);
+        }
+        if (name.equals("WitchsCauldron")) {
+            setWitchsCauldronFields(updated);
+        }
 
     }
 
+    //add all other setups
     public void setupPath(String name){
         if (name.equals("StandardPath")) {
             setupStandardPath();
+        }
+        if (name.equals("HillsOfGold")) {
+            setupHillsOfGold();
         }
     }
 
     public Blockade removeBlockade(String name, Integer counter){
         if (name.equals("StandardPath")) {
-            System.out.println("inside remove blockade");
-            System.out.println("this is the counter" + counter);
             Blockade b = removeStandard(counter);
             return b;
         }
@@ -697,16 +1611,8 @@ public class StandardPath {
 
     public Blockade removeStandard(Integer counter){
         if(counter == 1){
-            System.out.println("inside specific");
+
             Blockade b = getStandardPathFields().get(21).getBlockadeFromNeighbours();
-            System.out.println(getStandardPathFields().get(21).getName());
-            System.out.println(getStandardPathFields().get(27).getName());
-            System.out.println(getStandardPathFields().get(32).getName());
-            System.out.println(getStandardPathFields().get(36).getName());
-            System.out.println(getStandardPathFields().get(40).getName());
-            System.out.println(getStandardPathFields().get(45).getName());
-            System.out.println(getStandardPathFields().get(51).getName());
-            System.out.println(getStandardPathFields().get(58).getName());
             getStandardPathFields().get(21).getNeighbours().remove(b);
             getStandardPathFields().get(27).getNeighbours().remove(b);
             getStandardPathFields().get(32).getNeighbours().remove(b);
@@ -718,10 +1624,59 @@ public class StandardPath {
             getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(51));
             getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(51));
             getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(58));
-            System.out.println("the blockade from insude"+ b);
+
             return b;
 
         }
+
+        if(counter == 2){
+            Blockade b = getStandardPathFields().get(70).getBlockadeFromNeighbours();
+            getStandardPathFields().get(70).getNeighbours().remove(b);
+            getStandardPathFields().get(71).getNeighbours().remove(b);
+            getStandardPathFields().get(72).getNeighbours().remove(b);
+            getStandardPathFields().get(73).getNeighbours().remove(b);
+            getStandardPathFields().get(70).getNeighbours().add(getStandardPathFields().get(74));
+            getStandardPathFields().get(70).getNeighbours().add(getStandardPathFields().get(75));
+            getStandardPathFields().get(71).getNeighbours().add(getStandardPathFields().get(75));
+            getStandardPathFields().get(71).getNeighbours().add(getStandardPathFields().get(76));
+            getStandardPathFields().get(72).getNeighbours().add(getStandardPathFields().get(76));
+            getStandardPathFields().get(72).getNeighbours().add(getStandardPathFields().get(77));
+            getStandardPathFields().get(73).getNeighbours().add(getStandardPathFields().get(77));
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getStandardPathFields().get(107).getBlockadeFromNeighbours();
+            getStandardPathFields().get(107).getNeighbours().remove(b);
+            getStandardPathFields().get(108).getNeighbours().remove(b);
+            getStandardPathFields().get(109).getNeighbours().remove(b);
+            getStandardPathFields().get(110).getNeighbours().remove(b);
+            getStandardPathFields().get(107).getNeighbours().add(getStandardPathFields().get(111));
+            getStandardPathFields().get(107).getNeighbours().add(getStandardPathFields().get(112));
+            getStandardPathFields().get(108).getNeighbours().add(getStandardPathFields().get(112));
+            getStandardPathFields().get(108).getNeighbours().add(getStandardPathFields().get(113));
+            getStandardPathFields().get(109).getNeighbours().add(getStandardPathFields().get(113));
+            getStandardPathFields().get(109).getNeighbours().add(getStandardPathFields().get(114));
+            getStandardPathFields().get(110).getNeighbours().add(getStandardPathFields().get(114));
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getStandardPathFields().get(126).getBlockadeFromNeighbours();
+            getStandardPathFields().get(126).getNeighbours().remove(b);
+            getStandardPathFields().get(133).getNeighbours().remove(b);
+            getStandardPathFields().get(139).getNeighbours().remove(b);
+            getStandardPathFields().get(144).getNeighbours().remove(b);
+            getStandardPathFields().get(126).getNeighbours().add(getStandardPathFields().get(152));
+            getStandardPathFields().get(126).getNeighbours().add(getStandardPathFields().get(157));
+            getStandardPathFields().get(133).getNeighbours().add(getStandardPathFields().get(157));
+            getStandardPathFields().get(133).getNeighbours().add(getStandardPathFields().get(163));
+            getStandardPathFields().get(139).getNeighbours().add(getStandardPathFields().get(163));
+            getStandardPathFields().get(139).getNeighbours().add(getStandardPathFields().get(173));
+            getStandardPathFields().get(144).getNeighbours().add(getStandardPathFields().get(173));
+            return b;
+        }
+
 
         return null;
     }

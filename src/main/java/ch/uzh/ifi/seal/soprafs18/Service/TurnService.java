@@ -14,6 +14,7 @@ import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -111,7 +112,7 @@ public class TurnService {
         List<BoardPiece> options;
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
-        List<Field> gamePath= game.getGamePath();
+        List<Field> gamePath= game.getGamePath().getStandardPathFields();
 
         Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
@@ -132,13 +133,39 @@ public class TurnService {
         return options;
     }
 
+    public void crossBlockade(String gamename,String playername){
+        Game game = gameRepository.findByName(gamename);
+        Player player = userRepository.findByName(playername);
+        List<Blockade> blockadeList = game.getBlockades();
+
+        List<Field> newp = new ArrayList<>();
+
+
+        List<Field> gamePath= game.getGamePath().getStandardPathFields();
+
+        newp.add(gamePath.get(0));
+        newp.add(gamePath.get(1));
+        newp.add(gamePath.get(2));
+        StandardPath eh = new StandardPath();
+        eh.setStandardPathFields(newp);
+
+        game.setGamePath(eh);
+        game.getGamePath().setStandardPathFields(null);
+
+        gameRepository.save(game);
+
+
+
+
+    }
+
 
     public Field moveFigure(String gamename,String playername,String card, String fieldtomove){
         Field newposition = new Field();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         Card cardused = player.getWantedCard(card);
-        List<Field> gamePath= game.getGamePath();
+        List<Field> gamePath= game.getGamePath().getStandardPathFields();
         Figure playerFigure= player.getMyFigure();
         List<Blockade> blockadeList = game.getBlockades();
         Blockade blockade;
@@ -168,8 +195,7 @@ public class TurnService {
                     System.out.println("gamepath neighbour");
                     System.out.println(gamePath.get(187).getNeighbours());
                     System.out.println("gamepath");
-                    System.out.println(game.getGamePath().get(187).getName());
-                    System.out.println(game.getGamePath().get(187).getNeighbours());
+
                     player.myFigure.setCurrentPosition(actual);
                     System.out.println("Players neighbout");
                     System.out.println(player.getMyFigure().getCurrentPosition().getNeighbours());
@@ -287,7 +313,7 @@ public class TurnService {
     public List<BoardPiece> MoveActionCard(String room, String player){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);
-        List<Field> gamePath = game.getGamePath();
+        List<Field> gamePath = game.getGamePath().getStandardPathFields();
         List<BoardPiece> options = new ArrayList<>();
 
         Field currentPosition = current.getMyFigure().getCurrentPosition();
@@ -345,6 +371,22 @@ public class TurnService {
         gameRepository.save(game);
 
 
+    }
+
+    public void swapdap(String gamen){
+        Game game = gameRepository.findByName(gamen);
+        StandardPath path = game.getGamePath();
+        List<Field> org = path.getStandardPathFields();
+        List<Field> news = new ArrayList<>();
+        news.add(org.get(0));
+        news.add(org.get(0));
+        news.add(org.get(0));
+        news.add(org.get(0));
+
+        path.setStandardPathFields(news);
+
+        game.setGamePath(path);
+        gameRepository.save(game);
     }
 
 

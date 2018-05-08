@@ -63,8 +63,8 @@ public class Game {
     private Player currentPlayer;
 
     @JsonIgnore
-    @Transient
-    private Path GamePath = new Path();
+    @OneToOne(cascade = {CascadeType.ALL})
+    private StandardPath GamePath;
 
     /**steps when crossing blockade:
      * 1. from field: getBlockadeFromNeighbours()
@@ -76,8 +76,9 @@ public class Game {
 
     public void gameSetup() {
 
-        Path path = new Path();
-        List<Field> starters = path.getStartingFields();
+        StandardPath path = new StandardPath();
+        setGamePath(path);
+        List<Field> starters = GamePath.getStarters();
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
             players.get(j).setPlayerColor(PlayerColor.values()[j]);
@@ -206,38 +207,18 @@ public class Game {
 
     @JsonIgnore
     @Transient
-    public List<Field> getGamePath(){
-        List<Field> Standartpath = GamePath.getStandartPath();
+    public List<Field> getGamePathList(){
+        List<Field> Standartpath = GamePath.getStandardPathFields();
 
         return Standartpath;
     }
 
+    @JsonIgnore
     public List<Blockade> getBlockades(){
-        List<Blockade> Blockade = GamePath.getCurrentBloacked();
+        List<Blockade> Blockade = GamePath.getCurrentBlockades();
         return Blockade;
     }
 
-
-// following function is never used --Endturn does the job in TurnService
-    /**public Player nextplayer(Player currentplayer){
-        int i = players.indexOf(currentplayer);
-        if (i == maxplayer-1){
-            i = -1;
-            EndGameManager endGameManager = new EndGameManager();
-            if(endGameManager.CheckifReached()){
-                Player winner = endGameManager.getWinner();
-                return winner;
-
-
-
-            }
-
-        }
-        players.get(i+1).setTurn(true);
-        setCurrentPlayer(players.get(i+1));
-
-        return null;
-    }*/
 
 
     public void setCurrentPlayer(Player currentPlayer) {
@@ -248,7 +229,11 @@ public class Game {
         return currentPlayer;
     }
 
-    public void setGamePath(Path gamePath) {
+    public void setGamePath(StandardPath gamePath) {
         GamePath = gamePath;
+    }
+
+    public StandardPath getGamePath() {
+        return GamePath;
     }
 }

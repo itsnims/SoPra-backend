@@ -92,7 +92,7 @@ public class TurnController {
     @ResponseStatus(HttpStatus.OK)
     public void drawActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card){
         turnService.DrawActionCard(room,user,card);
-        System.out.println("im inside the put call");
+
 
     }
 
@@ -107,6 +107,16 @@ public class TurnController {
     public void marketActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card, @PathVariable(value ="mcard") String mcard) {
         turnService.MarketActionCard(room, user, card,mcard);
     }
+
+    @PutMapping(value = CONTEXT + "/{room}/cross")
+    @ResponseStatus(HttpStatus.OK)
+    public void cross( @PathVariable(value = "room",required = true) String room) {
+        turnService.swapdap(room);
+    }
+
+
+
+
 
 
 

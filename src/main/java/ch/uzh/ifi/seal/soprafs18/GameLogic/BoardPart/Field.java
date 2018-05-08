@@ -1,17 +1,9 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart;
 
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Path;
-import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -25,16 +17,15 @@ public class Field extends BoardPiece {
 
     private String name;
 
-    @Transient
     @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
     public List<BoardPiece> neighbours = new ArrayList<>();
 
-    @Transient
+
     @JsonIgnore
     public boolean Accessable;
 
     @JsonIgnore
-    @Transient
     int Strenght;
 
     /**
@@ -44,7 +35,7 @@ public class Field extends BoardPiece {
     public Field(){
 
     }
-    @JsonIgnore
+
     public Field(int strenght, String color, boolean Accessable,String name) {
         super(color);
         this.Accessable = Accessable;
@@ -54,19 +45,17 @@ public class Field extends BoardPiece {
 
     }
 
-    @Transient
-    @JsonIgnore
+
     public boolean getAccessable() {
         return Accessable;
     }
 
-    @Transient
-    @JsonIgnore
+
     public boolean setAccessable(boolean set) {
         return Accessable = set;
     }
 
-    @Transient
+
     @JsonIgnore
     public void AddNewNeighbour(BoardPiece neighbour, BoardPiece... boardPieces) {
         neighbours.add(neighbour);
@@ -79,7 +68,7 @@ public class Field extends BoardPiece {
 
 
 
-    @Transient
+
     @JsonIgnore
     public Blockade getBlockadeFromNeighbours() {
         for (int i = 0; i < neighbours.size(); i++) {
@@ -90,13 +79,15 @@ public class Field extends BoardPiece {
         return null;
     }
 
-    @Transient
-    @JsonIgnore
+
+
     public List<BoardPiece> getNeighbours() {
         return neighbours;
     }
 
-    @Transient
+
+
+
     @JsonIgnore
     private Boolean getUsable(String Color, int Strenght,Field compare) {
         if (compare.getColor().equals(Color)) if (Strenght >= compare.getStrenght()) return true;
@@ -106,7 +97,7 @@ public class Field extends BoardPiece {
     }
 
     /** returns all fields reachable from start tile with given color and strenght **/
-    @Transient
+
     @JsonIgnore
     public List<BoardPiece> getAll (String Color, int Strenght,Field field){
 
@@ -153,6 +144,24 @@ public class Field extends BoardPiece {
     public int getStrenght() {
         return Strenght;
 }
+
+    public void setNeighbours(List<BoardPiece> neighbours) {
+        this.neighbours = neighbours;
+    }
+
+    public void setStrenght(int strenght) {
+        Strenght = strenght;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public boolean isAccessable() {
+        return Accessable;
+    }
+
 
     public Long getId() {
         return id;

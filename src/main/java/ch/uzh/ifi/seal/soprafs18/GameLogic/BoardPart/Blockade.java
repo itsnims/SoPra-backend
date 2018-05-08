@@ -24,17 +24,19 @@ public class Blockade extends BoardPiece {
 
     private String name;
 
-    @Transient
+
     @JsonIgnore
     private int Strenght;
 
-    @Transient
+
     @JsonIgnore
     public boolean crossed;
 
     @Transient
     @JsonIgnore
     public List<Field> neighbours= new ArrayList<>();
+
+    public Blockade(){}
 
     public Blockade(String name,int Strenght,String Color, boolean crossed) {
         super(Color);
@@ -113,11 +115,19 @@ public class Blockade extends BoardPiece {
         return Strenght;
     }
 
+    public void setStrenght(int strenght) {
+        Strenght = strenght;
+    }
+
     public List<Field> getNeighbours(){
         return neighbours;
     }
 
-    public void addNeighbour(Field field,Field... fields){
+    public void setNeighbours(List<Field> neighbours) {
+        this.neighbours = neighbours;
+    }
+
+    public void addNeighbour(Field field, Field... fields){
         neighbours.add(field);
         if (fields.length > 0) {
             for (int i = 0; i < fields.length; i++) {
@@ -157,7 +167,16 @@ public class Blockade extends BoardPiece {
             f8.AddNewNeighbour(f4);
         }
 
+    }
 
 
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
     }
 }

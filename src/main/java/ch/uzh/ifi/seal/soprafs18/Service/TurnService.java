@@ -133,13 +133,32 @@ public class TurnService {
         return options;
     }
 
-    public void crossBlockade(String gamename,String playername){
+    /**
+     * Blockade remove function and give points if newposition=Blockade
+     **/
+    public void crossBlockade(String gamename, String playername, String cardname) {
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
-        List<Blockade> blockadeList = game.getBlockades();
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+        Integer counter = game.getBlockcount();
+        game.setBlockcount(counter+1);
 
-        
 
+        Blockade nextBlockade = game.getGamePath().removeBlockade(game.getPathname(),counter + 1);
+
+        System.out.println("This is the blockade" + nextBlockade);
+
+        nextBlockade.givePoints(player);
+        nextBlockade.setCrossed();
+  
+
+        ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
+        player.selection.add(Card);
+        player.handcards.remove(Card);
+
+
+
+        gameRepository.save(game);
 
 
     }

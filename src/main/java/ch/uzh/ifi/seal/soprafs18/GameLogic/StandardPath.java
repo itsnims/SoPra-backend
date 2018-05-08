@@ -512,10 +512,10 @@ public class StandardPath {
         B28StandardPath.AddNewNeighbour(first);
         Field B22StandardPath=B22;
         B22StandardPath.AddNewNeighbour(first);
-        first.addNeighbour(B37StandardPath);
-        first.addNeighbour(B33StandardPath);
-        first.addNeighbour(B28StandardPath);
         first.addNeighbour(B22StandardPath);
+        first.addNeighbour(B28StandardPath);
+        first.addNeighbour(B33StandardPath);
+        first.addNeighbour(B37StandardPath);
         first.addNeighbour(C4);
         first.addNeighbour(C9);
         first.addNeighbour(C15);
@@ -617,16 +617,16 @@ public class StandardPath {
         currentBlockades.add(fourth);
 
     }
-
+    @JsonIgnore
     public void setStandardPathFields(List<Field> standardPathFields) {
         StandardPathFields = standardPathFields;
 
     }
-
+    @JsonIgnore
     public List<Field> getStandardPathFields() {
         return StandardPathFields;
     }
-
+    @JsonIgnore
     public List<Blockade> getCurrentBlockades() {
         return currentBlockades;
     }
@@ -649,11 +649,11 @@ public class StandardPath {
     public void setId(Long id) {
         this.id = id;
     }
-
+    @JsonIgnore
     public List<Blockade> getBlockades() {
         return Blockades;
     }
-
+    @JsonIgnore
     public void setBlockades(List<Blockade> blockades) {
         Blockades = blockades;
     }
@@ -683,4 +683,47 @@ public class StandardPath {
             setupStandardPath();
         }
     }
+
+    public Blockade removeBlockade(String name, Integer counter){
+        if (name.equals("StandardPath")) {
+            System.out.println("inside remove blockade");
+            System.out.println("this is the counter" + counter);
+            Blockade b = removeStandard(counter);
+            return b;
+        }
+
+        return null;
+    }
+
+    public Blockade removeStandard(Integer counter){
+        if(counter == 1){
+            System.out.println("inside specific");
+            Blockade b = getStandardPathFields().get(21).getBlockadeFromNeighbours();
+            System.out.println(getStandardPathFields().get(21).getName());
+            System.out.println(getStandardPathFields().get(27).getName());
+            System.out.println(getStandardPathFields().get(32).getName());
+            System.out.println(getStandardPathFields().get(36).getName());
+            System.out.println(getStandardPathFields().get(40).getName());
+            System.out.println(getStandardPathFields().get(45).getName());
+            System.out.println(getStandardPathFields().get(51).getName());
+            System.out.println(getStandardPathFields().get(58).getName());
+            getStandardPathFields().get(21).getNeighbours().remove(b);
+            getStandardPathFields().get(27).getNeighbours().remove(b);
+            getStandardPathFields().get(32).getNeighbours().remove(b);
+            getStandardPathFields().get(36).getNeighbours().remove(b);
+            getStandardPathFields().get(21).getNeighbours().add(getStandardPathFields().get(40));
+            getStandardPathFields().get(27).getNeighbours().add(getStandardPathFields().get(40));
+            getStandardPathFields().get(27).getNeighbours().add(getStandardPathFields().get(45));
+            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(45));
+            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(51));
+            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(51));
+            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(58));
+            System.out.println("the blockade from insude"+ b);
+            return b;
+
+        }
+
+        return null;
+    }
+
 }

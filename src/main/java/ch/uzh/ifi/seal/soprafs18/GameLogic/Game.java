@@ -49,6 +49,9 @@ public class Game {
     @Transient
     private int roundNum=0;
 
+    @JsonIgnore
+    private int blockcount = 0;
+
 
     @Transient
     private int i;
@@ -236,5 +239,13 @@ public class Game {
 
     public StandardPath getGamePath() {
         return GamePath;
+    }
+
+    public int getBlockcount() {
+        return blockcount;
+    }
+
+    public void setBlockcount(int blockcount) {
+        this.blockcount = blockcount;
     }
 }

@@ -108,10 +108,11 @@ public class TurnController {
         turnService.MarketActionCard(room, user, card,mcard);
     }
 
-    @PutMapping(value = CONTEXT + "/{room}/cross")
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/blockade")
     @ResponseStatus(HttpStatus.OK)
-    public void cross( @PathVariable(value = "room",required = true) String room) {
-        turnService.swapdap(room);
+    public void cross( @PathVariable(value = "room",required = true) String room, @PathVariable(value = "user",required = true) String user,
+                       @PathVariable(value = "card",required = true) String card) {
+        turnService.crossBlockade(room,user,card);
     }
 
 

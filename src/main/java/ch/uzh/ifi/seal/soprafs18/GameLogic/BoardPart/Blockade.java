@@ -30,9 +30,11 @@ public class Blockade extends BoardPiece {
     public boolean crossed;
 
 
+
+
     @JsonIgnore
     @Transient
-    public List<Field> neighbours = new ArrayList<>();
+    private List<Field> neighbours = new ArrayList<>();
 
     public Blockade(){}
 
@@ -41,6 +43,7 @@ public class Blockade extends BoardPiece {
         this.Strenght = Strenght;
         this.crossed=crossed;
         this.name = name;
+
     }
 
     public void setCrossed(){
@@ -52,7 +55,7 @@ public class Blockade extends BoardPiece {
     }
 
     public void givePoints(Player player){
-        player.setBlockadePoints(player.getBlockadePoints()+Strenght);
+        player.setBlockadePoints(Strenght);
     }
 
 

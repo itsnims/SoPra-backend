@@ -112,4 +112,13 @@ public class GameService {
 
 
     }
+
+    public Integer getPoints(String gamen, String user){
+        Game game = gameRepository.findByName(gamen);
+        Player player = userRepository.findByName(user);
+
+        Integer points = player.getBlockadePoints();
+        gameRepository.save(game);
+        return points;
+    }
 }

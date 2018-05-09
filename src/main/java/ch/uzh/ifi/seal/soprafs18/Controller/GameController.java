@@ -90,6 +90,13 @@ public class GameController {
 
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/{user}/blockadePoints")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer currPoints(@PathVariable(value = "room",required = true) String roomname,@PathVariable(value = "user",required = true) String user) {
+        return gameService.getPoints(roomname, user);
+
+    }
+
 
 
 

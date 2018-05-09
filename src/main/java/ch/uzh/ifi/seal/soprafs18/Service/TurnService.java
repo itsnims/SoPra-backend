@@ -147,7 +147,6 @@ public class TurnService {
         Blockade nextBlockade = game.getGamePath().removeBlockade(game.getPathname(),counter + 1);
 
 
-
         nextBlockade.givePoints(player);
         nextBlockade.setCrossed();
 

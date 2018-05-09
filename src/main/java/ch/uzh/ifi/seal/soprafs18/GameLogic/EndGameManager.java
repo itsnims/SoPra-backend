@@ -1,41 +1,45 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic;
 
-import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.ElDorado;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class EndGameManager  {
-    Player Winner;
-    ElDorado elDorado = ElDorado.getInstance();
-    private int i, j;
+    private Player Winner;
+    private int  j;
     private Player k;
 
+    private Game game;
+
     public EndGameManager(Game game){
+        this.game = game;
 
     }
 
-    public boolean CheckifReached(){
-        if (elDorado.getReached() == true){
+    public boolean checkifReached(){
+        if(game.getWinners().size() == 0){
+            return false;
+        }
+        else{
             return true;
         }
-        return false;
+
     }
 
-    public Player getWinner(){
-        if (elDorado.getReachers().size() == 1) {
-            Winner = elDorado.getReachers().get(0);
-            return Winner;
+
+
+    public void getWinner(){
+        if (game.getWinners().size() == 1) {
+            Winner = game.getWinners().get(0);
+            game.setWinner(Winner);
         }
-        else if (elDorado.getReachers().size() > 1) {
-            k= elDorado.getReachers().get(0);
-            for(j=0;j<elDorado.getReachers().size();j++){
-                if(k.getBlockadePoints()< elDorado.getReachers().get(j).getBlockadePoints()){
-                    k= elDorado.getReachers().get(j);
+        else if (game.getWinners().size() > 1) {
+            k= game.getWinners().get(0);
+            for(j=0;j<game.getWinners().size();j++){
+                if(k.getBlockadePoints()< game.getWinners().get(j).getBlockadePoints()){
+                    k= game.getWinners().get(j);
                 }
             }
+
+            game.setWinner(k);
         }
-        return k;
+
     }
 
 

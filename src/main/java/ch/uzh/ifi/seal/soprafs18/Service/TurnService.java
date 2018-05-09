@@ -98,6 +98,12 @@ public class TurnService {
         Integer i = game.getPlayers().indexOf(player);
         game.getCurrentPlayer().drawCards();
         if(i == game.getMaxplayer()-1){
+            EndGameManager endGameManager = new EndGameManager(game);
+            Boolean reached = endGameManager.checkifReached();
+            if(reached){
+                System.out.println("reached endturn");
+                endGameManager.getWinner();
+            }
             i=-1;
             numRound = numRound + 1;
         }
@@ -191,9 +197,36 @@ public class TurnService {
                 newposition = gamePath.get(i);
             }
         }
-
         playerFigure.setCurrentPosition(newposition);
         newposition.setAccessable(false);
+
+        if(newposition.getName().equals("EDBlue1")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDBlue2")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDBlue3")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+
+        if(newposition.getName().equals("EDGreen1")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDGreen2")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDGreen3")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+
+
         actual.setAccessable(true);
         player.selection.add(cardused);
         player.handcards.remove(cardused);
@@ -258,15 +291,14 @@ public class TurnService {
     }
 
 
-    public Player isGameWon(String room){
+    public Boolean isGameWon(String room){
         Game game= gameRepository.findByName(room);
-        EndGameManager endGameManager = new EndGameManager(game);
-        if(endGameManager.CheckifReached()){
-            Player winner = endGameManager.getWinner();
-            return winner;
-        }
+        return !game.getWinners().isEmpty();
+    }
 
-        return null;
+    public Player Winner(String room){
+        Game game= gameRepository.findByName(room);
+        return game.getWinner();
     }
 
     public void DrawActionCard(String room, String player, String card){
@@ -346,21 +378,7 @@ public class TurnService {
 
     }
 
-    public void swapdap(String gamen){
-        Game game = gameRepository.findByName(gamen);
-        StandardPath path = game.getGamePath();
-        List<Field> org = path.getStandardPathFields();
-        List<Field> news = new ArrayList<>();
-        news.add(org.get(0));
-        news.add(org.get(0));
-        news.add(org.get(0));
-        news.add(org.get(0));
 
-        path.setStandardPathFields(news);
-
-        game.setGamePath(path);
-        gameRepository.save(game);
-    }
 
 
 

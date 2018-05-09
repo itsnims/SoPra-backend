@@ -53,11 +53,15 @@ public class Game {
     private int blockcount = 0;
 
 
+    @OneToOne
+    private Player winner;
+
     @Transient
     private int i;
 
-    @Transient
-    private  Player winner;
+
+    @OneToMany
+    private  List<Player> winners = new ArrayList<>();
 
     @Column
     private int current;
@@ -247,5 +251,21 @@ public class Game {
 
     public void setBlockcount(int blockcount) {
         this.blockcount = blockcount;
+    }
+
+    public List<Player> getWinners() {
+        return winners;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
     }
 }

@@ -83,7 +83,7 @@ public class TurnController {
 
     @GetMapping(value = CONTEXT + "/{room}/checkWinner")
     @ResponseStatus(HttpStatus.OK)
-    public Player getWinner(@PathVariable(value = "room",required = true) String room){
+    public Boolean getWinner(@PathVariable(value = "room",required = true) String room){
         return turnService.isGameWon(room);
     }
 
@@ -114,6 +114,20 @@ public class TurnController {
                        @PathVariable(value = "card",required = true) String card) {
         turnService.crossBlockade(room,user,card);
     }
+
+    @GetMapping(value = CONTEXT + "/{room}/reached")
+    @ResponseStatus(HttpStatus.OK)
+    public Boolean getReached(@PathVariable(value = "room",required = true) String roomname){
+        return turnService.isGameWon(roomname);
+    }
+
+    @GetMapping(value = CONTEXT + "/{room}/winner")
+    @ResponseStatus(HttpStatus.OK)
+    public Player getReacher(@PathVariable(value = "room",required = true) String roomname){
+        return turnService.Winner(roomname);
+    }
+
+
 
 
 

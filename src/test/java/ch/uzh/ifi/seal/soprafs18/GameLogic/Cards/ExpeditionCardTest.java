@@ -12,14 +12,16 @@ public class ExpeditionCardTest {
 
     @Test
     public void getCardStrenghtTest() {
+        ExpeditionCard ex = new ExpeditionCard();
         int result = Tester.getCardStrenght();
         Assert.assertEquals(1,result);
     }
 
     @Test
     public void getName() {
+        Tester.setName("Tester");
         String result = Tester.getName();
-        Assert.assertEquals("TestName",result);
+        Assert.assertEquals("Tester",result);
 
     }
 
@@ -31,14 +33,16 @@ public class ExpeditionCardTest {
 
     @Test
     public void getReusable() {
+        Tester.setReusable(false);
         Boolean result = Tester.getReusable();
-        Assert.assertEquals(true,result);
+        Assert.assertEquals(false,result);
     }
 
     @Test
     public void getPrice() {
+        Tester.setPrice(2);
         double result = Tester.getPrice();
-        Assert.assertEquals(1.5,result,0);
+        Assert.assertEquals(2,result,0);
         System.out.println(result);
     }
 }

@@ -53,4 +53,9 @@ public abstract class Card {
         Price = price;
     }
 
+    public void setReusable(Boolean reusable) {
+        this.reusable = reusable;
+    }
+
+
 }

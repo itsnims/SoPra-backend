@@ -9,6 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Entity
 public class StandardPath {
 
@@ -535,9 +546,9 @@ public class StandardPath {
         first.addNeighbour(B33StandardPath);
         first.addNeighbour(B37StandardPath);
         first.addNeighbour(C4);
-        first.addNeighbour(C9);
-        first.addNeighbour(C15);
-        first.addNeighbour(C22);
+        first.addNeighbour(C3);
+        first.addNeighbour(C2);
+        first.addNeighbour(C1);
 
         Field C16StandardPath=C16;
         C16StandardPath.AddNewNeighbour(second);
@@ -5573,8 +5584,29 @@ public class StandardPath {
     }
 
     public Blockade removeBlockade(String name, Integer counter){
+
         if (name.equals("StandardPath")) {
             Blockade b = removeStandard(counter);
+            return b;
+
+        } else if (name.equals("HillsOfGold")){
+            Blockade b = removeHillsOfGold(counter);
+            return b;
+
+        }else if (name.equals("HomeStretchFields")){
+            Blockade b = removeHomeStretch(counter);
+            return b;
+        }else if (name.equals("WindingPath")){
+            Blockade b = removeWindingPaths(counter);
+            return b;
+        }else if (name.equals("Serpentine")){
+            Blockade b = removeSerpentine(counter);
+            return b;
+        }else if (name.equals("Swamplands")){
+            Blockade b = removeSwamplands(counter);
+            return b;
+        }else if (name.equals("WitchsCauldron")){
+            Blockade b = removeWitchsCauldron(counter);
             return b;
         }
 
@@ -5591,11 +5623,11 @@ public class StandardPath {
             getStandardPathFields().get(36).getNeighbours().remove(b);
             getStandardPathFields().get(21).getNeighbours().add(getStandardPathFields().get(40));
             getStandardPathFields().get(27).getNeighbours().add(getStandardPathFields().get(40));
-            getStandardPathFields().get(27).getNeighbours().add(getStandardPathFields().get(45));
-            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(45));
-            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(51));
-            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(51));
-            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(58));
+            getStandardPathFields().get(27).getNeighbours().add(getStandardPathFields().get(39));
+            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(39));
+            getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(38));
+            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(38));
+            getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(37));
 
             return b;
 
@@ -5604,16 +5636,16 @@ public class StandardPath {
         if(counter == 2){
             Blockade b = getStandardPathFields().get(70).getBlockadeFromNeighbours();
             getStandardPathFields().get(70).getNeighbours().remove(b);
-            getStandardPathFields().get(71).getNeighbours().remove(b);
-            getStandardPathFields().get(72).getNeighbours().remove(b);
-            getStandardPathFields().get(73).getNeighbours().remove(b);
+            getStandardPathFields().get(65).getNeighbours().remove(b);
+            getStandardPathFields().get(59).getNeighbours().remove(b);
+            getStandardPathFields().get(52).getNeighbours().remove(b);
             getStandardPathFields().get(70).getNeighbours().add(getStandardPathFields().get(74));
-            getStandardPathFields().get(70).getNeighbours().add(getStandardPathFields().get(75));
-            getStandardPathFields().get(71).getNeighbours().add(getStandardPathFields().get(75));
-            getStandardPathFields().get(71).getNeighbours().add(getStandardPathFields().get(76));
-            getStandardPathFields().get(72).getNeighbours().add(getStandardPathFields().get(76));
-            getStandardPathFields().get(72).getNeighbours().add(getStandardPathFields().get(77));
-            getStandardPathFields().get(73).getNeighbours().add(getStandardPathFields().get(77));
+            getStandardPathFields().get(65).getNeighbours().add(getStandardPathFields().get(75));
+            getStandardPathFields().get(65).getNeighbours().add(getStandardPathFields().get(74));
+            getStandardPathFields().get(59).getNeighbours().add(getStandardPathFields().get(76));
+            getStandardPathFields().get(59).getNeighbours().add(getStandardPathFields().get(75));
+            getStandardPathFields().get(52).getNeighbours().add(getStandardPathFields().get(76));
+            getStandardPathFields().get(52).getNeighbours().add(getStandardPathFields().get(77));
             return b;
         }
         if(counter == 3){
@@ -5634,23 +5666,591 @@ public class StandardPath {
         }
 
         if(counter == 4){
-            Blockade b = getStandardPathFields().get(126).getBlockadeFromNeighbours();
-            getStandardPathFields().get(126).getNeighbours().remove(b);
-            getStandardPathFields().get(133).getNeighbours().remove(b);
-            getStandardPathFields().get(139).getNeighbours().remove(b);
-            getStandardPathFields().get(144).getNeighbours().remove(b);
-            getStandardPathFields().get(126).getNeighbours().add(getStandardPathFields().get(152));
-            getStandardPathFields().get(126).getNeighbours().add(getStandardPathFields().get(157));
-            getStandardPathFields().get(133).getNeighbours().add(getStandardPathFields().get(157));
-            getStandardPathFields().get(133).getNeighbours().add(getStandardPathFields().get(163));
-            getStandardPathFields().get(139).getNeighbours().add(getStandardPathFields().get(163));
-            getStandardPathFields().get(139).getNeighbours().add(getStandardPathFields().get(173));
-            getStandardPathFields().get(144).getNeighbours().add(getStandardPathFields().get(173));
+            Blockade b = getStandardPathFields().get(147).getBlockadeFromNeighbours();
+            getStandardPathFields().get(147).getNeighbours().remove(b);
+            getStandardPathFields().get(143).getNeighbours().remove(b);
+            getStandardPathFields().get(138).getNeighbours().remove(b);
+            getStandardPathFields().get(132).getNeighbours().remove(b);
+            getStandardPathFields().get(147).getNeighbours().add(getStandardPathFields().get(148));
+            getStandardPathFields().get(143).getNeighbours().add(getStandardPathFields().get(148));
+            getStandardPathFields().get(143).getNeighbours().add(getStandardPathFields().get(149));
+            getStandardPathFields().get(138).getNeighbours().add(getStandardPathFields().get(149));
+            getStandardPathFields().get(138).getNeighbours().add(getStandardPathFields().get(150));
+            getStandardPathFields().get(132).getNeighbours().add(getStandardPathFields().get(150));
+            getStandardPathFields().get(132).getNeighbours().add(getStandardPathFields().get(151));
             return b;
         }
 
 
         return null;
     }
+
+
+
+    public Blockade removeHillsOfGold(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getHillsOfGoldFields().get(21).getBlockadeFromNeighbours();
+            getHillsOfGoldFields().get(21).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(27).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(32).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(36).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(21).getNeighbours().add(getHillsOfGoldFields().get(52));
+            getHillsOfGoldFields().get(21).getNeighbours().add(getHillsOfGoldFields().get(59));
+            getHillsOfGoldFields().get(27).getNeighbours().add(getHillsOfGoldFields().get(59));
+            getHillsOfGoldFields().get(27).getNeighbours().add(getHillsOfGoldFields().get(65));
+            getHillsOfGoldFields().get(32).getNeighbours().add(getHillsOfGoldFields().get(65));
+            getHillsOfGoldFields().get(32).getNeighbours().add(getHillsOfGoldFields().get(70));
+            getHillsOfGoldFields().get(36).getNeighbours().add(getHillsOfGoldFields().get(70));
+
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getHillsOfGoldFields().get(40).getBlockadeFromNeighbours();
+            getHillsOfGoldFields().get(40).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(45).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(51).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(58).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(40).getNeighbours().add(getHillsOfGoldFields().get(74));
+            getHillsOfGoldFields().get(45).getNeighbours().add(getHillsOfGoldFields().get(74));
+            getHillsOfGoldFields().get(45).getNeighbours().add(getHillsOfGoldFields().get(78));
+            getHillsOfGoldFields().get(51).getNeighbours().add(getHillsOfGoldFields().get(78));
+            getHillsOfGoldFields().get(51).getNeighbours().add(getHillsOfGoldFields().get(83));
+            getHillsOfGoldFields().get(58).getNeighbours().add(getHillsOfGoldFields().get(83));
+            getHillsOfGoldFields().get(58).getNeighbours().add(getHillsOfGoldFields().get(89));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getHillsOfGoldFields().get(107).getBlockadeFromNeighbours();
+            getHillsOfGoldFields().get(89).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(96).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(102).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(107).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(89).getNeighbours().add(getHillsOfGoldFields().get(111));
+            getHillsOfGoldFields().get(96).getNeighbours().add(getHillsOfGoldFields().get(111));
+            getHillsOfGoldFields().get(96).getNeighbours().add(getHillsOfGoldFields().get(112));
+            getHillsOfGoldFields().get(102).getNeighbours().add(getHillsOfGoldFields().get(112));
+            getHillsOfGoldFields().get(102).getNeighbours().add(getHillsOfGoldFields().get(113));
+            getHillsOfGoldFields().get(107).getNeighbours().add(getHillsOfGoldFields().get(113));
+            getHillsOfGoldFields().get(107).getNeighbours().add(getHillsOfGoldFields().get(114));
+
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getHillsOfGoldFields().get(144).getBlockadeFromNeighbours();
+            getHillsOfGoldFields().get(144).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(145).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(146).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(147).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(144).getNeighbours().add(getHillsOfGoldFields().get(148));
+            getHillsOfGoldFields().get(144).getNeighbours().add(getHillsOfGoldFields().get(149));
+            getHillsOfGoldFields().get(145).getNeighbours().add(getHillsOfGoldFields().get(149));
+            getHillsOfGoldFields().get(145).getNeighbours().add(getHillsOfGoldFields().get(150));
+            getHillsOfGoldFields().get(146).getNeighbours().add(getHillsOfGoldFields().get(150));
+            getHillsOfGoldFields().get(146).getNeighbours().add(getHillsOfGoldFields().get(151));
+            getHillsOfGoldFields().get(147).getNeighbours().add(getHillsOfGoldFields().get(151));
+
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getHillsOfGoldFields().get(184).getBlockadeFromNeighbours();
+            getHillsOfGoldFields().get(184).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(180).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(175).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(169).getNeighbours().remove(b);
+            getHillsOfGoldFields().get(184).getNeighbours().add(getHillsOfGoldFields().get(221));
+            getHillsOfGoldFields().get(184).getNeighbours().add(getHillsOfGoldFields().get(220));
+            getHillsOfGoldFields().get(180).getNeighbours().add(getHillsOfGoldFields().get(220));
+            getHillsOfGoldFields().get(180).getNeighbours().add(getHillsOfGoldFields().get(219));
+            getHillsOfGoldFields().get(175).getNeighbours().add(getHillsOfGoldFields().get(219));
+            getHillsOfGoldFields().get(175).getNeighbours().add(getHillsOfGoldFields().get(218));
+            getHillsOfGoldFields().get(169).getNeighbours().add(getHillsOfGoldFields().get(218));
+            return b;
+
+        }
+
+        return null;
+    }
+
+
+    public Blockade removeHomeStretch(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getHomeStretchFields().get(21).getBlockadeFromNeighbours();
+            getHomeStretchFields().get(21).getNeighbours().remove(b);
+            getHomeStretchFields().get(27).getNeighbours().remove(b);
+            getHomeStretchFields().get(32).getNeighbours().remove(b);
+            getHomeStretchFields().get(36).getNeighbours().remove(b);
+            getHomeStretchFields().get(21).getNeighbours().add(getHomeStretchFields().get(40));
+            getHomeStretchFields().get(27).getNeighbours().add(getHomeStretchFields().get(40));
+            getHomeStretchFields().get(27).getNeighbours().add(getHomeStretchFields().get(39));
+            getHomeStretchFields().get(32).getNeighbours().add(getHomeStretchFields().get(39));
+            getHomeStretchFields().get(32).getNeighbours().add(getHomeStretchFields().get(38));
+            getHomeStretchFields().get(36).getNeighbours().add(getHomeStretchFields().get(38));
+            getHomeStretchFields().get(36).getNeighbours().add(getHomeStretchFields().get(37));
+
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getHomeStretchFields().get(52).getBlockadeFromNeighbours();
+            getHomeStretchFields().get(52).getNeighbours().remove(b);
+            getHomeStretchFields().get(59).getNeighbours().remove(b);
+            getHomeStretchFields().get(65).getNeighbours().remove(b);
+            getHomeStretchFields().get(70).getNeighbours().remove(b);
+            getHomeStretchFields().get(52).getNeighbours().add(getHomeStretchFields().get(74));
+            getHomeStretchFields().get(52).getNeighbours().add(getHomeStretchFields().get(75));
+            getHomeStretchFields().get(59).getNeighbours().add(getHomeStretchFields().get(75));
+            getHomeStretchFields().get(59).getNeighbours().add(getHomeStretchFields().get(76));
+            getHomeStretchFields().get(65).getNeighbours().add(getHomeStretchFields().get(76));
+            getHomeStretchFields().get(65).getNeighbours().add(getHomeStretchFields().get(77));
+            getHomeStretchFields().get(70).getNeighbours().add(getHomeStretchFields().get(77));
+            getHomeStretchFields().get(70).getNeighbours().add(getHomeStretchFields().get(78));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getHomeStretchFields().get(85).getBlockadeFromNeighbours();
+            getHomeStretchFields().get(85).getNeighbours().remove(b);
+            getHomeStretchFields().get(86).getNeighbours().remove(b);
+            getHomeStretchFields().get(87).getNeighbours().remove(b);
+            getHomeStretchFields().get(88).getNeighbours().remove(b);
+            getHomeStretchFields().get(89).getNeighbours().remove(b);
+            getHomeStretchFields().get(85).getNeighbours().add(getHomeStretchFields().get(90));
+            getHomeStretchFields().get(86).getNeighbours().add(getHomeStretchFields().get(90));
+            getHomeStretchFields().get(86).getNeighbours().add(getHomeStretchFields().get(91));
+            getHomeStretchFields().get(87).getNeighbours().add(getHomeStretchFields().get(91));
+            getHomeStretchFields().get(87).getNeighbours().add(getHomeStretchFields().get(92));
+            getHomeStretchFields().get(88).getNeighbours().add(getHomeStretchFields().get(92));
+            getHomeStretchFields().get(88).getNeighbours().add(getHomeStretchFields().get(93));
+            getHomeStretchFields().get(89).getNeighbours().add(getHomeStretchFields().get(93));
+
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getHomeStretchFields().get(123).getBlockadeFromNeighbours();
+            getHomeStretchFields().get(123).getNeighbours().remove(b);
+            getHomeStretchFields().get(124).getNeighbours().remove(b);
+            getHomeStretchFields().get(125).getNeighbours().remove(b);
+            getHomeStretchFields().get(126).getNeighbours().remove(b);
+            getHomeStretchFields().get(123).getNeighbours().add(getHomeStretchFields().get(127));
+            getHomeStretchFields().get(124).getNeighbours().add(getHomeStretchFields().get(127));
+            getHomeStretchFields().get(124).getNeighbours().add(getHomeStretchFields().get(128));
+            getHomeStretchFields().get(125).getNeighbours().add(getHomeStretchFields().get(128));
+            getHomeStretchFields().get(125).getNeighbours().add(getHomeStretchFields().get(129));
+            getHomeStretchFields().get(126).getNeighbours().add(getHomeStretchFields().get(129));
+            getHomeStretchFields().get(126).getNeighbours().add(getHomeStretchFields().get(150));
+
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getHomeStretchFields().get(160).getBlockadeFromNeighbours();
+            getHomeStretchFields().get(160).getNeighbours().remove(b);
+            getHomeStretchFields().get(161).getNeighbours().remove(b);
+            getHomeStretchFields().get(162).getNeighbours().remove(b);
+            getHomeStretchFields().get(163).getNeighbours().remove(b);
+            getHomeStretchFields().get(160).getNeighbours().add(getHomeStretchFields().get(179));
+            getHomeStretchFields().get(160).getNeighbours().add(getHomeStretchFields().get(173));
+            getHomeStretchFields().get(161).getNeighbours().add(getHomeStretchFields().get(173));
+            getHomeStretchFields().get(161).getNeighbours().add(getHomeStretchFields().get(168));
+            getHomeStretchFields().get(162).getNeighbours().add(getHomeStretchFields().get(168));
+            getHomeStretchFields().get(162).getNeighbours().add(getHomeStretchFields().get(164));
+            getHomeStretchFields().get(163).getNeighbours().add(getHomeStretchFields().get(164));
+
+            return b;
+
+        }
+
+        return null;
+    }
+
+    public Blockade removeWindingPaths(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getWindingPathsFields().get(21).getBlockadeFromNeighbours();
+            getWindingPathsFields().get(21).getNeighbours().remove(b);
+            getWindingPathsFields().get(27).getNeighbours().remove(b);
+            getWindingPathsFields().get(32).getNeighbours().remove(b);
+            getWindingPathsFields().get(36).getNeighbours().remove(b);
+            getWindingPathsFields().get(21).getNeighbours().add(getWindingPathsFields().get(70));
+            getWindingPathsFields().get(27).getNeighbours().add(getWindingPathsFields().get(70));
+            getWindingPathsFields().get(27).getNeighbours().add(getWindingPathsFields().get(71));
+            getWindingPathsFields().get(32).getNeighbours().add(getWindingPathsFields().get(71));
+            getWindingPathsFields().get(32).getNeighbours().add(getWindingPathsFields().get(72));
+            getWindingPathsFields().get(36).getNeighbours().add(getWindingPathsFields().get(72));
+            getWindingPathsFields().get(36).getNeighbours().add(getWindingPathsFields().get(73));
+
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getWindingPathsFields().get(58).getBlockadeFromNeighbours();
+            getWindingPathsFields().get(58).getNeighbours().remove(b);
+            getWindingPathsFields().get(51).getNeighbours().remove(b);
+            getWindingPathsFields().get(45).getNeighbours().remove(b);
+            getWindingPathsFields().get(40).getNeighbours().remove(b);
+            getWindingPathsFields().get(58).getNeighbours().add(getWindingPathsFields().get(74));
+            getWindingPathsFields().get(51).getNeighbours().add(getWindingPathsFields().get(74));
+            getWindingPathsFields().get(51).getNeighbours().add(getWindingPathsFields().get(75));
+            getWindingPathsFields().get(45).getNeighbours().add(getWindingPathsFields().get(75));
+            getWindingPathsFields().get(45).getNeighbours().add(getWindingPathsFields().get(76));
+            getWindingPathsFields().get(40).getNeighbours().add(getWindingPathsFields().get(76));
+            getWindingPathsFields().get(40).getNeighbours().add(getWindingPathsFields().get(77));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getWindingPathsFields().get(89).getBlockadeFromNeighbours();
+            getWindingPathsFields().get(89).getNeighbours().remove(b);
+            getWindingPathsFields().get(96).getNeighbours().remove(b);
+            getWindingPathsFields().get(102).getNeighbours().remove(b);
+            getWindingPathsFields().get(107).getNeighbours().remove(b);
+            getWindingPathsFields().get(89).getNeighbours().add(getWindingPathsFields().get(144));
+            getWindingPathsFields().get(96).getNeighbours().add(getWindingPathsFields().get(144));
+            getWindingPathsFields().get(96).getNeighbours().add(getWindingPathsFields().get(139));
+            getWindingPathsFields().get(102).getNeighbours().add(getWindingPathsFields().get(139));
+            getWindingPathsFields().get(102).getNeighbours().add(getWindingPathsFields().get(133));
+            getWindingPathsFields().get(107).getNeighbours().add(getWindingPathsFields().get(133));
+            getWindingPathsFields().get(107).getNeighbours().add(getWindingPathsFields().get(126));
+
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getWindingPathsFields().get(111).getBlockadeFromNeighbours();
+            getWindingPathsFields().get(111).getNeighbours().remove(b);
+            getWindingPathsFields().get(115).getNeighbours().remove(b);
+            getWindingPathsFields().get(120).getNeighbours().remove(b);
+            getWindingPathsFields().get(126).getNeighbours().remove(b);
+            getWindingPathsFields().get(111).getNeighbours().add(getWindingPathsFields().get(181));
+            getWindingPathsFields().get(111).getNeighbours().add(getWindingPathsFields().get(176));
+            getWindingPathsFields().get(115).getNeighbours().add(getWindingPathsFields().get(176));
+            getWindingPathsFields().get(115).getNeighbours().add(getWindingPathsFields().get(170));
+            getWindingPathsFields().get(120).getNeighbours().add(getWindingPathsFields().get(170));
+            getWindingPathsFields().get(120).getNeighbours().add(getWindingPathsFields().get(163));
+            getWindingPathsFields().get(126).getNeighbours().add(getWindingPathsFields().get(163));
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getWindingPathsFields().get(184).getBlockadeFromNeighbours();
+            getWindingPathsFields().get(184).getNeighbours().remove(b);
+            getWindingPathsFields().get(180).getNeighbours().remove(b);
+            getWindingPathsFields().get(175).getNeighbours().remove(b);
+            getWindingPathsFields().get(169).getNeighbours().remove(b);
+            getWindingPathsFields().get(184).getNeighbours().add(getWindingPathsFields().get(221));
+            getWindingPathsFields().get(180).getNeighbours().add(getWindingPathsFields().get(221));
+            getWindingPathsFields().get(180).getNeighbours().add(getWindingPathsFields().get(220));
+            getWindingPathsFields().get(175).getNeighbours().add(getWindingPathsFields().get(220));
+            getWindingPathsFields().get(175).getNeighbours().add(getWindingPathsFields().get(219));
+            getWindingPathsFields().get(169).getNeighbours().add(getWindingPathsFields().get(219));
+            getWindingPathsFields().get(169).getNeighbours().add(getWindingPathsFields().get(218));
+
+            return b;
+
+        }
+
+        return null;
+    }
+
+    public Blockade removeSerpentine(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getSerpentineFields().get(21).getBlockadeFromNeighbours();
+            getSerpentineFields().get(21).getNeighbours().remove(b);
+            getSerpentineFields().get(27).getNeighbours().remove(b);
+            getSerpentineFields().get(32).getNeighbours().remove(b);
+            getSerpentineFields().get(36).getNeighbours().remove(b);
+            getSerpentineFields().get(21).getNeighbours().add(getSerpentineFields().get(52));
+            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(52));
+            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(59));
+            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(59));
+            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(65));
+            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(65));
+            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(70));
+
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getSerpentineFields().get(58).getBlockadeFromNeighbours();
+            getSerpentineFields().get(58).getNeighbours().remove(b);
+            getSerpentineFields().get(64).getNeighbours().remove(b);
+            getSerpentineFields().get(69).getNeighbours().remove(b);
+            getSerpentineFields().get(73).getNeighbours().remove(b);
+            getSerpentineFields().get(58).getNeighbours().add(getSerpentineFields().get(74));
+            getSerpentineFields().get(64).getNeighbours().add(getSerpentineFields().get(74));
+            getSerpentineFields().get(64).getNeighbours().add(getSerpentineFields().get(75));
+            getSerpentineFields().get(69).getNeighbours().add(getSerpentineFields().get(75));
+            getSerpentineFields().get(69).getNeighbours().add(getSerpentineFields().get(76));
+            getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(76));
+            getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(77));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getSerpentineFields().get(95).getBlockadeFromNeighbours();
+            getSerpentineFields().get(95).getNeighbours().remove(b);
+            getSerpentineFields().get(88).getNeighbours().remove(b);
+            getSerpentineFields().get(82).getNeighbours().remove(b);
+            getSerpentineFields().get(77).getNeighbours().remove(b);
+            getSerpentineFields().get(95).getNeighbours().add(getSerpentineFields().get(126));
+            getSerpentineFields().get(95).getNeighbours().add(getSerpentineFields().get(120));
+            getSerpentineFields().get(88).getNeighbours().add(getSerpentineFields().get(120));
+            getSerpentineFields().get(88).getNeighbours().add(getSerpentineFields().get(115));
+            getSerpentineFields().get(82).getNeighbours().add(getSerpentineFields().get(115));
+            getSerpentineFields().get(82).getNeighbours().add(getSerpentineFields().get(111));
+            getSerpentineFields().get(77).getNeighbours().add(getSerpentineFields().get(111));
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getSerpentineFields().get(143).getBlockadeFromNeighbours();
+            getSerpentineFields().get(143).getNeighbours().remove(b);
+            getSerpentineFields().get(138).getNeighbours().remove(b);
+            getSerpentineFields().get(132).getNeighbours().remove(b);
+            getSerpentineFields().get(126).getNeighbours().remove(b);
+            getSerpentineFields().get(143).getNeighbours().add(getSerpentineFields().get(181));
+            getSerpentineFields().get(143).getNeighbours().add(getSerpentineFields().get(182));
+            getSerpentineFields().get(138).getNeighbours().add(getSerpentineFields().get(182));
+            getSerpentineFields().get(138).getNeighbours().add(getSerpentineFields().get(183));
+            getSerpentineFields().get(132).getNeighbours().add(getSerpentineFields().get(183));
+            getSerpentineFields().get(132).getNeighbours().add(getSerpentineFields().get(184));
+            getSerpentineFields().get(126).getNeighbours().add(getSerpentineFields().get(184));
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getSerpentineFields().get(169).getBlockadeFromNeighbours();
+            getSerpentineFields().get(169).getNeighbours().remove(b);
+            getSerpentineFields().get(162).getNeighbours().remove(b);
+            getSerpentineFields().get(156).getNeighbours().remove(b);
+            getSerpentineFields().get(151).getNeighbours().remove(b);
+            getSerpentineFields().get(169).getNeighbours().add(getSerpentineFields().get(185));
+            getSerpentineFields().get(162).getNeighbours().add(getSerpentineFields().get(185));
+            getSerpentineFields().get(162).getNeighbours().add(getSerpentineFields().get(186));
+            getSerpentineFields().get(156).getNeighbours().add(getSerpentineFields().get(186));
+            getSerpentineFields().get(156).getNeighbours().add(getSerpentineFields().get(187));
+            getSerpentineFields().get(151).getNeighbours().add(getSerpentineFields().get(187));
+            getSerpentineFields().get(151).getNeighbours().add(getSerpentineFields().get(188));
+
+            return b;
+
+        }
+
+        return null;
+    }
+
+
+    public Blockade removeSwamplands(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getSwamplandsFields().get(21).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(21).getNeighbours().remove(b);
+            getSwamplandsFields().get(27).getNeighbours().remove(b);
+            getSwamplandsFields().get(32).getNeighbours().remove(b);
+            getSwamplandsFields().get(36).getNeighbours().remove(b);
+            getSwamplandsFields().get(21).getNeighbours().add(getSwamplandsFields().get(37));
+            getSwamplandsFields().get(21).getNeighbours().add(getSwamplandsFields().get(38));
+            getSwamplandsFields().get(27).getNeighbours().add(getSwamplandsFields().get(38));
+            getSwamplandsFields().get(27).getNeighbours().add(getSwamplandsFields().get(39));
+            getSwamplandsFields().get(32).getNeighbours().add(getSwamplandsFields().get(39));
+            getSwamplandsFields().get(32).getNeighbours().add(getSwamplandsFields().get(40));
+            getSwamplandsFields().get(36).getNeighbours().add(getSwamplandsFields().get(40));
+            getSwamplandsFields().get(36).getNeighbours().add(getSwamplandsFields().get(41));
+
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getSwamplandsFields().get(48).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(48).getNeighbours().remove(b);
+            getSwamplandsFields().get(49).getNeighbours().remove(b);
+            getSwamplandsFields().get(50).getNeighbours().remove(b);
+            getSwamplandsFields().get(51).getNeighbours().remove(b);
+            getSwamplandsFields().get(52).getNeighbours().remove(b);
+            getSwamplandsFields().get(48).getNeighbours().add(getSwamplandsFields().get(53));
+            getSwamplandsFields().get(49).getNeighbours().add(getSwamplandsFields().get(53));
+            getSwamplandsFields().get(49).getNeighbours().add(getSwamplandsFields().get(54));
+            getSwamplandsFields().get(50).getNeighbours().add(getSwamplandsFields().get(54));
+            getSwamplandsFields().get(50).getNeighbours().add(getSwamplandsFields().get(55));
+            getSwamplandsFields().get(51).getNeighbours().add(getSwamplandsFields().get(55));
+            getSwamplandsFields().get(51).getNeighbours().add(getSwamplandsFields().get(56));
+            getSwamplandsFields().get(52).getNeighbours().add(getSwamplandsFields().get(56));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getSwamplandsFields().get(68).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(68).getNeighbours().remove(b);
+            getSwamplandsFields().get(75).getNeighbours().remove(b);
+            getSwamplandsFields().get(81).getNeighbours().remove(b);
+            getSwamplandsFields().get(86).getNeighbours().remove(b);
+            getSwamplandsFields().get(68).getNeighbours().add(getSwamplandsFields().get(90));
+            getSwamplandsFields().get(68).getNeighbours().add(getSwamplandsFields().get(91));
+            getSwamplandsFields().get(75).getNeighbours().add(getSwamplandsFields().get(91));
+            getSwamplandsFields().get(75).getNeighbours().add(getSwamplandsFields().get(92));
+            getSwamplandsFields().get(81).getNeighbours().add(getSwamplandsFields().get(92));
+            getSwamplandsFields().get(81).getNeighbours().add(getSwamplandsFields().get(93));
+            getSwamplandsFields().get(86).getNeighbours().add(getSwamplandsFields().get(93));
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getSwamplandsFields().get(123).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(123).getNeighbours().remove(b);
+            getSwamplandsFields().get(124).getNeighbours().remove(b);
+            getSwamplandsFields().get(125).getNeighbours().remove(b);
+            getSwamplandsFields().get(126).getNeighbours().remove(b);
+            getSwamplandsFields().get(123).getNeighbours().add(getSwamplandsFields().get(130));
+            getSwamplandsFields().get(123).getNeighbours().add(getSwamplandsFields().get(135));
+            getSwamplandsFields().get(124).getNeighbours().add(getSwamplandsFields().get(135));
+            getSwamplandsFields().get(124).getNeighbours().add(getSwamplandsFields().get(141));
+            getSwamplandsFields().get(125).getNeighbours().add(getSwamplandsFields().get(141));
+            getSwamplandsFields().get(125).getNeighbours().add(getSwamplandsFields().get(148));
+            getSwamplandsFields().get(126).getNeighbours().add(getSwamplandsFields().get(148));
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getSwamplandsFields().get(127).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(127).getNeighbours().remove(b);
+            getSwamplandsFields().get(128).getNeighbours().remove(b);
+            getSwamplandsFields().get(129).getNeighbours().remove(b);
+            getSwamplandsFields().get(130).getNeighbours().remove(b);
+            getSwamplandsFields().get(127).getNeighbours().add(getSwamplandsFields().get(176));
+            getSwamplandsFields().get(127).getNeighbours().add(getSwamplandsFields().get(177));
+            getSwamplandsFields().get(128).getNeighbours().add(getSwamplandsFields().get(177));
+            getSwamplandsFields().get(128).getNeighbours().add(getSwamplandsFields().get(178));
+            getSwamplandsFields().get(129).getNeighbours().add(getSwamplandsFields().get(178));
+            getSwamplandsFields().get(129).getNeighbours().add(getSwamplandsFields().get(179));
+            getSwamplandsFields().get(130).getNeighbours().add(getSwamplandsFields().get(179));
+
+            return b;
+
+        }if (counter == 6){
+            Blockade b = getSwamplandsFields().get(164).getBlockadeFromNeighbours();
+            getSwamplandsFields().get(164).getNeighbours().remove(b);
+            getSwamplandsFields().get(165).getNeighbours().remove(b);
+            getSwamplandsFields().get(166).getNeighbours().remove(b);
+            getSwamplandsFields().get(167).getNeighbours().remove(b);
+            getSwamplandsFields().get(168).getNeighbours().remove(b);
+            getSwamplandsFields().get(164).getNeighbours().add(getSwamplandsFields().get(213));
+            getSwamplandsFields().get(165).getNeighbours().add(getSwamplandsFields().get(213));
+            getSwamplandsFields().get(165).getNeighbours().add(getSwamplandsFields().get(214));
+            getSwamplandsFields().get(166).getNeighbours().add(getSwamplandsFields().get(214));
+            getSwamplandsFields().get(166).getNeighbours().add(getSwamplandsFields().get(215));
+            getSwamplandsFields().get(167).getNeighbours().add(getSwamplandsFields().get(215));
+            getSwamplandsFields().get(167).getNeighbours().add(getSwamplandsFields().get(216));
+            getSwamplandsFields().get(168).getNeighbours().add(getSwamplandsFields().get(216));
+
+            return b;
+        }
+
+        return null;
+    }
+
+
+    public Blockade removeWitchsCauldron(Integer counter){
+        if(counter == 1){
+
+            Blockade b = getWitchsCauldronFields().get(21).getBlockadeFromNeighbours();
+            getWitchsCauldronFields().get(21).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(27).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(32).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(36).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(21).getNeighbours().add(getWitchsCauldronFields().get(37));
+            getWitchsCauldronFields().get(27).getNeighbours().add(getWitchsCauldronFields().get(37));
+            getWitchsCauldronFields().get(27).getNeighbours().add(getWitchsCauldronFields().get(38));
+            getWitchsCauldronFields().get(32).getNeighbours().add(getWitchsCauldronFields().get(38));
+            getWitchsCauldronFields().get(32).getNeighbours().add(getWitchsCauldronFields().get(39));
+            getWitchsCauldronFields().get(36).getNeighbours().add(getWitchsCauldronFields().get(39));
+            getWitchsCauldronFields().get(36).getNeighbours().add(getWitchsCauldronFields().get(40));
+            return b;
+
+        }
+
+        if(counter == 2){
+            Blockade b = getWitchsCauldronFields().get(70).getBlockadeFromNeighbours();
+            getWitchsCauldronFields().get(70).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(71).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(72).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(73).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(70).getNeighbours().add(getWitchsCauldronFields().get(74));
+            getWitchsCauldronFields().get(70).getNeighbours().add(getWitchsCauldronFields().get(75));
+            getWitchsCauldronFields().get(71).getNeighbours().add(getWitchsCauldronFields().get(75));
+            getWitchsCauldronFields().get(71).getNeighbours().add(getWitchsCauldronFields().get(76));
+            getWitchsCauldronFields().get(72).getNeighbours().add(getWitchsCauldronFields().get(76));
+            getWitchsCauldronFields().get(72).getNeighbours().add(getWitchsCauldronFields().get(77));
+            getWitchsCauldronFields().get(73).getNeighbours().add(getWitchsCauldronFields().get(77));
+
+            return b;
+        }
+        if(counter == 3){
+            Blockade b = getWitchsCauldronFields().get(89).getBlockadeFromNeighbours();
+            getWitchsCauldronFields().get(89).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(96).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(102).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(107).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(89).getNeighbours().add(getWitchsCauldronFields().get(126));
+            getWitchsCauldronFields().get(96).getNeighbours().add(getWitchsCauldronFields().get(126));
+            getWitchsCauldronFields().get(96).getNeighbours().add(getWitchsCauldronFields().get(120));
+            getWitchsCauldronFields().get(102).getNeighbours().add(getWitchsCauldronFields().get(120));
+            getWitchsCauldronFields().get(102).getNeighbours().add(getWitchsCauldronFields().get(115));
+            getWitchsCauldronFields().get(107).getNeighbours().add(getWitchsCauldronFields().get(115));
+            getWitchsCauldronFields().get(107).getNeighbours().add(getWitchsCauldronFields().get(111));
+
+            return b;
+
+        }
+
+        if(counter == 4){
+            Blockade b = getWitchsCauldronFields().get(144).getBlockadeFromNeighbours();
+            getWitchsCauldronFields().get(144).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(145).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(146).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(147).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(144).getNeighbours().add(getWitchsCauldronFields().get(148));
+            getWitchsCauldronFields().get(144).getNeighbours().add(getWitchsCauldronFields().get(149));
+            getWitchsCauldronFields().get(145).getNeighbours().add(getWitchsCauldronFields().get(149));
+            getWitchsCauldronFields().get(145).getNeighbours().add(getWitchsCauldronFields().get(150));
+            getWitchsCauldronFields().get(146).getNeighbours().add(getWitchsCauldronFields().get(150));
+            getWitchsCauldronFields().get(146).getNeighbours().add(getWitchsCauldronFields().get(151));
+            getWitchsCauldronFields().get(147).getNeighbours().add(getWitchsCauldronFields().get(151));
+
+            return b;
+        }
+        if (counter == 5){
+            Blockade b = getWitchsCauldronFields().get(163).getBlockadeFromNeighbours();
+            getWitchsCauldronFields().get(163).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(170).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(176).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(181).getNeighbours().remove(b);
+            getWitchsCauldronFields().get(163).getNeighbours().add(getWitchsCauldronFields().get(200));
+            getWitchsCauldronFields().get(170).getNeighbours().add(getWitchsCauldronFields().get(200));
+            getWitchsCauldronFields().get(170).getNeighbours().add(getWitchsCauldronFields().get(194));
+            getWitchsCauldronFields().get(176).getNeighbours().add(getWitchsCauldronFields().get(194));
+            getWitchsCauldronFields().get(176).getNeighbours().add(getWitchsCauldronFields().get(189));
+            getWitchsCauldronFields().get(181).getNeighbours().add(getWitchsCauldronFields().get(189));
+            getWitchsCauldronFields().get(181).getNeighbours().add(getWitchsCauldronFields().get(185));
+
+            return b;
+
+        }
+
+        return null;
+    }
+
 
 }

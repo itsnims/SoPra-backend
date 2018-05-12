@@ -96,47 +96,13 @@ public class Blockade extends BoardPiece {
         }
     }
 
-    @JsonIgnore
-    public void BlockadeCross(boolean Higher){
-        Field f1 = getNeighbours().get(0);
-        Field f2 = getNeighbours().get(1);
-        Field f3 = getNeighbours().get(2);
-        Field f4 = getNeighbours().get(3);
-        Field f5 = getNeighbours().get(4);
-        Field f6 = getNeighbours().get(5);
-        Field f7 = getNeighbours().get(6);
-        Field f8 = getNeighbours().get(7);
 
 
-        if (Higher) {
-            f1.AddNewNeighbour(f5, f6);
-            f2.AddNewNeighbour(f6, f7);
-            f3.AddNewNeighbour(f7, f8);
-            f4.AddNewNeighbour(f8);
-            f5.AddNewNeighbour(f1);
-            f6.AddNewNeighbour(f1, f2);
-            f7.AddNewNeighbour(f2, f3);
-            f8.AddNewNeighbour(f3, f4);
-        } else {
-            f1.AddNewNeighbour(f5);
-            f2.AddNewNeighbour(f5, f6);
-            f3.AddNewNeighbour(f6, f7);
-            f4.AddNewNeighbour(f7, f8);
-            f5.AddNewNeighbour(f1, f2);
-            f6.AddNewNeighbour(f2, f3);
-            f7.AddNewNeighbour(f3, f4);
-            f8.AddNewNeighbour(f4);
-        }
-
-    }
-
-
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Override
+
     public Long getId() {
         return id;
     }

@@ -15,6 +15,7 @@ public class BlockadeTest {
     private Blockade blockade= new Blockade("test",1, "green", false);
     private Player player= new Player();
     private Field A = new Field(0,"Green",true, "test");
+    private Field B = new Field(0,"Green",true, "test");
 
     @Test
     public void setCrossed() {
@@ -35,4 +36,57 @@ public class BlockadeTest {
         int actual = player.getBlockadePoints();
         Assert.assertEquals(1,actual);
     }
+
+
+
+    @Test
+    public void getCrossed() {
+        blockade.setCrossed();
+        Assert.assertEquals(true,blockade.crossed);
+    }
+
+
+    @Test
+    public void setName() {
+        blockade.setName("name");
+        Assert.assertEquals("name",blockade.getName());
+    }
+
+    @Test
+    public void getName() {
+        blockade.setName("name");
+        Assert.assertEquals("name",blockade.getName());
+    }
+
+    @Test
+    public void getStrenght() {
+        blockade.setStrenght(2);
+        Assert.assertEquals(2,blockade.getStrenght());
+    }
+
+
+    @Test
+    public void getNeighbours() {
+        List<Field> fields = blockade.getNeighbours();
+        Assert.assertEquals(0,fields.size());
+        blockade.addNeighbour(A,B);
+    }
+
+    @Test
+    public void setNeighbours() {
+        List<Field> nah = new ArrayList<>();
+        nah.add(A);
+        blockade.setNeighbours(nah);
+    }
+
+
+    @Test
+    public void setId() {
+        long i = 12456;
+        blockade.setId(i);
+        long ex = blockade.getId();
+        Assert.assertEquals(ex,12456);
+    }
+
+
 }

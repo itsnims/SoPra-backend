@@ -1,5 +1,6 @@
 package ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCards;
 
+import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ActionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.ExpeditionCard;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
@@ -37,6 +38,7 @@ public class DrawActionCardTest {
 
     @Test
     public void getName() {
+        DrawActionCard d = new DrawActionCard();
         String result = DrawTwoCards.getName();
         Assert.assertEquals("Test",result);
 
@@ -57,5 +59,11 @@ public class DrawActionCardTest {
         double result = DrawTwoCards.getPrice();
         Assert.assertEquals(1,result,0);
 
+    }
+
+    @Test
+    public void howmany(){
+        DrawTwoCards.setHowMany(2);
+        DrawTwoCards.getHowMany();
     }
 }

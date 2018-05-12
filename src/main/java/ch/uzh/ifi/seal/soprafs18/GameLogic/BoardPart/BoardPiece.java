@@ -31,19 +31,11 @@ public abstract class BoardPiece {
         return Color;
     }
 
-    public void setStrenght(int strenght) {
-        Strenght = strenght;
-    }
+
 
     public void setColor(String color) {
         Color = color;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
-    }
 }

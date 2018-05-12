@@ -92,7 +92,6 @@ public class TurnService {
     public void Endturn(String gamename, String playername){
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
-        int numRound = game.getRoundNum();
         EndTurn endTurn = new EndTurn(player);
         player.executeTurn(endTurn);
         Integer i = game.getPlayers().indexOf(player);
@@ -105,7 +104,7 @@ public class TurnService {
                 endGameManager.getWinner();
             }
             i=-1;
-            numRound = numRound + 1;
+
         }
 
         game.setCurrentPlayer(game.getPlayers().get(i+1));

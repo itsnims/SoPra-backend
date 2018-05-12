@@ -36,9 +36,7 @@ public class StandardPathTest {
     @Test
     public void setupHillsOfGold() {
         pathHillsOfGold.setupHillsOfGold();
-
-        //why?? fails??
-        //Assert.assertEquals("C4",pathHillsOfGold.getHillsOfGoldFields().get(40).getName());
+        Assert.assertEquals("C4",pathHillsOfGold.getHillsOfGoldFields().get(40).getName());
     }
 
     @Test

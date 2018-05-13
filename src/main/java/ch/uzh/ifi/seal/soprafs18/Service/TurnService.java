@@ -117,11 +117,11 @@ public class TurnService {
         List<BoardPiece> options;
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
-        List<Field> gamePath= game.getGamePath().getStandardPathFields();
-        /** exchange upper line:
-         * String pathname = game.getPathname();
-         * List<Field> gamePath= game.getGamePath().getCurrentPath(pathname);
-         */
+        //List<Field> gamePath= game.getGamePath().getStandardPathFields();
+
+         String pathname = game.getPathname();
+         List<Field> gamePath= game.getGamePath().getCurrentPath(pathname);
+
 
         Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
@@ -156,7 +156,8 @@ public class TurnService {
             }
         }
 
-        List<Field> gamePath= game.getGamePath().getStandardPathFields();
+        String pathname = game.getPathname();
+        List<Field> gamePath= game.getGamePath().getCurrentPath(pathname);
 
         List<BoardPiece> options;
         Field currentPosition = actualFig.getCurrentPosition();
@@ -286,7 +287,8 @@ public class TurnService {
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         Card cardused = player.getWantedCard(card);
-        List<Field> gamePath = game.getGamePath().getStandardPathFields();
+        //List<Field> gamePath = game.getGamePath().getStandardPathFields();
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
 
 
         Figure actualFig = new Figure();

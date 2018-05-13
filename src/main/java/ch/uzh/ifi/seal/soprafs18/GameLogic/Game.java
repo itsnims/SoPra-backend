@@ -28,7 +28,7 @@ public class Game {
     private int maxplayer;
 
     @Column
-    private String pathname;
+    public String pathName;
 
     @Column
     private Boolean protection = false;
@@ -86,10 +86,10 @@ public class Game {
         if (playerSize.equals(2)){
             StandardPath path = new StandardPath();
             setGamePath(path);
-            path.setupStandardPath();
-            //path.setupPath(pathname);
-            List<Field> starters= GamePath.getStarters("StandardPath");
-            //List<Field> starters= GamePath.getStarters(getPathname());
+            //path.setupStandardPath();
+            path.setupPath(pathName);
+            //List<Field> starters= GamePath.getStarters("StandardPath");
+            List<Field> starters= GamePath.getStarters(getPathname());
             market.marketsetup();
             for (int i=0; i< players.size(); i++){
                 players.get(i).setPlayerColor(PlayerColor.values()[i]);
@@ -105,7 +105,7 @@ public class Game {
 
         StandardPath path = new StandardPath();
         setGamePath(path);
-        path.setupPath(pathname);
+        path.setupPath(pathName);
         List<Field> starters = GamePath.getStarters(getPathname());
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
@@ -226,11 +226,11 @@ public class Game {
     }
 
     public void setPathname(String name){
-        pathname = name;
+        this.pathName = name;
     }
 
     public String getPathname() {
-        return pathname;
+        return pathName;
     }
 
     @JsonIgnore
@@ -258,7 +258,7 @@ public class Game {
     }
 
     public void setGamePath(StandardPath gamePath) {
-        GamePath = gamePath;
+        this.GamePath = gamePath;
     }
 
     public StandardPath getGamePath() {

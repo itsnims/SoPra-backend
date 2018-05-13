@@ -59,10 +59,24 @@ public class TurnController {
         return myOptions;
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/{user}/{cardname}/move/{figure}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BoardPiece> getMyOptions(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value="cardname") String cardname,@PathVariable(value = "figure",required = true) String figure){
+        List<BoardPiece> myOptions = turnService.getPossibleFieldsTwoPlayerMode(room,user,cardname,figure);
+        return myOptions;
+    }
+
     @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{fieldname}")
     @ResponseStatus(HttpStatus.OK)
     public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,@PathVariable(value="card") String card, @PathVariable(value="fieldname") String fieldname){
         Field newposition = turnService.moveFigure(room,user,card,fieldname);
+        return newposition;
+    }
+
+    @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{fieldname}/{figure}")
+    @ResponseStatus(HttpStatus.OK)
+    public Field getNewPositon(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,@PathVariable(value="card") String card, @PathVariable(value="fieldname") String fieldname,@PathVariable(value = "figure",required = true) String figure){
+        Field newposition = turnService.moveFigureTwoPlayerMode(room,user,card,fieldname,figure);
         return newposition;
     }
 

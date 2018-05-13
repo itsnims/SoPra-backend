@@ -54,6 +54,9 @@ public class Player {
     @OneToOne(cascade = {CascadeType.ALL})
     public Figure myFigure = new Figure();
 
+    @OneToMany(cascade = {CascadeType.ALL})
+    public List<Figure> myFigures = new ArrayList<>(2);
+
 
     public Player() {
 
@@ -96,6 +99,20 @@ public class Player {
     public void setMyFigure(Figure myFigure) {
         this.myFigure = myFigure;
     }
+
+    public void setTwoFigures(String one, String two ){ this.myFigures = myFigures;
+        Figure One = new Figure();
+        One.setName(one);
+        Figure Two = new Figure();
+        Two.setName(two);
+        myFigures.add(One); myFigures.add(Two);
+    }
+
+    public List<Figure> getMyFigures(){
+        return myFigures;
+    }
+
+
 
 
     public void executeTurn(Turn turn) {

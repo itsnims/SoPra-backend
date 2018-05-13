@@ -82,6 +82,26 @@ public class Game {
     public Game(){}
 
     public void gameSetup() {
+        Integer playerSize = players.size();
+        if (playerSize.equals(2)){
+            StandardPath path = new StandardPath();
+            setGamePath(path);
+            path.setupStandardPath();
+            //path.setupPath(pathname);
+            List<Field> starters= GamePath.getStarters("StandardPath");
+            //List<Field> starters= GamePath.getStarters(getPathname());
+            market.marketsetup();
+            for (int i=0; i< players.size(); i++){
+                players.get(i).setPlayerColor(PlayerColor.values()[i]);
+                players.get(i).setTwoFigures("one","two");
+                players.get(i).getMyFigures().get(0).setCurrentPosition(starters.get(i));
+                players.get(i).getMyFigures().get(1).setCurrentPosition(starters.get(i+2));
+                players.get(i).setup();
+                players.get(i).setTurn(false);
+            }
+            setCurrentPlayer(players.get(0));
+
+        } else {
 
         StandardPath path = new StandardPath();
         setGamePath(path);
@@ -97,7 +117,7 @@ public class Game {
             /**all get their drawpile **/
             /** players.get(j).getMyFigure().setCurrentPosition(); **/
         }
-        setCurrentPlayer(players.get(0));
+        setCurrentPlayer(players.get(0));}
 
     }
 

@@ -118,6 +118,10 @@ public class TurnService {
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         List<Field> gamePath= game.getGamePath().getStandardPathFields();
+        /** exchange upper line:
+         * String pathname = game.getPathname();
+         * List<Field> gamePath= game.getGamePath().getCurrentPath(pathname);
+         */
 
         Field currentPosition = player.getMyFigure().getCurrentPosition();
         Field actual = new Field();
@@ -137,6 +141,44 @@ public class TurnService {
 
         return options;
     }
+
+    public List<BoardPiece> getPossibleFieldsTwoPlayerMode(String gamename, String playername, String cardname, String figure){
+        Game game = gameRepository.findByName(gamename);
+        Player player = userRepository.findByName(playername);
+
+        Figure actualFig = new Figure();
+        List<Figure> figList= player.getMyFigures();
+        for (int i=0; i < figList.size();i++){
+            if (figList.get(0).getName().equals(figure)){
+                actualFig = figList.get(0);
+            } else if (figList.get(1).getName().equals(figure)) {
+                actualFig = figList.get(1);
+            }
+        }
+
+        List<Field> gamePath= game.getGamePath().getStandardPathFields();
+
+        List<BoardPiece> options;
+        Field currentPosition = actualFig.getCurrentPosition();
+        Field actual = new Field();
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+            }
+        }
+        ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
+
+        System.out.println(actual.getNeighbours());
+        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
+        System.out.println(options);
+        gameRepository.save(game);
+
+        return options;
+
+    }
+
+
+
 
     /**
      * Blockade remove function and give points if newposition=Blockade
@@ -196,8 +238,10 @@ public class TurnService {
                 newposition = gamePath.get(i);
             }
         }
-        playerFigure.setCurrentPosition(newposition);
+
         newposition.setAccessable(false);
+        playerFigure.setCurrentPosition(newposition);
+
 
         if(newposition.getName().equals("EDBlue1")){
             game.getWinners().add(player);
@@ -233,6 +277,86 @@ public class TurnService {
 
         return playerFigure.getCurrentPosition();
     }
+
+
+
+
+    public Field moveFigureTwoPlayerMode(String gamename,String playername,String card, String fieldtomove,String figure){
+        Field newposition = new Field();
+        Game game = gameRepository.findByName(gamename);
+        Player player = userRepository.findByName(playername);
+        Card cardused = player.getWantedCard(card);
+        List<Field> gamePath = game.getGamePath().getStandardPathFields();
+
+
+        Figure actualFig = new Figure();
+        List<Figure> figList= player.getMyFigures();
+        for (int i=0; i < figList.size();i++){
+            if (figList.get(0).getName().equals(figure)){
+                actualFig = figList.get(0);
+            } else if (figList.get(1).getName().equals(figure)) {
+                actualFig = figList.get(1);
+            }
+        }
+
+
+        Field currentPosition = actualFig.getCurrentPosition();
+        Field actual = new Field();
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+                System.out.println(actual.getName());
+                System.out.println(i);
+            }
+        }
+
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(fieldtomove)){
+                newposition = gamePath.get(i);
+            }
+        }
+
+        newposition.setAccessable(false);
+        actualFig.setCurrentPosition(newposition);
+
+
+        if(newposition.getName().equals("EDBlue1")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDBlue2")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDBlue3")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+
+        if(newposition.getName().equals("EDGreen1")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDGreen2")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+        if(newposition.getName().equals("EDGreen3")){
+            game.getWinners().add(player);
+            newposition.setAccessable(true);
+        }
+
+        actual.setAccessable(true);
+        player.selection.add(cardused);
+        player.handcards.remove(cardused);
+        gameRepository.save(game);
+
+        return actualFig.getCurrentPosition();
+    }
+
+
 
     /** Blockade remove function and give points if newposition=Blockade**/
 

@@ -20,11 +20,21 @@ public class Figure {
     @OneToOne(cascade = {CascadeType.ALL})
     private Field currentPosition = null;
 
+    @Column
+    private String figureName;
+
 
     public void setCurrentPosition(Field currentPosition) {
         this.currentPosition = currentPosition;
     }
 
+    public void setName(String name){
+        this.figureName = name;
+    }
+
+    public String getName(){
+        return figureName;
+    }
 
     public Field getCurrentPosition() {
         return currentPosition;

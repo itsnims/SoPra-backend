@@ -39,7 +39,7 @@ public class TurnController {
     @PostMapping(value = CONTEXT + "/{room}/{user}/trash")
     @ResponseStatus(HttpStatus.OK)
     public List<Card> TrashCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,
-                                @RequestParam("cards") List<String> cardnames){
+                                @RequestBody CardWrapper cardnames){
         List<Card> cards = turnService.Trash(room,user,cardnames);
         return cards;
 
@@ -65,6 +65,7 @@ public class TurnController {
         List<BoardPiece> myOptions = turnService.getPossibleFieldsTwoPlayerMode(room,user,cardname,figure);
         return myOptions;
     }
+
 
     @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{fieldname}")
     @ResponseStatus(HttpStatus.OK)

@@ -68,7 +68,8 @@ public class TurnService {
     }
 
 
-    public List<Card> Trash(String gamename, String playername, List<String> cardnames){
+    public List<Card> Trash(String gamename, String playername, CardWrapper cards){
+        List<String>  cardnames = cards.getCards();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         List<Card> tobetrashed = new ArrayList<>();
@@ -460,8 +461,6 @@ public class TurnService {
 
             }
         }
-
-
 
         for (int i = 0; i < actual.getNeighbours().size(); i++){
 

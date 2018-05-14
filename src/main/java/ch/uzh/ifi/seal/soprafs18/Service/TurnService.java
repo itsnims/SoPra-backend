@@ -372,8 +372,9 @@ public class TurnService {
     }
 
 
-    public Player buyCard(String room, String player, String cardname, CardWrapper cards){
+    public boolean buyCard(String room, String player, String cardname, CardWrapper cards){
         List<String> cardnames = cards.getCards();
+        Boolean worked = false;
         Game game = gameRepository.findByName(room);
         Player buyer = userRepository.findByName(player);
         Card card = game.getMarket().wanted(cardname);
@@ -399,15 +400,12 @@ public class TurnService {
             buyTurn.setMarket(game.getMarket());
             buyTurn.getCardtoBuy(card);
             buyTurn.turnfunction();
+            worked = true;
         }
 
 
         gameRepository.save(game);
-
-        return buyer;
-
-
-
+        return worked;
     }
 
     public List<Card> getCurrenthandCards(String room, String player){
@@ -507,6 +505,20 @@ public class TurnService {
         gameRepository.save(game);
 
 
+    }
+
+    public Integer HowManyTrash(String room,String field){
+        Game game = gameRepository.findByName(room);
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+
+        Field actual = new Field();
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(field)){
+                actual = gamePath.get(i);
+
+            }
+        }
+        return actual.getStrenght();
     }
 
 

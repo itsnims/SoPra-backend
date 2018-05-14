@@ -85,7 +85,7 @@ public class TurnController {
     @RequestMapping(value = CONTEXT + "/{room}/{user}/{card}",method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public Player buywantedcard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card,
+    public boolean buywantedcard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card,
                                 @RequestBody CardWrapper cards){
         return turnService.buyCard(room,user,card,cards);
     }
@@ -140,6 +140,13 @@ public class TurnController {
     @ResponseStatus(HttpStatus.OK)
     public Player getReacher(@PathVariable(value = "room",required = true) String roomname){
         return turnService.Winner(roomname);
+    }
+
+    @GetMapping(value = CONTEXT + "/{room}/{field}")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer getHowMany(@PathVariable(value = "room",required = true) String roomname,
+                              @PathVariable(value = "field",required = true) String field){
+        return turnService.HowManyTrash(roomname,field);
     }
 
 

@@ -214,7 +214,7 @@ public class TurnService {
     }
 
 
-    public Field moveFigure(String gamename,String playername,String card, String fieldtomove){
+    public String moveFigure(String gamename,String playername,String card, String fieldtomove){
         Field newposition = new Field();
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
@@ -279,7 +279,7 @@ public class TurnService {
         player.handcards.remove(cardused);
         gameRepository.save(game);
 
-        return playerFigure.getCurrentPosition();
+        return playerFigure.getCurrentPosition().getColor();
     }
 
 

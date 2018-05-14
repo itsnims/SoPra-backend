@@ -28,7 +28,7 @@ public class Game {
     private int maxplayer;
 
     @Column
-    public String pathName;
+    public String pathname;
 
     @Column
     private Boolean protection = false;
@@ -87,7 +87,7 @@ public class Game {
             StandardPath path = new StandardPath();
             setGamePath(path);
             //path.setupStandardPath();
-            path.setupPath(pathName);
+            path.setupPath(pathname);
             //List<Field> starters= GamePath.getStarters("StandardPath");
             List<Field> starters= GamePath.getStarters(getPathname());
             market.marketsetup();
@@ -105,7 +105,7 @@ public class Game {
 
         StandardPath path = new StandardPath();
         setGamePath(path);
-        path.setupPath(pathName);
+        path.setupPath(pathname);
         List<Field> starters = GamePath.getStarters(getPathname());
         market.marketsetup();
         for (int j = 0; j < players.size(); j++) {
@@ -226,11 +226,11 @@ public class Game {
     }
 
     public void setPathname(String name){
-        this.pathName = name;
+        this.pathname = name;
     }
 
     public String getPathname() {
-        return pathName;
+        return pathname;
     }
 
     @JsonIgnore

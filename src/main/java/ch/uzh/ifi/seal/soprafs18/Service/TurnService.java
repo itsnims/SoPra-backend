@@ -449,6 +449,11 @@ public class TurnService {
         Field currentPosition = current.getMyFigure().getCurrentPosition();
         Field actual = new Field();
 
+        System.out.println(current);
+        System.out.println(current.getMyFigure());
+        System.out.println(currentPosition);
+        System.out.println(gamePath);
+
         for (int i = 0; i < gamePath.size(); i++){
             if(gamePath.get(i).getName().equals(currentPosition.getName())){
                 actual = gamePath.get(i);

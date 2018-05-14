@@ -112,7 +112,7 @@ public class TurnController {
 
     @GetMapping(value = CONTEXT + "/{room}/{user}/moveAction")
     @ResponseStatus(HttpStatus.OK)
-    public List<BoardPiece> moveActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card) {
+    public List<BoardPiece> moveActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room) {
         return turnService.MoveActionCard(room, user);
     }
 

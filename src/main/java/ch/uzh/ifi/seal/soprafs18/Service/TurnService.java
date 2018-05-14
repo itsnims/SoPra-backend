@@ -73,12 +73,14 @@ public class TurnService {
         Game game = gameRepository.findByName(gamename);
         Player player = userRepository.findByName(playername);
         List<Card> tobetrashed = new ArrayList<>();
-        List<Card> copy = player.handcards;
+        List<Card> copy = new ArrayList<>(player.handcards);
+
         outerloop:
         for (int i = 0; i < cardnames.size(); i ++){
             for (int j = 0; j < copy.size(); j++){
                 if (cardnames.get(i).equals(copy.get(j).getName())){
                     tobetrashed.add(copy.get(j));
+                    copy.remove(j);
                     continue outerloop;
                 }
             }

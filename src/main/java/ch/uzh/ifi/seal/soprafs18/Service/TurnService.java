@@ -138,7 +138,7 @@ public class TurnService {
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
        
         System.out.println(actual.getNeighbours());
-        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
+        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),player.handcards.size(),actual);
         System.out.println(options);
         gameRepository.save(game);
 
@@ -173,7 +173,7 @@ public class TurnService {
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
 
         System.out.println(actual.getNeighbours());
-        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),actual);
+        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),player.handcards.size()-1,actual);
         System.out.println(options);
         gameRepository.save(game);
 
@@ -311,10 +311,11 @@ public class TurnService {
         for (int i = 0; i < gamePath.size(); i++){
             if(gamePath.get(i).getName().equals(currentPosition.getName())){
                 actual = gamePath.get(i);
-                System.out.println(actual.getName());
-                System.out.println(i);
+
             }
         }
+
+        System.out.println("the current position is" + actual.getName());
 
 
         for (int i = 0; i < gamePath.size(); i++){
@@ -323,8 +324,12 @@ public class TurnService {
             }
         }
 
+        System.out.println("the wanted position" + actual.getName());
+
         newposition.setAccessable(false);
         actualFig.setCurrentPosition(newposition);
+
+
 
 
         if(newposition.getName().equals("EDBlue1")){

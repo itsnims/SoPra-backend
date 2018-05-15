@@ -89,17 +89,17 @@ public class Field extends BoardPiece {
 
 
     @JsonIgnore
-    private Boolean getUsable(String Color, int Strenght,Field compare) {
+    private Boolean getUsable(String Color, int Strenght, Integer cardnum,Field compare) {
         if (compare.getColor().equals(Color) || Color.equals("White")) if (Strenght >= compare.getStrenght()) if (compare.getAccessable())return true;
-        if (compare.getColor().equals("White")) if (compare.getAccessable()) return true;
-        if (compare.getColor().equals("Camp")) if (compare.getAccessable()) return true;
+        if (compare.getColor().equals("White")) if (compare.getAccessable()) if (compare.getStrenght() <= cardnum) return true;
+        if (compare.getColor().equals("Camp")) if (compare.getAccessable()) if (compare.getStrenght() <= cardnum) return true;
         return false;
     }
 
     /** returns all fields reachable from start tile with given color and strenght **/
 
     @JsonIgnore
-    public List<BoardPiece> getAll (String Color, int Strenght,Field field){
+    public List<BoardPiece> getAll (String Color, int Strenght,int cardnum, Field field){
 
 
         List<BoardPiece> list = new ArrayList<>();
@@ -113,7 +113,7 @@ public class Field extends BoardPiece {
             }
             else {
                 Field neighbour = (Field) piece;
-                if (getUsable(Color, Strenght, neighbour)) {
+                if (getUsable(Color, Strenght, cardnum, neighbour)) {
                     if (neighbour.getStrenght() > 0) {
                         list.add(neighbour);
                     }
@@ -121,7 +121,7 @@ public class Field extends BoardPiece {
                         int newStrenght = Strenght - neighbour.getStrenght();
                         if ((newStrenght) > 0) {
                             System.out.println(newStrenght);
-                            list.addAll(getAll(Color, newStrenght, neighbour));
+                            list.addAll(getAll(Color, newStrenght,cardnum, neighbour));
                         }
                     }
 

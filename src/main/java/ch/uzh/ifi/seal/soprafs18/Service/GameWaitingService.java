@@ -27,22 +27,37 @@ public class GameWaitingService {
         return users;
     }
 
-    @Transactional
-    public List<Player> leaveGame(String gamename, String username){
-        Game game = gameRepository.findByName(gamename);
-        Player player =  userRepository.findByName(username);
-        List<Player> players = game.getPlayers();
-        players.remove(player);
+    public List<Player> leavegame(String gamen, String user) {
+        Game game = gameRepository.findByName(gamen);
+        Player player = userRepository.findByName(user);
+        List<Player> playerList = game.getPlayers();
+        if(playerList.size() == 1){
+            game.deletePlayer(player);
+            game.setOwner(null);
+            gameRepository.deleteByName(gamen);
+        }
+
+        if(playerList.size() > 1 && player.getName().equals(game.getOwner())){
+            game.setOwner(playerList.get(1).getName());
+            game.deletePlayer(player);
+        }
+
+        if(playerList.size() >1 && !(player.getName().equals(game.getOwner()))){
+            game.deletePlayer(player);
+        }
+
         gameRepository.save(game);
-
-        return players;
-
-
-
-
+        return game.getPlayers();
 
 
 
     }
+
+
+
+
+
+
+
 
 }

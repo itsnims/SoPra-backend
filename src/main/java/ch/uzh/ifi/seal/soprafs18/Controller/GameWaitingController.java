@@ -29,16 +29,18 @@ public class GameWaitingController {
     }
 
 
-    @PutMapping(value = CONTEXT + "/{user}/{room}/exit")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Player> leavePlayers(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
-        List<Player> players= gameWaitingService.leaveGame(user, room);
-        return players;
-    }
+
 
     @GetMapping(value = CONTEXT + "/{room}/market")
     @ResponseStatus(HttpStatus.OK)
     public Market getcurrentmarket(@PathVariable(value = "room") String room){
         return turnService.getCurrentMarket(room);
+    }
+
+    @PutMapping(value = CONTEXT + "/{user}/{room}/exit")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Player> leavePlayers(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room){
+        List<Player> players= gameWaitingService.leavegame(room,user);
+        return players;
     }
 }

@@ -27,39 +27,39 @@ public class GameService {
         return games;
     }
 
-    public List<Integer> getCurrent(String name){
-        Game game =gameRepository.findByName(name);
+    public List<Integer> getCurrent(String name) {
+        Game game = gameRepository.findByName(name);
         List<Integer> updates = new ArrayList<>();
         updates.add(game.getCurrent());
         updates.add(game.getMaxplayer());
         return updates;
     }
 
-    public Game getOneGame(String room){
+    public Game getOneGame(String room) {
         Game game = gameRepository.findByName(room);
         return game;
     }
 
-    public void addGame(Game game){
+    public void addGame(Game game) {
         String ownername = game.getOwner();
-        Player owner =userRepository.findByName(ownername);
+        Player owner = userRepository.findByName(ownername);
         game.addUser(owner);
         game.setGameStatus(GameStatus.WAITING);
         gameRepository.save(game);
     }
 
-    public void deleteGame(String gamename){
+    public void deleteGame(String gamename) {
         gameRepository.deleteByName(gamename);
     }
 
-    public Boolean joinGame(String gamename, String username,String password){
+    public Boolean joinGame(String gamename, String username, String password) {
         Game game = gameRepository.findByName(gamename);
-        Player player =  userRepository.findByName(username);
-        if ((game.getCurrent() < game.getMaxplayer() && game.getProtection().equals(false)) || (game.getCurrent() < game.getMaxplayer() && game.getPassword().equals(password))){
+        Player player = userRepository.findByName(username);
+        if ((game.getCurrent() < game.getMaxplayer() && game.getProtection().equals(false)) || (game.getCurrent() < game.getMaxplayer() && game.getPassword().equals(password))) {
             game.addUser(player);
 
 
-            if( game.getPlayers().size() == game.getMaxplayer()){
+            if (game.getPlayers().size() == game.getMaxplayer()) {
                 game.setGameStatus(GameStatus.STARTING);
                 game.gameSetup();
                 game.getPlayers().get(0).setTurn(true);
@@ -78,23 +78,23 @@ public class GameService {
 
     }
 
-    public Player getCurrentPlayer(String room){
+    public Player getCurrentPlayer(String room) {
         Game game = gameRepository.findByName(room);
         return game.getCurrentPlayer();
     }
 
 
-    public List<Blockade> getBlockade(String room){
+    public List<Blockade> getBlockade(String room) {
         Game game = gameRepository.findByName(room);
         return game.getBlockades();
     }
 
-    public Integer getCurrBottom(String room){
+    public Integer getCurrBottom(String room) {
         Game game = gameRepository.findByName(room);
         return game.getMarket().currentBottomCards;
     }
 
-    public void FastForward(String room){
+    public void FastForward(String room) {
         Game game = gameRepository.findByName(room);
         Player player = game.getCurrentPlayer();
         List<Card> selection = null;
@@ -113,10 +113,9 @@ public class GameService {
         gameRepository.save(game);
 
 
-
     }
 
-    public Integer getPoints(String gamen, String user){
+    public Integer getPoints(String gamen, String user) {
         Game game = gameRepository.findByName(gamen);
         Player player = userRepository.findByName(user);
 
@@ -124,4 +123,7 @@ public class GameService {
         gameRepository.save(game);
         return points;
     }
+
+
+
 }

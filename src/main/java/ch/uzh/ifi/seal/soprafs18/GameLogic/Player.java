@@ -32,7 +32,7 @@ public class Player {
     private Boolean Turn;
 
 
-    @JsonIgnore
+
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> drawpile = new ArrayList<Card>(80);
 

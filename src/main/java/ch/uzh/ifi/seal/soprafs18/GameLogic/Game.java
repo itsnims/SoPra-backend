@@ -281,11 +281,99 @@ public class Game {
         this.players = players;
     }
 
-    public Player getWinner() {
+    //public Player getWinner() {return winner;}
+    public Player getWinner(){
+        if (players.size() == 2){
+            Player first = players.get(0);
+            Player second = players.get(1);
+            boolean firstHasBoth= false;
+            boolean secondHasBoth=false;
+            if (getWinners().contains(first)){
+                String oneP= first.getMyFigures().get(0).getCurrentPosition().getName();
+                String twoP = first.getMyFigures().get(1).getCurrentPosition().getName();
+                if (oneP == "EDBlue1" || oneP=="EDBlue2"|| oneP== "EDBlue3" ||
+                        oneP == "EDGreen1" || oneP=="EDGreen2"|| oneP== "EDGreen3"){
+                    if (twoP == "EDBlue1" || twoP=="EDBlue2"|| twoP== "EDBlue3" ||
+                            twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){setWinner(first); firstHasBoth=true;
+                    }}}else if(getWinners().contains(second)){
+                String onePi=second.getMyFigures().get(0).getCurrentPosition().getName();
+                String twoPi=second.getMyFigures().get(1).getCurrentPosition().getName();
+                if (onePi == "EDBlue1" || onePi=="EDBlue2"|| onePi== "EDBlue3" ||
+                        onePi == "EDGreen1" || onePi=="EDGreen2"|| onePi== "EDGreen3"){
+                    if (twoPi == "EDBlue1" || twoPi == "EDBlue2" || twoPi == "EDBlue3" ||
+                            twoPi == "EDGreen1" || twoPi == "EDGreen2" || twoPi == "EDGreen3") {
+                        setWinner(second); secondHasBoth=true;
+                    }}}
+                    else if (firstHasBoth && secondHasBoth){
+                if (first.getBlockadePoints() > second.getBlockadePoints()){setWinner(first);}
+                else {setWinner(second);}
+            }
+
+
+        }else if (players.size()>2){
+            Player Winner= new Player();
+            Player k= new Player();
+            int j=0;
+            if (getWinners().size() == 1) {
+                Winner = getWinners().get(0);
+                setWinner(Winner);
+            } else if (getWinners().size() > 1) {
+                k= getWinners().get(0);
+                for(j=0;j<getWinners().size();j++){
+                    if(k.getBlockadePoints()< getWinners().get(j).getBlockadePoints()){
+                        k= getWinners().get(j);
+                    }
+                }
+
+                setWinner(k);
+            }
+        }
+
         return winner;
+
     }
+
+
+
+
+
 
     public void setWinner(Player winner) {
         this.winner = winner;
+    }
+
+    public boolean isWon(){
+        boolean isWon= false;
+        Integer playerSize= players.size();
+        List<Player> winners = getWinners();
+        if (playerSize.equals(2)){
+            Player first = players.get(0);
+            Player second = players.get(1);
+            if (winners.contains(first)){
+                String oneP= first.getMyFigures().get(0).getCurrentPosition().getName();
+                String twoP = first.getMyFigures().get(1).getCurrentPosition().getName();
+                if (oneP == "EDBlue1" || oneP=="EDBlue2"|| oneP== "EDBlue3" ||
+                        oneP == "EDGreen1" || oneP=="EDGreen2"|| oneP== "EDGreen3"){
+                    if (twoP == "EDBlue1" || twoP=="EDBlue2"|| twoP== "EDBlue3" ||
+                            twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){isWon=true;
+                }}}else if(winners.contains(second)){
+                String onePi=second.getMyFigures().get(0).getCurrentPosition().getName();
+                String twoPi=second.getMyFigures().get(1).getCurrentPosition().getName();
+                if (onePi == "EDBlue1" || onePi=="EDBlue2"|| onePi== "EDBlue3" ||
+                        onePi == "EDGreen1" || onePi=="EDGreen2"|| onePi== "EDGreen3"){
+                    if (twoPi == "EDBlue1" || twoPi == "EDBlue2" || twoPi == "EDBlue3" ||
+                            twoPi == "EDGreen1" || twoPi == "EDGreen2" || twoPi == "EDGreen3") {
+                        isWon = true;
+                    }}} else {isWon=false;}
+
+
+        } else if (playerSize > 2){
+            if (getWinners().size() > 0){
+                isWon=true; }
+        } else {
+            isWon=false;}
+
+        return isWon;
+
     }
 }

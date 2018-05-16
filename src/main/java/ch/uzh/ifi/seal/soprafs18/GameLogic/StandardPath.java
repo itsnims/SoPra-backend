@@ -5464,13 +5464,16 @@ public class StandardPath {
             starters.add(WindingPathsFields.get(3));
         }
 
-
-
-
-
+        if (name.equals("WitchsCauldron")) {
+            starters.add(WitchsCauldronFields.get(0));
+            starters.add(WitchsCauldronFields.get(1));
+            starters.add(WitchsCauldronFields.get(2));
+            starters.add(WitchsCauldronFields.get(3));
+        }
 
         return starters;
     }
+
 
     public Long getId() {
         return id;

@@ -333,29 +333,41 @@ public class TurnService {
 
 
         if(newposition.getName().equals("EDBlue1")){
-            game.getWinners().add(player);
-            newposition.setAccessable(true);
+            if (game.getWinners().contains(player)){
+                newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
+                newposition.setAccessable(true);}
         }
         if(newposition.getName().equals("EDBlue2")){
-            game.getWinners().add(player);
-            newposition.setAccessable(true);
+            if (game.getWinners().contains(player)){
+                newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
+                newposition.setAccessable(true);}
         }
         if(newposition.getName().equals("EDBlue3")){
-            game.getWinners().add(player);
-            newposition.setAccessable(true);
+            if (game.getWinners().contains(player)){
+                newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
+                newposition.setAccessable(true);}
         }
 
         if(newposition.getName().equals("EDGreen1")){
-            game.getWinners().add(player);
-            newposition.setAccessable(true);
+            if (game.getWinners().contains(player)){
+                newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
+                newposition.setAccessable(true);}
         }
         if(newposition.getName().equals("EDGreen2")){
-            game.getWinners().add(player);
+            if (game.getWinners().contains(player)){
+                    newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
             newposition.setAccessable(true);
-        }
+        }}
         if(newposition.getName().equals("EDGreen3")){
-            game.getWinners().add(player);
-            newposition.setAccessable(true);
+            if (game.getWinners().contains(player)){
+                newposition.setAccessable(true);
+            }else { game.getWinners().add(player);
+                newposition.setAccessable(true);}
         }
 
         actual.setAccessable(true);
@@ -424,7 +436,8 @@ public class TurnService {
 
     public Boolean isGameWon(String room){
         Game game= gameRepository.findByName(room);
-        return !game.getWinners().isEmpty();
+        return game.isWon();
+
     }
 
     public Player Winner(String room){

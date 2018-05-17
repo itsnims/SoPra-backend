@@ -72,7 +72,7 @@ public class FieldTest {
         A1.AddNewNeighbour(A2,A3,A4,b);
         A2.AddNewNeighbour(A5);
         A5.AddNewNeighbour(A6);
-        List<BoardPiece> options = A1.getAll(movetest.getCardColour(),movetest.getCardStrenght(),A1);
+        List<BoardPiece> options = A1.getAll(movetest.getCardColour(),movetest.getCardStrenght(),5,A1);
         Assert.assertEquals(5,options.size());
 
     }

@@ -73,6 +73,7 @@ public class StandardPath {
         Blockades.add(blockade5);
         Blockades.add(blockade6);
 
+
     }
 
     public void setupStandardPath(){
@@ -645,11 +646,12 @@ public class StandardPath {
 
         Random rand = new Random();
         int numberOfElements = 4;
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
 
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
         }
 
@@ -1215,240 +1217,243 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 5;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
-
-
-            HillsOfGoldFields.add(B1);
-            HillsOfGoldFields.add(B2);
-            HillsOfGoldFields.add(B3);
-            HillsOfGoldFields.add(B4);
-            HillsOfGoldFields.add(B5);
-            HillsOfGoldFields.add(B6);
-            HillsOfGoldFields.add(B7);
-            HillsOfGoldFields.add(B8);
-            HillsOfGoldFields.add(B9);
-            HillsOfGoldFields.add(B10);
-            HillsOfGoldFields.add(B11);
-            HillsOfGoldFields.add(B12);
-            HillsOfGoldFields.add(B13);
-            HillsOfGoldFields.add(B14);
-            HillsOfGoldFields.add(B15);
-            HillsOfGoldFields.add(B16);
-            HillsOfGoldFields.add(B17);
-            HillsOfGoldFields.add(B18);
-            HillsOfGoldFields.add(B19);
-            HillsOfGoldFields.add(B20);
-            HillsOfGoldFields.add(B21);
-            HillsOfGoldFields.add(B22HillsOfGold);
-            HillsOfGoldFields.add(B23);
-            HillsOfGoldFields.add(B24);
-            HillsOfGoldFields.add(B25);
-            HillsOfGoldFields.add(B26);
-            HillsOfGoldFields.add(B27);
-            HillsOfGoldFields.add(B28HillsOfGold);
-            HillsOfGoldFields.add(B29);
-            HillsOfGoldFields.add(B30);
-            HillsOfGoldFields.add(B31);
-            HillsOfGoldFields.add(B32);
-            HillsOfGoldFields.add(B33HillsOfGold);
-            HillsOfGoldFields.add(B34);
-            HillsOfGoldFields.add(B35);
-            HillsOfGoldFields.add(B36);
-            HillsOfGoldFields.add(B37HillsOfGold);
-            HillsOfGoldFields.add(C1);
-            HillsOfGoldFields.add(C2);
-            HillsOfGoldFields.add(C3);
-            HillsOfGoldFields.add(C4HillsOfGold);
-            HillsOfGoldFields.add(C5);
-            HillsOfGoldFields.add(C6);
-            HillsOfGoldFields.add(C7);
-            HillsOfGoldFields.add(C8);
-            HillsOfGoldFields.add(C9HillsOfGold);
-            HillsOfGoldFields.add(C10);
-            HillsOfGoldFields.add(C11);
-            HillsOfGoldFields.add(C12);
-            HillsOfGoldFields.add(C13);
-            HillsOfGoldFields.add(C14);
-            HillsOfGoldFields.add(C15HillsOfGold);
-            HillsOfGoldFields.add(C16);
-            HillsOfGoldFields.add(C17);
-            HillsOfGoldFields.add(C18);
-            HillsOfGoldFields.add(C19);
-            HillsOfGoldFields.add(C20);
-            HillsOfGoldFields.add(C21);
-            HillsOfGoldFields.add(C22HillsOfGold);
-            HillsOfGoldFields.add(C23);
-            HillsOfGoldFields.add(C24);
-            HillsOfGoldFields.add(C25);
-            HillsOfGoldFields.add(C26);
-            HillsOfGoldFields.add(C27);
-            HillsOfGoldFields.add(C28);
-            HillsOfGoldFields.add(C29);
-            HillsOfGoldFields.add(C30);
-            HillsOfGoldFields.add(C31);
-            HillsOfGoldFields.add(C32);
-            HillsOfGoldFields.add(C33);
-            HillsOfGoldFields.add(C34);
-            HillsOfGoldFields.add(C35);
-            HillsOfGoldFields.add(C36);
-            HillsOfGoldFields.add(C37);
-            HillsOfGoldFields.add(G1);
-            HillsOfGoldFields.add(G2);
-            HillsOfGoldFields.add(G3);
-            HillsOfGoldFields.add(G4);
-            HillsOfGoldFields.add(G5);
-            HillsOfGoldFields.add(G6);
-            HillsOfGoldFields.add(G7);
-            HillsOfGoldFields.add(G8);
-            HillsOfGoldFields.add(G9);
-            HillsOfGoldFields.add(G10);
-            HillsOfGoldFields.add(G11);
-            HillsOfGoldFields.add(G12);
-            HillsOfGoldFields.add(G13);
-            HillsOfGoldFields.add(G14);
-            HillsOfGoldFields.add(G15);
-            HillsOfGoldFields.add(G16HillsOfGold);
-            HillsOfGoldFields.add(G17);
-            HillsOfGoldFields.add(G18);
-            HillsOfGoldFields.add(G19);
-            HillsOfGoldFields.add(G20);
-            HillsOfGoldFields.add(G21);
-            HillsOfGoldFields.add(G22);
-            HillsOfGoldFields.add(G23HillsOfGold);
-            HillsOfGoldFields.add(G24);
-            HillsOfGoldFields.add(G25);
-            HillsOfGoldFields.add(G26);
-            HillsOfGoldFields.add(G27);
-            HillsOfGoldFields.add(G28);
-            HillsOfGoldFields.add(G29HillsOfGold);
-            HillsOfGoldFields.add(G30);
-            HillsOfGoldFields.add(G31);
-            HillsOfGoldFields.add(G32);
-            HillsOfGoldFields.add(G33);
-            HillsOfGoldFields.add(G34HillsOfGold);
-            HillsOfGoldFields.add(G35);
-            HillsOfGoldFields.add(G36);
-            HillsOfGoldFields.add(G37);
-            HillsOfGoldFields.add(K1);
-            HillsOfGoldFields.add(K2);
-            HillsOfGoldFields.add(K3);
-            HillsOfGoldFields.add(K4);
-            HillsOfGoldFields.add(K5);
-            HillsOfGoldFields.add(K6);
-            HillsOfGoldFields.add(K7);
-            HillsOfGoldFields.add(K8);
-            HillsOfGoldFields.add(K9);
-            HillsOfGoldFields.add(K10);
-            HillsOfGoldFields.add(K11);
-            HillsOfGoldFields.add(K12);
-            HillsOfGoldFields.add(K13);
-            HillsOfGoldFields.add(K14);
-            HillsOfGoldFields.add(K15);
-            HillsOfGoldFields.add(K16);
-            HillsOfGoldFields.add(K17);
-            HillsOfGoldFields.add(K18);
-            HillsOfGoldFields.add(K19);
-            HillsOfGoldFields.add(K20);
-            HillsOfGoldFields.add(K21);
-            HillsOfGoldFields.add(K22);
-            HillsOfGoldFields.add(K23);
-            HillsOfGoldFields.add(K24);
-            HillsOfGoldFields.add(K25);
-            HillsOfGoldFields.add(K26);
-            HillsOfGoldFields.add(K27);
-            HillsOfGoldFields.add(K28);
-            HillsOfGoldFields.add(K29);
-            HillsOfGoldFields.add(K30);
-            HillsOfGoldFields.add(K31);
-            HillsOfGoldFields.add(K32);
-            HillsOfGoldFields.add(K33);
-            HillsOfGoldFields.add(K34HillsOfGold);
-            HillsOfGoldFields.add(K35HillsOfGold);
-            HillsOfGoldFields.add(K36HillsOfGold);
-            HillsOfGoldFields.add(K37HillsOfGold);
-            HillsOfGoldFields.add(J1);
-            HillsOfGoldFields.add(J2);
-            HillsOfGoldFields.add(J3);
-            HillsOfGoldFields.add(J4);
-            HillsOfGoldFields.add(J5);
-            HillsOfGoldFields.add(J6);
-            HillsOfGoldFields.add(J7);
-            HillsOfGoldFields.add(J8);
-            HillsOfGoldFields.add(J9);
-            HillsOfGoldFields.add(J10);
-            HillsOfGoldFields.add(J11);
-            HillsOfGoldFields.add(J12);
-            HillsOfGoldFields.add(J13);
-            HillsOfGoldFields.add(J14);
-            HillsOfGoldFields.add(J15);
-            HillsOfGoldFields.add(J16);
-            HillsOfGoldFields.add(J17);
-            HillsOfGoldFields.add(J18);
-            HillsOfGoldFields.add(J19);
-            HillsOfGoldFields.add(J20);
-            HillsOfGoldFields.add(J21);
-            HillsOfGoldFields.add(J22HillsOfGold);
-            HillsOfGoldFields.add(J23);
-            HillsOfGoldFields.add(J24);
-            HillsOfGoldFields.add(J25);
-            HillsOfGoldFields.add(J26);
-            HillsOfGoldFields.add(J27);
-            HillsOfGoldFields.add(J28HillsOfGold);
-            HillsOfGoldFields.add(J29);
-            HillsOfGoldFields.add(J30);
-            HillsOfGoldFields.add(J31);
-            HillsOfGoldFields.add(J32);
-            HillsOfGoldFields.add(J33HillsOfGold);
-            HillsOfGoldFields.add(J34);
-            HillsOfGoldFields.add(J35);
-            HillsOfGoldFields.add(J36);
-            HillsOfGoldFields.add(J37HillsOfGold);
-            HillsOfGoldFields.add(N1);
-            HillsOfGoldFields.add(N2);
-            HillsOfGoldFields.add(N3HillsOfGold);
-            HillsOfGoldFields.add(N4HillsOfGold);
-            HillsOfGoldFields.add(N5);
-            HillsOfGoldFields.add(N6);
-            HillsOfGoldFields.add(N7);
-            HillsOfGoldFields.add(N8);
-            HillsOfGoldFields.add(N9HillsOfGold);
-            HillsOfGoldFields.add(N10);
-            HillsOfGoldFields.add(N11);
-            HillsOfGoldFields.add(N12);
-            HillsOfGoldFields.add(N13);
-            HillsOfGoldFields.add(N14);
-            HillsOfGoldFields.add(N15);
-            HillsOfGoldFields.add(N16);
-            HillsOfGoldFields.add(N17);
-            HillsOfGoldFields.add(N18);
-            HillsOfGoldFields.add(N19);
-            HillsOfGoldFields.add(N20);
-            HillsOfGoldFields.add(N21);
-            HillsOfGoldFields.add(N22);
-            HillsOfGoldFields.add(N23);
-            HillsOfGoldFields.add(N24);
-            HillsOfGoldFields.add(N25);
-            HillsOfGoldFields.add(N26);
-            HillsOfGoldFields.add(N27);
-            HillsOfGoldFields.add(N28);
-            HillsOfGoldFields.add(N29);
-            HillsOfGoldFields.add(N30);
-            HillsOfGoldFields.add(N31);
-            HillsOfGoldFields.add(N32);
-            HillsOfGoldFields.add(N33);
-            HillsOfGoldFields.add(N34);
-            HillsOfGoldFields.add(N35);
-            HillsOfGoldFields.add(N36);
-            HillsOfGoldFields.add(N37);
-            HillsOfGoldFields.add(EDGreen1);
-            HillsOfGoldFields.add(EDGreen2);
-            HillsOfGoldFields.add(EDGreen3);
         }
+
+
+        HillsOfGoldFields.add(B1);
+        HillsOfGoldFields.add(B2);
+        HillsOfGoldFields.add(B3);
+        HillsOfGoldFields.add(B4);
+        HillsOfGoldFields.add(B5);
+        HillsOfGoldFields.add(B6);
+        HillsOfGoldFields.add(B7);
+        HillsOfGoldFields.add(B8);
+        HillsOfGoldFields.add(B9);
+        HillsOfGoldFields.add(B10);
+        HillsOfGoldFields.add(B11);
+        HillsOfGoldFields.add(B12);
+        HillsOfGoldFields.add(B13);
+        HillsOfGoldFields.add(B14);
+        HillsOfGoldFields.add(B15);
+        HillsOfGoldFields.add(B16);
+        HillsOfGoldFields.add(B17);
+        HillsOfGoldFields.add(B18);
+        HillsOfGoldFields.add(B19);
+        HillsOfGoldFields.add(B20);
+        HillsOfGoldFields.add(B21);
+        HillsOfGoldFields.add(B22HillsOfGold);
+        HillsOfGoldFields.add(B23);
+        HillsOfGoldFields.add(B24);
+        HillsOfGoldFields.add(B25);
+        HillsOfGoldFields.add(B26);
+        HillsOfGoldFields.add(B27);
+        HillsOfGoldFields.add(B28HillsOfGold);
+        HillsOfGoldFields.add(B29);
+        HillsOfGoldFields.add(B30);
+        HillsOfGoldFields.add(B31);
+        HillsOfGoldFields.add(B32);
+        HillsOfGoldFields.add(B33HillsOfGold);
+        HillsOfGoldFields.add(B34);
+        HillsOfGoldFields.add(B35);
+        HillsOfGoldFields.add(B36);
+        HillsOfGoldFields.add(B37HillsOfGold);
+        HillsOfGoldFields.add(C1);
+        HillsOfGoldFields.add(C2);
+        HillsOfGoldFields.add(C3);
+        HillsOfGoldFields.add(C4HillsOfGold);
+        HillsOfGoldFields.add(C5);
+        HillsOfGoldFields.add(C6);
+        HillsOfGoldFields.add(C7);
+        HillsOfGoldFields.add(C8);
+        HillsOfGoldFields.add(C9HillsOfGold);
+        HillsOfGoldFields.add(C10);
+        HillsOfGoldFields.add(C11);
+        HillsOfGoldFields.add(C12);
+        HillsOfGoldFields.add(C13);
+        HillsOfGoldFields.add(C14);
+        HillsOfGoldFields.add(C15HillsOfGold);
+        HillsOfGoldFields.add(C16);
+        HillsOfGoldFields.add(C17);
+        HillsOfGoldFields.add(C18);
+        HillsOfGoldFields.add(C19);
+        HillsOfGoldFields.add(C20);
+        HillsOfGoldFields.add(C21);
+        HillsOfGoldFields.add(C22HillsOfGold);
+        HillsOfGoldFields.add(C23);
+        HillsOfGoldFields.add(C24);
+        HillsOfGoldFields.add(C25);
+        HillsOfGoldFields.add(C26);
+        HillsOfGoldFields.add(C27);
+        HillsOfGoldFields.add(C28);
+        HillsOfGoldFields.add(C29);
+        HillsOfGoldFields.add(C30);
+        HillsOfGoldFields.add(C31);
+        HillsOfGoldFields.add(C32);
+        HillsOfGoldFields.add(C33);
+        HillsOfGoldFields.add(C34);
+        HillsOfGoldFields.add(C35);
+        HillsOfGoldFields.add(C36);
+        HillsOfGoldFields.add(C37);
+        HillsOfGoldFields.add(G1);
+        HillsOfGoldFields.add(G2);
+        HillsOfGoldFields.add(G3);
+        HillsOfGoldFields.add(G4);
+        HillsOfGoldFields.add(G5);
+        HillsOfGoldFields.add(G6);
+        HillsOfGoldFields.add(G7);
+        HillsOfGoldFields.add(G8);
+        HillsOfGoldFields.add(G9);
+        HillsOfGoldFields.add(G10);
+        HillsOfGoldFields.add(G11);
+        HillsOfGoldFields.add(G12);
+        HillsOfGoldFields.add(G13);
+        HillsOfGoldFields.add(G14);
+        HillsOfGoldFields.add(G15);
+        HillsOfGoldFields.add(G16HillsOfGold);
+        HillsOfGoldFields.add(G17);
+        HillsOfGoldFields.add(G18);
+        HillsOfGoldFields.add(G19);
+        HillsOfGoldFields.add(G20);
+        HillsOfGoldFields.add(G21);
+        HillsOfGoldFields.add(G22);
+        HillsOfGoldFields.add(G23HillsOfGold);
+        HillsOfGoldFields.add(G24);
+        HillsOfGoldFields.add(G25);
+        HillsOfGoldFields.add(G26);
+        HillsOfGoldFields.add(G27);
+        HillsOfGoldFields.add(G28);
+        HillsOfGoldFields.add(G29HillsOfGold);
+        HillsOfGoldFields.add(G30);
+        HillsOfGoldFields.add(G31);
+        HillsOfGoldFields.add(G32);
+        HillsOfGoldFields.add(G33);
+        HillsOfGoldFields.add(G34HillsOfGold);
+        HillsOfGoldFields.add(G35);
+        HillsOfGoldFields.add(G36);
+        HillsOfGoldFields.add(G37);
+        HillsOfGoldFields.add(K1);
+        HillsOfGoldFields.add(K2);
+        HillsOfGoldFields.add(K3);
+        HillsOfGoldFields.add(K4);
+        HillsOfGoldFields.add(K5);
+        HillsOfGoldFields.add(K6);
+        HillsOfGoldFields.add(K7);
+        HillsOfGoldFields.add(K8);
+        HillsOfGoldFields.add(K9);
+        HillsOfGoldFields.add(K10);
+        HillsOfGoldFields.add(K11);
+        HillsOfGoldFields.add(K12);
+        HillsOfGoldFields.add(K13);
+        HillsOfGoldFields.add(K14);
+        HillsOfGoldFields.add(K15);
+        HillsOfGoldFields.add(K16);
+        HillsOfGoldFields.add(K17);
+        HillsOfGoldFields.add(K18);
+        HillsOfGoldFields.add(K19);
+        HillsOfGoldFields.add(K20);
+        HillsOfGoldFields.add(K21);
+        HillsOfGoldFields.add(K22);
+        HillsOfGoldFields.add(K23);
+        HillsOfGoldFields.add(K24);
+        HillsOfGoldFields.add(K25);
+        HillsOfGoldFields.add(K26);
+        HillsOfGoldFields.add(K27);
+        HillsOfGoldFields.add(K28);
+        HillsOfGoldFields.add(K29);
+        HillsOfGoldFields.add(K30);
+        HillsOfGoldFields.add(K31);
+        HillsOfGoldFields.add(K32);
+        HillsOfGoldFields.add(K33);
+        HillsOfGoldFields.add(K34HillsOfGold);
+        HillsOfGoldFields.add(K35HillsOfGold);
+        HillsOfGoldFields.add(K36HillsOfGold);
+        HillsOfGoldFields.add(K37HillsOfGold);
+        HillsOfGoldFields.add(J1);
+        HillsOfGoldFields.add(J2);
+        HillsOfGoldFields.add(J3);
+        HillsOfGoldFields.add(J4);
+        HillsOfGoldFields.add(J5);
+        HillsOfGoldFields.add(J6);
+        HillsOfGoldFields.add(J7);
+        HillsOfGoldFields.add(J8);
+        HillsOfGoldFields.add(J9);
+        HillsOfGoldFields.add(J10);
+        HillsOfGoldFields.add(J11);
+        HillsOfGoldFields.add(J12);
+        HillsOfGoldFields.add(J13);
+        HillsOfGoldFields.add(J14);
+        HillsOfGoldFields.add(J15);
+        HillsOfGoldFields.add(J16);
+        HillsOfGoldFields.add(J17);
+        HillsOfGoldFields.add(J18);
+        HillsOfGoldFields.add(J19);
+        HillsOfGoldFields.add(J20);
+        HillsOfGoldFields.add(J21);
+        HillsOfGoldFields.add(J22HillsOfGold);
+        HillsOfGoldFields.add(J23);
+        HillsOfGoldFields.add(J24);
+        HillsOfGoldFields.add(J25);
+        HillsOfGoldFields.add(J26);
+        HillsOfGoldFields.add(J27);
+        HillsOfGoldFields.add(J28HillsOfGold);
+        HillsOfGoldFields.add(J29);
+        HillsOfGoldFields.add(J30);
+        HillsOfGoldFields.add(J31);
+        HillsOfGoldFields.add(J32);
+        HillsOfGoldFields.add(J33HillsOfGold);
+        HillsOfGoldFields.add(J34);
+        HillsOfGoldFields.add(J35);
+        HillsOfGoldFields.add(J36);
+        HillsOfGoldFields.add(J37HillsOfGold);
+        HillsOfGoldFields.add(N1);
+        HillsOfGoldFields.add(N2);
+        HillsOfGoldFields.add(N3HillsOfGold);
+        HillsOfGoldFields.add(N4HillsOfGold);
+        HillsOfGoldFields.add(N5);
+        HillsOfGoldFields.add(N6);
+        HillsOfGoldFields.add(N7);
+        HillsOfGoldFields.add(N8);
+        HillsOfGoldFields.add(N9HillsOfGold);
+        HillsOfGoldFields.add(N10);
+        HillsOfGoldFields.add(N11);
+        HillsOfGoldFields.add(N12);
+        HillsOfGoldFields.add(N13);
+        HillsOfGoldFields.add(N14);
+        HillsOfGoldFields.add(N15);
+        HillsOfGoldFields.add(N16);
+        HillsOfGoldFields.add(N17);
+        HillsOfGoldFields.add(N18);
+        HillsOfGoldFields.add(N19);
+        HillsOfGoldFields.add(N20);
+        HillsOfGoldFields.add(N21);
+        HillsOfGoldFields.add(N22);
+        HillsOfGoldFields.add(N23);
+        HillsOfGoldFields.add(N24);
+        HillsOfGoldFields.add(N25);
+        HillsOfGoldFields.add(N26);
+        HillsOfGoldFields.add(N27);
+        HillsOfGoldFields.add(N28);
+        HillsOfGoldFields.add(N29);
+        HillsOfGoldFields.add(N30);
+        HillsOfGoldFields.add(N31);
+        HillsOfGoldFields.add(N32);
+        HillsOfGoldFields.add(N33);
+        HillsOfGoldFields.add(N34);
+        HillsOfGoldFields.add(N35);
+        HillsOfGoldFields.add(N36);
+        HillsOfGoldFields.add(N37);
+        HillsOfGoldFields.add(EDGreen1);
+        HillsOfGoldFields.add(EDGreen2);
+        HillsOfGoldFields.add(EDGreen3);
     }
+
 
     public void setupHomeStretchFields() {
 
@@ -1973,11 +1978,14 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 5;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
+        }
 
 
             HomeStretchFields.add(B1);
@@ -2186,7 +2194,7 @@ public class StandardPath {
             HomeStretchFields.add(EDGreen3);
 
         }
-    }
+
 
     public void setupWindingPath() {
 
@@ -2750,11 +2758,14 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 5;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
+
 
 
             WindingPathsFields.add(B1);
@@ -3547,11 +3558,14 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 5;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
+
 
 
             SerpentineFields.add(A1);
@@ -4357,11 +4371,14 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 6;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
+
 
 
             SwamplandsFields.add(A1);
@@ -5147,11 +5164,14 @@ public class StandardPath {
         Random rand = new Random();
         int numberOfElements = 5;
 
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(Blockades.size());
-            Blockade randomElement = Blockades.get(randomIndex);
-            Blockades.remove(randomIndex);
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
             currentBlockades.add(randomElement);
+        }
 
 
             WitchsCauldronFields.add(A1);
@@ -5380,7 +5400,7 @@ public class StandardPath {
             WitchsCauldronFields.add(EDBlue2);
             WitchsCauldronFields.add(EDBlue3);
         }
-    }
+
 
 
 

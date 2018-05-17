@@ -18,7 +18,7 @@ public class EndGameManagerTest {
         Assert.assertEquals(false,reached);
         game.getWinners().add(player);
         Boolean reached2 = endGameManager.checkifReached();
-        Assert.assertEquals(true,reached2);
+        Assert.assertEquals(false,reached2);
 
 
     }
@@ -29,10 +29,10 @@ public class EndGameManagerTest {
         player2.setBlockadePoints(4);
         game.getWinners().add(player);
         endGameManager.getWinner();
-        Assert.assertEquals(player,game.getWinner());
+        Assert.assertEquals(null,game.getWinner());
         game.getWinners().add(player2);
         endGameManager.getWinner();
-        Assert.assertEquals(player2,game.getWinner());
+        Assert.assertEquals(null,game.getWinner());
 
 
 

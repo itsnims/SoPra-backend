@@ -188,8 +188,6 @@ public class TurnService {
     }
 
 
-
-
     /**
      * Blockade remove function and give points if newposition=Blockade
      **/
@@ -203,6 +201,13 @@ public class TurnService {
 
         Blockade nextBlockade = game.getGamePath().removeBlockade(game.getPathname(),counter + 1);
 
+        if(nextBlockade.getColor().equals("Camp")){
+            player.setTrash(nextBlockade.getStrenght());
+        }
+
+        if(nextBlockade.getColor().equals("White")){
+            player.setDiscard(nextBlockade.getStrenght());
+        }
 
         nextBlockade.givePoints(player);
         nextBlockade.setCrossed();
@@ -287,9 +292,8 @@ public class TurnService {
         if(player.getMyFigure().getCurrentPosition().getColor().equals("Camp")){
             player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
         }
-
         if(player.getMyFigure().getCurrentPosition().getColor().equals("White")){
-            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+            player.setDiscard(player.getMyFigure().getCurrentPosition().getStrenght());
         }
         gameRepository.save(game);
 
@@ -395,7 +399,7 @@ public class TurnService {
         }
 
         if(actualFig.getCurrentPosition().getColor().equals("White")){
-            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+            player.setDiscard(player.getMyFigure().getCurrentPosition().getStrenght());
         }
         gameRepository.save(game);
 

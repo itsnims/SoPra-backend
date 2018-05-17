@@ -31,6 +31,12 @@ public class Player {
     @Column
     private Boolean Turn;
 
+    @Column
+    private Boolean Discard = false;
+
+    @Column
+    private Boolean Trash = false;
+
 
 
     @OneToMany(cascade = {CascadeType.ALL})
@@ -205,6 +211,20 @@ public class Player {
 
     }
 
+    public Boolean getDiscard() {
+        return Discard;
+    }
 
+    public Boolean getTrash() {
+        return Trash;
+    }
+
+    public void setDiscard(Boolean discard) {
+        Discard = discard;
+    }
+
+    public void setTrash(Boolean trash) {
+        Trash = trash;
+    }
 }
 

@@ -38,7 +38,6 @@ public class TurnService {
 
         return player.handcards;
 
-
     }
 
     public List<Card> Discard(String gamename,String playername,CardWrapper cards){
@@ -59,6 +58,10 @@ public class TurnService {
 
                 }
             }
+        }
+
+        if(player.getDiscard() != 0){
+            player.setDiscard(0);
         }
 
         DiscardCard discardCard = new DiscardCard(tobediscared,player);
@@ -84,6 +87,9 @@ public class TurnService {
                     continue outerloop;
                 }
             }
+        }
+        if(player.getTrash() != 0){
+            player.setTrash(0);
         }
         Trash trash = new Trash(tobetrashed,player);
         player.executeTurn(trash);
@@ -381,6 +387,14 @@ public class TurnService {
         actual.setAccessable(true);
         player.selection.add(cardused);
         player.handcards.remove(cardused);
+
+        if(player.getMyFigure().getCurrentPosition().getColor().equals("Camp")){
+            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+        }
+
+        if(player.getMyFigure().getCurrentPosition().getColor().equals("White")){
+            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+        }
         gameRepository.save(game);
 
         return actualFig.getCurrentPosition();

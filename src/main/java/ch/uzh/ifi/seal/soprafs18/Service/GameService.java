@@ -2,9 +2,11 @@ package ch.uzh.ifi.seal.soprafs18.Service;
 
 import ch.uzh.ifi.seal.soprafs18.Constant.GameStatus;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Blockade;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.BoardPart.Field;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Cards.Card;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Game;
 import ch.uzh.ifi.seal.soprafs18.GameLogic.Player;
+import ch.uzh.ifi.seal.soprafs18.GameLogic.StandardPath;
 import ch.uzh.ifi.seal.soprafs18.Repository.GameRepository;
 import ch.uzh.ifi.seal.soprafs18.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,6 +116,39 @@ public class GameService {
 
         Card card4 = game.getMarket().wanted("Natives");
         player.handcards.add(card4);
+
+        Card card5 = game.getMarket().wanted("Scout");
+        player.handcards.add(card5);
+
+
+
+        Field currentPosition = player.getMyFigures().get(0).getCurrentPosition();
+        Field actual = new Field();
+        Field newposition = new Field();
+
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+
+            }
+        }
+
+        System.out.println("the current position is" + actual.getName());
+
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals("E29")){
+                newposition = gamePath.get(i);
+            }
+        }
+
+        System.out.println("the wanted position" + actual.getName());
+
+        newposition.setAccessable(false);
+        player.getMyFigures().get(0).setCurrentPosition(newposition);
+
 
         gameRepository.save(game);
 

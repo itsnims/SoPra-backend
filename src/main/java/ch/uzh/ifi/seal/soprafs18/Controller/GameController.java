@@ -90,6 +90,14 @@ public class GameController {
 
     }
 
+    @CrossOrigin
+    @PutMapping(value = CONTEXT + "/{room}/FastTwo")
+    @ResponseStatus(HttpStatus.OK)
+    public void fastTwo(@PathVariable(value = "room",required = true) String roomname) {
+        gameService.FastForwardSecond(roomname);
+
+    }
+
     @GetMapping(value = CONTEXT + "/{room}/{user}/blockadePoints")
     @ResponseStatus(HttpStatus.OK)
     public Integer currPoints(@PathVariable(value = "room",required = true) String roomname,@PathVariable(value = "user",required = true) String user) {

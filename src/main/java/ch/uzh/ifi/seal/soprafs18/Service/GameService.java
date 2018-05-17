@@ -155,6 +155,76 @@ public class GameService {
 
     }
 
+    public void FastForwardSecond(String room) {
+        Game game = gameRepository.findByName(room);
+        Player player = game.getCurrentPlayer();
+        List<Card> selection = null;
+        Card card = game.getMarket().wanted("Allrounder");
+        player.handcards.add(card);
+
+        Card card2 = game.getMarket().wanted("Sailor");
+        player.handcards.add(card2);
+
+        Card card3 = game.getMarket().wanted("Pioneer");
+        player.handcards.add(card3);
+
+        Card card5 = game.getMarket().wanted("Scout");
+        player.handcards.add(card5);
+
+
+
+        Field currentPositionOne = player.getMyFigures().get(0).getCurrentPosition();
+        Field currentPositionTwo = player.getMyFigures().get(1).getCurrentPosition();
+        Field actualOne = new Field();
+        Field actualTwo = new Field();
+        Field newOne = new Field();
+        Field newTwo = new Field();
+
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPositionOne.getName())){
+                actualOne = gamePath.get(i);
+
+            }
+        }
+
+        System.out.println("the current position of One is" + actualOne.getName());
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals("M34")){
+                newOne = gamePath.get(i);
+
+            }
+        }
+
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPositionTwo.getName())){
+                actualTwo = gamePath.get(i);
+            }
+        }
+
+        System.out.println("the current position of Two is" + actualTwo.getName());
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals("M35")){
+                newTwo= gamePath.get(i);
+
+            }
+        }
+
+        newOne.setAccessable(false);
+        newTwo.setAccessable(false);
+        player.getMyFigures().get(0).setCurrentPosition(newOne);
+        player.getMyFigures().get(1).setCurrentPosition(newTwo);
+
+
+        gameRepository.save(game);
+
+
+    }
+
     public Integer getPoints(String gamen, String user) {
         Game game = gameRepository.findByName(gamen);
         Player player = userRepository.findByName(user);

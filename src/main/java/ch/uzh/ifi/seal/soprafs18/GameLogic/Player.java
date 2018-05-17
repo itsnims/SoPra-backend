@@ -106,7 +106,7 @@ public class Player {
         this.myFigure = myFigure;
     }
 
-    public void setTwoFigures(String one, String two ){ this.myFigures = myFigures;
+    public void setTwoFigures(String one, String two ){
         Figure One = new Figure();
         One.setName(one);
         Figure Two = new Figure();

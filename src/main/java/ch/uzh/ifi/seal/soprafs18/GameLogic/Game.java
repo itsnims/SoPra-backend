@@ -312,8 +312,8 @@ public class Game {
 
 
         }else if (players.size()>2){
-            Player Winner= new Player();
-            Player k= new Player();
+            Player Winner;
+            Player k;
             int j=0;
             if (getWinners().size() == 1) {
                 Winner = getWinners().get(0);

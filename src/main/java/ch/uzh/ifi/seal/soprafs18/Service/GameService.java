@@ -169,6 +169,7 @@ public class GameService {
     public Integer getTrash(String room, String user){
         Game game = gameRepository.findByName(room);
         Player player = userRepository.findByName(user);
+        gameRepository.save(game);
         return player.getTrash();
 
     }
@@ -176,6 +177,7 @@ public class GameService {
     public Integer getDiscard(String room, String user) {
         Game game = gameRepository.findByName(room);
         Player player = userRepository.findByName(user);
+        gameRepository.save(game);
         return player.getDiscard();
     }
 

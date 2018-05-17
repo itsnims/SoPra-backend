@@ -97,6 +97,12 @@ public class GameController {
 
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/Currentblockade")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Blockade> getcurrentblockades2(@PathVariable(value = "room",required = true) String roomname){
+        return gameService.getBlockade(roomname);
+    }
+
 
 
 

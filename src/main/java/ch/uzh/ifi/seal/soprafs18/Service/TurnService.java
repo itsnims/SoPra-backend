@@ -395,11 +395,11 @@ public class TurnService {
 
 
         if(actualFig.getCurrentPosition().getColor().equals("Camp")){
-            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+            actualFig.getCurrentPosition().getStrenght();
         }
 
         if(actualFig.getCurrentPosition().getColor().equals("White")){
-            player.setDiscard(player.getMyFigure().getCurrentPosition().getStrenght());
+            actualFig.getCurrentPosition().getStrenght();
         }
         gameRepository.save(game);
 

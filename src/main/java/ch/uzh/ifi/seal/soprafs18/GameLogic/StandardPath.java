@@ -65,8 +65,8 @@ public class StandardPath {
         Blockade blockade2= new Blockade("BK2",1,"Yellow",false);
         Blockade blockade1= new Blockade("BK1",1,"Green",false);
         Blockade blockade5= new Blockade("BK5",2,"Green",false);
-        Blockade blockade6= new Blockade("BK6",2,"White",false);   /** if blockade is white: play (blockade points) cards to cross, any card is acceptable */
-        Blockade blockade3= new Blockade("BK3",1,"White",false);
+        Blockade blockade6= new Blockade("BK6",2,"Yellow",false);   /** if blockade is white: play (blockade points) cards to cross, any card is acceptable */
+        Blockade blockade3= new Blockade("BK3",1,"Blue",false);
 
 
 

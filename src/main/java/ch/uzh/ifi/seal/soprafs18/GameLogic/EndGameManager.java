@@ -27,7 +27,8 @@ public class EndGameManager  {
                        oneP == "EDGreen1" || oneP=="EDGreen2"|| oneP== "EDGreen3"){
                    if (twoP == "EDBlue1" || twoP=="EDBlue2"|| twoP== "EDBlue3" ||
                            twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){isWon=true;
-                   }}}else if(winners.contains(second)){
+                   }}}
+                   if(winners.contains(second)){
                String onePi=second.getMyFigures().get(0).getCurrentPosition().getName();
                String twoPi=second.getMyFigures().get(1).getCurrentPosition().getName();
                if (onePi == "EDBlue1" || onePi=="EDBlue2"|| onePi== "EDBlue3" ||

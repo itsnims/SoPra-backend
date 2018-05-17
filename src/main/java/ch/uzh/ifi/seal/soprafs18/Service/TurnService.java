@@ -526,6 +526,57 @@ public class TurnService {
 
     }
 
+    public List<BoardPiece> MoveActionCardTwoPlayerMode(String room, String player,String figure){
+        Game game = gameRepository.findByName(room);
+        Player current = userRepository.findByName(player);
+
+        Figure actualFig = new Figure();
+        List<Figure> figList= current.getMyFigures();
+        for (int i=0; i < figList.size();i++){
+            if (figList.get(0).getName().equals(figure)){
+                actualFig = figList.get(0);
+            } else if (figList.get(1).getName().equals(figure)) {
+                actualFig = figList.get(1);
+            }
+        }
+
+        List<Field> gamePath = game.getGamePath().getCurrentPath(game.getPathname());
+        List<BoardPiece> options = new ArrayList<>();
+
+        Field currentPosition = actualFig.getCurrentPosition();
+        Field actual = new Field();
+
+        System.out.println(current);
+        System.out.println(current.getMyFigure());
+        System.out.println(currentPosition);
+        System.out.println(gamePath);
+
+        for (int i = 0; i < gamePath.size(); i++){
+            if(gamePath.get(i).getName().equals(currentPosition.getName())){
+                actual = gamePath.get(i);
+
+            }
+        }
+
+        for (int i = 0; i < actual.getNeighbours().size(); i++){
+
+
+            if( actual.getNeighbours().get(i) instanceof Blockade){
+                options.add(actual.getNeighbours().get(i));
+            }
+
+            if(actual.getNeighbours().get(i) instanceof Field && ((Field) actual.getNeighbours().get(i)).getAccessable() && ((Field) actual.getNeighbours().get(i)).getStrenght() != 0){
+                options.add(actual.getNeighbours().get(i));
+            }
+
+
+        }
+
+        return options;
+
+    }
+
+
     public void MarketActionCard(String room, String player, String usedcard, String marketCard){
         Game game = gameRepository.findByName(room);
         Player current = userRepository.findByName(player);

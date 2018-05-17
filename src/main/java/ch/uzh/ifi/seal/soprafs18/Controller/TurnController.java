@@ -117,6 +117,13 @@ public class TurnController {
         return turnService.MoveActionCard(room, user);
     }
 
+    @GetMapping(value = CONTEXT + "/{room}/{user}/moveAction/{figure}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BoardPiece> moveActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room,@PathVariable(value = "figure",required = true) String figure) {
+        return turnService.MoveActionCardTwoPlayerMode(room, user,figure);
+    }
+
+
     @PutMapping(value = CONTEXT + "/{room}/{user}/{card}/{mcard}/marketAction")
     @ResponseStatus(HttpStatus.OK)
     public void marketActionCard(@PathVariable(value = "user",required = true) String user, @PathVariable(value = "room",required = true) String room, @PathVariable(value ="card") String card, @PathVariable(value ="mcard") String mcard) {

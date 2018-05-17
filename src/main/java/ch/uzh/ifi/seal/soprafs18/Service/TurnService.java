@@ -388,11 +388,13 @@ public class TurnService {
         player.selection.add(cardused);
         player.handcards.remove(cardused);
 
-        if(player.getMyFigure().getCurrentPosition().getColor().equals("Camp")){
+
+
+        if(actualFig.getCurrentPosition().getColor().equals("Camp")){
             player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
         }
 
-        if(player.getMyFigure().getCurrentPosition().getColor().equals("White")){
+        if(actualFig.getCurrentPosition().getColor().equals("White")){
             player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
         }
         gameRepository.save(game);

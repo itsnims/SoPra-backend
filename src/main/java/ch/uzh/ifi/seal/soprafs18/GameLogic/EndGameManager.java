@@ -64,7 +64,8 @@ public class EndGameManager  {
                         oneP == "EDGreen1" || oneP=="EDGreen2"|| oneP== "EDGreen3"){
                     if (twoP == "EDBlue1" || twoP=="EDBlue2"|| twoP== "EDBlue3" ||
                             twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){game.setWinner(first); firstHasBoth=true;
-                    }}}else if(game.getWinners().contains(second)){
+                    }}}
+                    if(game.getWinners().contains(second)){
                 String onePi=second.getMyFigures().get(0).getCurrentPosition().getName();
                 String twoPi=second.getMyFigures().get(1).getCurrentPosition().getName();
                 if (onePi == "EDBlue1" || onePi=="EDBlue2"|| onePi== "EDBlue3" ||
@@ -72,7 +73,8 @@ public class EndGameManager  {
                     if (twoPi == "EDBlue1" || twoPi == "EDBlue2" || twoPi == "EDBlue3" ||
                             twoPi == "EDGreen1" || twoPi == "EDGreen2" || twoPi == "EDGreen3") {
                         game.setWinner(second); secondHasBoth=true;
-                    }}} else if (firstHasBoth && secondHasBoth){
+                    }}}
+                    if (firstHasBoth && secondHasBoth){
                 if (first.getBlockadePoints() > second.getBlockadePoints()){game.setWinner(first);}
                 else {game.setWinner(second);}
             }

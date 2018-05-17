@@ -32,10 +32,10 @@ public class Player {
     private Boolean Turn;
 
     @Column
-    private Boolean Discard = false;
+    private Integer Discard = 0;
 
     @Column
-    private Boolean Trash = false;
+    private Integer Trash = 0;
 
 
 
@@ -211,19 +211,19 @@ public class Player {
 
     }
 
-    public Boolean getDiscard() {
+    public Integer getDiscard() {
         return Discard;
     }
 
-    public Boolean getTrash() {
+    public Integer getTrash() {
         return Trash;
     }
 
-    public void setDiscard(Boolean discard) {
+    public void setDiscard(Integer discard) {
         Discard = discard;
     }
 
-    public void setTrash(Boolean trash) {
+    public void setTrash(Integer trash) {
         Trash = trash;
     }
 }

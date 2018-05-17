@@ -103,32 +103,18 @@ public class GameController {
         return gameService.getCurrBlockade(roomname);
     }
 
-    @PutMapping(value = CONTEXT + "/{room}/{user}/discard")
-    @ResponseStatus(HttpStatus.OK)
-    public void setDiscard(@PathVariable(value = "room",required = true) String room,
-                           @PathVariable(value = "user",required = true) String user,
-                            @RequestBody Boolean setter){
-         gameService.setDiscard(room,user,setter);
-    }
 
-    @PutMapping(value = CONTEXT + "/{room}/{user}/trash")
-    @ResponseStatus(HttpStatus.OK)
-    public void setTrash(@PathVariable(value = "room",required = true) String room,
-                           @PathVariable(value = "user",required = true) String user,
-                           @RequestBody Boolean setter){
-         gameService.setTrash(room,user,setter);
-    }
 
     @GetMapping(value = CONTEXT + "/{room}/{user}/discard")
     @ResponseStatus(HttpStatus.OK)
-    public Boolean getDiscard(@PathVariable(value = "room",required = true) String room,
+    public Integer getDiscard(@PathVariable(value = "room",required = true) String room,
                            @PathVariable(value = "user",required = true) String user){
         return gameService.getDiscard(room,user);
     }
 
     @GetMapping(value = CONTEXT + "/{room}/{user}/trash")
     @ResponseStatus(HttpStatus.OK)
-    public Boolean getTrash(@PathVariable(value = "room",required = true) String room,
+    public Integer getTrash(@PathVariable(value = "room",required = true) String room,
                            @PathVariable(value = "user",required = true) String user){
         return gameService.getTrash(room,user);
     }

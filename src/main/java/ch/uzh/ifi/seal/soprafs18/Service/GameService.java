@@ -129,30 +129,16 @@ public class GameService {
         return points;
     }
 
-    public void setTrash(String room, String user, Boolean trash){
-        Game game = gameRepository.findByName(room);
-        Player player = userRepository.findByName(user);
-        player.setTrash(trash);
-        gameRepository.save(game);
 
-    }
 
-    public void setDiscard(String room, String user, Boolean discard){
-        Game game = gameRepository.findByName(room);
-        Player player = userRepository.findByName(user);
-        player.setDiscard(discard);
-        gameRepository.save(game);
-
-    }
-
-    public Boolean getTrash(String room, String user){
+    public Integer getTrash(String room, String user){
         Game game = gameRepository.findByName(room);
         Player player = userRepository.findByName(user);
         return player.getTrash();
 
     }
 
-    public Boolean getDiscard(String room, String user) {
+    public Integer getDiscard(String room, String user) {
         Game game = gameRepository.findByName(room);
         Player player = userRepository.findByName(user);
         return player.getDiscard();

@@ -277,6 +277,14 @@ public class TurnService {
         actual.setAccessable(true);
         player.selection.add(cardused);
         player.handcards.remove(cardused);
+
+        if(player.getMyFigure().getCurrentPosition().getColor().equals("Camp")){
+            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+        }
+
+        if(player.getMyFigure().getCurrentPosition().getColor().equals("White")){
+            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
+        }
         gameRepository.save(game);
 
         return playerFigure.getCurrentPosition();

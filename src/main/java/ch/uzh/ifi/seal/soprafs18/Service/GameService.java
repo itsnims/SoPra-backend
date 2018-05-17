@@ -89,6 +89,11 @@ public class GameService {
         return game.getBlockades();
     }
 
+    public List<Blockade> getCurrBlockade(String room) {
+        Game game = gameRepository.findByName(room);
+        return game.getGamePath().getRemovalList();
+    }
+
     public Integer getCurrBottom(String room) {
         Game game = gameRepository.findByName(room);
         return game.getMarket().currentBottomCards;

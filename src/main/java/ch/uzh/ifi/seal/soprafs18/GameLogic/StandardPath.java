@@ -53,6 +53,10 @@ public class StandardPath {
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Field> WitchsCauldronFields = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Blockade> removalList;
+
 
 
 
@@ -77,6 +81,24 @@ public class StandardPath {
     }
 
     public void setupStandardPath(){
+
+        Random rand = new Random();
+        int numberOfElements = 4;
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+
+        removalList = new ArrayList<>(currentBlockades);
 
 
         Field A1 = new Field(0,"Green",true, "A1");
@@ -529,12 +551,11 @@ public class StandardPath {
         K36.AddNewNeighbour(K35,K31, K32,K37);
         K37.AddNewNeighbour(K36,K32,K33);
 
-        Blockade first=Blockades.get(0);
-        Blockade second=Blockades.get(1);
-        Blockade third= Blockades.get(2);
-        Blockade fourth= Blockades.get(3);
-        Blockade fifth=Blockades.get(4);
-        Blockade sixth=Blockades.get(5);
+        Blockade first=currentBlockades.get(0);
+        Blockade second=currentBlockades.get(1);
+        Blockade third= currentBlockades.get(2);
+        Blockade fourth= currentBlockades.get(3);
+
 
         Field B37StandardPath=B37;
         B37StandardPath.AddNewNeighbour(first);
@@ -644,16 +665,7 @@ public class StandardPath {
         StandardPathFields.add(K33StandardPath);StandardPathFields.add(K34);StandardPathFields.add(K35);StandardPathFields.add(K36StandardPath);
         StandardPathFields.add(K37StandardPath);StandardPathFields.add(EDBlue1);StandardPathFields.add(EDBlue2);StandardPathFields.add(EDBlue3);
 
-        Random rand = new Random();
-        int numberOfElements = 4;
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
 
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
-        }
 
 
 
@@ -1111,12 +1123,32 @@ public class StandardPath {
         N36.AddNewNeighbour(N35, N31, N32, N37);
         N37.AddNewNeighbour(N36, N32, N33);
 
-        Blockade HillsOfGoldfirst = Blockades.get(0);
-        Blockade HillsOfGoldsecond = Blockades.get(1);
-        Blockade HillsOfGoldthird = Blockades.get(2);
-        Blockade HillsOfGoldfourth = Blockades.get(3);
-        Blockade HillsOfGoldfifth = Blockades.get(4);
-        Blockade HillsOfGoldsixth = Blockades.get(5);
+        Random rand = new Random();
+        int numberOfElements = 5;
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+
+        removalList = new ArrayList<>(currentBlockades);
+
+
+        Blockade HillsOfGoldfirst=currentBlockades.get(0);
+        Blockade HillsOfGoldsecond=currentBlockades.get(1);
+        Blockade HillsOfGoldthird= currentBlockades.get(2);
+        Blockade HillsOfGoldfourth= currentBlockades.get(3);
+        Blockade HillsOfGoldfifth=currentBlockades.get(4);
+
 
         Field B37HillsOfGold = B37;
         B37HillsOfGold.AddNewNeighbour(HillsOfGoldfirst);
@@ -1214,17 +1246,7 @@ public class StandardPath {
         Field N3HillsOfGold = N3;
         N3HillsOfGold.AddNewNeighbour(EDGreen3);
 
-        Random rand = new Random();
-        int numberOfElements = 5;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
-        }
 
 
         HillsOfGoldFields.add(B1);
@@ -1866,12 +1888,32 @@ public class StandardPath {
         J36.AddNewNeighbour(J35, J31, J32, J37);
         J37.AddNewNeighbour(J36, J32, J33);
 
-        Blockade HomeStretchfirst = Blockades.get(0);
-        Blockade HomeStretchsecond = Blockades.get(1);
-        Blockade HomeStretchthird = Blockades.get(2);
-        Blockade HomeStretchfourth = Blockades.get(3);
-        Blockade HomeStretchfifth = Blockades.get(4);
-        Blockade HomeStretchsixth = Blockades.get(5);
+        Random rand = new Random();
+        int numberOfElements = 5;
+
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+
+        removalList = new ArrayList<>(currentBlockades);
+
+        Blockade HomeStretchfirst = currentBlockades.get(0);
+        Blockade HomeStretchsecond = currentBlockades.get(1);
+        Blockade HomeStretchthird = currentBlockades.get(2);
+        Blockade HomeStretchfourth = currentBlockades.get(3);
+        Blockade HomeStretchfifth = currentBlockades.get(4);
+
 
 
         Field B37HomeStretch = B37;
@@ -1975,17 +2017,7 @@ public class StandardPath {
         Field C3HomeStretch = C3;
         C3HomeStretch.AddNewNeighbour(EDGreen3);
 
-        Random rand = new Random();
-        int numberOfElements = 5;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
-        }
 
 
             HomeStretchFields.add(B1);
@@ -2274,12 +2306,32 @@ public class StandardPath {
         F36.AddNewNeighbour(F35, F31, F32, F37);
         F37.AddNewNeighbour(F36, F32, F33);
 
-        Blockade WindingPathsfirst = Blockades.get(0);
-        Blockade WindingPathssecond = Blockades.get(1);
-        Blockade WindingPathsthird = Blockades.get(2);
-        Blockade WindingPathsfourth = Blockades.get(3);
-        Blockade WindingPathsfifth = Blockades.get(4);
-        Blockade WindingPathssixth = Blockades.get(5);
+        Random rand = new Random();
+        int numberOfElements = 5;
+
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+
+        Blockade WindingPathsfirst = currentBlockades.get(0);
+        Blockade WindingPathssecond = currentBlockades.get(1);
+        Blockade WindingPathsthird = currentBlockades.get(2);
+        Blockade WindingPathsfourth = currentBlockades.get(3);
+        Blockade WindingPathsfifth = currentBlockades.get(4);
+
+        removalList = new ArrayList<>(currentBlockades);
 
         Field G1 = new Field(1, "Green", true, "G1");
         Field G2 = new Field(1, "Green", true, "G2");
@@ -2755,16 +2807,7 @@ public class StandardPath {
         Field N5WindingPaths = N5;
         N5WindingPaths.AddNewNeighbour(EDGreen3);
 
-        Random rand = new Random();
-        int numberOfElements = 5;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
 
 
 
@@ -2993,10 +3036,8 @@ public class StandardPath {
             WindingPathsFields.add(EDGreen1);
             WindingPathsFields.add(EDGreen2);
             WindingPathsFields.add(EDGreen3);
-
-
-        }
     }
+
 
     public void setupSerpentine() {
 
@@ -3451,13 +3492,33 @@ public class StandardPath {
         M36.AddNewNeighbour(M35, M31, M32, M37);
         M37.AddNewNeighbour(M36, M32, M33);
 
+        Random rand = new Random();
+        int numberOfElements = 5;
 
-        Blockade Serpentinefirst = Blockades.get(0);
-        Blockade Serpentinesecond = Blockades.get(1);
-        Blockade Serpentinethird = Blockades.get(2);
-        Blockade Serpentinefourth = Blockades.get(3);
-        Blockade Serpentinefifth = Blockades.get(4);
-        Blockade Serpentinesixth = Blockades.get(5);
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+
+        }
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+
+        removalList = new ArrayList<>(currentBlockades);
+
+
+        Blockade Serpentinefirst = currentBlockades.get(0);
+        Blockade Serpentinesecond = currentBlockades.get(1);
+        Blockade Serpentinethird = currentBlockades.get(2);
+        Blockade Serpentinefourth = currentBlockades.get(3);
+        Blockade Serpentinefifth = currentBlockades.get(4);
+
 
         Field A22Serpentine = A22;
         A22Serpentine.AddNewNeighbour(Serpentinefirst);
@@ -3555,16 +3616,7 @@ public class StandardPath {
         Field M35Serpentine = M35;
         M35Serpentine.AddNewNeighbour(EDBlue3);
 
-        Random rand = new Random();
-        int numberOfElements = 5;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
 
 
 
@@ -3794,7 +3846,7 @@ public class StandardPath {
             SerpentineFields.add(EDBlue2);
             SerpentineFields.add(EDBlue3);
         }
-    }
+
 
     public void setupSwamplands() {
 
@@ -4239,12 +4291,34 @@ public class StandardPath {
         K36.AddNewNeighbour(K35, K31, K32, K37);
         K37.AddNewNeighbour(K36, K32, K33);
 
-        Blockade Swamplandsfirst = Blockades.get(0);
-        Blockade Swamplandssecond = Blockades.get(1);
-        Blockade Swamplandsthird = Blockades.get(2);
-        Blockade Swamplandsfourth = Blockades.get(3);
-        Blockade Swamplandsfifth = Blockades.get(4);
-        Blockade Swamplandssixth = Blockades.get(5);
+        Random rand = new Random();
+        int numberOfElements = 6;
+
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+        currentBlockades.get(5).setName("BK6");
+
+        removalList = new ArrayList<>(currentBlockades);
+
+
+        Blockade Swamplandsfirst = currentBlockades.get(0);
+        Blockade Swamplandssecond = currentBlockades.get(1);
+        Blockade Swamplandsthird = currentBlockades.get(2);
+        Blockade Swamplandsfourth = currentBlockades.get(3);
+        Blockade Swamplandsfifth = currentBlockades.get(4);
+        Blockade Swamplandssixth = currentBlockades.get(5);
 
         Field A22Swamplands = A22;
         A22Swamplands.AddNewNeighbour(Swamplandsfirst);
@@ -4368,16 +4442,7 @@ public class StandardPath {
         K5Swamplands.AddNewNeighbour(EDBlue3);
 
 
-        Random rand = new Random();
-        int numberOfElements = 6;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
 
 
 
@@ -4603,7 +4668,7 @@ public class StandardPath {
             SwamplandsFields.add(EDBlue3);
 
         }
-    }
+
 
     public void setupWitchsCauldron() {
 
@@ -5058,12 +5123,32 @@ public class StandardPath {
         I36.AddNewNeighbour(I35, I31, I32, I37);
         I37.AddNewNeighbour(I36, I32, I33);
 
-        Blockade WitchsCauldronfirst = Blockades.get(0);
-        Blockade WitchsCauldronsecond = Blockades.get(1);
-        Blockade WitchsCauldronthird = Blockades.get(2);
-        Blockade WitchsCauldronfourth = Blockades.get(3);
-        Blockade WitchsCauldronfifth = Blockades.get(4);
-        Blockade WitchsCauldronsixth = Blockades.get(5);
+        Random rand = new Random();
+        int numberOfElements = 5;
+
+        List<Blockade> blockadeList = new ArrayList<>(Blockades);
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int randomIndex = rand.nextInt(blockadeList.size());
+            Blockade randomElement = blockadeList.get(randomIndex);
+            blockadeList.remove(randomIndex);
+            currentBlockades.add(randomElement);
+        }
+
+        currentBlockades.get(0).setName("BK1");
+        currentBlockades.get(1).setName("BK2");
+        currentBlockades.get(2).setName("BK3");
+        currentBlockades.get(3).setName("BK4");
+        currentBlockades.get(4).setName("BK5");
+
+        removalList = new ArrayList<>(currentBlockades);
+
+        Blockade WitchsCauldronfirst = currentBlockades.get(0);
+        Blockade WitchsCauldronsecond = currentBlockades.get(1);
+        Blockade WitchsCauldronthird = currentBlockades.get(2);
+        Blockade WitchsCauldronfourth = currentBlockades.get(3);
+        Blockade WitchsCauldronfifth = currentBlockades.get(4);
+
 
         Field A22WitchsCauldron = A22;
         A22WitchsCauldron.AddNewNeighbour(WitchsCauldronfirst);
@@ -5161,17 +5246,7 @@ public class StandardPath {
         Field I33WitchsCauldron = I33;
         I33WitchsCauldron.AddNewNeighbour(EDBlue3);
 
-        Random rand = new Random();
-        int numberOfElements = 5;
 
-        List<Blockade> blockadeList = new ArrayList<>(Blockades);
-
-        for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt(blockadeList.size());
-            Blockade randomElement = blockadeList.get(randomIndex);
-            blockadeList.remove(randomIndex);
-            currentBlockades.add(randomElement);
-        }
 
 
             WitchsCauldronFields.add(A1);
@@ -5679,7 +5754,7 @@ public class StandardPath {
             getStandardPathFields().get(32).getNeighbours().add(getStandardPathFields().get(38));
             getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(38));
             getStandardPathFields().get(36).getNeighbours().add(getStandardPathFields().get(37));
-            currentBlockades.remove(b);
+            removalList.remove(b);
 
             return b;
 
@@ -5698,7 +5773,8 @@ public class StandardPath {
             getStandardPathFields().get(59).getNeighbours().add(getStandardPathFields().get(75));
             getStandardPathFields().get(52).getNeighbours().add(getStandardPathFields().get(76));
             getStandardPathFields().get(52).getNeighbours().add(getStandardPathFields().get(77));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
         }
         if(counter == 3){
@@ -5714,7 +5790,8 @@ public class StandardPath {
             getStandardPathFields().get(109).getNeighbours().add(getStandardPathFields().get(113));
             getStandardPathFields().get(109).getNeighbours().add(getStandardPathFields().get(114));
             getStandardPathFields().get(110).getNeighbours().add(getStandardPathFields().get(114));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
 
         }
@@ -5732,7 +5809,8 @@ public class StandardPath {
             getStandardPathFields().get(138).getNeighbours().add(getStandardPathFields().get(150));
             getStandardPathFields().get(132).getNeighbours().add(getStandardPathFields().get(150));
             getStandardPathFields().get(132).getNeighbours().add(getStandardPathFields().get(151));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
         }
 
@@ -5757,7 +5835,8 @@ public class StandardPath {
             getHillsOfGoldFields().get(32).getNeighbours().add(getHillsOfGoldFields().get(65));
             getHillsOfGoldFields().get(32).getNeighbours().add(getHillsOfGoldFields().get(70));
             getHillsOfGoldFields().get(36).getNeighbours().add(getHillsOfGoldFields().get(70));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5776,7 +5855,8 @@ public class StandardPath {
             getHillsOfGoldFields().get(51).getNeighbours().add(getHillsOfGoldFields().get(83));
             getHillsOfGoldFields().get(58).getNeighbours().add(getHillsOfGoldFields().get(83));
             getHillsOfGoldFields().get(58).getNeighbours().add(getHillsOfGoldFields().get(89));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -5793,7 +5873,8 @@ public class StandardPath {
             getHillsOfGoldFields().get(102).getNeighbours().add(getHillsOfGoldFields().get(113));
             getHillsOfGoldFields().get(107).getNeighbours().add(getHillsOfGoldFields().get(113));
             getHillsOfGoldFields().get(107).getNeighbours().add(getHillsOfGoldFields().get(114));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5812,7 +5893,8 @@ public class StandardPath {
             getHillsOfGoldFields().get(146).getNeighbours().add(getHillsOfGoldFields().get(150));
             getHillsOfGoldFields().get(146).getNeighbours().add(getHillsOfGoldFields().get(151));
             getHillsOfGoldFields().get(147).getNeighbours().add(getHillsOfGoldFields().get(151));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -5829,7 +5911,8 @@ public class StandardPath {
             getHillsOfGoldFields().get(175).getNeighbours().add(getHillsOfGoldFields().get(219));
             getHillsOfGoldFields().get(175).getNeighbours().add(getHillsOfGoldFields().get(218));
             getHillsOfGoldFields().get(169).getNeighbours().add(getHillsOfGoldFields().get(218));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
 
         }
@@ -5853,7 +5936,8 @@ public class StandardPath {
             getHomeStretchFields().get(32).getNeighbours().add(getHomeStretchFields().get(38));
             getHomeStretchFields().get(36).getNeighbours().add(getHomeStretchFields().get(38));
             getHomeStretchFields().get(36).getNeighbours().add(getHomeStretchFields().get(37));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5873,7 +5957,8 @@ public class StandardPath {
             getHomeStretchFields().get(65).getNeighbours().add(getHomeStretchFields().get(77));
             getHomeStretchFields().get(70).getNeighbours().add(getHomeStretchFields().get(77));
             getHomeStretchFields().get(70).getNeighbours().add(getHomeStretchFields().get(78));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -5892,7 +5977,8 @@ public class StandardPath {
             getHomeStretchFields().get(88).getNeighbours().add(getHomeStretchFields().get(92));
             getHomeStretchFields().get(88).getNeighbours().add(getHomeStretchFields().get(93));
             getHomeStretchFields().get(89).getNeighbours().add(getHomeStretchFields().get(93));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5911,7 +5997,8 @@ public class StandardPath {
             getHomeStretchFields().get(125).getNeighbours().add(getHomeStretchFields().get(129));
             getHomeStretchFields().get(126).getNeighbours().add(getHomeStretchFields().get(129));
             getHomeStretchFields().get(126).getNeighbours().add(getHomeStretchFields().get(150));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -5928,7 +6015,8 @@ public class StandardPath {
             getHomeStretchFields().get(162).getNeighbours().add(getHomeStretchFields().get(168));
             getHomeStretchFields().get(162).getNeighbours().add(getHomeStretchFields().get(164));
             getHomeStretchFields().get(163).getNeighbours().add(getHomeStretchFields().get(164));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5952,7 +6040,8 @@ public class StandardPath {
             getWindingPathsFields().get(32).getNeighbours().add(getWindingPathsFields().get(72));
             getWindingPathsFields().get(36).getNeighbours().add(getWindingPathsFields().get(72));
             getWindingPathsFields().get(36).getNeighbours().add(getWindingPathsFields().get(73));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -5971,7 +6060,8 @@ public class StandardPath {
             getWindingPathsFields().get(45).getNeighbours().add(getWindingPathsFields().get(76));
             getWindingPathsFields().get(40).getNeighbours().add(getWindingPathsFields().get(76));
             getWindingPathsFields().get(40).getNeighbours().add(getWindingPathsFields().get(77));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -5988,7 +6078,8 @@ public class StandardPath {
             getWindingPathsFields().get(102).getNeighbours().add(getWindingPathsFields().get(133));
             getWindingPathsFields().get(107).getNeighbours().add(getWindingPathsFields().get(133));
             getWindingPathsFields().get(107).getNeighbours().add(getWindingPathsFields().get(126));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6007,7 +6098,8 @@ public class StandardPath {
             getWindingPathsFields().get(120).getNeighbours().add(getWindingPathsFields().get(170));
             getWindingPathsFields().get(120).getNeighbours().add(getWindingPathsFields().get(163));
             getWindingPathsFields().get(126).getNeighbours().add(getWindingPathsFields().get(163));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
         }
         if (counter == 5){
@@ -6023,7 +6115,8 @@ public class StandardPath {
             getWindingPathsFields().get(175).getNeighbours().add(getWindingPathsFields().get(219));
             getWindingPathsFields().get(169).getNeighbours().add(getWindingPathsFields().get(219));
             getWindingPathsFields().get(169).getNeighbours().add(getWindingPathsFields().get(218));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6047,7 +6140,8 @@ public class StandardPath {
             getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(65));
             getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(65));
             getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(70));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6066,7 +6160,8 @@ public class StandardPath {
             getSerpentineFields().get(69).getNeighbours().add(getSerpentineFields().get(76));
             getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(76));
             getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(77));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -6083,7 +6178,8 @@ public class StandardPath {
             getSerpentineFields().get(82).getNeighbours().add(getSerpentineFields().get(115));
             getSerpentineFields().get(82).getNeighbours().add(getSerpentineFields().get(111));
             getSerpentineFields().get(77).getNeighbours().add(getSerpentineFields().get(111));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
 
         }
@@ -6101,7 +6197,8 @@ public class StandardPath {
             getSerpentineFields().get(132).getNeighbours().add(getSerpentineFields().get(183));
             getSerpentineFields().get(132).getNeighbours().add(getSerpentineFields().get(184));
             getSerpentineFields().get(126).getNeighbours().add(getSerpentineFields().get(184));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
         }
         if (counter == 5){
@@ -6117,7 +6214,8 @@ public class StandardPath {
             getSerpentineFields().get(156).getNeighbours().add(getSerpentineFields().get(187));
             getSerpentineFields().get(151).getNeighbours().add(getSerpentineFields().get(187));
             getSerpentineFields().get(151).getNeighbours().add(getSerpentineFields().get(188));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6143,7 +6241,8 @@ public class StandardPath {
             getSwamplandsFields().get(32).getNeighbours().add(getSwamplandsFields().get(40));
             getSwamplandsFields().get(36).getNeighbours().add(getSwamplandsFields().get(40));
             getSwamplandsFields().get(36).getNeighbours().add(getSwamplandsFields().get(41));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6164,7 +6263,8 @@ public class StandardPath {
             getSwamplandsFields().get(51).getNeighbours().add(getSwamplandsFields().get(55));
             getSwamplandsFields().get(51).getNeighbours().add(getSwamplandsFields().get(56));
             getSwamplandsFields().get(52).getNeighbours().add(getSwamplandsFields().get(56));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -6181,7 +6281,8 @@ public class StandardPath {
             getSwamplandsFields().get(81).getNeighbours().add(getSwamplandsFields().get(92));
             getSwamplandsFields().get(81).getNeighbours().add(getSwamplandsFields().get(93));
             getSwamplandsFields().get(86).getNeighbours().add(getSwamplandsFields().get(93));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
 
         }
@@ -6199,7 +6300,8 @@ public class StandardPath {
             getSwamplandsFields().get(125).getNeighbours().add(getSwamplandsFields().get(141));
             getSwamplandsFields().get(125).getNeighbours().add(getSwamplandsFields().get(148));
             getSwamplandsFields().get(126).getNeighbours().add(getSwamplandsFields().get(148));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
         }
         if (counter == 5){
@@ -6215,7 +6317,8 @@ public class StandardPath {
             getSwamplandsFields().get(129).getNeighbours().add(getSwamplandsFields().get(178));
             getSwamplandsFields().get(129).getNeighbours().add(getSwamplandsFields().get(179));
             getSwamplandsFields().get(130).getNeighbours().add(getSwamplandsFields().get(179));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6234,7 +6337,8 @@ public class StandardPath {
             getSwamplandsFields().get(167).getNeighbours().add(getSwamplandsFields().get(215));
             getSwamplandsFields().get(167).getNeighbours().add(getSwamplandsFields().get(216));
             getSwamplandsFields().get(168).getNeighbours().add(getSwamplandsFields().get(216));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -6258,7 +6362,8 @@ public class StandardPath {
             getWitchsCauldronFields().get(32).getNeighbours().add(getWitchsCauldronFields().get(39));
             getWitchsCauldronFields().get(36).getNeighbours().add(getWitchsCauldronFields().get(39));
             getWitchsCauldronFields().get(36).getNeighbours().add(getWitchsCauldronFields().get(40));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
             return b;
 
         }
@@ -6276,7 +6381,8 @@ public class StandardPath {
             getWitchsCauldronFields().get(72).getNeighbours().add(getWitchsCauldronFields().get(76));
             getWitchsCauldronFields().get(72).getNeighbours().add(getWitchsCauldronFields().get(77));
             getWitchsCauldronFields().get(73).getNeighbours().add(getWitchsCauldronFields().get(77));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -6293,7 +6399,8 @@ public class StandardPath {
             getWitchsCauldronFields().get(102).getNeighbours().add(getWitchsCauldronFields().get(115));
             getWitchsCauldronFields().get(107).getNeighbours().add(getWitchsCauldronFields().get(115));
             getWitchsCauldronFields().get(107).getNeighbours().add(getWitchsCauldronFields().get(111));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6312,7 +6419,8 @@ public class StandardPath {
             getWitchsCauldronFields().get(146).getNeighbours().add(getWitchsCauldronFields().get(150));
             getWitchsCauldronFields().get(146).getNeighbours().add(getWitchsCauldronFields().get(151));
             getWitchsCauldronFields().get(147).getNeighbours().add(getWitchsCauldronFields().get(151));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
         }
@@ -6329,7 +6437,8 @@ public class StandardPath {
             getWitchsCauldronFields().get(176).getNeighbours().add(getWitchsCauldronFields().get(189));
             getWitchsCauldronFields().get(181).getNeighbours().add(getWitchsCauldronFields().get(189));
             getWitchsCauldronFields().get(181).getNeighbours().add(getWitchsCauldronFields().get(185));
-            currentBlockades.remove(b);
+            removalList.remove(b);
+
 
             return b;
 
@@ -6338,5 +6447,7 @@ public class StandardPath {
         return null;
     }
 
-
+    public List<Blockade> getRemovalList() {
+        return removalList;
+    }
 }

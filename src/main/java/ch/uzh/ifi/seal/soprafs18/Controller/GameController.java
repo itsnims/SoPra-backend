@@ -91,6 +91,14 @@ public class GameController {
     }
 
     @CrossOrigin
+    @PutMapping(value = CONTEXT + "/{room}/FastClara")
+    @ResponseStatus(HttpStatus.OK)
+    public void fastC(@PathVariable(value = "room",required = true) String roomname) {
+        gameService.FastForwardClara(roomname);
+
+    }
+
+    @CrossOrigin
     @PutMapping(value = CONTEXT + "/{room}/FastTwo")
     @ResponseStatus(HttpStatus.OK)
     public void fastTwo(@PathVariable(value = "room",required = true) String roomname) {

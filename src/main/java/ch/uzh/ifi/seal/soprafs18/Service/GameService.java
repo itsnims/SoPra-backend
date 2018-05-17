@@ -155,6 +155,24 @@ public class GameService {
 
     }
 
+    public void FastForwardClara(String room) {
+        Game game = gameRepository.findByName(room);
+        Player player = game.getCurrentPlayer();
+        Card card = game.getMarket().wanted("Natives");
+        player.handcards.add(card);
+
+        Card card2 = game.getMarket().wanted("Sailor");
+        player.handcards.add(card2);
+
+        Card card3 = game.getMarket().wanted("Pioneer");
+        player.handcards.add(card3);
+
+        Card card5 = game.getMarket().wanted("Scout");
+        player.handcards.add(card5);
+        gameRepository.save(game);
+
+    }
+
     public void FastForwardSecond(String room) {
         Game game = gameRepository.findByName(room);
         Player player = game.getCurrentPlayer();

@@ -385,11 +385,12 @@ public class TurnService {
             }
         }
 
-        System.out.println("the wanted position" + actual.getName());
+        System.out.println("the wanted position" + newposition.getName());
 
         newposition.setAccessable(false);
         actualFig.setCurrentPosition(newposition);
 
+        System.out.println(newposition.getName());
         System.out.println(newposition.getColor());
 
         if(newposition.getColor().equals("Camp")) {

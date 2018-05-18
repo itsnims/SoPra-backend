@@ -2796,16 +2796,16 @@ public class StandardPath {
         WindingPathsfifth.addNeighbour(N35);
         WindingPathsfifth.addNeighbour(N34);
 
-        Field EDGreen1 = new Field(1, "Green", true, "EDGreen1");
-        Field EDGreen2 = new Field(1, "Green", true, "EDGreen2");
-        Field EDGreen3 = new Field(1, "Green", true, "EDGreen3");
+        Field EDBlue1= new Field(1, "Blue", true, "EDBlue1");
+        Field EDBlue2= new Field(1, "Blue", true, "EDBlue2");
+        Field EDBlue3= new Field(1, "Blue", true, "EDBlue3");
 
         Field N2WindingPaths = N2;
-        N2WindingPaths.AddNewNeighbour(EDGreen1);
+        N2WindingPaths.AddNewNeighbour(EDBlue1);
         Field N1WindingPaths = N1;
-        N1WindingPaths.AddNewNeighbour(EDGreen1, EDGreen2, EDGreen3);
+        N1WindingPaths.AddNewNeighbour(EDBlue1, EDBlue2, EDBlue3);
         Field N5WindingPaths = N5;
-        N5WindingPaths.AddNewNeighbour(EDGreen3);
+        N5WindingPaths.AddNewNeighbour(EDBlue3);
 
 
 
@@ -3033,9 +3033,9 @@ public class StandardPath {
             WindingPathsFields.add(N35);
             WindingPathsFields.add(N36);
             WindingPathsFields.add(N37);
-            WindingPathsFields.add(EDGreen1);
-            WindingPathsFields.add(EDGreen2);
-            WindingPathsFields.add(EDGreen3);
+            WindingPathsFields.add(EDBlue1);
+            WindingPathsFields.add(EDBlue2);
+            WindingPathsFields.add(EDBlue3);
     }
 
 

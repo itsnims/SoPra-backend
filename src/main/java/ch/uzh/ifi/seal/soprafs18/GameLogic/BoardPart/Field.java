@@ -119,7 +119,7 @@ public class Field extends BoardPiece {
                     }
                     if (neighbour.getStrenght() > 0) {
                         int newStrenght = Strenght - neighbour.getStrenght();
-                        if ((newStrenght) > 0) {
+                        if ((newStrenght) > 0 && !field.getColor().equals("Camp") && !field.getColor().equals("White")) {
                             System.out.println(newStrenght);
                             list.addAll(getAll(Color, newStrenght,cardnum, neighbour));
                         }

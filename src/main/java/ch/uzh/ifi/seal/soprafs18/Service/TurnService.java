@@ -181,7 +181,7 @@ public class TurnService {
         ExpeditionCard Card = (ExpeditionCard) player.getWantedCard(cardname);
 
         System.out.println(actual.getNeighbours());
-        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),player.handcards.size()-1,actual);
+        options = actual.getAll(Card.getCardColour(),Card.getCardStrenght(),player.handcards.size(),actual);
         System.out.println(options);
         gameRepository.save(game);
 

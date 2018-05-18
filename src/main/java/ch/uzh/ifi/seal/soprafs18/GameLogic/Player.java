@@ -46,8 +46,9 @@ public class Player {
     @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> handcards = new ArrayList<Card>(80);
 
-    @Transient
-    @JsonIgnore
+
+
+    @OneToMany(cascade = {CascadeType.ALL})
     public List<Card> trashpile = new ArrayList<Card>(80);
 
 

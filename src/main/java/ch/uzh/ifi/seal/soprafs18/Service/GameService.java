@@ -139,7 +139,7 @@ public class GameService {
 
 
         for (int i = 0; i < gamePath.size(); i++){
-            if(gamePath.get(i).getName().equals("E29")){
+            if(gamePath.get(i).getName().equals("E36")){
                 newposition = gamePath.get(i);
             }
         }

@@ -285,6 +285,8 @@ public class TurnService {
         }
 
 
+
+
         actual.setAccessable(true);
         player.selection.add(cardused);
         player.handcards.remove(cardused);
@@ -361,6 +363,24 @@ public class TurnService {
             }
             else{
                 player.setTrash(newposition.getStrenght());
+            }
+
+        }
+
+        if(newposition.getName().equals("White")) {
+            int cardstodiscard = newposition.getStrenght();
+            if (actual.getNeighbours().contains(newposition)) {
+                int cardtotrash = newposition.getStrenght();
+                if (cardstodiscard > 1) {
+                    player.setTrash(cardstodiscard - 1);
+
+                }
+                player.discardpile.add(cardused);
+                player.handcards.remove(cardused);
+
+            }
+            else{
+                player.setDiscard(newposition.getStrenght());
             }
 
         }

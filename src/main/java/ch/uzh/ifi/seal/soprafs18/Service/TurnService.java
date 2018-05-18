@@ -106,8 +106,10 @@ public class TurnService {
         Integer i = game.getPlayers().indexOf(player);
         game.getCurrentPlayer().drawCards();
         if(i == game.getMaxplayer()-1){
+            System.out.println("im at the endturn ");
             EndGameManager endGameManager = new EndGameManager(game);
             Boolean reached = endGameManager.checkifReached();
+            System.out.println(reached);
             if(reached){
                 System.out.println("reached endturn");
                 endGameManager.getWinner();
@@ -254,6 +256,51 @@ public class TurnService {
             }
         }
 
+        if(newposition.getColor().equals("Camp")) {
+            System.out.println("here in trash");
+            int cardstotrash = newposition.getStrenght();
+            if (actual.getNeighbours().contains(newposition)) {
+                System.out.println("im here in neighbours");
+                int cardtotrash = newposition.getStrenght();
+                if (cardstotrash > 1) {
+                    player.setTrash(cardstotrash - 1);
+
+                }
+                System.out.println("Im here at trash the card");
+                player.addtoTrash(cardused);
+                player.handcards.remove(cardused);
+
+            }
+            else{
+                player.setTrash(newposition.getStrenght());
+            }
+
+        }
+
+        if(newposition.getColor().equals("White")) {
+            int cardstodiscard = newposition.getStrenght();
+            if (actual.getNeighbours().contains(newposition)) {
+                int cardtotrash = newposition.getStrenght();
+                if (cardstodiscard > 1) {
+                    player.setTrash(cardstodiscard - 1);
+
+                }
+                player.discardpile.add(cardused);
+                player.handcards.remove(cardused);
+
+            }
+            else{
+                player.setDiscard(newposition.getStrenght());
+            }
+
+        }
+
+        else if(!newposition.getColor().equals("White") && !newposition.getColor().equals("Camp")){
+            player.selection.add(cardused);
+            player.handcards.remove(cardused);
+
+        }
+
         newposition.setAccessable(false);
         playerFigure.setCurrentPosition(newposition);
 
@@ -288,15 +335,9 @@ public class TurnService {
 
 
         actual.setAccessable(true);
-        player.selection.add(cardused);
-        player.handcards.remove(cardused);
 
-        if(player.getMyFigure().getCurrentPosition().getColor().equals("Camp")){
-            player.setTrash(player.getMyFigure().getCurrentPosition().getStrenght());
-        }
-        if(player.getMyFigure().getCurrentPosition().getColor().equals("White")){
-            player.setDiscard(player.getMyFigure().getCurrentPosition().getStrenght());
-        }
+
+
         gameRepository.save(game);
 
         return playerFigure.getCurrentPosition();

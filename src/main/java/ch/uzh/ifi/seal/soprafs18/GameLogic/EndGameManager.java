@@ -21,13 +21,20 @@ public class EndGameManager  {
            Player first = game.players.get(0);
            Player second = game.players.get(1);
            if (winners.contains(first)){
+               System.out.println("Im at winner");
                String oneP= first.getMyFigures().get(0).getCurrentPosition().getName();
                String twoP = first.getMyFigures().get(1).getCurrentPosition().getName();
                if (oneP == "EDBlue1" || oneP=="EDBlue2"|| oneP== "EDBlue3" ||
                        oneP == "EDGreen1" || oneP=="EDGreen2"|| oneP== "EDGreen3"){
+                   System.out.println("First is in eldorado");
+                   System.out.println("this is the twop"+twoP);
                    if (twoP == "EDBlue1" || twoP=="EDBlue2"|| twoP== "EDBlue3" ||
-                           twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){isWon=true;
+                           twoP == "EDGreen1" || twoP=="EDGreen2"|| twoP== "EDGreen3"){
+                       isWon=true;
+                       System.out.println("Second is in eldorado");
+                       System.out.println("this is win at second" + isWon);
                    }}}
+
                    if(winners.contains(second)){
                String onePi=second.getMyFigures().get(0).getCurrentPosition().getName();
                String twoPi=second.getMyFigures().get(1).getCurrentPosition().getName();
@@ -36,14 +43,16 @@ public class EndGameManager  {
                    if (twoPi == "EDBlue1" || twoPi == "EDBlue2" || twoPi == "EDBlue3" ||
                            twoPi == "EDGreen1" || twoPi == "EDGreen2" || twoPi == "EDGreen3") {
                        isWon = true;
-                   }}}else {isWon=false;}
+                   }}}
+
+
 
 
        } else if (playerSize > 2){
            if (game.getWinners().size() > 0){
                isWon=true; }
-       } else {
-           isWon=false;}
+       }
+       System.out.println("this is win at end" + isWon);
 
        return isWon;
 

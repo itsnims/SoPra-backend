@@ -226,5 +226,9 @@ public class Player {
     public void setTrash(Integer trash) {
         Trash = trash;
     }
+
+    public void addtoTrash(Card card){
+        trashpile.add(card);
+    }
 }
 

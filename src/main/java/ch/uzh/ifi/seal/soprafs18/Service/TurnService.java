@@ -347,6 +347,30 @@ public class TurnService {
         newposition.setAccessable(false);
         actualFig.setCurrentPosition(newposition);
 
+        if(newposition.getName().equals("Camp")) {
+            int cardstotrash = newposition.getStrenght();
+            if (actual.getNeighbours().contains(newposition)) {
+                int cardtotrash = newposition.getStrenght();
+                if (cardstotrash > 1) {
+                    player.setTrash(cardstotrash - 1);
+
+                }
+                player.addtoTrash(cardused);
+                player.handcards.remove(cardused);
+
+            }
+            else{
+                player.setTrash(newposition.getStrenght());
+            }
+
+        }
+
+        else{
+            player.selection.add(cardused);
+            player.handcards.remove(cardused);
+        }
+
+
 
 
 
@@ -389,14 +413,10 @@ public class TurnService {
         }
 
         actual.setAccessable(true);
-        player.selection.add(cardused);
-        player.handcards.remove(cardused);
 
 
 
-        if(actualFig.getCurrentPosition().getColor().equals("Camp")){
-            actualFig.getCurrentPosition().getStrenght();
-        }
+
 
         if(actualFig.getCurrentPosition().getColor().equals("White")){
             actualFig.getCurrentPosition().getStrenght();

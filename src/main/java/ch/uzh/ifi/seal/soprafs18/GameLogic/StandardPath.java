@@ -6133,13 +6133,13 @@ public class StandardPath {
             getSerpentineFields().get(27).getNeighbours().remove(b);
             getSerpentineFields().get(32).getNeighbours().remove(b);
             getSerpentineFields().get(36).getNeighbours().remove(b);
-            getSerpentineFields().get(21).getNeighbours().add(getSerpentineFields().get(52));
-            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(52));
-            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(59));
-            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(59));
-            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(65));
-            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(65));
-            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(70));
+            getSerpentineFields().get(21).getNeighbours().add(getSerpentineFields().get(58));
+            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(58));
+            getSerpentineFields().get(27).getNeighbours().add(getSerpentineFields().get(64));
+            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(64));
+            getSerpentineFields().get(32).getNeighbours().add(getSerpentineFields().get(69));
+            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(69));
+            getSerpentineFields().get(36).getNeighbours().add(getSerpentineFields().get(73));
             removalList.remove(b);
 
 
@@ -6149,17 +6149,17 @@ public class StandardPath {
 
         if(counter == 2){
             Blockade b = getSerpentineFields().get(58).getBlockadeFromNeighbours();
-            getSerpentineFields().get(58).getNeighbours().remove(b);
-            getSerpentineFields().get(64).getNeighbours().remove(b);
-            getSerpentineFields().get(69).getNeighbours().remove(b);
-            getSerpentineFields().get(73).getNeighbours().remove(b);
-            getSerpentineFields().get(58).getNeighbours().add(getSerpentineFields().get(74));
-            getSerpentineFields().get(64).getNeighbours().add(getSerpentineFields().get(74));
-            getSerpentineFields().get(64).getNeighbours().add(getSerpentineFields().get(75));
-            getSerpentineFields().get(69).getNeighbours().add(getSerpentineFields().get(75));
-            getSerpentineFields().get(69).getNeighbours().add(getSerpentineFields().get(76));
-            getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(76));
-            getSerpentineFields().get(73).getNeighbours().add(getSerpentineFields().get(77));
+            getSerpentineFields().get(52).getNeighbours().remove(b);
+            getSerpentineFields().get(59).getNeighbours().remove(b);
+            getSerpentineFields().get(65).getNeighbours().remove(b);
+            getSerpentineFields().get(70).getNeighbours().remove(b);
+            getSerpentineFields().get(52).getNeighbours().add(getSerpentineFields().get(74));
+            getSerpentineFields().get(59).getNeighbours().add(getSerpentineFields().get(74));
+            getSerpentineFields().get(59).getNeighbours().add(getSerpentineFields().get(75));
+            getSerpentineFields().get(65).getNeighbours().add(getSerpentineFields().get(75));
+            getSerpentineFields().get(65).getNeighbours().add(getSerpentineFields().get(76));
+            getSerpentineFields().get(70).getNeighbours().add(getSerpentineFields().get(76));
+            getSerpentineFields().get(70).getNeighbours().add(getSerpentineFields().get(77));
             removalList.remove(b);
 
 

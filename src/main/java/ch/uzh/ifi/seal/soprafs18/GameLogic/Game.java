@@ -257,10 +257,12 @@ public class Game {
         return currentPlayer;
     }
 
+    @JsonIgnore
     public void setGamePath(StandardPath gamePath) {
         this.GamePath = gamePath;
     }
 
+    @JsonIgnore
     public StandardPath getGamePath() {
         return GamePath;
     }
